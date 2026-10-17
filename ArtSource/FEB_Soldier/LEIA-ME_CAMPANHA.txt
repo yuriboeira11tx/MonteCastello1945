@@ -1,0 +1,64 @@
+FEB — REVISAO BASEADA NAS FOTOGRAFIAS DO USUARIO
+
+PRINCIPAL
+FEB_Soldier_Campanha.blend
+As versoes FEB_Soldier_Realista.blend e FEB_Soldier_TPose.blend foram
+preservadas. A revisao Campanha usa uma pasta propria de exportacao.
+
+MODELAGEM
+Rosto individual com ajustes de maxila, mandibula, nariz, labios,
+sobrancelhas e pequena assimetria. As fotografias orientam a expressao
+e as proporcoes; o personagem e uma interpretacao artistica, nao a
+reproducao identificada de uma pessoa das imagens. A cor da pele e uma
+escolha artistica, pois as fotografias historicas sao em preto e branco.
+
+O pescoco foi simplificado, com a parte posterior recolhida para dentro
+da gola. As imagens perfil.png e nuca.png permitem conferir esse encaixe.
+Maos anatomicas substituem as formas anteriores; UVs e unhas pertencem
+a malha de pele, com os dedos mantendo o rig simples de mao inteira.
+
+A jaqueta de campanha ficou mais comprida, com bolsos e abas modelados,
+cinturao mais baixo e dobras de tensao nos bracos e no tronco. A calca
+usa material oliva separado. O conjunto segue as fotos e a referencia
+3D fornecidas, e nao e apresentado como uma reconstrucao certificada de
+um unico padrao de uniforme. As botas pretas e os equipamentos foram
+mantidos a partir do PDF anterior.
+
+EMBLEMAS
+As duas imagens originais extraidas do PDF NAO foram redesenhadas,
+recoloridas ou substituidas. Apenas suas superficies de suporte foram
+subdivididas para acompanhar o tecido das mangas sem atravessa-lo.
+Distintivo FEB: braco anatomico esquerdo.
+Distintivo 5o Exercito: braco anatomico direito.
+Os hashes SHA-256 originais estao no relatorio e sao verificados no script
+validate_campanha.py.
+
+EXPORTACAO
+Assets/Art/Characters/FEB_Soldier/Campanha/Models/FEB_Soldier_Campanha.fbx
+FEB_Soldier_Campanha.glb
+Assets/Art/Characters/FEB_Soldier/Campanha/Textures
+Mapas PBR: uniforme/equipamento 4K, rosto 2K, olhos 512; emblemas originais.
+Para URP Lit: BaseColor em Base Map; Normal como Normal Map;
+MetallicSmoothness_URP em Metallic Map, com sRGB desativado e Smoothness
+Source = Metallic Alpha. Configure Humanoid e confira o Avatar para as
+animacoes do jogo. As cenas do projeto nao foram substituidas.
+
+LIMITES DO RIG
+22 ossos, pose T, escala em metros. Sem rig facial, sem articulacao
+individual dos dedos, sem animacoes e sem LODs. As deformacoes precisam
+ser refinadas conforme as animacoes finais do jogo. Os materiais
+procedurais do Blender incluem efeitos de pele e tecido que URP Lit
+padrao nao reproduz automaticamente.
+
+REFERENCIAS E FONTES
+ReferenceAssets/CampaignPhotos contem as quatro imagens fornecidas.
+Emblemas: PDF feb-textura.pdf fornecido pelo usuario.
+Base anatomica e olhos: MakeHuman, CC0.
+Textura Bronze: Margaret Toigo, pacote oficial skins02, CC0.
+https://static.makehumancommunity.org/about/license.html
+https://static.makehumancommunity.org/assets/assetpacks/skins02.html
+
+FONTES EDITAVEIS
+build_soldier_campaign.py e campaign_details.py geram esta revisao.
+export_campanha.py gera os mapas e a copia FBX/GLB.
+validate_campanha.py verifica nuca, emblemas, texturas, escala, pesos e rig.

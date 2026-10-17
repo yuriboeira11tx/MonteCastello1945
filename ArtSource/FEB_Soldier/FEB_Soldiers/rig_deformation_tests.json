@@ -1,0 +1,607 @@
+[
+  {
+    "frame": 1,
+    "rigs": [
+      {
+        "soldier": 1,
+        "rest_error": 2.4027400458748785e-07,
+        "stretched_edges": []
+      },
+      {
+        "soldier": 2,
+        "rest_error": 3.919883500923486e-07,
+        "stretched_edges": []
+      },
+      {
+        "soldier": 3,
+        "rest_error": 2.5474013384101925e-07,
+        "stretched_edges": []
+      },
+      {
+        "soldier": 4,
+        "rest_error": 2.4027400458748785e-07,
+        "stretched_edges": []
+      },
+      {
+        "soldier": 5,
+        "rest_error": 3.371747880871523e-07,
+        "stretched_edges": []
+      },
+      {
+        "soldier": 6,
+        "rest_error": 2.4755668231600746e-07,
+        "stretched_edges": []
+      }
+    ]
+  },
+  {
+    "frame": 15,
+    "rigs": [
+      {
+        "soldier": 1,
+        "rest_error": 0,
+        "stretched_edges": [
+          [
+            4.205560214637614,
+            "FEB_Soldado_01__Corpo_uniforme",
+            2745,
+            1989
+          ],
+          [
+            4.205560214637614,
+            "FEB_Soldado_01__Corpo_uniforme",
+            2215,
+            2173
+          ],
+          [
+            3.556103558468509,
+            "FEB_Soldado_01__Corpo_uniforme",
+            1827,
+            1720
+          ],
+          [
+            3.556103558468509,
+            "FEB_Soldado_01__Corpo_uniforme",
+            1706,
+            1721
+          ],
+          [
+            3.442974079011132,
+            "FEB_Soldado_01__Corpo_uniforme",
+            1857,
+            1696
+          ],
+          [
+            3.2244539975834265,
+            "FEB_Soldado_01__Corpo_uniforme",
+            2163,
+            2493
+          ],
+          [
+            3.1564179891719926,
+            "FEB_Soldado_01__Emblema_FEB",
+            416,
+            444
+          ],
+          [
+            3.081879210056232,
+            "FEB_Soldado_01__Emblema_FEB",
+            417,
+            445
+          ],
+          [
+            3.0163335024873694,
+            "FEB_Soldado_01__Corpo_uniforme",
+            1923,
+            1924
+          ],
+          [
+            2.9749146251746503,
+            "FEB_Soldado_01__Emblema_FEB",
+            418,
+            446
+          ],
+          [
+            2.870235572819283,
+            "FEB_Soldado_01__Emblema_FEB",
+            391,
+            419
+          ],
+          [
+            2.7884701732348107,
+            "FEB_Soldado_01__Emblema_FEB",
+            392,
+            420
+          ]
+        ]
+      },
+      {
+        "soldier": 2,
+        "rest_error": 0,
+        "stretched_edges": [
+          [
+            4.0613348663108235,
+            "FEB_Soldado_02__M41_parte_superior",
+            1143,
+            1320
+          ],
+          [
+            4.0613348663108235,
+            "FEB_Soldado_02__M41_parte_superior",
+            1066,
+            1067
+          ],
+          [
+            3.826296011897761,
+            "FEB_Soldado_02__M41_parte_superior",
+            2686,
+            1655
+          ],
+          [
+            3.826296011897761,
+            "FEB_Soldado_02__M41_parte_superior",
+            1020,
+            1021
+          ],
+          [
+            3.7925697015080138,
+            "FEB_Soldado_02__M41_parte_superior",
+            1140,
+            1093
+          ],
+          [
+            3.6706298878062014,
+            "FEB_Soldado_02__M41_parte_superior",
+            1604,
+            1701
+          ],
+          [
+            2.9836656523273333,
+            "FEB_Soldado_02__M41_parte_superior",
+            1034,
+            1066
+          ],
+          [
+            2.9160451768716307,
+            "FEB_Soldado_02__M41_parte_superior",
+            1142,
+            1129
+          ],
+          [
+            2.8369214835882643,
+            "FEB_Soldado_02__M41_parte_superior",
+            1603,
+            1665
+          ],
+          [
+            2.7897625200873444,
+            "FEB_Soldado_02__Emblema_FEB",
+            416,
+            444
+          ],
+          [
+            2.7645059485713355,
+            "FEB_Soldado_02__M41_parte_superior",
+            1066,
+            1035
+          ],
+          [
+            2.7611407204697365,
+            "FEB_Soldado_02__M41_parte_superior",
+            1021,
+            1047
+          ]
+        ]
+      },
+      {
+        "soldier": 3,
+        "rest_error": 0,
+        "stretched_edges": [
+          [
+            4.507228241143461,
+            "FEB_Soldado_03__M41_parte_superior",
+            2287,
+            1100
+          ],
+          [
+            4.507228241143461,
+            "FEB_Soldado_03__M41_parte_superior",
+            1389,
+            2295
+          ],
+          [
+            4.263789807138977,
+            "FEB_Soldado_03__M41_parte_superior",
+            1359,
+            1133
+          ],
+          [
+            4.263789807138977,
+            "FEB_Soldado_03__M41_parte_superior",
+            1149,
+            1364
+          ],
+          [
+            4.0787820095096405,
+            "FEB_Soldado_03__M41_parte_superior",
+            1325,
+            940
+          ],
+          [
+            4.03741190753518,
+            "FEB_Soldado_03__M41_parte_superior",
+            1085,
+            2286
+          ],
+          [
+            3.9981524721059105,
+            "FEB_Soldado_03__M41_parte_superior",
+            837,
+            1321
+          ],
+          [
+            3.8632816484989587,
+            "FEB_Soldado_03__M41_parte_superior",
+            1043,
+            1363
+          ],
+          [
+            3.805494304466509,
+            "FEB_Soldado_03__M41_parte_superior",
+            1111,
+            1112
+          ],
+          [
+            3.4753221033347135,
+            "FEB_Soldado_03__M41_parte_superior",
+            1436,
+            1437
+          ],
+          [
+            3.4122434395569066,
+            "FEB_Soldado_03__M41_parte_superior",
+            1364,
+            899
+          ],
+          [
+            3.4122434395569066,
+            "FEB_Soldado_03__M41_parte_superior",
+            1111,
+            1359
+          ]
+        ]
+      },
+      {
+        "soldier": 4,
+        "rest_error": 0,
+        "stretched_edges": [
+          [
+            4.0950146958245215,
+            "FEB_Soldado_04__Corpo_uniforme",
+            3207,
+            1944
+          ],
+          [
+            4.0950146958245215,
+            "FEB_Soldado_04__Corpo_uniforme",
+            2238,
+            3215
+          ],
+          [
+            3.8566266173573296,
+            "FEB_Soldado_04__Corpo_uniforme",
+            2208,
+            1980
+          ],
+          [
+            3.8566266173573296,
+            "FEB_Soldado_04__Corpo_uniforme",
+            1997,
+            2213
+          ],
+          [
+            3.6297611553747817,
+            "FEB_Soldado_04__Corpo_uniforme",
+            1929,
+            3206
+          ],
+          [
+            3.470291191805273,
+            "FEB_Soldado_04__Corpo_uniforme",
+            1887,
+            2212
+          ],
+          [
+            2.8707519541641835,
+            "FEB_Soldado_04__Corpo_uniforme",
+            3207,
+            1929
+          ],
+          [
+            2.869616676699708,
+            "FEB_Soldado_04__Emblema_FEB",
+            415,
+            443
+          ],
+          [
+            2.86512728456895,
+            "FEB_Soldado_04__Corpo_uniforme",
+            1779,
+            1884
+          ],
+          [
+            2.761104844836884,
+            "FEB_Soldado_04__Corpo_uniforme",
+            2213,
+            1887
+          ],
+          [
+            2.721996157981879,
+            "FEB_Soldado_04__Corpo_uniforme",
+            1816,
+            1824
+          ]
+        ]
+      },
+      {
+        "soldier": 5,
+        "rest_error": 0,
+        "stretched_edges": [
+          [
+            3.74468595017332,
+            "FEB_Soldado_05__M41_parte_superior",
+            2132,
+            1419
+          ],
+          [
+            3.74468595017332,
+            "FEB_Soldado_05__M41_parte_superior",
+            1912,
+            2155
+          ],
+          [
+            3.6054687241819527,
+            "FEB_Soldado_05__Emblema_FEB",
+            416,
+            444
+          ],
+          [
+            3.5222884344979817,
+            "FEB_Soldado_05__Emblema_FEB",
+            368,
+            395
+          ],
+          [
+            3.5219613118026865,
+            "FEB_Soldado_05__Emblema_FEB",
+            417,
+            445
+          ],
+          [
+            3.428509331558877,
+            "FEB_Soldado_05__M41_parte_superior",
+            2165,
+            2167
+          ],
+          [
+            3.4004240975745352,
+            "FEB_Soldado_05__Emblema_FEB",
+            418,
+            446
+          ],
+          [
+            3.2793260452650634,
+            "FEB_Soldado_05__Emblema_FEB",
+            391,
+            419
+          ],
+          [
+            3.1822488038732293,
+            "FEB_Soldado_05__Emblema_FEB",
+            392,
+            420
+          ],
+          [
+            3.1340162311640443,
+            "FEB_Soldado_05__M41_parte_superior",
+            1737,
+            1736
+          ],
+          [
+            3.0628303194779187,
+            "FEB_Soldado_05__Emblema_FEB",
+            393,
+            421
+          ],
+          [
+            2.9636450838439172,
+            "FEB_Soldado_05__M41_parte_superior",
+            1509,
+            1505
+          ]
+        ]
+      },
+      {
+        "soldier": 6,
+        "rest_error": 0,
+        "stretched_edges": [
+          [
+            4.079318442318549,
+            "FEB_Soldado_06__Corpo_uniforme",
+            2982,
+            2269
+          ],
+          [
+            4.079318442318549,
+            "FEB_Soldado_06__Corpo_uniforme",
+            2762,
+            3005
+          ],
+          [
+            3.830185303967535,
+            "FEB_Soldado_06__Corpo_uniforme",
+            2496,
+            2054
+          ],
+          [
+            3.830185303967535,
+            "FEB_Soldado_06__Corpo_uniforme",
+            1801,
+            1837
+          ],
+          [
+            3.809555229773176,
+            "FEB_Soldado_06__Corpo_uniforme",
+            2263,
+            2605
+          ],
+          [
+            3.6580245819476978,
+            "FEB_Soldado_06__Corpo_uniforme",
+            2359,
+            1844
+          ],
+          [
+            3.0320848918930805,
+            "FEB_Soldado_06__Emblema_FEB",
+            416,
+            444
+          ],
+          [
+            2.9494188726158064,
+            "FEB_Soldado_06__Corpo_uniforme",
+            2589,
+            2592
+          ],
+          [
+            2.94880638295083,
+            "FEB_Soldado_06__Emblema_FEB",
+            417,
+            445
+          ],
+          [
+            2.936461379739197,
+            "FEB_Soldado_06__Emblema_FEB",
+            368,
+            395
+          ],
+          [
+            2.843722542510764,
+            "FEB_Soldado_06__Emblema_FEB",
+            418,
+            446
+          ],
+          [
+            2.800175653335408,
+            "FEB_Soldado_06__Corpo_uniforme",
+            1920,
+            1918
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "frame": 30,
+    "rigs": [
+      {
+        "soldier": 1,
+        "rest_error": 0,
+        "stretched_edges": []
+      },
+      {
+        "soldier": 2,
+        "rest_error": 0,
+        "stretched_edges": []
+      },
+      {
+        "soldier": 3,
+        "rest_error": 0,
+        "stretched_edges": []
+      },
+      {
+        "soldier": 4,
+        "rest_error": 0,
+        "stretched_edges": []
+      },
+      {
+        "soldier": 5,
+        "rest_error": 0,
+        "stretched_edges": [
+          [
+            4.642155793277992,
+            "FEB_Soldado_05__M41_parte_superior",
+            78,
+            106
+          ],
+          [
+            3.321188634751535,
+            "FEB_Soldado_05__M41_parte_superior",
+            523,
+            77
+          ]
+        ]
+      },
+      {
+        "soldier": 6,
+        "rest_error": 0,
+        "stretched_edges": [
+          [
+            3.0029588400717224,
+            "FEB_Soldado_06__Corpo_uniforme",
+            671,
+            94
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "frame": 45,
+    "rigs": [
+      {
+        "soldier": 1,
+        "rest_error": 0,
+        "stretched_edges": []
+      },
+      {
+        "soldier": 2,
+        "rest_error": 0,
+        "stretched_edges": []
+      },
+      {
+        "soldier": 3,
+        "rest_error": 0,
+        "stretched_edges": [
+          [
+            2.51527405950304,
+            "FEB_Soldado_03__M41_parte_superior",
+            2287,
+            1100
+          ],
+          [
+            2.51527405950304,
+            "FEB_Soldado_03__M41_parte_superior",
+            1389,
+            2295
+          ]
+        ]
+      },
+      {
+        "soldier": 4,
+        "rest_error": 0,
+        "stretched_edges": []
+      },
+      {
+        "soldier": 5,
+        "rest_error": 0,
+        "stretched_edges": []
+      },
+      {
+        "soldier": 6,
+        "rest_error": 0,
+        "stretched_edges": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+CUTSCENE INICIAL - FONTES E LICENCAS
+
+Ceu HDRI: Kloofendal 48d Partly Cloudy (Pure Sky), 4K HDR.
+Autores: Greg Zaal e Jarod Guest. Poly Haven, CC0.
+https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky
+https://polyhaven.com/license
+
+Terreno: costa cenografica editavel, com relevo e erosao preparados no Editor Unity.
+Nao representa um lugar historico especifico.
+
+Texturas PBR da costa: Poly Haven, Rob Tuytel, CC0. Fontes 2K.
+https://polyhaven.com/a/aerial_beach_01
+https://polyhaven.com/a/aerial_rocks_02
+https://polyhaven.com/a/aerial_grass_rock
+https://polyhaven.com/a/aerial_ground_rock
+https://polyhaven.com/license
+Mapas Diffuse e Normal GL preservados. Mascaras ARM convertidas para
+Metallic/AO/Height/Smoothness do Terrain URP; mascaras importadas em 1K.
+As antigas texturas procedurais permanecem apenas como historico da primeira versao.
+
+Bruma maritima: shader local FEB/Environment/Coastal Height Mist,
+com integracao analitica por altura, profundidade da cena e plano do mar.
+
+Agua: reutiliza o shader ja existente no projeto, de Ignite Coders / Simple Water Shader.
+Mar_CutsceneInicial.mat e uma copia dedicada a esta cena.
+As licencas dos arquivos originais desse pacote permanecem aplicaveis.

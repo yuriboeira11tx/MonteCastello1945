@@ -1,0 +1,60 @@
+ASSET Assets/Art/Characters/FEB_Soldiers/Models/FEB_Soldado_01.fbx
+FEB_Soldado_01 parent= pos=(0.00, 0.00, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00)
+FEB_Soldado_01_Armature parent=FEB_Soldado_01 pos=(0.00, 0.00, 0.00) rot=(270.02, 0.00, 0.00) scale=(1.00, 1.00, 1.00)
+Root parent=FEB_Soldado_01_Armature pos=(0.00, 0.00, 0.03) rot=(89.98, 0.00, 0.00) scale=(1.00, 1.00, 1.00)
+hips parent=Root pos=(0.00, 0.94, 0.03) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00)
+spine parent=hips pos=(0.00, 0.14, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00)
+chest parent=spine pos=(0.00, 0.14, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00)
+upper_chest parent=chest pos=(0.00, 0.14, 0.00) rot=(5.19, 0.00, 0.00) scale=(1.00, 1.00, 1.00)
+Avatar humanScale=1,056366
+ASSET Assets/Art/Characters/FEB_Soldiers/Animations/FEB_Idle.fbx
+FEB_Idle parent= pos=(0.00, 0.00, 0.00) rot=(270.02, 0.00, 0.00) scale=(1.00, 1.00, 1.00)
+Root parent=FEB_Idle pos=(0.00, 0.00, 0.03) rot=(89.98, 0.00, 0.00) scale=(1.00, 1.00, 1.00)
+hips parent=Root pos=(0.00, 0.91, 0.03) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00)
+spine parent=hips pos=(0.00, 0.14, 0.00) rot=(1.50, 0.00, 0.00) scale=(1.00, 1.00, 1.00)
+chest parent=spine pos=(0.00, 0.14, 0.00) rot=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00)
+upper_chest parent=chest pos=(0.00, 0.14, 0.00) rot=(5.19, 0.00, 0.00) scale=(1.00, 1.00, 1.00)
+clavicle.L parent=upper_chest pos=(-0.03, 0.07, -0.01) rot=(283.16, 208.83, 241.11) scale=(1.00, 1.00, 1.00)
+RootT.x -0,007677302 -> -0,004875846
+RootT.y -35,54381 -> -35,66192
+RootT.z -1,7707 -> -1,719932
+RootQ.x -0,7007504 -> -0,700739
+RootQ.y -1,082823E-08 -> -0,004108152
+RootQ.z -1,102619E-08 -> -0,004052621
+RootQ.w 0,7134066 -> 0,7133945
+FEB_Soldado_03 root (-0.83, 0.03, 0.00)
+FEB_Soldado_03 world=(-0.83, 0.03, 0.00) local=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) rotation=(0.00, 0.00, 0.00) active=True
+Root world=(-0.83, 0.05, 0.00) local=(0.00, 0.00, 0.02) scale=(1.00, 1.00, 1.00) rotation=(0.00, 0.00, 0.00) active=True
+hips world=(-0.83, 0.99, 0.02) local=(0.00, 0.94, 0.03) scale=(1.00, 1.00, 1.00) rotation=(0.00, 0.00, 0.00) active=True
+FEB_Soldado_03_Mesh world=(-0.83, 0.03, 0.00) local=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) rotation=(270.02, 0.00, 0.00) active=True
+Renderer FEB_Soldado_03_Mesh enabled=True forceOff=False visible=True bounds=Center: (-0.82, 0.91, 0.00), Extents: (0.92, 0.94, 0.26) localBounds=Center: (0.01, 0.86, 0.00), Extents: (0.92, 0.94, 0.26) baked=Center: (0.01, 0.00, 0.88), Extents: (0.92, 0.26, 0.94) rootBone=Root vertex=(-0.17, -0.11, 0.67)
+FEB_Soldado_01 root (-4.13, 0.03, 0.00)
+FEB_Soldado_01 world=(-4.13, 0.03, 0.00) local=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) rotation=(0.00, 0.00, 0.00) active=True
+Root world=(-4.13, 0.06, 0.00) local=(0.00, 0.00, 0.03) scale=(1.00, 1.00, 1.00) rotation=(0.00, 0.00, 0.00) active=True
+hips world=(-4.13, 1.00, 0.02) local=(0.00, 0.94, 0.03) scale=(1.00, 1.00, 1.00) rotation=(0.00, 0.00, 0.00) active=True
+FEB_Soldado_01_Mesh world=(-4.13, 0.03, 0.00) local=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) rotation=(270.02, 0.00, 0.00) active=True
+Renderer FEB_Soldado_01_Mesh enabled=True forceOff=False visible=True bounds=Center: (-4.12, 0.91, -0.02), Extents: (0.92, 0.94, 0.28) localBounds=Center: (0.00, 0.86, -0.02), Extents: (0.92, 0.94, 0.28) baked=Center: (0.00, 0.02, 0.88), Extents: (0.92, 0.28, 0.94) rootBone=Root vertex=(0.63, 0.00, 1.42)
+FEB_Soldado_04 root (0.83, 0.03, 0.00)
+FEB_Soldado_04 world=(0.83, 0.03, 0.00) local=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) rotation=(0.00, 0.00, 0.00) active=True
+Root world=(0.83, 0.04, 0.00) local=(0.00, 0.00, 0.01) scale=(1.00, 1.00, 1.00) rotation=(0.00, 0.00, 0.00) active=True
+hips world=(0.83, 0.98, 0.02) local=(0.00, 0.94, 0.03) scale=(1.00, 1.00, 1.00) rotation=(0.00, 0.00, 0.00) active=True
+FEB_Soldado_04_Mesh world=(0.83, 0.03, 0.00) local=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) rotation=(270.02, 0.00, 0.00) active=True
+Renderer FEB_Soldado_04_Mesh enabled=True forceOff=False visible=True bounds=Center: (0.83, 0.90, 0.00), Extents: (0.90, 0.95, 0.26) localBounds=Center: (0.00, 0.85, 0.00), Extents: (0.90, 0.95, 0.26) baked=Center: (0.00, 0.00, 0.87), Extents: (0.90, 0.26, 0.95) rootBone=Root vertex=(0.87, -0.01, 1.45)
+FEB_Soldado_02 root (-2.48, 0.03, 0.00)
+FEB_Soldado_02 world=(-2.48, 0.03, 0.00) local=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) rotation=(0.00, 0.00, 0.00) active=True
+Root world=(-2.48, 0.05, 0.00) local=(0.00, 0.00, 0.02) scale=(1.00, 1.00, 1.00) rotation=(0.00, 0.00, 0.00) active=True
+hips world=(-2.48, 0.99, 0.02) local=(0.00, 0.94, 0.03) scale=(1.00, 1.00, 1.00) rotation=(0.00, 0.00, 0.00) active=True
+FEB_Soldado_02_Mesh world=(-2.48, 0.03, 0.00) local=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) rotation=(270.02, 0.00, 0.00) active=True
+Renderer FEB_Soldado_02_Mesh enabled=True forceOff=False visible=True bounds=Center: (-2.48, 0.91, -0.02), Extents: (0.92, 0.94, 0.28) localBounds=Center: (0.00, 0.86, -0.02), Extents: (0.92, 0.94, 0.28) baked=Center: (0.00, 0.02, 0.88), Extents: (0.92, 0.28, 0.94) rootBone=Root vertex=(-0.17, -0.11, 0.67)
+FEB_Soldado_05 root (2.48, 0.03, 0.00)
+FEB_Soldado_05 world=(2.48, 0.03, 0.00) local=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) rotation=(0.00, 0.00, 0.00) active=True
+Root world=(2.48, 0.04, 0.00) local=(0.00, 0.00, 0.01) scale=(1.00, 1.00, 1.00) rotation=(0.00, 0.00, 0.00) active=True
+hips world=(2.48, 0.98, 0.02) local=(0.00, 0.94, 0.03) scale=(1.00, 1.00, 1.00) rotation=(0.00, 0.00, 0.00) active=True
+FEB_Soldado_05_Mesh world=(2.48, 0.03, 0.00) local=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) rotation=(270.02, 0.00, 0.00) active=True
+Renderer FEB_Soldado_05_Mesh enabled=True forceOff=False visible=True bounds=Center: (2.48, 0.90, -0.03), Extents: (0.91, 0.94, 0.29) localBounds=Center: (0.01, 0.86, -0.03), Extents: (0.91, 0.94, 0.29) baked=Center: (0.01, 0.03, 0.87), Extents: (0.91, 0.29, 0.94) rootBone=Root vertex=(0.05, -0.02, 0.34)
+FEB_Soldado_06 root (4.13, 0.03, 0.00)
+FEB_Soldado_06 world=(4.13, 0.03, 0.00) local=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) rotation=(0.00, 0.00, 0.00) active=True
+Root world=(4.13, 0.05, 0.00) local=(0.00, 0.00, 0.02) scale=(1.00, 1.00, 1.00) rotation=(0.00, 0.00, 0.00) active=True
+hips world=(4.13, 0.99, 0.02) local=(0.00, 0.94, 0.03) scale=(1.00, 1.00, 1.00) rotation=(0.00, 0.00, 0.00) active=True
+FEB_Soldado_06_Mesh world=(4.13, 0.03, 0.00) local=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) rotation=(270.02, 0.00, 0.00) active=True
+Renderer FEB_Soldado_06_Mesh enabled=True forceOff=False visible=True bounds=Center: (4.13, 0.91, 0.00), Extents: (0.93, 0.94, 0.27) localBounds=Center: (0.00, 0.86, 0.00), Extents: (0.93, 0.94, 0.27) baked=Center: (0.00, 0.00, 0.88), Extents: (0.93, 0.27, 0.94) rootBone=Root vertex=(-0.75, 0.00, 1.48)

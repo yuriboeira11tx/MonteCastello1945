@@ -1,0 +1,11 @@
+Itapage_Detalhe0: vertices=1095931, submeshes=17, triangles=836783
+Itapage_Detalhe1: vertices=594003, submeshes=17, triangles=401378
+Itapage_Detalhe2: vertices=277804, submeshes=17, triangles=150151
+Errors=0
+Renderers=4
+Flag shape count=16
+Flag max sampled displacement=0,8390499 m
+Loop endpoint error=0 m
+Sky=Ceu_Nuvens_Reais
+Terrain=(3000.00, 230.00, 1500.00)
+Ship position=(-3.37, 3.82, 19.20)

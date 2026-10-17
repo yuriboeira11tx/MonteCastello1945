@@ -1,0 +1,104 @@
+[
+  {
+    "soldier": 1,
+    "armature": "FEB_Soldado_01_Rig",
+    "bones": 61,
+    "deform_bones": 52,
+    "meshes": 11,
+    "vertices": 7868,
+    "rest_error": 2.4027400458748785e-07,
+    "ik_rest_joint_error": {
+      "IK_Braco_L": 0.0002067169858306762,
+      "IK_Perna_L": 0.0002869678451701749,
+      "IK_Braco_R": 0.00012413892669027948,
+      "IK_Perna_R": 9.327584641663734e-05
+    },
+    "unweighted": 0,
+    "max_influences": 4
+  },
+  {
+    "soldier": 2,
+    "armature": "FEB_Soldado_02_Rig",
+    "bones": 61,
+    "deform_bones": 52,
+    "meshes": 8,
+    "vertices": 7089,
+    "rest_error": 3.919883500923486e-07,
+    "ik_rest_joint_error": {
+      "IK_Braco_L": 3.66106770080208e-05,
+      "IK_Perna_L": 2.405481417702219e-05,
+      "IK_Braco_R": 0.0002963226766198863,
+      "IK_Perna_R": 1.1826906701079753e-05
+    },
+    "unweighted": 0,
+    "max_influences": 4
+  },
+  {
+    "soldier": 3,
+    "armature": "FEB_Soldado_03_Rig",
+    "bones": 61,
+    "deform_bones": 52,
+    "meshes": 8,
+    "vertices": 6209,
+    "rest_error": 2.5474013384101925e-07,
+    "ik_rest_joint_error": {
+      "IK_Braco_L": 0.00032321070813673587,
+      "IK_Perna_L": 2.405753133328973e-05,
+      "IK_Braco_R": 0.00023276476738729837,
+      "IK_Perna_R": 1.1767225017842978e-05
+    },
+    "unweighted": 0,
+    "max_influences": 4
+  },
+  {
+    "soldier": 4,
+    "armature": "FEB_Soldado_04_Rig",
+    "bones": 61,
+    "deform_bones": 52,
+    "meshes": 8,
+    "vertices": 6407,
+    "rest_error": 2.4027400458748785e-07,
+    "ik_rest_joint_error": {
+      "IK_Braco_L": 0.00013694706746367123,
+      "IK_Perna_L": 5.144205016174188e-05,
+      "IK_Braco_R": 0.0002605788566830318,
+      "IK_Perna_R": 5.146492416879654e-05
+    },
+    "unweighted": 0,
+    "max_influences": 4
+  },
+  {
+    "soldier": 5,
+    "armature": "FEB_Soldado_05_Rig",
+    "bones": 61,
+    "deform_bones": 52,
+    "meshes": 8,
+    "vertices": 6516,
+    "rest_error": 3.371747880871523e-07,
+    "ik_rest_joint_error": {
+      "IK_Braco_L": 0.0001824409806800314,
+      "IK_Perna_L": 0.000112495609565595,
+      "IK_Braco_R": 0.00012972750120722327,
+      "IK_Perna_R": 6.39744452817621e-06
+    },
+    "unweighted": 0,
+    "max_influences": 4
+  },
+  {
+    "soldier": 6,
+    "armature": "FEB_Soldado_06_Rig",
+    "bones": 61,
+    "deform_bones": 52,
+    "meshes": 7,
+    "vertices": 6621,
+    "rest_error": 2.4755668231600746e-07,
+    "ik_rest_joint_error": {
+      "IK_Braco_L": 9.310704366791527e-05,
+      "IK_Perna_L": 2.405481417702219e-05,
+      "IK_Braco_R": 2.242364840637521e-06,
+      "IK_Perna_R": 1.1826906701079753e-05
+    },
+    "unweighted": 0,
+    "max_influences": 4
+  }
+]

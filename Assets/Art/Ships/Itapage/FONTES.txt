@@ -1,0 +1,14 @@
+ITAPAGE - BANDEIRA E MATERIAIS
+
+Modelo: reconstrucao visual criada neste projeto. Referencias historicas e limites
+da reconstrucao em ArtSource/Itapage/LEIA-ME_Itapage.txt.
+
+Bandeira brasileira de 1889-1960 (21 estrelas), dominio publico.
+Desenho historico: Raimundo Teixeira Mendes.
+Fonte do SVG e contribuidores da digitalizacao:
+https://commons.wikimedia.org/wiki/File:Flag_of_Brazil_(1889%E2%80%931960).svg
+PNG obtido do thumbnail oficial Wikimedia, 1280 x 896.
+
+Os mapas ITAPAGE_M00 a ITAPAGE_M17 foram exportados dos materiais do Blender.
+A bandeira utiliza textura historica, normal de trama do tecido e animacao
+de deformacoes em ciclo continuo de oito segundos.

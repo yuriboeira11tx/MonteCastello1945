@@ -1,0 +1,150 @@
+{
+  "clips": [
+    {
+      "name": "Idle",
+      "file": "FEB_Idle.fbx",
+      "seconds": 2,
+      "speed": 0
+    },
+    {
+      "name": "Walk",
+      "file": "FEB_Walk.fbx",
+      "seconds": 1,
+      "speed": 1.2
+    },
+    {
+      "name": "Run",
+      "file": "FEB_Run.fbx",
+      "seconds": 0.6666666666666666,
+      "speed": 3.4
+    }
+  ],
+  "checks": [
+    {
+      "soldier": 1,
+      "clip": "Idle",
+      "seconds": 2.0,
+      "frames": 61,
+      "max_leg_target_overreach_m": 0
+    },
+    {
+      "soldier": 1,
+      "clip": "Walk",
+      "seconds": 1.0,
+      "frames": 31,
+      "max_leg_target_overreach_m": 0
+    },
+    {
+      "soldier": 1,
+      "clip": "Run",
+      "seconds": 0.6666666666666666,
+      "frames": 21,
+      "max_leg_target_overreach_m": 0
+    },
+    {
+      "soldier": 2,
+      "clip": "Idle",
+      "seconds": 2.0,
+      "frames": 61,
+      "max_leg_target_overreach_m": 0
+    },
+    {
+      "soldier": 2,
+      "clip": "Walk",
+      "seconds": 1.0,
+      "frames": 31,
+      "max_leg_target_overreach_m": 0
+    },
+    {
+      "soldier": 2,
+      "clip": "Run",
+      "seconds": 0.6666666666666666,
+      "frames": 21,
+      "max_leg_target_overreach_m": 0
+    },
+    {
+      "soldier": 3,
+      "clip": "Idle",
+      "seconds": 2.0,
+      "frames": 61,
+      "max_leg_target_overreach_m": 0
+    },
+    {
+      "soldier": 3,
+      "clip": "Walk",
+      "seconds": 1.0,
+      "frames": 31,
+      "max_leg_target_overreach_m": 0
+    },
+    {
+      "soldier": 3,
+      "clip": "Run",
+      "seconds": 0.6666666666666666,
+      "frames": 21,
+      "max_leg_target_overreach_m": 0
+    },
+    {
+      "soldier": 4,
+      "clip": "Idle",
+      "seconds": 2.0,
+      "frames": 61,
+      "max_leg_target_overreach_m": 0
+    },
+    {
+      "soldier": 4,
+      "clip": "Walk",
+      "seconds": 1.0,
+      "frames": 31,
+      "max_leg_target_overreach_m": 0
+    },
+    {
+      "soldier": 4,
+      "clip": "Run",
+      "seconds": 0.6666666666666666,
+      "frames": 21,
+      "max_leg_target_overreach_m": 0
+    },
+    {
+      "soldier": 5,
+      "clip": "Idle",
+      "seconds": 2.0,
+      "frames": 61,
+      "max_leg_target_overreach_m": 0
+    },
+    {
+      "soldier": 5,
+      "clip": "Walk",
+      "seconds": 1.0,
+      "frames": 31,
+      "max_leg_target_overreach_m": 0
+    },
+    {
+      "soldier": 5,
+      "clip": "Run",
+      "seconds": 0.6666666666666666,
+      "frames": 21,
+      "max_leg_target_overreach_m": 0
+    },
+    {
+      "soldier": 6,
+      "clip": "Idle",
+      "seconds": 2.0,
+      "frames": 61,
+      "max_leg_target_overreach_m": 0
+    },
+    {
+      "soldier": 6,
+      "clip": "Walk",
+      "seconds": 1.0,
+      "frames": 31,
+      "max_leg_target_overreach_m": 0
+    },
+    {
+      "soldier": 6,
+      "clip": "Run",
+      "seconds": 0.6666666666666666,
+      "frames": 21,
+      "max_leg_target_overreach_m": 0
+    }
+  ]
+}

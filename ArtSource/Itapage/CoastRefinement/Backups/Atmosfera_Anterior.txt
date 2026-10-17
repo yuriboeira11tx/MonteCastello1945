@@ -1,0 +1,1 @@
+Fog True mode=ExponentialSquared color=RGBA(0.570, 0.670, 0.740, 1.000) density=0,00042

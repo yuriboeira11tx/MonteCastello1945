@@ -1,0 +1,59 @@
+LAGOA AZEDA — AMBIENTAÇÃO COSTEIRA DA CUTSCENE
+Atualizado em 17/10/2026. Unity 6000.3.14f1 / URP 17.3.
+
+Cena: Assets/Scenes/CutsceneInicial.unity
+
+INTENÇÃO E LIMITES HISTÓRICOS
+Representação artística da costa de Lagoa Azeda, litoral sul de Alagoas, vista do mar em uma ambientação de 1945. As fontes consultadas mostram a geomorfologia atual e registram mudanças recentes por erosão e ocupação. Não foi localizado um levantamento topográfico ou uma fotografia costeira de 1945 que permita reproduzir exatamente a linha de costa daquele ano.
+
+Foram omitidos muros de contenção, urbanização e obras modernas. O desenho das ravinas, a distribuição da cobertura vegetal, a depressão lagunar e a altura dos tabuleiros são interpretações visuais; não são dados GIS nem uma reconstituição arqueológica certificada. O terreno foi feito para o fundo da tomada marítima, não para exploração a pé ou close-ups de praia.
+
+Importante para o roteiro: o Itapagé foi torpedeado em 26/09/1943. A ambientação de 1945 foi mantida conforme o pedido; se a cena representar o naufrágio histórico, essa data precisa ser considerada no roteiro.
+
+DISTÂNCIA E ESCALA
+As 8 milhas foram interpretadas como milhas náuticas: 8 × 1.852 = 14.816 metros.
+O ponto de referência da linha d'água está a 14.816 m do centro do navio no plano XZ. Isso não significa que todos os pontos da costa sinuosa tenham essa mesma distância. O mundo usa coordenadas locais do Unity, sem projeção cartográfica, curvatura terrestre ou refração atmosférica.
+Por isso, a costa aparece como uma faixa fina no horizonte da câmera existente. Aproximar o terreno ou aumentar artificialmente as falésias mudaria essa proporção.
+
+O QUE FOI ALTERADO
+1. Costa_Distante: novo Unity Terrain com praias estreitas, falésias sedimentares claras e ocres, topos baixos e vegetados, ravinas e setores de restinga. Substitui as antigas montanhas rochosas altas. Relevo emergente de poucos metros até aproximadamente 40 m; os valores maiores são estimativas artísticas. A fonte da UFAL descreve falésias próximas ao povoado com cerca de 8 m.
+2. WaterBlock_50m (dentro de Example 3): mesmo objeto de água, com nova malha adaptativa de 70 × 70 km. O nome original foi preservado para não interferir em referências existentes. A malha concentra vértices perto do navio e mantém a escala física dos UVs.
+3. Material Mar_LagoaAzeda: azul-esverdeado de mar aberto, reflexo menos espelhado e ondulações por normal map e deslocamento do shader existente. É uma aproximação visual do estado do mar, não uma simulação oceanográfica ou de ondas oceânicas de grande escala.
+4. Bruma_Maritima_Distante: volume ampliado e densidade recalibrada para o horizonte distante. Mantido o shader URP de integração analítica com profundidade.
+5. Main Camera: far clip ampliado para 40 km para alcançar a costa. Posição, orientação e FOV foram mantidos.
+Navio, bandeira, personagens, menus e trilha sonora não foram editados nesta etapa.
+
+ONDE EDITAR NO UNITY
+Terreno: Hierarchy > Costa_Distante > Terrain.
+Dados/camadas: Assets/Art/Environment/CutsceneInicial/Terrain/LagoaAzeda/.
+Água: Hierarchy > Example 3 > WaterBlock_50m.
+Material da água: Assets/Art/Environment/CutsceneInicial/Materials/Mar_LagoaAzeda.mat.
+Névoa: Hierarchy > Bruma_Maritima_Distante.
+Material da névoa: Assets/Art/Environment/CutsceneInicial/Materials/Bruma_LagoaAzeda.mat.
+Use a aba Game para conferir o resultado na câmera da cutscene. A distância de corte da câmera de navegação da aba Scene é independente da Main Camera.
+
+OTIMIZAÇÃO
+Terrain nativo com instancing, heightmap 1025, control map 1024, basemap 2048, erro de LOD de 1 pixel para preservar o relevo baixo à distância. Sem sombras do terreno e sem milhares de objetos de vegetação que não seriam distinguíveis a 14,8 km.
+Quatro camadas reutilizam as texturas PBR já presentes no projeto, com mips e compressão. A cobertura vegetal distante é representada nas camadas de terreno. Não foi necessário instalar um pacote de vegetação.
+Oceano: 66.049 vértices e 131.072 triângulos em malha estática; animação pelo shader. Sem simulação de física da água por CPU. Névoa: um renderer de 12 triângulos, sem ray marching volumétrico.
+Não foram alteradas as configurações globais de qualidade do projeto nesta etapa.
+
+VALIDAÇÃO
+validacao_lagoa_azeda.txt: conferência de distância, materiais, shaders, escala, camadas e scripts ausentes, após reabrir o arquivo salvo.
+contadores_lagoa_azeda.txt: custo observado com a câmera atual, em etapas sem/com costa e névoa. São contadores do Editor, não uma garantia de FPS em hardware de destino.
+LagoaAzeda_Unity.png: captura real da Game view em Play Mode.
+LagoaAzeda_Detalhe.png: inspeção aproximada do terreno, com câmera temporária apenas em Play Mode.
+Backups/: cena e materiais anteriores a esta alteração. EditorTools/: ferramentas usadas na edição, arquivadas fora de Assets para não deixar scripts temporários no jogo.
+
+REFERÊNCIAS CONSULTADAS
+1. Santos e Ferreira (UFAL), 2018: avaliação da vulnerabilidade à erosão costeira na praia de Lagoa Azeda. Setores de restinga, falésias da Formação Barreiras, praias e drenagens.
+https://sinageo.org.br/2018/trabalhos/2/2-186-2091.html
+
+2. Diva Cristina Barbosa Suruagy, UFAL, 2025: Áreas de riscos geomorfológicos associadas à instabilidade das falésias da praia de Lagoa Azeda. Mapas e fotografias, especialmente discussão e figuras das páginas 55–61. Referência de formas e materiais; dados modernos, não de 1945.
+https://www.repositorio.ufal.br/jspui/handle/123456789/17722
+
+3. Maurício Carvalho, Naufrágios do Brasil, Itapagé: registro do naufrágio, distância da costa e fotografia intitulada “Vista da costa de Lagoa azeda da posição do Itapagé”. A imagem foi usada somente para observação da proporção do horizonte e cor do mar; não foi incorporada às texturas ou distribuída como asset.
+https://www.naufragiosdobrasil.com.br/naufragio/itapage/
+
+TEXTURAS
+Reutilizadas as texturas CC0 da Poly Haven já instaladas na etapa anterior: aerial_beach_01, aerial_rocks_02, aerial_grass_rock e aerial_ground_rock. Não foram copiadas fotografias acadêmicas para materiais do jogo. O céu HDRI existente foi preservado.

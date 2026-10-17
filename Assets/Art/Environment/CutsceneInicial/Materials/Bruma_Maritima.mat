@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Bruma_Maritima
+  m_Shader: {fileID: 4800000, guid: 430aeb8e2d0cb6843b1522ec67583832, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _NoiseTex:
+        m_Texture: {fileID: 2800000, guid: e30088830335c514796d94cfef00d17c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Density: 0.0018
+    - _HeightFalloff: 60
+    - _MaxOpacity: 0.85
+    - _NoiseStrength: 0.22
+    - _SeaLevel: 3.82
+    m_Colors:
+    - _BoundsMax: {r: 3200, g: 650, b: 4200, a: 0}
+    - _BoundsMin: {r: -3200, g: 2.82, b: 380, a: 0}
+    - _MistColor: {r: 0.52, g: 0.62, b: 0.69, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

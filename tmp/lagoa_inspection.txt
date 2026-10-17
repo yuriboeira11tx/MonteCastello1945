@@ -1,0 +1,11 @@
+Scene=Assets/Scenes/CutsceneInicial.unity, dirty=False, play=False
+Main Camera: position=(64.63, 25.82, -128.80), rotation=(3.86, 335.32, 0.00), scale=(1.00, 1.00, 1.00)
+Directional Light: position=(-20.13, 12.39, 1.30), rotation=(47.77, 309.15, 0.00), scale=(1.00, 1.00, 1.00)
+Example 3: position=(-96.70, 0.00, 0.00), rotation=(0.00, 0.00, 0.00), scale=(1.00, 1.00, 1.00)
+WaterBlock_50m: position=(-3.37, 3.82, 19.20), rotation=(0.00, 0.00, 0.00), scale=(80.00, 1.00, 80.00)
+Itapage: position=(-3.37, 3.82, 19.20), rotation=(0.00, 0.00, 0.00), scale=(1.00, 1.00, 1.00)
+Reflexos_Ceu: position=(-3.37, 11.82, 19.20), rotation=(0.00, 0.00, 0.00), scale=(1.00, 1.00, 1.00)
+Costa_Distante: position=(-2003.37, -24.18, 669.20), rotation=(0.00, 0.00, 0.00), scale=(1.00, 1.00, 1.00)
+Terrain=Assets/Art/Environment/CutsceneInicial/Terrain/CoastRealistic/Costa_Esculpida.asset size=(4000.00, 420.00, 2600.00)
+Atmosfera_Cutscene: position=(0.00, 0.00, 0.00), rotation=(0.00, 0.00, 0.00), scale=(1.00, 1.00, 1.00)
+Bruma_Maritima_Distante: position=(0.00, 326.41, 2290.00), rotation=(0.00, 0.00, 0.00), scale=(6400.00, 647.18, 3820.00)

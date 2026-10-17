@@ -1,0 +1,5 @@
+Scene=Assets/Scenes/CutsceneInicial.unity
+Ship waterline=(-3.37, 3.82, 19.20)
+Existing water expanded to 4000m, unique material.
+Camera=(64.63, 25.82, -128.80)
+Coast starts approximately 800-1000m behind the ship.

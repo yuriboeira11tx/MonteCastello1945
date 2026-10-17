@@ -1,0 +1,1338 @@
+{
+  "file": "E:\\Unity\\MonteCastello1945\\ArtSource\\FEB_Soldier\\FEB_Soldiers\\FEB_Soldiers.blend",
+  "version": "5.1.1",
+  "scene": "FEB_Soldiers",
+  "addons": [
+    "io_anim_bvh",
+    "io_curve_svg",
+    "io_mesh_uv_layout",
+    "io_scene_fbx",
+    "io_scene_gltf2",
+    "cycles",
+    "pose_library",
+    "bl_pkg",
+    "bl_ext.user_default.mcp"
+  ],
+  "objects": [
+    {
+      "name": "FEB_01_DrawCall_1_DrawCall_1.022",
+      "location": [
+        -3.5,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.1410750299692154,
+          -0.24072949588298798,
+          1.5812209844589233
+        ],
+        [
+          0.13215190172195435,
+          0.052577558904886246,
+          1.7973933219909668
+        ]
+      ],
+      "vertices": 364,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme"
+      ]
+    },
+    {
+      "name": "FEB_01_DrawCall_2_DrawCall_2.022",
+      "location": [
+        -3.5,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.250382661819458,
+          -0.2399832308292389,
+          0.9219872951507568
+        ],
+        [
+          0.242464080452919,
+          0.07689923048019409,
+          1.0927314758300781
+        ]
+      ],
+      "vertices": 178,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme"
+      ]
+    },
+    {
+      "name": "FEB_01_DrawCall_3_DrawCall_3.021",
+      "location": [
+        -3.5,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          0.15025058388710022,
+          0.062110599130392075,
+          0.6381213068962097
+        ],
+        [
+          0.2305184304714203,
+          0.1347430795431137,
+          1.0864497423171997
+        ]
+      ],
+      "vertices": 92,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme"
+      ]
+    },
+    {
+      "name": "FEB_01_DrawCall_4_DrawCall_4.020",
+      "location": [
+        -3.5,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.16047662496566772,
+          0.07537056505680084,
+          1.0142844915390015
+        ],
+        [
+          0.14249874651432037,
+          0.30560654401779175,
+          1.5074963569641113
+        ]
+      ],
+      "vertices": 1350,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Radio_Col"
+      ]
+    },
+    {
+      "name": "FEB_01_DrawCall_5_DrawCall_5.014",
+      "location": [
+        -3.5,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.09896326065063477,
+          -0.2033122330904007,
+          1.4183706045150757
+        ],
+        [
+          0.0878853127360344,
+          0.027536701411008835,
+          1.759332537651062
+        ]
+      ],
+      "vertices": 1175,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_01_Pele_Rosto"
+      ]
+    },
+    {
+      "name": "FEB_01_DrawCall_6_DrawCall_6.011",
+      "location": [
+        -3.5,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          0.0108623206615448,
+          -0.16616615653038025,
+          1.6209547519683838
+        ],
+        [
+          0.0405685156583786,
+          -0.1518174111843109,
+          1.6472172737121582
+        ]
+      ],
+      "vertices": 65,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_01_Pele_Rosto"
+      ]
+    },
+    {
+      "name": "FEB_01_DrawCall_7_DrawCall_7.007",
+      "location": [
+        -3.5,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.05528230592608452,
+          -0.16495387256145477,
+          1.619660496711731
+        ],
+        [
+          -0.025688739493489265,
+          -0.14981326460838318,
+          1.6459277868270874
+        ]
+      ],
+      "vertices": 65,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_01_Pele_Rosto"
+      ]
+    },
+    {
+      "name": "FEB_01_DrawCall_8_DrawCall_8.006",
+      "location": [
+        -3.5,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.1048337072134018,
+          -0.0914587751030922,
+          1.5807980298995972
+        ],
+        [
+          0.0942566767334938,
+          -0.05194074660539627,
+          1.6390191316604614
+        ]
+      ],
+      "vertices": 86,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_01_Pele_Rosto"
+      ]
+    },
+    {
+      "name": "FEB_01_Corpo_uniforme",
+      "location": [
+        -3.5,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.5306844115257263,
+          -0.4875377118587494,
+          0.000990200787782669
+        ],
+        [
+          0.5115940570831299,
+          0.184313103556633,
+          1.5540661811828613
+        ]
+      ],
+      "vertices": 3313,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme",
+        "FEB_Soldiers_Cores_PDF",
+        "FEB_01_Pele_Maos"
+      ]
+    },
+    {
+      "name": "FEB_01_Emblema_FEB",
+      "location": [
+        -3.5,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          0.25646936893463135,
+          -0.0945398136973381,
+          1.3120205402374268
+        ],
+        [
+          0.34041014313697815,
+          -0.008470792323350906,
+          1.3828153610229492
+        ]
+      ],
+      "vertices": 795,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_FEB_Emblema",
+        "FEB_Soldiers_Uniforme"
+      ]
+    },
+    {
+      "name": "FEB_01_Emblema_FifthArmy",
+      "location": [
+        -3.5,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.33278417587280273,
+          -0.09380889683961868,
+          1.3169726133346558
+        ],
+        [
+          -0.26001009345054626,
+          -0.018220501020550728,
+          1.3746273517608643
+        ]
+      ],
+      "vertices": 385,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_FifthArmy_Emblema"
+      ]
+    },
+    {
+      "name": "FEB_02_DrawCall_1_DrawCall_1.023",
+      "location": [
+        -2.0999999046325684,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          0.11757910251617432,
+          0.1192384883761406,
+          0.6395847201347351
+        ],
+        [
+          0.21194958686828613,
+          0.17752201855182648,
+          1.0852444171905518
+        ]
+      ],
+      "vertices": 92,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme"
+      ]
+    },
+    {
+      "name": "FEB_02_DrawCall_2_DrawCall_2.023",
+      "location": [
+        -2.0999999046325684,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.209999680519104,
+          -0.19201558828353882,
+          0.9349033832550049
+        ],
+        [
+          0.19797110557556152,
+          0.1010429859161377,
+          1.0898950099945068
+        ]
+      ],
+      "vertices": 169,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme"
+      ]
+    },
+    {
+      "name": "FEB_02_DrawCall_3_DrawCall_3.022",
+      "location": [
+        -2.0999999046325684,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.1311051845550537,
+          -0.22910000383853912,
+          1.5801162719726562
+        ],
+        [
+          0.1420149803161621,
+          0.06398772448301315,
+          1.7952508926391602
+        ]
+      ],
+      "vertices": 352,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme"
+      ]
+    },
+    {
+      "name": "FEB_02_DrawCall_4_DrawCall_4.021",
+      "location": [
+        -2.0999999046325684,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.09825325012207031,
+          -0.20697227120399475,
+          1.394453763961792
+        ],
+        [
+          0.10280728340148926,
+          0.04663053900003433,
+          1.7751507759094238
+        ]
+      ],
+      "vertices": 1522,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_02_Pele_Rosto"
+      ]
+    },
+    {
+      "name": "FEB_02_Emblema_FEB",
+      "location": [
+        -2.0999999046325684,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          0.262984037399292,
+          -0.07789160311222076,
+          1.310815691947937
+        ],
+        [
+          0.34747448563575745,
+          0.008164901286363602,
+          1.3798385858535767
+        ]
+      ],
+      "vertices": 795,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_FEB_Emblema",
+        "FEB_Soldiers_Uniforme"
+      ]
+    },
+    {
+      "name": "FEB_02_Emblema_FifthArmy",
+      "location": [
+        -2.0999999046325684,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.3359237313270569,
+          -0.07798444479703903,
+          1.3138372898101807
+        ],
+        [
+          -0.2602021098136902,
+          -0.00031455850694328547,
+          1.3678793907165527
+        ]
+      ],
+      "vertices": 385,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_FifthArmy_Emblema"
+      ]
+    },
+    {
+      "name": "FEB_02_M41_parte_superior",
+      "location": [
+        -2.0999999046325684,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.5224971771240234,
+          -0.466787725687027,
+          0.7747023701667786
+        ],
+        [
+          0.5193496942520142,
+          0.3029452860355377,
+          1.5403918027877808
+        ]
+      ],
+      "vertices": 2924,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme",
+        "FEB_Soldiers_Cores_PDF",
+        "FEB_02_Pele_Maos"
+      ]
+    },
+    {
+      "name": "FEB_02_Calca_perneiras_botinas",
+      "location": [
+        -2.0999999046325684,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.24207258224487305,
+          -0.18507437407970428,
+          0.0010137174976989627
+        ],
+        [
+          0.24895381927490234,
+          0.09956692904233932,
+          0.9222180247306824
+        ]
+      ],
+      "vertices": 850,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme",
+        "FEB_Soldiers_Cores_PDF"
+      ]
+    },
+    {
+      "name": "FEB_03_DrawCall_2_DrawCall_2.024",
+      "location": [
+        -0.699999988079071,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.13437724113464355,
+          -0.16464756429195404,
+          1.5765806436538696
+        ],
+        [
+          0.13937973976135254,
+          0.12873555719852448,
+          1.7966562509536743
+        ]
+      ],
+      "vertices": 352,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme"
+      ]
+    },
+    {
+      "name": "FEB_03_DrawCall_3_DrawCall_3.023",
+      "location": [
+        -0.699999988079071,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.09540605545043945,
+          -0.13451111316680908,
+          1.4414253234863281
+        ],
+        [
+          0.09316730499267578,
+          0.1036895141005516,
+          1.7754707336425781
+        ]
+      ],
+      "vertices": 1238,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_03_Pele_Rosto"
+      ]
+    },
+    {
+      "name": "FEB_03_DrawCall_4_DrawCall_4.022",
+      "location": [
+        -0.699999988079071,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          0.008641958236694336,
+          -0.09310674667358398,
+          1.625372052192688
+        ],
+        [
+          0.04711127281188965,
+          -0.07106224447488785,
+          1.6619936227798462
+        ]
+      ],
+      "vertices": 65,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_03_Pele_Rosto"
+      ]
+    },
+    {
+      "name": "FEB_03_Emblema_FEB",
+      "location": [
+        -0.699999988079071,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          0.2677660286426544,
+          -0.04392257705330849,
+          1.3015881776809692
+        ],
+        [
+          0.3466258645057678,
+          0.04918048158288002,
+          1.373939871788025
+        ]
+      ],
+      "vertices": 795,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_FEB_Emblema",
+        "FEB_Soldiers_Uniforme"
+      ]
+    },
+    {
+      "name": "FEB_03_Emblema_FifthArmy",
+      "location": [
+        -0.699999988079071,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.33554378151893616,
+          -0.044311054050922394,
+          1.3071722984313965
+        ],
+        [
+          -0.2727339267730713,
+          0.03425782546401024,
+          1.3670121431350708
+        ]
+      ],
+      "vertices": 385,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_FifthArmy_Emblema"
+      ]
+    },
+    {
+      "name": "FEB_03_M41_parte_superior",
+      "location": [
+        -0.699999988079071,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.5204856395721436,
+          -0.43139341473579407,
+          0.7468754649162292
+        ],
+        [
+          0.5202324390411377,
+          0.258355975151062,
+          1.5360233783721924
+        ]
+      ],
+      "vertices": 2347,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme",
+        "FEB_03_Pele_Maos"
+      ]
+    },
+    {
+      "name": "FEB_03_Cinturao_M1923",
+      "location": [
+        -0.699999988079071,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.2418651580810547,
+          -0.20492307841777802,
+          0.8872153759002686
+        ],
+        [
+          0.2414853572845459,
+          0.15101799368858337,
+          1.054491400718689
+        ]
+      ],
+      "vertices": 177,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme"
+      ]
+    },
+    {
+      "name": "FEB_03_Calca_perneiras_botinas",
+      "location": [
+        -0.699999988079071,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.24207258224487305,
+          -0.18507437407970428,
+          0.0010137174976989627
+        ],
+        [
+          0.24895381927490234,
+          0.09956692904233932,
+          0.9222180247306824
+        ]
+      ],
+      "vertices": 850,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme",
+        "FEB_Soldiers_Cores_PDF"
+      ]
+    },
+    {
+      "name": "FEB_04_DrawCall_1_DrawCall_1.025",
+      "location": [
+        0.699999988079071,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          0.1515483856201172,
+          0.14380484819412231,
+          0.6217209696769714
+        ],
+        [
+          0.23263883590698242,
+          0.21179480850696564,
+          1.069063425064087
+        ]
+      ],
+      "vertices": 92,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme"
+      ]
+    },
+    {
+      "name": "FEB_04_DrawCall_2_DrawCall_2.025",
+      "location": [
+        0.699999988079071,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.24202513694763184,
+          -0.20305697619915009,
+          0.9242712259292603
+        ],
+        [
+          0.24132537841796875,
+          0.1528840959072113,
+          1.0915472507476807
+        ]
+      ],
+      "vertices": 177,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme"
+      ]
+    },
+    {
+      "name": "FEB_04_DrawCall_3_DrawCall_3.024",
+      "location": [
+        0.699999988079071,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.13793373107910156,
+          -0.17456091940402985,
+          1.5817608833312988
+        ],
+        [
+          0.1351299285888672,
+          0.11884025484323502,
+          1.8004696369171143
+        ]
+      ],
+      "vertices": 352,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme"
+      ]
+    },
+    {
+      "name": "FEB_04_DrawCall_4_DrawCall_4.023",
+      "location": [
+        0.699999988079071,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.0993647575378418,
+          -0.1438388228416443,
+          1.4451133012771606
+        ],
+        [
+          0.08880329132080078,
+          0.09376579523086548,
+          1.7794255018234253
+        ]
+      ],
+      "vertices": 1238,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_04_Pele_Rosto"
+      ]
+    },
+    {
+      "name": "FEB_04_DrawCall_5_DrawCall_5.016",
+      "location": [
+        0.699999988079071,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          0.005869388580322266,
+          -0.10212842375040054,
+          1.628741979598999
+        ],
+        [
+          0.04419136047363281,
+          -0.07985420525074005,
+          1.665451169013977
+        ]
+      ],
+      "vertices": 65,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_04_Pele_Rosto"
+      ]
+    },
+    {
+      "name": "FEB_04_Corpo_uniforme",
+      "location": [
+        0.699999988079071,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.5206456184387207,
+          -0.42952731251716614,
+          0.0011697693262249231
+        ],
+        [
+          0.5200724601745605,
+          0.26022207736968994,
+          1.573079228401184
+        ]
+      ],
+      "vertices": 3303,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme",
+        "FEB_Soldiers_Cores_PDF",
+        "FEB_04_Pele_Maos"
+      ]
+    },
+    {
+      "name": "FEB_04_Emblema_FEB",
+      "location": [
+        0.699999988079071,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          0.26760604977607727,
+          -0.042056478559970856,
+          1.338644027709961
+        ],
+        [
+          0.3464658558368683,
+          0.05104658007621765,
+          1.4109957218170166
+        ]
+      ],
+      "vertices": 795,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_FEB_Emblema",
+        "FEB_Soldiers_Uniforme"
+      ]
+    },
+    {
+      "name": "FEB_04_Emblema_FifthArmy",
+      "location": [
+        0.699999988079071,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.3357037603855133,
+          -0.04244495555758476,
+          1.3442281484603882
+        ],
+        [
+          -0.27289390563964844,
+          0.03612392395734787,
+          1.4040679931640625
+        ]
+      ],
+      "vertices": 385,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_FifthArmy_Emblema"
+      ]
+    },
+    {
+      "name": "FEB_05_DrawCall_3_DrawCall_3.025",
+      "location": [
+        2.0999999046325684,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.13399505615234375,
+          -0.20307311415672302,
+          1.5807459354400635
+        ],
+        [
+          0.13923120498657227,
+          0.09028211236000061,
+          1.7989293336868286
+        ]
+      ],
+      "vertices": 356,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme"
+      ]
+    },
+    {
+      "name": "FEB_05_DrawCall_4_DrawCall_4.024",
+      "location": [
+        2.0999999046325684,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.09679412841796875,
+          -0.17928282916545868,
+          1.4396920204162598
+        ],
+        [
+          0.09354591369628906,
+          0.07016272842884064,
+          1.7684797048568726
+        ]
+      ],
+      "vertices": 1108,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_05_Pele_Rosto"
+      ]
+    },
+    {
+      "name": "FEB_05_DrawCall_5_DrawCall_5.017",
+      "location": [
+        2.0999999046325684,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          0.00956106185913086,
+          -0.1363406479358673,
+          1.6259950399398804
+        ],
+        [
+          0.04777193069458008,
+          -0.11359021067619324,
+          1.6627311706542969
+        ]
+      ],
+      "vertices": 65,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_05_Pele_Rosto"
+      ]
+    },
+    {
+      "name": "FEB_05_Emblema_FEB",
+      "location": [
+        2.0999999046325684,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          0.24718408286571503,
+          -0.05614467337727547,
+          1.3114527463912964
+        ],
+        [
+          0.33113518357276917,
+          0.02990499883890152,
+          1.3807733058929443
+        ]
+      ],
+      "vertices": 795,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_FEB_Emblema",
+        "FEB_Soldiers_Uniforme"
+      ]
+    },
+    {
+      "name": "FEB_05_Emblema_FifthArmy",
+      "location": [
+        2.0999999046325684,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.3484421968460083,
+          -0.05675579980015755,
+          1.31781804561615
+        ],
+        [
+          -0.27622970938682556,
+          0.02061009407043457,
+          1.3726989030838013
+        ]
+      ],
+      "vertices": 385,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_FifthArmy_Emblema"
+      ]
+    },
+    {
+      "name": "FEB_05_M41_parte_superior",
+      "location": [
+        2.0999999046325684,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.5362793207168579,
+          -0.44040921330451965,
+          0.7779873013496399
+        ],
+        [
+          0.5049828290939331,
+          0.3222939372062683,
+          1.5423336029052734
+        ]
+      ],
+      "vertices": 2719,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme",
+        "FEB_Soldiers_Cores_PDF",
+        "FEB_05_Pele_Maos"
+      ]
+    },
+    {
+      "name": "FEB_05_Cinturao_M1923",
+      "location": [
+        2.0999999046325684,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.22722496092319489,
+          -0.16978642344474792,
+          0.9248399138450623
+        ],
+        [
+          0.19858060777187347,
+          0.12255139648914337,
+          1.0896878242492676
+        ]
+      ],
+      "vertices": 175,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme"
+      ]
+    },
+    {
+      "name": "FEB_05_Calca_perneiras_botinas",
+      "location": [
+        2.0999999046325684,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.23295259475708008,
+          -0.18128614127635956,
+          1.8748449292615987e-05
+        ],
+        [
+          0.25801753997802734,
+          0.13082371652126312,
+          0.9272053837776184
+        ]
+      ],
+      "vertices": 913,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme",
+        "FEB_Soldiers_Cores_PDF"
+      ]
+    },
+    {
+      "name": "FEB_06_DrawCall_1_DrawCall_1.027",
+      "location": [
+        3.5,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.2145547866821289,
+          -0.2284725308418274,
+          0.9232756495475769
+        ],
+        [
+          0.21125078201293945,
+          0.0638652890920639,
+          1.0881235599517822
+        ]
+      ],
+      "vertices": 175,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme"
+      ]
+    },
+    {
+      "name": "FEB_06_DrawCall_2_DrawCall_2.027",
+      "location": [
+        3.5,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          0.14531326293945312,
+          0.045497626066207886,
+          0.6392508149147034
+        ],
+        [
+          0.22098970413208008,
+          0.12109215557575226,
+          1.0870436429977417
+        ]
+      ],
+      "vertices": 92,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme"
+      ]
+    },
+    {
+      "name": "FEB_06_DrawCall_3_DrawCall_3.026",
+      "location": [
+        3.5,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.13383150100708008,
+          -0.27210840582847595,
+          1.5806909799575806
+        ],
+        [
+          0.13918352127075195,
+          0.02084646187722683,
+          1.794676423072815
+        ]
+      ],
+      "vertices": 352,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme"
+      ]
+    },
+    {
+      "name": "FEB_06_DrawCall_4_DrawCall_4.025",
+      "location": [
+        3.5,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.09321308135986328,
+          -0.2444401979446411,
+          1.3515496253967285
+        ],
+        [
+          0.09375858306884766,
+          0.0031190256122499704,
+          1.7672772407531738
+        ]
+      ],
+      "vertices": 1253,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_06_Pele_Rosto"
+      ]
+    },
+    {
+      "name": "FEB_06_Corpo_uniforme",
+      "location": [
+        3.5,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.5236091613769531,
+          -0.4990953207015991,
+          0.0010137174976989627
+        ],
+        [
+          0.5176529884338379,
+          0.26360782980918884,
+          1.540769338607788
+        ]
+      ],
+      "vertices": 3569,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_Uniforme",
+        "FEB_Soldiers_Cores_PDF",
+        "FEB_06_Pele_Maos"
+      ]
+    },
+    {
+      "name": "FEB_06_Emblema_FEB",
+      "location": [
+        3.5,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          0.2598542869091034,
+          -0.11483078449964523,
+          1.309888482093811
+        ],
+        [
+          0.34380534291267395,
+          -0.028781108558177948,
+          1.3792091608047485
+        ]
+      ],
+      "vertices": 795,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_FEB_Emblema",
+        "FEB_Soldiers_Uniforme"
+      ]
+    },
+    {
+      "name": "FEB_06_Emblema_FifthArmy",
+      "location": [
+        3.5,
+        0.0,
+        0.0
+      ],
+      "bounds": [
+        [
+          -0.3357720375061035,
+          -0.11544191092252731,
+          1.3162537813186646
+        ],
+        [
+          -0.2635595202445984,
+          -0.03807602450251579,
+          1.371134638786316
+        ]
+      ],
+      "vertices": 385,
+      "vertex_groups": [],
+      "modifiers": [],
+      "materials": [
+        "FEB_Soldiers_FifthArmy_Emblema"
+      ]
+    }
+  ]
+}

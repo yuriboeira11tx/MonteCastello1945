@@ -1,0 +1,634 @@
+{
+  "deformation": [
+    {
+      "frame": 1,
+      "rigs": [
+        {
+          "soldier": 1,
+          "rest_error": 2.4027400458748785e-07,
+          "stretched_edges": []
+        },
+        {
+          "soldier": 2,
+          "rest_error": 3.919883500923486e-07,
+          "stretched_edges": []
+        },
+        {
+          "soldier": 3,
+          "rest_error": 2.5474013384101925e-07,
+          "stretched_edges": []
+        },
+        {
+          "soldier": 4,
+          "rest_error": 2.4027400458748785e-07,
+          "stretched_edges": []
+        },
+        {
+          "soldier": 5,
+          "rest_error": 3.371747880871523e-07,
+          "stretched_edges": []
+        },
+        {
+          "soldier": 6,
+          "rest_error": 2.4755668231600746e-07,
+          "stretched_edges": []
+        }
+      ]
+    },
+    {
+      "frame": 15,
+      "rigs": [
+        {
+          "soldier": 1,
+          "rest_error": 0,
+          "stretched_edges": [
+            [
+              2.721443228404933,
+              "FEB_Soldado_01__Corpo_uniforme",
+              2737,
+              2075
+            ],
+            [
+              2.681481614681627,
+              "FEB_Soldado_01__Corpo_uniforme",
+              2720,
+              2215
+            ],
+            [
+              2.681481614681627,
+              "FEB_Soldado_01__Corpo_uniforme",
+              1989,
+              2382
+            ],
+            [
+              2.608838413706747,
+              "FEB_Soldado_01__Corpo_uniforme",
+              1690,
+              1688
+            ],
+            [
+              2.5295114197158095,
+              "FEB_Soldado_01__Corpo_uniforme",
+              1672,
+              1690
+            ],
+            [
+              2.529452657750691,
+              "FEB_Soldado_01__Corpo_uniforme",
+              1917,
+              2737
+            ],
+            [
+              2.5180432880975845,
+              "FEB_Soldado_01__Corpo_uniforme",
+              2055,
+              2054
+            ]
+          ]
+        },
+        {
+          "soldier": 2,
+          "rest_error": 0,
+          "stretched_edges": [
+            [
+              3.10839343709243,
+              "FEB_Soldado_02__M41_parte_superior",
+              1458,
+              1503
+            ],
+            [
+              3.10839343709243,
+              "FEB_Soldado_02__M41_parte_superior",
+              1448,
+              1446
+            ],
+            [
+              3.063151442381333,
+              "FEB_Soldado_02__M41_parte_superior",
+              1051,
+              972
+            ],
+            [
+              3.063151442381333,
+              "FEB_Soldado_02__M41_parte_superior",
+              1013,
+              1263
+            ],
+            [
+              2.807416319595242,
+              "FEB_Soldado_02__M41_parte_superior",
+              1175,
+              1004
+            ],
+            [
+              2.794472141995364,
+              "FEB_Soldado_02__M41_parte_superior",
+              1669,
+              1291
+            ],
+            [
+              2.794472141995364,
+              "FEB_Soldado_02__M41_parte_superior",
+              1291,
+              1480
+            ],
+            [
+              2.6848011175457547,
+              "FEB_Soldado_02__M41_parte_superior",
+              1581,
+              1291
+            ],
+            [
+              2.6758340509402436,
+              "FEB_Soldado_02__M41_parte_superior",
+              1175,
+              966
+            ],
+            [
+              2.576861765421186,
+              "FEB_Soldado_02__M41_parte_superior",
+              1320,
+              1051
+            ],
+            [
+              2.576861765421186,
+              "FEB_Soldado_02__M41_parte_superior",
+              1263,
+              1066
+            ],
+            [
+              2.5455231291951477,
+              "FEB_Soldado_02__M41_parte_superior",
+              1013,
+              1251
+            ]
+          ]
+        },
+        {
+          "soldier": 3,
+          "rest_error": 0,
+          "stretched_edges": [
+            [
+              4.0435261599253565,
+              "FEB_Soldado_03__M41_parte_superior",
+              746,
+              915
+            ],
+            [
+              3.8688179258385733,
+              "FEB_Soldado_03__M41_parte_superior",
+              1543,
+              1094
+            ],
+            [
+              3.8688179258385733,
+              "FEB_Soldado_03__M41_parte_superior",
+              1094,
+              1438
+            ],
+            [
+              3.6193008551201458,
+              "FEB_Soldado_03__M41_parte_superior",
+              915,
+              707
+            ],
+            [
+              3.595146105188698,
+              "FEB_Soldado_03__M41_parte_superior",
+              2295,
+              1437
+            ],
+            [
+              3.595146105188698,
+              "FEB_Soldado_03__M41_parte_superior",
+              1391,
+              2287
+            ],
+            [
+              3.5761650468512056,
+              "FEB_Soldado_03__M41_parte_superior",
+              1318,
+              1438
+            ],
+            [
+              3.210166067522041,
+              "FEB_Soldado_03__M41_parte_superior",
+              863,
+              1006
+            ],
+            [
+              3.1244814797320295,
+              "FEB_Soldado_03__M41_parte_superior",
+              1364,
+              899
+            ],
+            [
+              3.1244814797320295,
+              "FEB_Soldado_03__M41_parte_superior",
+              1111,
+              1359
+            ],
+            [
+              3.098297405432855,
+              "FEB_Soldado_03__M41_parte_superior",
+              1439,
+              1512
+            ],
+            [
+              3.048453818109096,
+              "FEB_Soldado_03__M41_parte_superior",
+              1392,
+              1221
+            ]
+          ]
+        },
+        {
+          "soldier": 4,
+          "rest_error": 0,
+          "stretched_edges": [
+            [
+              2.7634359154879085,
+              "FEB_Soldado_04__Corpo_uniforme",
+              1574,
+              1752
+            ],
+            [
+              2.7370382259449246,
+              "FEB_Soldado_04__Corpo_uniforme",
+              3215,
+              2286
+            ],
+            [
+              2.7370382259449246,
+              "FEB_Soldado_04__Corpo_uniforme",
+              2240,
+              3207
+            ],
+            [
+              2.7222971124047306,
+              "FEB_Soldado_04__Corpo_uniforme",
+              2392,
+              1938
+            ],
+            [
+              2.7222971124047306,
+              "FEB_Soldado_04__Corpo_uniforme",
+              1938,
+              2287
+            ]
+          ]
+        },
+        {
+          "soldier": 5,
+          "rest_error": 0,
+          "stretched_edges": [
+            [
+              3.022813569390707,
+              "FEB_Soldado_05__M41_parte_superior",
+              1278,
+              1647
+            ],
+            [
+              3.022813569390707,
+              "FEB_Soldado_05__M41_parte_superior",
+              1013,
+              1293
+            ],
+            [
+              2.9089212275068688,
+              "FEB_Soldado_05__M41_parte_superior",
+              1902,
+              2157
+            ],
+            [
+              2.9089212275068688,
+              "FEB_Soldado_05__M41_parte_superior",
+              1591,
+              1902
+            ],
+            [
+              2.8630526176378597,
+              "FEB_Soldado_05__M41_parte_superior",
+              1965,
+              1912
+            ],
+            [
+              2.8630526176378597,
+              "FEB_Soldado_05__M41_parte_superior",
+              1419,
+              1418
+            ],
+            [
+              2.8025774271303625,
+              "FEB_Soldado_05__M41_parte_superior",
+              1415,
+              1727
+            ],
+            [
+              2.723065408915207,
+              "FEB_Soldado_05__M41_parte_superior",
+              1121,
+              1137
+            ],
+            [
+              2.7044950217707293,
+              "FEB_Soldado_05__M41_parte_superior",
+              1728,
+              1965
+            ],
+            [
+              2.7044950217707293,
+              "FEB_Soldado_05__M41_parte_superior",
+              1418,
+              1727
+            ],
+            [
+              2.591341920377976,
+              "FEB_Soldado_05__M41_parte_superior",
+              2639,
+              2157
+            ]
+          ]
+        },
+        {
+          "soldier": 6,
+          "rest_error": 0,
+          "stretched_edges": [
+            [
+              3.1039906183052093,
+              "FEB_Soldado_06__Corpo_uniforme",
+              2127,
+              2497
+            ],
+            [
+              3.1039906183052093,
+              "FEB_Soldado_06__Corpo_uniforme",
+              1836,
+              2142
+            ],
+            [
+              3.073219833657607,
+              "FEB_Soldado_06__Corpo_uniforme",
+              2578,
+              2815
+            ],
+            [
+              3.073219833657607,
+              "FEB_Soldado_06__Corpo_uniforme",
+              2268,
+              2577
+            ],
+            [
+              2.8693732601089703,
+              "FEB_Soldado_06__Corpo_uniforme",
+              2752,
+              3007
+            ],
+            [
+              2.8693732601089703,
+              "FEB_Soldado_06__Corpo_uniforme",
+              2441,
+              2752
+            ],
+            [
+              2.783399007504088,
+              "FEB_Soldado_06__Corpo_uniforme",
+              1966,
+              2068
+            ],
+            [
+              2.7124297882735418,
+              "FEB_Soldado_06__Corpo_uniforme",
+              1966,
+              1982
+            ],
+            [
+              2.679068120988831,
+              "FEB_Soldado_06__Corpo_uniforme",
+              2751,
+              2752
+            ],
+            [
+              2.616537704544954,
+              "FEB_Soldado_06__Corpo_uniforme",
+              2815,
+              2762
+            ],
+            [
+              2.616537704544954,
+              "FEB_Soldado_06__Corpo_uniforme",
+              2269,
+              2268
+            ],
+            [
+              2.55650197123177,
+              "FEB_Soldado_06__Corpo_uniforme",
+              2265,
+              2577
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "frame": 30,
+      "rigs": [
+        {
+          "soldier": 1,
+          "rest_error": 0,
+          "stretched_edges": []
+        },
+        {
+          "soldier": 2,
+          "rest_error": 0,
+          "stretched_edges": []
+        },
+        {
+          "soldier": 3,
+          "rest_error": 0,
+          "stretched_edges": []
+        },
+        {
+          "soldier": 4,
+          "rest_error": 0,
+          "stretched_edges": []
+        },
+        {
+          "soldier": 5,
+          "rest_error": 0,
+          "stretched_edges": []
+        },
+        {
+          "soldier": 6,
+          "rest_error": 0,
+          "stretched_edges": []
+        }
+      ]
+    },
+    {
+      "frame": 45,
+      "rigs": [
+        {
+          "soldier": 1,
+          "rest_error": 0,
+          "stretched_edges": []
+        },
+        {
+          "soldier": 2,
+          "rest_error": 0,
+          "stretched_edges": []
+        },
+        {
+          "soldier": 3,
+          "rest_error": 0,
+          "stretched_edges": []
+        },
+        {
+          "soldier": 4,
+          "rest_error": 0,
+          "stretched_edges": []
+        },
+        {
+          "soldier": 5,
+          "rest_error": 0,
+          "stretched_edges": []
+        },
+        {
+          "soldier": 6,
+          "rest_error": 0,
+          "stretched_edges": []
+        }
+      ]
+    }
+  ],
+  "ik": [
+    {
+      "soldier": 1,
+      "targets": [
+        {
+          "control": "CTRL_mao.L",
+          "error_m": 3.488272401904948e-07
+        },
+        {
+          "control": "CTRL_pe.L",
+          "error_m": 2.5131306452823625e-05
+        },
+        {
+          "control": "CTRL_mao.R",
+          "error_m": 3.538829710196828e-07
+        },
+        {
+          "control": "CTRL_pe.R",
+          "error_m": 1.6311090726443604e-05
+        }
+      ]
+    },
+    {
+      "soldier": 2,
+      "targets": [
+        {
+          "control": "CTRL_mao.L",
+          "error_m": 2.2302015940987714e-07
+        },
+        {
+          "control": "CTRL_pe.L",
+          "error_m": 3.0280890143116617e-05
+        },
+        {
+          "control": "CTRL_mao.R",
+          "error_m": 1.884864366154897e-07
+        },
+        {
+          "control": "CTRL_pe.R",
+          "error_m": 1.363509175831536e-05
+        }
+      ]
+    },
+    {
+      "soldier": 3,
+      "targets": [
+        {
+          "control": "CTRL_mao.L",
+          "error_m": 3.5886748369909214e-07
+        },
+        {
+          "control": "CTRL_pe.L",
+          "error_m": 3.0431452045894837e-05
+        },
+        {
+          "control": "CTRL_mao.R",
+          "error_m": 3.488272401904948e-07
+        },
+        {
+          "control": "CTRL_pe.R",
+          "error_m": 1.3635956860336305e-05
+        }
+      ]
+    },
+    {
+      "soldier": 4,
+      "targets": [
+        {
+          "control": "CTRL_mao.L",
+          "error_m": 2.0647654623614278e-07
+        },
+        {
+          "control": "CTRL_pe.L",
+          "error_m": 5.996722714951329e-05
+        },
+        {
+          "control": "CTRL_mao.R",
+          "error_m": 1.6858739404357614e-07
+        },
+        {
+          "control": "CTRL_pe.R",
+          "error_m": 3.34380646092154e-05
+        }
+      ]
+    },
+    {
+      "soldier": 5,
+      "targets": [
+        {
+          "control": "CTRL_mao.L",
+          "error_m": 1.0745380149674383e-07
+        },
+        {
+          "control": "CTRL_pe.L",
+          "error_m": 1.8178166198424917e-05
+        },
+        {
+          "control": "CTRL_mao.R",
+          "error_m": 1.519626234052415e-07
+        },
+        {
+          "control": "CTRL_pe.R",
+          "error_m": 1.3968209330597146e-05
+        }
+      ]
+    },
+    {
+      "soldier": 6,
+      "targets": [
+        {
+          "control": "CTRL_mao.L",
+          "error_m": 2.263603610009938e-06
+        },
+        {
+          "control": "CTRL_pe.L",
+          "error_m": 3.0280890143116617e-05
+        },
+        {
+          "control": "CTRL_mao.R",
+          "error_m": 2.457562461863554e-07
+        },
+        {
+          "control": "CTRL_pe.R",
+          "error_m": 1.363509175831536e-05
+        }
+      ]
+    }
+  ],
+  "unchanged_geometry_uv_materials": 50,
+  "unity_characters_directory_empty": true
+}

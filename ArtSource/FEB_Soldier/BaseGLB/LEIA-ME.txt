@@ -1,0 +1,69 @@
+SOLDADO FEB — ADAPTACAO DA BASE GLB FORNECIDA
+
+ARQUIVOS FINAIS
+FEB_Soldado_BaseGLB.blend: fonte editavel, em pose T e escala em metros.
+FEB_Soldado_BaseGLB.glb: modelo portatil, rig e texturas incorporadas.
+FBX: Assets/Art/Characters/FEB_Soldier/BaseGLB/Models/FEB_Soldado_BaseGLB.fbx
+Texturas: Assets/Art/Characters/FEB_Soldier/BaseGLB/Textures
+
+O QUE FOI PRESERVADO
+Corpo, rosto, maos, calca e botas derivam diretamente do GLB enviado.
+A silhueta e o estilo de poucos poligonos foram mantidos. Os 53 ossos
+foram preservados, inclusive os dedos, e receberam nomes legiveis.
+O arquivo original em Downloads nao foi alterado.
+
+ADAPTACAO FEB
+Uniforme em oliva/caqui, calca oliva escura, couro escuro, capacete M1,
+cinturao com dez porta-municoes, suspensorios, perneiras, cantil,
+porta-curativo, bolsos e botoes. A geometria original dos ombros foi
+unida nas costuras e os pesos dessa regiao foram ajustados.
+As duas insignias usam os mesmos PNGs extraidos anteriormente do PDF:
+FEB no braco anatomico esquerdo; 5o Exercito no direito. As imagens
+nao foram redesenhadas nem recoloridas. A iluminacao pode mudar sua
+aparencia no render. Seus hashes estao conferidos em validation.json.
+
+COLECOES DO BLENDER
+FEB_Personagem_BaseGLB: modelo editavel, com as pecas separadas.
+FEB_Exportacao_URP: copia agrupada e com mapas gravados; oculta no
+viewport e no render para nao sobrepor a fonte.
+Studio_FEB: camera e luzes somente para apresentacao.
+A cena anterior do Blender foi preservada em
+Sessao_anterior_preservada.blend antes da importacao.
+
+TEXTURAS E UNITY URP
+O corpo/equipamento exportado usa um atlas PBR 2048 x 2048. As insignias
+continuam separadas, com a resolucao original. A resolucao maior do atlas
+nao inventa detalhes na textura de rosto de baixa resolucao da base.
+Para URP Lit: BaseColor em Base Map; Normal importado como Normal Map;
+MetallicSmoothness_URP em Metallic Map, com sRGB desativado e Smoothness
+Source = Metallic Alpha. As insignias usam seus PNGs originais em Base Map.
+O FBX usa caminhos relativos para os mapas e para as insignias existentes.
+O GLB incorpora os mapas e normalmente preserva melhor a apresentacao PBR.
+Para retargeting, configurar o Rig como Humanoid e conferir o Avatar.
+Nao foram criados clips de animacao; a pose com bracos baixos e uma previa
+de deformacao. O arquivo editavel permanece em pose T.
+Nenhuma cena de gameplay ou menu do Unity foi substituida.
+
+FLUXO DE TRABALHO
+Importacao, edicao, render, bake, exportacao e reimportacao executados
+pela ponte MCP local da extensao Blender Lab instalada (localhost:9876).
+Os scripts desta pasta registram as etapas; sao incrementais e nao devem
+ser executados repetidamente sobre uma cena ja adaptada.
+
+CREDITOS DA BASE
+Titulo: Call Of Duty 1 Soldier rig
+Autor indicado nos metadados: _NETHER_FIRE_
+Perfil: https://sketchfab.com/NETHERFIRE.Man
+Fonte declarada:
+https://sketchfab.com/3d-models/call-of-duty-1-soldier-rig-2943f5966daf4f0a8f3d7a3eb45050ea
+Licenca declarada nos metadados do arquivo: CC-BY-4.0
+https://creativecommons.org/licenses/by/4.0/
+Alteracoes: adaptacao FEB descrita acima, escala, pose T, nomes dos ossos,
+materiais, equipamento novo, ajuste de pesos, atlas PBR e exportacoes.
+Insignias: PDF feb-textura.pdf fornecido pelo usuario.
+As fotos historicas e as referencias fornecidas orientaram a adaptacao.
+
+VERIFICACAO
+export_report.json contem as contagens e os caminhos finais.
+validation.json registra as verificacoes automatizadas e a reimportacao.
+FEB_exportado_conferido.png mostra o GLB reimportado com suas texturas.

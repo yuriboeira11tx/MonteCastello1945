@@ -1,0 +1,322 @@
+[
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Models\\FEB_Soldado_01.fbx",
+    "SHA256": "F4357C2B6B4EB366EFF6A6A7E0CA163A805F1EF29AD141681B582F358987F8C6"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Models\\FEB_Soldado_01.fbx.meta",
+    "SHA256": "1B5149BF8D69C3CB8EC801BE73D478BC9B11C9A795106D9B582953C5B97B2859"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Models\\FEB_Soldado_02.fbx",
+    "SHA256": "D337EE4DA6F8A710E2909B343298233991128DCCF3B9A3789DB171081484B41E"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Models\\FEB_Soldado_02.fbx.meta",
+    "SHA256": "0CDF031CB78678277A7BF9829B7F3605784717FBBC7014D520764247515C1FEC"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Models\\FEB_Soldado_03.fbx",
+    "SHA256": "D1DCF60BB22C69072302FC590BD67FBD016ED0563F2BC65D8EF3C3B8AA8F30D4"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Models\\FEB_Soldado_03.fbx.meta",
+    "SHA256": "4A62701B2D8B2E84F3CE0D59376D2F5719C4F79EDDE9CEA2FFAD6EFB23E546F2"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Models\\FEB_Soldado_04.fbx",
+    "SHA256": "0AD3317E4F8C772DD8653D884CAE55A4565E628CDF113F8C49449523DAD00943"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Models\\FEB_Soldado_04.fbx.meta",
+    "SHA256": "C08E32BD85D04EAE495E4E32C34C703D27AF66DEFF9F01380627BE7510DF8F9D"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Models\\FEB_Soldado_05.fbx",
+    "SHA256": "9D1E0EF123B528D4BEEAC6A961FB6F41F2F893C3C4E34F8E9B3A9058FEBD90F7"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Models\\FEB_Soldado_05.fbx.meta",
+    "SHA256": "B3C21F04A3A905DDF143313A4B5FE9C6FDECEC45D4EECBEB56AF04F7ABB9C4E5"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Models\\FEB_Soldado_06.fbx",
+    "SHA256": "F1823251DB4EF3939BBFD31B4FA849192395F3A790FCEDF8FD32A16FC70154B2"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Models\\FEB_Soldado_06.fbx.meta",
+    "SHA256": "DAA8B731AB9DB1634FE0F024F7EEA8ABEED5EA0D9E50605540B21AA3A5D27D78"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_01_Pele_Maos.png",
+    "SHA256": "F79E9E2A0D3DDA9FB4094C0076EBB96F8554A4C4CB1FCCE2CA28A05E2408FC7F"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_01_Pele_Maos.png.meta",
+    "SHA256": "E2FC66C4A98C217196DB0A9E6788B17C7E79E7D389B5D8A90097D9168BC0A19A"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_01_Pele_Rosto.png",
+    "SHA256": "6CBC3260A14FACADED4D720EDCAC363A129165ABF8D4BE461C84FACE825BF212"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_01_Pele_Rosto.png.meta",
+    "SHA256": "DEF02A8D4347D35104BAADD429EE96A00FC79F4B924F6E048F60B8CD621007AC"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_02_Pele_Maos.png",
+    "SHA256": "CC89CA4E02AF48A521BD69E0E5BB1A1E126BBD03BCAAA2E108919366A8C5ABBF"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_02_Pele_Maos.png.meta",
+    "SHA256": "8200F905133CD8F255C84877316DF974463515063899757306ADCCFD9960C741"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_02_Pele_Rosto.png",
+    "SHA256": "33A85C76D6AEDCEC9958D7C48E5ABE478207500CE4B9FAD12F28E2DF2B06A5CE"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_02_Pele_Rosto.png.meta",
+    "SHA256": "FB3A40F4A1420D423C22C48EBADE702A0D1729A212753C84F12FEF5E03759D28"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_03_Pele_Maos.png",
+    "SHA256": "F3C97F2507419E20FA9960F6F2049352A861F9476CD78E1A00B5C971F3C4AB0C"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_03_Pele_Maos.png.meta",
+    "SHA256": "1C1C1768EAB6A0B6978FF4F8C98B65CD8D9DF55291763E9B9818C208221B738E"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_03_Pele_Rosto.png",
+    "SHA256": "CE8DD0DD460E5106572FB859154B97B28CA699D172C71DCE1954A75B9444FD36"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_03_Pele_Rosto.png.meta",
+    "SHA256": "A439029B75C3B8FF4B72C9FFA5CFFE0B10394D90EE1E394BF4BF99D1589B4BBD"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_04_Pele_Maos.png",
+    "SHA256": "5B5F835F94C08175C74CCA5E945DB980230E384CE4EEBF664F6283AF1EE0CA94"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_04_Pele_Maos.png.meta",
+    "SHA256": "1973E620E5B3F7340F3769A49756D6EFEDF3DAF3105DE3DD26C61E1D0A1B3AA3"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_04_Pele_Rosto.png",
+    "SHA256": "A9BC1491C1AA66A5F9A734CEE94DF689C8EBD10D180A64FBEEED31EB0C23CE27"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_04_Pele_Rosto.png.meta",
+    "SHA256": "AEA6FE26B7EDEFD61DE496B1CEBA4156478F8F9D134F5C23CD99F59C9B3A5ECB"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_05_Pele_Maos.png",
+    "SHA256": "2EEFAC36BAC6EADF968E41742A1F9450D9515EAEC827AA95A26E4398419411B1"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_05_Pele_Maos.png.meta",
+    "SHA256": "C229C8352F2BABBD9150D39A2492A98885C65F4E7642E3F848914AE279D21628"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_05_Pele_Rosto.png",
+    "SHA256": "EC48494313E8143923B1886A7326C9AEC8721E5D0DC9CD5B67345F5DE877DE13"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_05_Pele_Rosto.png.meta",
+    "SHA256": "96A06B9F7A5C343BCAE24FD4ADF57AEC66A2449E878F5D843FB5D8BBEBA22B65"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_06_Pele_Maos.png",
+    "SHA256": "3CCDF1723BE2EC6639338EC5FA26F71462470B7B8050B832D1B57D3F8A81F611"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_06_Pele_Maos.png.meta",
+    "SHA256": "3E3385AFF4C0FAC6E1C0EEC27287158FDDD2E3BFF8E2E67B55646AA54349E6E4"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_06_Pele_Rosto.png",
+    "SHA256": "599611AAF58A086563630FA91524F1511BD91787240749D04FC3B5939B3BE18F"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_06_Pele_Rosto.png.meta",
+    "SHA256": "1AECD39F4C9431EA085864BCEB93E32DEA548BDC3D212FAD09290A2990E298E6"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_Cores_PDF_4K.png",
+    "SHA256": "09DE5466AC0B55844166CBF7F853FB859DB5FB053433B213A1BB9E6BE3B7CCF7"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_Cores_PDF_4K.png.meta",
+    "SHA256": "C089B6AC87C8DF8274630D175B593812FD508CF520DA8365FE51E24842602A31"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_Patch.png",
+    "SHA256": "470F563973B03489B9D5180185D887E78ECA2C79EE3DA1C5F8749A91C6D1086B"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_Patch.png.meta",
+    "SHA256": "2282884F5E606F8A709EE8B2D7F3FC3EE5EB859F86090E1518D1CC3FCB391B6B"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_Soldiers_Uniforme_4K.png",
+    "SHA256": "1B1F5DA76123D65E85113C2385EEA6C4B9302690B852B3F6FD1EC2B3F38B82E4"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_Soldiers_Uniforme_4K.png.meta",
+    "SHA256": "446D8B8394E411040A739BA9438835402B564C91B681E094B4E270C214F9D569"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FifthArmy_Patch.png",
+    "SHA256": "F0270096BE66371B085C8AFCE31171406FF06B059E0910A911C225FAA0AD2861"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FifthArmy_Patch.png.meta",
+    "SHA256": "A191CF4383CF22B0B5DC8B9E72B07702EAD63875287809CA084D9EDDD5509D8A"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\Radio_Col_4X.png",
+    "SHA256": "8CBCC2FCF420CD536E28A7E18A0E6F238228F681C5C7E691517DF28047DE837E"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\Radio_Col_4X.png.meta",
+    "SHA256": "3777D1E428DAB46FEEA9E13B444DC4E59A6D2E27136ECFC9110CF897351D10A3"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_01_Pele_Maos.mat",
+    "SHA256": "C79CAA76DA77275A7FBDC061EE116F8C51942F79358EA01435127D062602FC6E"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_01_Pele_Maos.mat.meta",
+    "SHA256": "3B63FE8602575542D61216746D031F4D13905AAE211FF249BDB854716AA5D872"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_01_Pele_Rosto.mat",
+    "SHA256": "1BBE4C6C23245FAF64F259ED1B4A303DF3FB976F01A18FCA4AFA4FBBEB65A45D"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_01_Pele_Rosto.mat.meta",
+    "SHA256": "8D8A3D458043AB2B49B95AA0C44B36699E60A1462D3F5A0143E30A10E7E5BE65"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_02_Pele_Maos.mat",
+    "SHA256": "F65C9BB7B7F8C31FCEF701DD31D7CB25B17FE4FC8D440331B96AFAF5A1E09E08"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_02_Pele_Maos.mat.meta",
+    "SHA256": "297E5D04AB0CFE1F08D1BF6161709CAFD7FDBFE0526F3358125D61625C7A013B"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_02_Pele_Rosto.mat",
+    "SHA256": "BA857A4C170C69588D0FC3FCF4C78FAE9A583F7B0F9A19BDB4D320529D09C700"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_02_Pele_Rosto.mat.meta",
+    "SHA256": "0312C25E32CC45721359F6DB3E50392DC14AD56C71D3629DC59712073064DB98"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_03_Pele_Maos.mat",
+    "SHA256": "9A3B8C2574FDD687D097EC4790F220367D9CC657C76CACBACBDDC2E41CEC2FEE"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_03_Pele_Maos.mat.meta",
+    "SHA256": "A52A2C6C604E24B57E4959433DB584A13F60B789759CE6299D9CD36C8300FA8F"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_03_Pele_Rosto.mat",
+    "SHA256": "885D42D11DF55E5D5E6B9CB1B8B203E9BE23B2D882019BA845EA4F2A4D125C57"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_03_Pele_Rosto.mat.meta",
+    "SHA256": "4E1044B3ECCBC0A070DEE05EA4C237447FDC9D08187E39CAAEBFB45B88009172"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_04_Pele_Maos.mat",
+    "SHA256": "F0E7AD9E853F632027BF67B901335E769E1D15366BCB301C8CF9FC8525BB9F3C"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_04_Pele_Maos.mat.meta",
+    "SHA256": "62AE47AF30226DBD59B98CE6F89BA4AD1E89DC87425765ECD1B676A53A7C5FFB"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_04_Pele_Rosto.mat",
+    "SHA256": "62E7FAE98084B9169023F4C3E2F4295D71E63DF073BD36600B8F78CBDD9E0CC3"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_04_Pele_Rosto.mat.meta",
+    "SHA256": "759E0E93DA21B0F3D0F6746807E6CF6812A22D1FE6B782E7E9FC8935906F2320"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_05_Pele_Maos.mat",
+    "SHA256": "4A00E99A28AFFA79B24E2562C4D10398D24A76568CA5DFE0048A87F0584F1725"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_05_Pele_Maos.mat.meta",
+    "SHA256": "7B79DE4DCBAF935F829B1CB7A7A1B5066B1F817147B78C8706A22999C7A7F0E2"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_05_Pele_Rosto.mat",
+    "SHA256": "C9AB646157C1B17AB5A2CB2B9B8639C92C4EBB3A43D195BFFDE3F3F0D7F81581"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_05_Pele_Rosto.mat.meta",
+    "SHA256": "2E1AC60700BCA4FD03EE6756A91A8AA5363B4F9ECF202928CBEF95EB67843131"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_06_Pele_Maos.mat",
+    "SHA256": "FDD6DC1D793DFDA7E4409D7E4D5245F00C562FC6B070AB3CCE0047B2C283E51C"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_06_Pele_Maos.mat.meta",
+    "SHA256": "9EE10203F69524581579EB5C5622F475DC73F83007E9DB7956673BFB19EDE9BE"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_06_Pele_Rosto.mat",
+    "SHA256": "92B5BA1DCA0AAE20AD70F76654F1A36D035D043CCB36DCC569D126D1A45FC78E"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_06_Pele_Rosto.mat.meta",
+    "SHA256": "E5453E4AC653A30DF6C7DB79D725754485D3B01756CB7E412117C63F093628D0"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_Soldiers_Cores_PDF.mat",
+    "SHA256": "301A44D7FD1B78B47B753CD04C8C175D33B1D87B228AB4F3F66BD003B9CB5F76"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_Soldiers_Cores_PDF.mat.meta",
+    "SHA256": "E13ABA638D47CD7152C7A6CB2976F68CEC471536C93ABBC480E51AD328B9F405"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_Soldiers_FEB_Emblema.mat",
+    "SHA256": "204A17C74011EA6FC31814CCE39B07B027E358501F2F83166E20BF89D66F511F"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_Soldiers_FEB_Emblema.mat.meta",
+    "SHA256": "72744B2DA473BAD4AEADA359985100F6105C72EBC2EC0E766F12503921C9C2D8"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_Soldiers_FifthArmy_Emblema.mat",
+    "SHA256": "B73FC8986B4F4A3D2CE5CB10FBC0C1176F26EB588936FA3C919A89BCD2474008"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_Soldiers_FifthArmy_Emblema.mat.meta",
+    "SHA256": "BA21309C31AB79448A0A3F866DF217B29C56C8174E5050C4AA6BC76AA754A0D7"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_Soldiers_Radio_Col.mat",
+    "SHA256": "670C713DEF2B6674DB13B5B7AFEC1AE9391E90508F0C82E694B86F9F5061BFE6"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_Soldiers_Radio_Col.mat.meta",
+    "SHA256": "E3C220B810D11AD5BAE97E3CA58BB95C07911EC1691BE32075563117202B7425"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_Soldiers_Uniforme.mat",
+    "SHA256": "F99B4E957BC13FD0F2177BA043EC456C26B44B1C726A394E0D7E08C061D20E10"
+  },
+  {
+    "Path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Materials\\FEB_Soldiers_Uniforme.mat.meta",
+    "SHA256": "0EE341C3B732F70003AE8A80D6C7DDB828534850B7307D749357E2F7C3135230"
+  }
+]

@@ -1,0 +1,93 @@
+GUIA DAS TEXTURAS DE PELE - SEIS SOLDADOS FEB
+
+O QUE FOI ALTERADO
+Somente a cor da pele: rosto, orelhas, pescoco e maos. Cada soldado tem duas imagens proprias. Foram preservados o desenho dos rostos, as malhas, os UVs, as poses, o uniforme, os equipamentos e os emblemas.
+As 11 imagens anteriores continuam intactas. Os novos tons foram aplicados em copias independentes; as variantes 03 e 04 agora usam imagens distintas, embora compartilhassem a mesma textura de rosto na base.
+
+1. ONDE ESTAO OS ARQUIVOS
+E:\Unity\MonteCastello1945\Assets\Art\Characters\FEB_Soldiers\Textures\Pele
+Na pasta do projeto Unity: Assets > Art > Characters > FEB_Soldiers > Textures > Pele.
+No ZIP, mantenha Textures e Models na mesma pasta FEB_Soldiers.
+
+2. IDENTIFICACAO DE CADA SOLDADO
+
+SOLDADO 01 - CLARA QUENTE
+Colecao no Blender: FEB_01
+Modelo: Models/FEB_Soldado_01.fbx
+Rosto, orelhas e pescoco: Textures/Pele/FEB_01_Pele_Rosto.png
+Material do rosto: FEB_01_Pele_Rosto
+Maos: Textures/Pele/FEB_01_Pele_Maos.png
+Material das maos: FEB_01_Pele_Maos
+Objetos da cabeca: FEB_01_DrawCall_5_DrawCall_5.014, FEB_01_DrawCall_6_DrawCall_6.011, FEB_01_DrawCall_7_DrawCall_7.007, FEB_01_DrawCall_8_DrawCall_8.006
+Objeto que contem as maos: FEB_01_Corpo_uniforme
+
+SOLDADO 02 - CASTANHA ESCURA QUENTE
+Colecao no Blender: FEB_02
+Modelo: Models/FEB_Soldado_02.fbx
+Rosto, orelhas e pescoco: Textures/Pele/FEB_02_Pele_Rosto.png
+Material do rosto: FEB_02_Pele_Rosto
+Maos: Textures/Pele/FEB_02_Pele_Maos.png
+Material das maos: FEB_02_Pele_Maos
+Objetos da cabeca: FEB_02_DrawCall_4_DrawCall_4.021
+Objeto que contem as maos: FEB_02_M41_parte_superior
+
+SOLDADO 03 - MEDIA OLIVA
+Colecao no Blender: FEB_03
+Modelo: Models/FEB_Soldado_03.fbx
+Rosto, orelhas e pescoco: Textures/Pele/FEB_03_Pele_Rosto.png
+Material do rosto: FEB_03_Pele_Rosto
+Maos: Textures/Pele/FEB_03_Pele_Maos.png
+Material das maos: FEB_03_Pele_Maos
+Objetos da cabeca: FEB_03_DrawCall_3_DrawCall_3.023, FEB_03_DrawCall_4_DrawCall_4.022
+Objeto que contem as maos: FEB_03_M41_parte_superior
+
+SOLDADO 04 - CLARA NEUTRA
+Colecao no Blender: FEB_04
+Modelo: Models/FEB_Soldado_04.fbx
+Rosto, orelhas e pescoco: Textures/Pele/FEB_04_Pele_Rosto.png
+Material do rosto: FEB_04_Pele_Rosto
+Maos: Textures/Pele/FEB_04_Pele_Maos.png
+Material das maos: FEB_04_Pele_Maos
+Objetos da cabeca: FEB_04_DrawCall_4_DrawCall_4.023, FEB_04_DrawCall_5_DrawCall_5.016
+Objeto que contem as maos: FEB_04_Corpo_uniforme
+
+SOLDADO 05 - CASTANHA MEDIA DOURADA
+Colecao no Blender: FEB_05
+Modelo: Models/FEB_Soldado_05.fbx
+Rosto, orelhas e pescoco: Textures/Pele/FEB_05_Pele_Rosto.png
+Material do rosto: FEB_05_Pele_Rosto
+Maos: Textures/Pele/FEB_05_Pele_Maos.png
+Material das maos: FEB_05_Pele_Maos
+Objetos da cabeca: FEB_05_DrawCall_4_DrawCall_4.024, FEB_05_DrawCall_5_DrawCall_5.017
+Objeto que contem as maos: FEB_05_M41_parte_superior
+
+SOLDADO 06 - CASTANHA PROFUNDA
+Colecao no Blender: FEB_06
+Modelo: Models/FEB_Soldado_06.fbx
+Rosto, orelhas e pescoco: Textures/Pele/FEB_06_Pele_Rosto.png
+Material do rosto: FEB_06_Pele_Rosto
+Maos: Textures/Pele/FEB_06_Pele_Maos.png
+Material das maos: FEB_06_Pele_Maos
+Objetos da cabeca: FEB_06_DrawCall_4_DrawCall_4.025
+Objeto que contem as maos: FEB_06_Corpo_uniforme
+
+3. COMO VER NO BLENDER
+Abra FEB_Soldiers.blend e escolha a cena FEB_Soldiers.
+No Outliner, expanda a colecao FEB_01, FEB_02, etc. Selecione o objeto da cabeca listado acima.
+Na aba Shading, escolha o material FEB_XX_Pele_Rosto. O no Image Texture mostra a imagem de rosto correspondente ligada ao Base Color.
+Para as maos, selecione Corpo_uniforme ou M41_parte_superior, conforme a lista acima, e escolha o material FEB_XX_Pele_Maos. Esse material esta atribuido somente as faces das maos.
+Na aba UV Editing, abra a lista de imagens no Image Editor e escolha FEB_XX_Pele_Rosto ou FEB_XX_Pele_Maos para ver o PNG diretamente. A imagem de maos tem fundo transparente: os espacos vazios sao normais, pois as coordenadas UV foram preservadas.
+Use Material Preview para ver as cores no modelo. Na cena Guia_visual_tons_de_pele ha uma comparacao numerada dos seis soldados.
+
+4. COMO LOCALIZAR NO UNITY
+No painel Project, abra Assets/Art/Characters/FEB_Soldiers/Textures/Pele. Clique no PNG para visualizar a textura no Inspector.
+Os FBXs atualizados apontam para as respectivas imagens de pele por caminho relativo. Se voce usar materiais URP personalizados, associe o PNG Rosto ao Base Map do material FEB_XX_Pele_Rosto e o PNG Maos ao Base Map do material FEB_XX_Pele_Maos. Os materiais do uniforme continuam com os mapas anteriores.
+
+5. ARQUIVOS ATUALIZADOS E CONFERENCIA
+E:\Unity\MonteCastello1945\ArtSource\FEB_Soldier\FEB_Soldiers\FEB_Soldiers.blend
+E:\Unity\MonteCastello1945\Assets\Art\Characters\FEB_Soldiers\Models
+E:\Unity\MonteCastello1945\ArtSource\FEB_Soldier\FEB_Soldiers\FEB_Soldiers_FBX_Texturas.zip
+Previa numerada: FEB_Tons_de_Pele_identificados.png (no ZIP: Previa_Pele/).
+Copia anterior a esta alteracao: E:\Unity\MonteCastello1945\ArtSource\FEB_Soldier\FEB_Soldiers\FEB_Soldiers_antes_variacao_pele.blend
+Conferencia: 50 pecas com geometria, UVs e transformacoes identicos; 11 texturas anteriores preservadas; sete FBXs atualizados; seis soldados reimportados com as duas imagens de pele corretas para cada um; 59.138 triangulos mantidos.
+Relatorio: E:\Unity\MonteCastello1945\ArtSource\FEB_Soldier\FEB_Soldiers\skin_validation.json

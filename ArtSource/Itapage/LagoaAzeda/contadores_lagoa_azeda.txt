@@ -1,0 +1,5 @@
+Unity Editor Game view render counters, not standalone FPS benchmark.
+Stage=0, triangles=4339221, drawCalls=117, batches=117, setPass=37
+Stage=1, triangles=4372629, drawCalls=129, batches=129, setPass=39
+Stage=2, triangles=4372641, drawCalls=130, batches=129, setPass=40
+0=ship and ocean, 1=add coast, 2=add mist. State restored.

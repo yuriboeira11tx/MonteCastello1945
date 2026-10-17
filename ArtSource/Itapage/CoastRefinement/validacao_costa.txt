@@ -1,0 +1,13 @@
+Scene=Assets/Scenes/CutsceneInicial.unity
+Play=False
+Terrain=Assets/Art/Environment/CutsceneInicial/Terrain/CoastRealistic/Costa_Esculpida.asset heightmap=1025 alphamap=1024 size=(4000.00, 420.00, 2600.00)
+Instanced=True pixelError=5 basemapDistance=2300 detailDistance=0 terrainShadow=Off
+Layer=Praia_Areia_PBR Albedo=1024 Normal=1024 Mask=512 Tile=(45.00, 45.00)
+Layer=Escarpa_Rochosa_PBR Albedo=2048 Normal=1024 Mask=512 Tile=(78.00, 78.00)
+Layer=Rocha_Vegetacao_Rasteira_PBR Albedo=1024 Normal=1024 Mask=512 Tile=(55.00, 55.00)
+Layer=Solo_Pedregoso_PBR Albedo=1024 Normal=1024 Mask=512 Tile=(50.00, 50.00)
+Terrain layer texture runtime memory MiB=32,51
+Mist: 1 renderer, 12 triangles; density=0,0018 height=60 shadows=off; depth-aware sea intersection
+Ship position=(-3.37, 3.82, 19.20)
+UnityStats triangles=4313375 batches=152 drawCalls=152 setPass=42
+Errors=0

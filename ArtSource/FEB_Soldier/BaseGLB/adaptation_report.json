@@ -1,0 +1,10 @@
+{
+  "file": "E:\\Unity\\MonteCastello1945\\ArtSource\\FEB_Soldier\\BaseGLB\\FEB_Soldado_BaseGLB.blend",
+  "meshes": 81,
+  "triangles": 7718,
+  "bones": 53,
+  "emblem_sha256": {
+    "FEB_Patch.png": "470f563973b03489b9d5180185d887e78eca2c79ee3da1c5f8749a91c6d1086b",
+    "FifthArmy_Patch.png": "f0270096be66371b085c8afce31171406ff06b059e0910a911c225faa0ad2861"
+  }
+}

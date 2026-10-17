@@ -1,0 +1,56 @@
+SOLDADO FEB - POSE T
+
+Referencia: feb-textura.pdf fornecido pelo usuario, 12 paginas.
+O documento descreve o Uniforme Historico do Grupo Montese e inclui
+adaptacoes contemporaneas. O modelo segue essa referencia; nao e uma
+reconstituicao independente de todos os equipamentos de 1944-1945.
+
+ARQUIVOS
+FEB_Soldier_TPose.blend: fonte editavel, texturas incorporadas, rig e estudio.
+FEB_Soldier_TPose.glb: alternativa com materiais PBR incorporados.
+Previews/: vistas frontal, traseira e em tres quartos.
+build_soldier.py / make_textures.py: fontes reproduziveis da modelagem/texturas.
+model_report.json / validation.json: contagem e verificacao tecnica.
+
+PARA O UNITY
+Assets/Art/Characters/FEB_Soldier/Models/FEB_Soldier_TPose.fbx
+Assets/Art/Characters/FEB_Soldier/Textures/
+
+O FBX inclui apenas o personagem e o esqueleto, sem o estudio.
+Escala em metros; cerca de 1,85 m com capacete. Pose T e tres malhas.
+Rig basico de 22 ossos, com pesos nos membros; dedos seguem a mao.
+Nao inclui animacoes, rig facial, LODs ou colisores. Antes de producao,
+ajustar pesos nos movimentos extremos e validar o Avatar Humanoid no Unity.
+
+MATERIAIS URP/LIT
+Criar um material principal:
+- Base Map: FEB_BaseColor.png (sRGB ligado), cor branca.
+- Normal Map: FEB_Normal.png, Texture Type = Normal map.
+- Metallic Map: FEB_MetallicSmoothness_URP.png (sRGB desligado).
+  O canal R guarda metalicidade; alfa guarda smoothness.
+  Smoothness Source = Metallic Alpha, multiplicador 1.
+- Normal strength inicial: 0,18.
+Dois materiais adicionais usam FEB_Patch.png e FifthArmy_Patch.png,
+metallic 0 e smoothness 0,09. As malhas dos distintivos ja recortam o
+contorno; os arquivos de imagem preservam a arte extraida do PDF.
+As texturas Roughness e Metallic separadas sao fornecidas para Blender
+e outros programas; no URP usar o mapa combinado indicado acima.
+O FBX nao transporta integralmente a arvore de nos do Blender. Fazer essa
+associacao de mapas no Unity para obter o acabamento PBR correspondente.
+
+CONTEUDO
+Capacete M1 com aro, forro e jugular; rosto generico; gandola M41;
+camiseta/gola; calca M43; cinturao com dez bolsas de municao;
+suspensorios e ferragens; perneiras e lacos; coturnos pretos;
+cantil com porta-cantil e porta-curativo. Distintivo FEB no braco
+esquerdo anatomico, 5o Exercito no direito. Sem graduacao atribuida.
+As superficies usam atlas PBR de 2048 x 2048 e desgaste discreto.
+
+UV
+As ilhas compartilham regioes de materiais no atlas, intencionalmente.
+O atlas nao e uma pintura exclusiva de cada lado do corpo. Para marcas
+unicas, cicatrizes ou danos localizados, criar um UV exclusivo e rebake.
+
+ROSTO E ACABAMENTO
+O PDF nao fornece identidade facial. O rosto e generico, simplificado
+para esta versao semirrealista. O rig e uma base para animacao posterior.

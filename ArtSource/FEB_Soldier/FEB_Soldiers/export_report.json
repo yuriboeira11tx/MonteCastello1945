@@ -1,0 +1,233 @@
+{
+  "variants": [
+    {
+      "name": "FEB_Soldado_01",
+      "triangles": 10634,
+      "vertices": 7868,
+      "materials": [
+        "FEB_Soldiers_Uniforme",
+        "FEB_Soldiers_Radio_Col",
+        "FEB_01_Pele_Rosto",
+        "FEB_Soldiers_Cores_PDF",
+        "FEB_01_Pele_Maos",
+        "FEB_Soldiers_FEB_Emblema",
+        "FEB_Soldiers_FifthArmy_Emblema"
+      ],
+      "file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Models\\FEB_Soldado_01.fbx",
+      "height_m": 1.796403169631958,
+      "skin_tone": "clara quente"
+    },
+    {
+      "name": "FEB_Soldado_02",
+      "triangles": 10385,
+      "vertices": 7089,
+      "materials": [
+        "FEB_Soldiers_Uniforme",
+        "FEB_02_Pele_Rosto",
+        "FEB_Soldiers_FEB_Emblema",
+        "FEB_Soldiers_FifthArmy_Emblema",
+        "FEB_Soldiers_Cores_PDF",
+        "FEB_02_Pele_Maos"
+      ],
+      "file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Models\\FEB_Soldado_02.fbx",
+      "height_m": 1.7942371368408203,
+      "skin_tone": "castanha escura quente"
+    },
+    {
+      "name": "FEB_Soldado_03",
+      "triangles": 9290,
+      "vertices": 6209,
+      "materials": [
+        "FEB_Soldiers_Uniforme",
+        "FEB_03_Pele_Rosto",
+        "FEB_Soldiers_FEB_Emblema",
+        "FEB_Soldiers_FifthArmy_Emblema",
+        "FEB_03_Pele_Maos",
+        "FEB_Soldiers_Cores_PDF"
+      ],
+      "file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Models\\FEB_Soldado_03.fbx",
+      "height_m": 1.7956424951553345,
+      "skin_tone": "media oliva"
+    },
+    {
+      "name": "FEB_Soldado_04",
+      "triangles": 9439,
+      "vertices": 6407,
+      "materials": [
+        "FEB_Soldiers_Uniforme",
+        "FEB_04_Pele_Rosto",
+        "FEB_Soldiers_Cores_PDF",
+        "FEB_04_Pele_Maos",
+        "FEB_Soldiers_FEB_Emblema",
+        "FEB_Soldiers_FifthArmy_Emblema"
+      ],
+      "file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Models\\FEB_Soldado_04.fbx",
+      "height_m": 1.7992998361587524,
+      "skin_tone": "clara neutra"
+    },
+    {
+      "name": "FEB_Soldado_05",
+      "triangles": 9559,
+      "vertices": 6516,
+      "materials": [
+        "FEB_Soldiers_Uniforme",
+        "FEB_05_Pele_Rosto",
+        "FEB_Soldiers_FEB_Emblema",
+        "FEB_Soldiers_FifthArmy_Emblema",
+        "FEB_Soldiers_Cores_PDF",
+        "FEB_05_Pele_Maos"
+      ],
+      "file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Models\\FEB_Soldado_05.fbx",
+      "height_m": 1.7989106178283691,
+      "skin_tone": "castanha media dourada"
+    },
+    {
+      "name": "FEB_Soldado_06",
+      "triangles": 9831,
+      "vertices": 6621,
+      "materials": [
+        "FEB_Soldiers_Uniforme",
+        "FEB_06_Pele_Rosto",
+        "FEB_Soldiers_Cores_PDF",
+        "FEB_06_Pele_Maos",
+        "FEB_Soldiers_FEB_Emblema",
+        "FEB_Soldiers_FifthArmy_Emblema"
+      ],
+      "file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Models\\FEB_Soldado_06.fbx",
+      "height_m": 1.793662667274475,
+      "skin_tone": "castanha profunda"
+    }
+  ],
+  "source_file": "Rangers.fbx",
+  "source_has_rig": false,
+  "source_has_animation": false,
+  "reference_emblems_unchanged": {
+    "FEB": true,
+    "FifthArmy": true
+  },
+  "combined_file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Models\\FEB_Soldiers_6_Soldados.fbx",
+  "images": [
+    {
+      "file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_Soldiers_Uniforme_4K.png",
+      "size": [
+        4096,
+        2048
+      ]
+    },
+    {
+      "file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\Radio_Col_4X.png",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\Pele\\FEB_01_Pele_Rosto.png",
+      "size": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_Cores_PDF_4K.png",
+      "size": [
+        4096,
+        2048
+      ]
+    },
+    {
+      "file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\Pele\\FEB_01_Pele_Maos.png",
+      "size": [
+        4096,
+        2048
+      ]
+    },
+    {
+      "file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_Patch.png",
+      "size": [
+        647,
+        777
+      ]
+    },
+    {
+      "file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FifthArmy_Patch.png",
+      "size": [
+        1024,
+        996
+      ]
+    },
+    {
+      "file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\Pele\\FEB_02_Pele_Rosto.png",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\Pele\\FEB_02_Pele_Maos.png",
+      "size": [
+        4096,
+        2048
+      ]
+    },
+    {
+      "file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\Pele\\FEB_03_Pele_Rosto.png",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\Pele\\FEB_03_Pele_Maos.png",
+      "size": [
+        4096,
+        2048
+      ]
+    },
+    {
+      "file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\Pele\\FEB_04_Pele_Rosto.png",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\Pele\\FEB_04_Pele_Maos.png",
+      "size": [
+        4096,
+        2048
+      ]
+    },
+    {
+      "file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\Pele\\FEB_05_Pele_Rosto.png",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\Pele\\FEB_05_Pele_Maos.png",
+      "size": [
+        4096,
+        2048
+      ]
+    },
+    {
+      "file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\Pele\\FEB_06_Pele_Rosto.png",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "file": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\Pele\\FEB_06_Pele_Maos.png",
+      "size": [
+        4096,
+        2048
+      ]
+    }
+  ],
+  "triangles_total": 59138,
+  "color_reference": "feb-textura.pdf: calca verde-FEB, botas pretas, suspensorios caqui-esverdeado com ferragens pretas.",
+  "name": "FEB_Soldiers"
+}

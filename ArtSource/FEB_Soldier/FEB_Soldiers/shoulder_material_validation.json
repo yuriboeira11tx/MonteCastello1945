@@ -1,0 +1,16 @@
+{
+  "cause": "Four jacket fabric faces per affected model were incorrectly classified as black hardware during uniform recoloring, before skin variation.",
+  "corrected_objects": [
+    "FEB_01_Corpo_uniforme",
+    "FEB_02_M41_parte_superior",
+    "FEB_05_M41_parte_superior",
+    "FEB_06_Corpo_uniforme"
+  ],
+  "faces_restored": 16,
+  "geometry_uv_transforms_unchanged": 50,
+  "all_texture_files_unchanged": 23,
+  "only_requested_material_assignments_changed": true,
+  "fbx_roundtrip_material_counts_match": true,
+  "exported_files": 7,
+  "total_triangles": 59138
+}

@@ -1,0 +1,173 @@
+{
+  "passed": true,
+  "checks": {
+    "source_22_bones": true,
+    "source_uvs": true,
+    "source_finite_geometry": true,
+    "source_weighted": true,
+    "source_normalized_weights": true,
+    "source_textures_packed": true,
+    "source_armature_bindings": true,
+    "horizontal_T_pose": true,
+    "exportacao_da_revisao_atual": true,
+    "emblema_original_FEB_Patch.png": true,
+    "emblema_original_FifthArmy_Patch.png": true,
+    "nuca_contida_na_gola": true,
+    "maos_anatomicas": true,
+    "emblema_conformado_esquerdo": true,
+    "emblema_conformado_direito": true,
+    "arm_deforms": true,
+    "FEB_Uniforme_BaseColor_size": true,
+    "FEB_Uniforme_Normal_size": true,
+    "FEB_Uniforme_Roughness_size": true,
+    "FEB_Uniforme_Metallic_size": true,
+    "FEB_Uniforme_MetallicSmoothness_URP_size": true,
+    "FEB_Rosto_BaseColor_size": true,
+    "FEB_Rosto_Normal_size": true,
+    "FEB_Rosto_Roughness_size": true,
+    "FEB_Rosto_Metallic_size": true,
+    "FEB_Rosto_MetallicSmoothness_URP_size": true,
+    "FEB_Olhos_BaseColor_size": true,
+    "FEB_Olhos_Normal_size": true,
+    "FEB_Olhos_Roughness_size": true,
+    "FEB_Olhos_Metallic_size": true,
+    "FEB_Olhos_MetallicSmoothness_URP_size": true,
+    "fbx_five_meshes": true,
+    "fbx_rig_22_bones": true,
+    "fbx_uvs": true,
+    "fbx_weights": true,
+    "fbx_scale_metres": true,
+    "fbx_under_120k_triangles": true,
+    "export_images_resolve": true
+  },
+  "fbx_triangles": 112608,
+  "fbx_height_m": 1.8340192418545485,
+  "images": [
+    {
+      "name": "FEB_Olhos_BaseColor",
+      "path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldier\\Campanha\\Models\\..\\Textures\\FEB_Olhos_BaseColor.png",
+      "size": [
+        512,
+        512
+      ],
+      "loaded": true
+    },
+    {
+      "name": "FEB_Olhos_Metallic",
+      "path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldier\\Campanha\\Models\\..\\Textures\\FEB_Olhos_Metallic.png",
+      "size": [
+        512,
+        512
+      ],
+      "loaded": true
+    },
+    {
+      "name": "FEB_Olhos_Normal",
+      "path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldier\\Campanha\\Models\\..\\Textures\\FEB_Olhos_Normal.png",
+      "size": [
+        512,
+        512
+      ],
+      "loaded": true
+    },
+    {
+      "name": "FEB_Olhos_Roughness",
+      "path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldier\\Campanha\\Models\\..\\Textures\\FEB_Olhos_Roughness.png",
+      "size": [
+        512,
+        512
+      ],
+      "loaded": true
+    },
+    {
+      "name": "FEB_Patch.png",
+      "path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldier\\Campanha\\Models\\..\\..\\Textures\\FEB_Patch.png",
+      "size": [
+        647,
+        777
+      ],
+      "loaded": true
+    },
+    {
+      "name": "FEB_Rosto_BaseColor",
+      "path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldier\\Campanha\\Models\\..\\Textures\\FEB_Rosto_BaseColor.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "loaded": true
+    },
+    {
+      "name": "FEB_Rosto_Metallic",
+      "path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldier\\Campanha\\Models\\..\\Textures\\FEB_Rosto_Metallic.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "loaded": true
+    },
+    {
+      "name": "FEB_Rosto_Normal",
+      "path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldier\\Campanha\\Models\\..\\Textures\\FEB_Rosto_Normal.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "loaded": true
+    },
+    {
+      "name": "FEB_Rosto_Roughness",
+      "path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldier\\Campanha\\Models\\..\\Textures\\FEB_Rosto_Roughness.png",
+      "size": [
+        2048,
+        2048
+      ],
+      "loaded": true
+    },
+    {
+      "name": "FEB_Uniforme_BaseColor",
+      "path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldier\\Campanha\\Models\\..\\Textures\\FEB_Uniforme_BaseColor.png",
+      "size": [
+        4096,
+        4096
+      ],
+      "loaded": true
+    },
+    {
+      "name": "FEB_Uniforme_Metallic",
+      "path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldier\\Campanha\\Models\\..\\Textures\\FEB_Uniforme_Metallic.png",
+      "size": [
+        4096,
+        4096
+      ],
+      "loaded": true
+    },
+    {
+      "name": "FEB_Uniforme_Normal",
+      "path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldier\\Campanha\\Models\\..\\Textures\\FEB_Uniforme_Normal.png",
+      "size": [
+        4096,
+        4096
+      ],
+      "loaded": true
+    },
+    {
+      "name": "FEB_Uniforme_Roughness",
+      "path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldier\\Campanha\\Models\\..\\Textures\\FEB_Uniforme_Roughness.png",
+      "size": [
+        4096,
+        4096
+      ],
+      "loaded": true
+    },
+    {
+      "name": "FifthArmy_Patch.png",
+      "path": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldier\\Campanha\\Models\\..\\..\\Textures\\FifthArmy_Patch.png",
+      "size": [
+        1024,
+        996
+      ],
+      "loaded": true
+    }
+  ]
+}

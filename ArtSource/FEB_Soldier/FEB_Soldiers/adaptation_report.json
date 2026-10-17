@@ -1,0 +1,109 @@
+[
+  {
+    "object": "FEB_03_DrawCall_0_DrawCall_0.024",
+    "action": "archived",
+    "reason": "Colete de assalto integrado substituido por jaqueta M41 do proprio conjunto; cabeca, membros e pose preservados."
+  },
+  {
+    "object": "FEB_03_DrawCall_1_DrawCall_1.024",
+    "action": "archived",
+    "reason": "Acessorio associado ao conjunto com colete de assalto; substituido pelo equipamento de infantaria de referencia."
+  },
+  {
+    "variant": 3,
+    "action": "M41_torso_replacement",
+    "donor_variant": 4,
+    "uv_controls": 1159
+  },
+  {
+    "object": "FEB_05_DrawCall_0_DrawCall_0.026",
+    "action": "archived",
+    "reason": "Colete de assalto integrado substituido por jaqueta M41 do proprio conjunto; cabeca, membros e pose preservados."
+  },
+  {
+    "object": "FEB_05_DrawCall_1_DrawCall_1.026",
+    "action": "archived",
+    "reason": "Acessorio associado ao conjunto com colete de assalto; substituido pelo equipamento de infantaria de referencia."
+  },
+  {
+    "object": "FEB_05_DrawCall_2_DrawCall_2.026",
+    "action": "archived",
+    "reason": "Acessorio associado ao conjunto com colete de assalto; substituido pelo equipamento de infantaria de referencia."
+  },
+  {
+    "object": "FEB_05_DrawCall_8_DrawCall_8.007",
+    "action": "archived",
+    "reason": "Acessorio associado ao conjunto com colete de assalto; substituido pelo equipamento de infantaria de referencia."
+  },
+  {
+    "object": "FEB_05_DrawCall_9_DrawCall_9.006",
+    "action": "archived",
+    "reason": "Acessorio associado ao conjunto com colete de assalto; substituido pelo equipamento de infantaria de referencia."
+  },
+  {
+    "variant": 5,
+    "action": "M41_torso_replacement",
+    "donor_variant": 6,
+    "uv_controls": 1166
+  },
+  {
+    "object": "FEB_01_DrawCall_9_DrawCall_9.005",
+    "action": "archived",
+    "reason": "Divisas americanas e identificacao do 2nd Rangers no capacete."
+  },
+  {
+    "object": "FEB_02_DrawCall_5_DrawCall_5.015",
+    "action": "archived",
+    "reason": "Divisas americanas e identificacao do 2nd Rangers no capacete."
+  },
+  {
+    "object": "FEB_02_DrawCall_6_DrawCall_6.012",
+    "action": "archived",
+    "reason": "Divisas americanas e identificacao do 2nd Rangers no capacete."
+  },
+  {
+    "object": "FEB_04_DrawCall_6_DrawCall_6.013",
+    "action": "archived",
+    "reason": "Divisas americanas e identificacao do 2nd Rangers no capacete."
+  },
+  {
+    "object": "FEB_05_DrawCall_6_DrawCall_6.014",
+    "action": "archived",
+    "reason": "Divisas americanas e identificacao do 2nd Rangers no capacete."
+  },
+  {
+    "object": "FEB_05_DrawCall_7_DrawCall_7.008",
+    "action": "archived",
+    "reason": "Divisas americanas e identificacao do 2nd Rangers no capacete."
+  },
+  {
+    "object": "FEB_06_DrawCall_5_DrawCall_5.018",
+    "action": "archived",
+    "reason": "Divisas americanas e identificacao do 2nd Rangers no capacete."
+  },
+  {
+    "object": "FEB_06_DrawCall_6_DrawCall_6.015",
+    "action": "archived",
+    "reason": "Divisas americanas e identificacao do 2nd Rangers no capacete."
+  },
+  {
+    "object": "FEB_01_DrawCall_0_DrawCall_0.022",
+    "action": "archived",
+    "reason": "Copia anterior conservada; pequeno emblema Rangers da manga removido."
+  },
+  {
+    "object": "FEB_02_DrawCall_0_DrawCall_0.023",
+    "action": "archived",
+    "reason": "Copia anterior conservada; pequeno emblema Rangers da manga removido."
+  },
+  {
+    "object": "FEB_04_DrawCall_0_DrawCall_0.025",
+    "action": "archived",
+    "reason": "Copia anterior conservada; pequeno emblema Rangers da manga removido."
+  },
+  {
+    "object": "FEB_06_DrawCall_0_DrawCall_0.027",
+    "action": "archived",
+    "reason": "Copia anterior conservada; pequeno emblema Rangers da manga removido."
+  }
+]

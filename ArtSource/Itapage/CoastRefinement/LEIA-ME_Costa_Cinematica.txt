@@ -1,0 +1,68 @@
+COSTA E BRUMA - CUTSCENE INICIAL
+Atualizado em 17/10/2026
+
+Abra Assets/Scenes/CutsceneInicial.unity e selecione a aba Game.
+A camera original e o Itapage foram preservados. As capturas de aproximacao
+foram feitas apenas em Play Mode; nao alteram o enquadramento salvo.
+
+TERRENO
+Hierarchy > Costa_Distante > Terrain.
+Terreno nativo do Unity, editavel com Paint Terrain, Raise/Lower, Smooth e Paint Texture.
+Dados: Assets/Art/Environment/CutsceneInicial/Terrain/CoastRealistic/Costa_Esculpida.asset
+Relevo de 4000 x 2600 m, com cristas, escarpas e transporte de sedimentos
+calculado na preparacao. Nao ha geracao de terreno durante a execucao do jogo.
+O relevo e cenografico, sem corresponder a uma costa historica especifica.
+
+Quatro camadas PBR: areia, rocha exposta, vegetacao rasteira sobre rocha,
+solo pedregoso. Distribuicao por altitude, inclinacao e variacao em varias escalas.
+Materiais fotográficos CC0 da Poly Haven; fontes em Assets/Art/Environment/CutsceneInicial/FONTES.txt.
+Texturas em Assets/Art/Environment/CutsceneInicial/Textures/CoastPBR.
+Albedo da rocha 2K; outros albedos e normais 1K; mascaras 512.
+Fontes 2K preservadas no disco para futuros ajustes de importacao.
+
+NEVOA
+Hierarchy > Bruma_Maritima_Distante.
+Material: Assets/Art/Environment/CutsceneInicial/Materials/Bruma_Maritima.mat.
+Shader URP: FEB/Environment/Coastal Height Mist.
+Density controla a intensidade (atual 0.0018).
+Height Falloff controla a altura da bruma (atual 60 metros).
+Mist Color controla a cor; Maximum Opacity limita o fechamento da paisagem.
+Sea Level deve acompanhar a altura da superficie da agua (3.82 metros).
+Mover/escalar o objeto altera a regiao ocupada pela nevoa.
+A integracao considera a profundidade opaca e a intersecao com o plano do mar,
+preservando o navio em primeiro plano. Existe variacao suave de densidade no tempo.
+O efeito usa um volume analitico de uma passagem, sem ray marching ou simulacao
+de particulas. Nao e uma simulacao volumetrica com sombras de luz.
+A fog nativa do RenderSettings complementa a perspectiva atmosferica distante.
+Para futuros mergulhos da camera, ondas muito altas ou outros planos de agua,
+o tratamento do plano do mar devera ser ajustado.
+
+OTIMIZACAO E VALIDACAO
+Terrain instanciado, Pixel Error 5, Basemap Distance 2300 m.
+Quatro camadas em uma passagem do Terrain, com mapas de normais por pixel.
+Sem sombras dinamicas adicionais do terreno, sem grama individual a longa distancia.
+Texturas com BC7/BC5, mipmaps, streaming habilitado e leitura CPU desativada.
+Memoria das 12 texturas do Terrain medida no Editor: 32.51 MiB.
+Contadores no enquadramento atual, em Play Mode:
+  Agua e navio: 4,211,875 triangulos / 117 draw calls.
+  Com costa:   4,313,363 triangulos / 151 draw calls.
+  Com bruma:   4,313,375 triangulos / 152 draw calls.
+Os numeros contam passes de renderizacao; nao representam malhas unicas.
+O teste compara o custo incremental da costa e da bruma no Editor, nao garante
+uma taxa de quadros em outros computadores. O navio existente nao foi alterado.
+Relatorios: validacao_costa.txt e contadores_renderizacao.txt.
+Capturas: CutsceneInicial_CostaRealista.png e Costa_Detalhe.png.
+
+VEGETACAO
+Nao ha pacote de arvores ou arbustos 3D instalado no projeto.
+A vegetacao atual e textura de cobertura rasteira, nao modelos de plantas.
+Para acrescentar vegetacao 3D, instalar um pacote compativel com Unity 6 / URP,
+com LODs e, preferencialmente, billboards ou impostors para longa distancia.
+A costa distante deve usar grupos esparsos, com distancia de desenho limitada.
+
+BACKUP
+Backups/CutsceneInicial_Antes_CostaRealista.unity guarda a cena anterior.
+O TerrainData e as camadas originais foram preservados em Assets; a nova cena
+referencia os novos dados na pasta CoastRealistic.
+As ferramentas de preparacao ficam arquivadas em EditorTools fora de Assets
+e nao entram na compilacao do jogo.

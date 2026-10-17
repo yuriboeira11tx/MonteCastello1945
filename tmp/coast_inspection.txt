@@ -1,0 +1,10 @@
+Scene=Assets/Scenes/CutsceneInicial.unity, dirty=False, play=False
+Main Camera: position=(64.63, 25.82, -128.80), rotation=(3.86, 335.32, 0.00), scale=(1.00, 1.00, 1.00)
+Directional Light: position=(-20.13, 12.39, 1.30), rotation=(47.77, 309.15, 0.00), scale=(1.00, 1.00, 1.00)
+Example 3: position=(-96.70, 0.00, 0.00), rotation=(0.00, 0.00, 0.00), scale=(1.00, 1.00, 1.00)
+WaterBlock_50m: position=(-3.37, 3.82, 19.20), rotation=(0.00, 0.00, 0.00), scale=(80.00, 1.00, 80.00)
+Itapage: position=(-3.37, 3.82, 19.20), rotation=(0.00, 0.00, 0.00), scale=(1.00, 1.00, 1.00)
+Reflexos_Ceu: position=(-3.37, 11.82, 19.20), rotation=(0.00, 0.00, 0.00), scale=(1.00, 1.00, 1.00)
+Costa_Distante: position=(-1503.37, -21.18, 819.20), rotation=(0.00, 0.00, 0.00), scale=(1.00, 1.00, 1.00)
+Terrain=Assets/Art/Environment/CutsceneInicial/Terrain/Costa_Distante.asset size=(3000.00, 230.00, 1500.00)
+Atmosfera_Cutscene: position=(0.00, 0.00, 0.00), rotation=(0.00, 0.00, 0.00), scale=(1.00, 1.00, 1.00)

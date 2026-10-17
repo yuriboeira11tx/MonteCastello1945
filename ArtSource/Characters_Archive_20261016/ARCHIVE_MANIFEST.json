@@ -1,0 +1,942 @@
+[
+  {
+    "sha256": "6396C2733D1121A346520FFD8BB4C715EE18A74FDA1CEB0C26C38AEA5DED8961",
+    "bytes": 172,
+    "path": "FEB_Soldier.meta"
+  },
+  {
+    "sha256": "B05312482DE529D952DAB73625EE0B9E0A14F18E50F50A34259666D0DC88709E",
+    "bytes": 172,
+    "path": "FEB_Soldiers.meta"
+  },
+  {
+    "sha256": "05EB0524CA68DEB0941DD657C012B41A7792EB150CB6E29CD9D85CCA264DA427",
+    "bytes": 172,
+    "path": "FEB_Soldier\\BaseGLB.meta"
+  },
+  {
+    "sha256": "5D261AFA418A17A7B9CF7B72A0343BC29E3789D376DF053B98D54EB11A1A0BF5",
+    "bytes": 172,
+    "path": "FEB_Soldier\\Campanha.meta"
+  },
+  {
+    "sha256": "6920AA4F5364275FA33A09EE7685F0F9648F3503A782E22C2BBA1A0A593CFF58",
+    "bytes": 172,
+    "path": "FEB_Soldier\\Models.meta"
+  },
+  {
+    "sha256": "EDF32AAFF0981D89A7124D3CCC0B45406726F3F01CAD133B36A4612E6456A4D3",
+    "bytes": 172,
+    "path": "FEB_Soldier\\Realista.meta"
+  },
+  {
+    "sha256": "0F5AAE6BBC1A7AC03D171C072A26D67CE9340D82381DD29042A7CB799670F605",
+    "bytes": 172,
+    "path": "FEB_Soldier\\Textures.meta"
+  },
+  {
+    "sha256": "37869CDF65CA8FFECB4326A9CFAEC64065DC7C9C39D38480F4FD8E9417D7C082",
+    "bytes": 3541,
+    "path": "FEB_Soldier\\BaseGLB\\LEIA-ME.txt"
+  },
+  {
+    "sha256": "4A555A5C676A4A4CD3D9238308AF96BACC6410069A540DECB2F297C80D138BD9",
+    "bytes": 158,
+    "path": "FEB_Soldier\\BaseGLB\\LEIA-ME.txt.meta"
+  },
+  {
+    "sha256": "D2BDB027BC9A0F76797499DB84A799F3213FDD2970EF61D006DAA910B36781AF",
+    "bytes": 172,
+    "path": "FEB_Soldier\\BaseGLB\\Models.meta"
+  },
+  {
+    "sha256": "D2B7B053F91D362C3F70B06E094F5C050066E7644662AF2589C3EA2CC81F3702",
+    "bytes": 172,
+    "path": "FEB_Soldier\\BaseGLB\\Textures.meta"
+  },
+  {
+    "sha256": "E79D8A153966AE024A1FD02BD0FFDA2BE111B798EB04DD6BBA507D739CAECADA",
+    "bytes": 565292,
+    "path": "FEB_Soldier\\BaseGLB\\Models\\FEB_Soldado_BaseGLB.fbx"
+  },
+  {
+    "sha256": "58C698FF70493378BBCAF9797FB2FDE6F4603B8F219DBFF22E9CAE6FA9EAD3B8",
+    "bytes": 2861,
+    "path": "FEB_Soldier\\BaseGLB\\Models\\FEB_Soldado_BaseGLB.fbx.meta"
+  },
+  {
+    "sha256": "CFC67F0702E7B478391C969E71EDC935432A2328C79A6ABA16EA63EE87042EEF",
+    "bytes": 2081421,
+    "path": "FEB_Soldier\\BaseGLB\\Textures\\FEB_BaseGLB_BaseColor.png"
+  },
+  {
+    "sha256": "20FC8A739690471F0393FE5D1A34A3F140FAB2ED09E18CAA363A8D448A606736",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\BaseGLB\\Textures\\FEB_BaseGLB_BaseColor.png.meta"
+  },
+  {
+    "sha256": "071D176189678B73C823EFD5389F0D8ECF9065EF68546352D891B36F9469C33F",
+    "bytes": 130075,
+    "path": "FEB_Soldier\\BaseGLB\\Textures\\FEB_BaseGLB_Metallic.png"
+  },
+  {
+    "sha256": "4C66EFB3EC44D13871B067EA990D57984B5FEBA98638036C508221ECD1E935BF",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\BaseGLB\\Textures\\FEB_BaseGLB_Metallic.png.meta"
+  },
+  {
+    "sha256": "A1E0073ABCFF34C4744C33C58D2BB1A8C712F23934B08C86E0E57CAC79B64195",
+    "bytes": 452016,
+    "path": "FEB_Soldier\\BaseGLB\\Textures\\FEB_BaseGLB_MetallicSmoothness_URP.png"
+  },
+  {
+    "sha256": "90892B42C18E6B89500F8947FD4079D40E12160DA379F8ED4495D5E9F2BA1B61",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\BaseGLB\\Textures\\FEB_BaseGLB_MetallicSmoothness_URP.png.meta"
+  },
+  {
+    "sha256": "47C6CD8FAC8697C1BA101B7C1DC69F71A373E07F2187A499C779596F8079711C",
+    "bytes": 593321,
+    "path": "FEB_Soldier\\BaseGLB\\Textures\\FEB_BaseGLB_Normal.png"
+  },
+  {
+    "sha256": "54AA192A5669BE1ED583D423ADA350C7D3E6524E66CC77EE2851B7303E019562",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\BaseGLB\\Textures\\FEB_BaseGLB_Normal.png.meta"
+  },
+  {
+    "sha256": "96ACE4D3FB293F60ADD1821512CFFA9EE65739CBC6892F4AFD681791DAE5F5A1",
+    "bytes": 441847,
+    "path": "FEB_Soldier\\BaseGLB\\Textures\\FEB_BaseGLB_Roughness.png"
+  },
+  {
+    "sha256": "47E80659740CC15C525E10D9F4AF6BA0EA5F105DC08FA3DB9695A1FE5691311D",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\BaseGLB\\Textures\\FEB_BaseGLB_Roughness.png.meta"
+  },
+  {
+    "sha256": "04AED93E030B5903992CD7F8984CEA6EEADAEE1EA2FEB21A11064761CB3B0C7E",
+    "bytes": 172,
+    "path": "FEB_Soldier\\Campanha\\Models.meta"
+  },
+  {
+    "sha256": "2F2E62F0CB26FBB336FF7CA1A696C99D1993A19D3300FFDEB4490BE3F3E4A723",
+    "bytes": 172,
+    "path": "FEB_Soldier\\Campanha\\Textures.meta"
+  },
+  {
+    "sha256": "AE9E5C5DF553B08AA799C314F98C4C68634BD5C91ADF95784D85D3D4DD8FA09A",
+    "bytes": 3899436,
+    "path": "FEB_Soldier\\Campanha\\Models\\FEB_Soldier_Campanha.fbx"
+  },
+  {
+    "sha256": "0C35B0042FA3A3BBA5EB147B6BCCDAD1BD3AD0EB258868071D1F31C6BCB9A86C",
+    "bytes": 2861,
+    "path": "FEB_Soldier\\Campanha\\Models\\FEB_Soldier_Campanha.fbx.meta"
+  },
+  {
+    "sha256": "4659691C7295AD6206C78B003E5FD0E5F91DCD53032FA914A229BB48CABE424B",
+    "bytes": 610817,
+    "path": "FEB_Soldier\\Campanha\\Textures\\brown_eye.png"
+  },
+  {
+    "sha256": "00BB556D84E518A73D210E69F256E892476D32B7FA7016FAC71256258167AF98",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Campanha\\Textures\\brown_eye.png.meta"
+  },
+  {
+    "sha256": "37C32126756561ED38F59DB39CC2BB133577E1028F5AA354DD2E41821B30FDB6",
+    "bytes": 158182,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Olhos_BaseColor.png"
+  },
+  {
+    "sha256": "56E7FA6B9D80BEF16FBC1BD56E8D988010789C61B4431BC91041EB56A119D0D1",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Olhos_BaseColor.png.meta"
+  },
+  {
+    "sha256": "9A334C89C9511A9C155910AD84763FF23C8B112F0211566C41A19673F0552C6C",
+    "bytes": 3693,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Olhos_Metallic.png"
+  },
+  {
+    "sha256": "A6A2A9B40E86D0746AC4C184567EF00978684B476AE723327C8F6A0D51B58862",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Olhos_Metallic.png.meta"
+  },
+  {
+    "sha256": "252BCA4BF62A4ABB0AC0FE59C8DE48F4DA6CE53BAC07D948BCD02FE695C7EC2E",
+    "bytes": 57790,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Olhos_MetallicSmoothness_URP.png"
+  },
+  {
+    "sha256": "9C6DC41BE005BCC660C740CB7E19C4D2873AE682A9B4BBF881BF102C54199B68",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Olhos_MetallicSmoothness_URP.png.meta"
+  },
+  {
+    "sha256": "8B298BB28E3FAC33BCED4DE1E91DB88C81E1FC11C312811F61454CF29E3208F1",
+    "bytes": 224519,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Olhos_Normal.png"
+  },
+  {
+    "sha256": "696FBA05A49CCB859FDAF117F7E5256E223A522802AD089DE9A1623ADF7ED2D8",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Olhos_Normal.png.meta"
+  },
+  {
+    "sha256": "896D410C4D279CE1EFC83BA6D2F1DAD3489B53AAB954527230A93BB05FB448DE",
+    "bytes": 52298,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Olhos_Roughness.png"
+  },
+  {
+    "sha256": "6CF2E122C58495B18B9156D7D0E02DF942728848C5602837139ED9051012F8D8",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Olhos_Roughness.png.meta"
+  },
+  {
+    "sha256": "C1A6611B2AB4E5806D3AE035FDC6A75427E214075B168BD93499203A5DCC5CAD",
+    "bytes": 1656034,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Rosto_BaseColor.png"
+  },
+  {
+    "sha256": "17012447C7199A5AB2A6C7C44869C21E77584A56543ACF842093C214609B8D70",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Rosto_BaseColor.png.meta"
+  },
+  {
+    "sha256": "5630EDF42913F842E57308503A7E0977E721D09027A12C453B8878C22108CD37",
+    "bytes": 55235,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Rosto_Metallic.png"
+  },
+  {
+    "sha256": "E1F6D4688AFC5A5BBE04C0359693A83E8A5427A8B1E0CB2A3E48EA2D873C00E8",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Rosto_Metallic.png.meta"
+  },
+  {
+    "sha256": "EDAA945574850C16CADB665DF352316F9F4325C2457AD18F5C9738AEA8285720",
+    "bytes": 676791,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Rosto_MetallicSmoothness_URP.png"
+  },
+  {
+    "sha256": "15DAF04A0F83AAA392579ED7757B1306BF34B13E9AFDBB2EA78F1A73CB82929C",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Rosto_MetallicSmoothness_URP.png.meta"
+  },
+  {
+    "sha256": "456C9B3F32951930420972E2C13F032226F783DB5457E15BBCBF8470A2221053",
+    "bytes": 1769437,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Rosto_Normal.png"
+  },
+  {
+    "sha256": "2A49F042D7B544F4EF93373E5F2E3D6F4CA3587F1C74A9F6F73BCB134E0652D7",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Rosto_Normal.png.meta"
+  },
+  {
+    "sha256": "04F49C7898A5179DA84B7CD4F5E3B55E8DD26D793F685E085FBD8424D3C4F309",
+    "bytes": 615125,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Rosto_Roughness.png"
+  },
+  {
+    "sha256": "8CA4E5CEEA8A5AE1FE32062E30056C9628F6F33C8CA1BB56D3F411EDB0EEC97D",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Rosto_Roughness.png.meta"
+  },
+  {
+    "sha256": "F93C3172D9E45C96167F795D98A70446BCAEF85C78D8059670FF9813A1A4C3E6",
+    "bytes": 6549234,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Uniforme_BaseColor.png"
+  },
+  {
+    "sha256": "BD73DB7518FA0F57F732DFFFB5E579B8C62007590015DE1BC3AE4C12386072C6",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Uniforme_BaseColor.png.meta"
+  },
+  {
+    "sha256": "0E632DFAD762C24F9066D26F9E6099E18748F6BDEB74F5C840B930C6CE66E7FF",
+    "bytes": 477518,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Uniforme_Metallic.png"
+  },
+  {
+    "sha256": "CC90A65F7A8402565DF9D6A308B6FEB80D31B4F28F83BA23F99179FF9EABDAA5",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Uniforme_Metallic.png.meta"
+  },
+  {
+    "sha256": "DA4446A5CE19D8D48FB9C169521E4FAE2C48E07C42BEA7330EFC6ACB64827402",
+    "bytes": 7084561,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Uniforme_MetallicSmoothness_URP.png"
+  },
+  {
+    "sha256": "B20CA9D40AD7CBB32DE45A1F3F5B5E100C9A9CFE5BC5BEFD018744B9C89350E4",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Uniforme_MetallicSmoothness_URP.png.meta"
+  },
+  {
+    "sha256": "B904394C39596745C84164A34DD3EDCBBCBC73DFD37BD6F402D2AF4EF69374CC",
+    "bytes": 11453758,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Uniforme_Normal.png"
+  },
+  {
+    "sha256": "1FBF23C0A80F90B452441C26D8AC14339559248275FEEA04DBD15D75914E0923",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Uniforme_Normal.png.meta"
+  },
+  {
+    "sha256": "AD607434AC77174A59386F3E24204FD09E317CE0E1E431AB9FFB40A41C1E070C",
+    "bytes": 6773481,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Uniforme_Roughness.png"
+  },
+  {
+    "sha256": "B1F5D61378F1D806C76CDB8964311DB25BDA5F597B579D889766CDB4073261CE",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Campanha\\Textures\\FEB_Uniforme_Roughness.png.meta"
+  },
+  {
+    "sha256": "5A53213F061BFA97EE0AFD6B40650FFBC089A479C144E63F3C39ACCECA5853C0",
+    "bytes": 4339066,
+    "path": "FEB_Soldier\\Campanha\\Textures\\young_lightskinned_male_diffuse_Bronze.png"
+  },
+  {
+    "sha256": "A888EB7BD68B697E2BC7B629955D430F9508372AEE8FD5AD6F0849191C04CD5D",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Campanha\\Textures\\young_lightskinned_male_diffuse_Bronze.png.meta"
+  },
+  {
+    "sha256": "CFEBCAB64DA6F34CB92BAED35E4593C39F134776A420CA1B7C81DE65FD6C3C1F",
+    "bytes": 2117132,
+    "path": "FEB_Soldier\\Models\\FEB_Soldier_TPose.fbx"
+  },
+  {
+    "sha256": "9A4F74EF60E864A6225096B50E40EEB1A68268F4EC8E13266357133AAC5E0F60",
+    "bytes": 2861,
+    "path": "FEB_Soldier\\Models\\FEB_Soldier_TPose.fbx.meta"
+  },
+  {
+    "sha256": "FA3DDEE2ED2E3E21533A1245663FEDE344363AB0BF8B5053FEE64E91A54A99F5",
+    "bytes": 172,
+    "path": "FEB_Soldier\\Realista\\Models.meta"
+  },
+  {
+    "sha256": "C23BDAF8B59B35162C8D4906FA9598FAD890BF2A4DB7EDD18DA1D2E2078EE214",
+    "bytes": 172,
+    "path": "FEB_Soldier\\Realista\\Textures.meta"
+  },
+  {
+    "sha256": "BC0FBD1672C7C9A65CCA928FB3478CB6A40CE109DC2A009F23E5832ED5E4E26F",
+    "bytes": 3694892,
+    "path": "FEB_Soldier\\Realista\\Models\\FEB_Soldier_Realista.fbx"
+  },
+  {
+    "sha256": "B6B8800B9222B620C29969540549309A8C37095B08CF4A99D222227CAD3F13D4",
+    "bytes": 2861,
+    "path": "FEB_Soldier\\Realista\\Models\\FEB_Soldier_Realista.fbx.meta"
+  },
+  {
+    "sha256": "268EE6D1EA9665F8050D040C7B47971884428628021418AE52F68912859F5E60",
+    "bytes": 4247107,
+    "path": "FEB_Soldier\\Realista\\Textures\\Aksel_Skin_diffuse.png"
+  },
+  {
+    "sha256": "5C7E204564E0DFDBC89C8E941A48C3EBB1C5D2C224019BEAC67ADF2FB37B0896",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Realista\\Textures\\Aksel_Skin_diffuse.png.meta"
+  },
+  {
+    "sha256": "2BF3632A4BFB1631D9AE15568C7DE5C7254C780E5168F1546827F32D50F5212D",
+    "bytes": 4706189,
+    "path": "FEB_Soldier\\Realista\\Textures\\Aksel_Skin_NRM.png"
+  },
+  {
+    "sha256": "697EB2734CE4FFC055D683DF548E1D0E23D07087F344772669DD056D64BBA725",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Realista\\Textures\\Aksel_Skin_NRM.png.meta"
+  },
+  {
+    "sha256": "4659691C7295AD6206C78B003E5FD0E5F91DCD53032FA914A229BB48CABE424B",
+    "bytes": 610817,
+    "path": "FEB_Soldier\\Realista\\Textures\\brown_eye.png"
+  },
+  {
+    "sha256": "ABCD7A50B58EED34F9DC971212FA994B16A8CB043D2F891E5DDC0356EAD796B1",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Realista\\Textures\\brown_eye.png.meta"
+  },
+  {
+    "sha256": "37C32126756561ED38F59DB39CC2BB133577E1028F5AA354DD2E41821B30FDB6",
+    "bytes": 158182,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Olhos_BaseColor.png"
+  },
+  {
+    "sha256": "CC0E4A58AF5CD87079360E68DA1D392069B87D0E3D4A75B33C36E7B1958582FB",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Olhos_BaseColor.png.meta"
+  },
+  {
+    "sha256": "9A334C89C9511A9C155910AD84763FF23C8B112F0211566C41A19673F0552C6C",
+    "bytes": 3693,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Olhos_Metallic.png"
+  },
+  {
+    "sha256": "844B10F7F19E1509BF108F75F7FEBB98BC04C1C41487FC0CFEF2C6F84D4A8B18",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Olhos_Metallic.png.meta"
+  },
+  {
+    "sha256": "3F86786A27B0B7287F8F63D7C92E0A0D3DA8564BB849DC0D77D1998BED77A157",
+    "bytes": 56642,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Olhos_MetallicSmoothness_URP.png"
+  },
+  {
+    "sha256": "7A13A534740E773FC30362FFF4CDEF5610BC263C04F2B1C6A47E34C44D841926",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Olhos_MetallicSmoothness_URP.png.meta"
+  },
+  {
+    "sha256": "D1F1CDBCC0A95CE4145CF22C5BDB084E55067B4E2AFE1F77913BE70871B21EF3",
+    "bytes": 224241,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Olhos_Normal.png"
+  },
+  {
+    "sha256": "0C43BEA01E6E75FB696C0CBBE9679D9ED06A443BA7EF0F2692A6501BCF4DA03D",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Olhos_Normal.png.meta"
+  },
+  {
+    "sha256": "E53CDFFC364ECA3A376B5DB115443C519E2BA385ED2A099184FE6B7FC7739DDE",
+    "bytes": 51541,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Olhos_Roughness.png"
+  },
+  {
+    "sha256": "DC2F11B0D18869802A4B8E12639EF6705362BE4B15B495C6088F1C688B126456",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Olhos_Roughness.png.meta"
+  },
+  {
+    "sha256": "F604D0876F9D36FF488326A36CC1F544D7D66D5AE3A612F076EA8ED168B02958",
+    "bytes": 1650721,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Rosto_BaseColor.png"
+  },
+  {
+    "sha256": "E7F3076BD367505471955B7688E1B8384CECDD9ADA9DECAC9ADE991F5C391D35",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Rosto_BaseColor.png.meta"
+  },
+  {
+    "sha256": "5630EDF42913F842E57308503A7E0977E721D09027A12C453B8878C22108CD37",
+    "bytes": 55235,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Rosto_Metallic.png"
+  },
+  {
+    "sha256": "8F9EC3E22BB0DED431EE9713A96C446677FB0FD08CA0388436CECB76E6AFF45B",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Rosto_Metallic.png.meta"
+  },
+  {
+    "sha256": "F4BBAC14C80AFEE7D17D67E5F2378454A98EF7BD5E7974962E0CCBD7DBF189F7",
+    "bytes": 684063,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Rosto_MetallicSmoothness_URP.png"
+  },
+  {
+    "sha256": "6F441DDB74183841909A5CFA00B3D1820DAE6F892FA2B64BF5E0970241A1B9CB",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Rosto_MetallicSmoothness_URP.png.meta"
+  },
+  {
+    "sha256": "2FAC2062A60BEFD62E9D5CC0B4590927605338638303804270DFDE7CEAA4744C",
+    "bytes": 1764583,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Rosto_Normal.png"
+  },
+  {
+    "sha256": "64137E4D2D5328D47222484DC9241DEBBC26882B96D53D6CD5E3FAB417B47059",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Rosto_Normal.png.meta"
+  },
+  {
+    "sha256": "517FDBFD8D85F62BA735D1630D45BED50DD2CA8088A9352AAEC84DCE8A363CA6",
+    "bytes": 621218,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Rosto_Roughness.png"
+  },
+  {
+    "sha256": "2F96B19D3728B8A2C4629853B35593C039CFF173547D01F72BA4489D821A2C44",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Rosto_Roughness.png.meta"
+  },
+  {
+    "sha256": "C3FAF185637E643B738A07A158525626E659FF79950E1E9FFDCF670B116772CC",
+    "bytes": 7981422,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Uniforme_BaseColor.png"
+  },
+  {
+    "sha256": "8B7D8E35686623D0BF03B28934D80C7A796C4994A40DC9AF472F71C51B8F94B5",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Uniforme_BaseColor.png.meta"
+  },
+  {
+    "sha256": "9C32C428F9D46219928DE9AA4F0561E9E4BA9152694D428A9D0B7750E01A2A73",
+    "bytes": 478501,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Uniforme_Metallic.png"
+  },
+  {
+    "sha256": "E40808BC874CB50BFBD49FAEBCF57F37548A42542F48EF727038D6FDB136B386",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Uniforme_Metallic.png.meta"
+  },
+  {
+    "sha256": "AB059B954A963B5C6B8677B4E92E7DDA36339B0713C9DCA8053FA7A7F55E8804",
+    "bytes": 7295145,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Uniforme_MetallicSmoothness_URP.png"
+  },
+  {
+    "sha256": "705626E9743A9A469B4D68D9845BC10EF81541785055FD0D869F155B876D7A3D",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Uniforme_MetallicSmoothness_URP.png.meta"
+  },
+  {
+    "sha256": "393BD4E096A9A9979ABFFCB8519CDBAF8933D47CC7723E551E8104E2DE6D9B54",
+    "bytes": 12575199,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Uniforme_Normal.png"
+  },
+  {
+    "sha256": "2E8BF35F25D9E312CD9DF8B9BB1F93F9EE138B1CE6BF5A7BE84D8AE4C9CB2811",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Uniforme_Normal.png.meta"
+  },
+  {
+    "sha256": "187666934BE02C66A023392592D57DB057E4D404CB17930A7BD42186ECAF6B94",
+    "bytes": 6945301,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Uniforme_Roughness.png"
+  },
+  {
+    "sha256": "F355C971D7D682987FE2A76A5EE921F4675424756567333B8096B127247FE49E",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Realista\\Textures\\FEB_Uniforme_Roughness.png.meta"
+  },
+  {
+    "sha256": "5A53213F061BFA97EE0AFD6B40650FFBC089A479C144E63F3C39ACCECA5853C0",
+    "bytes": 4339066,
+    "path": "FEB_Soldier\\Realista\\Textures\\young_lightskinned_male_diffuse_Bronze.png"
+  },
+  {
+    "sha256": "DFAC68385E6067518BB9CA507EA6607576195E6310C886EF4CC05349CF082106",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Realista\\Textures\\young_lightskinned_male_diffuse_Bronze.png.meta"
+  },
+  {
+    "sha256": "E2A84CF2607309AC6BE992CDA001E8B88D2EDD2EC7F1841E914451CB7B231E9C",
+    "bytes": 2568450,
+    "path": "FEB_Soldier\\Textures\\FEB_BaseColor.png"
+  },
+  {
+    "sha256": "BD4A3EC6D51D3581CC027C7CB6334AFE7A9DD8151EEB16465BD031EEF7A73110",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Textures\\FEB_BaseColor.png.meta"
+  },
+  {
+    "sha256": "91DB9FEE8523A79D747C3F3D72AE8FCC6B3E46596B3DD845E7FB42F7E0FEE1E0",
+    "bytes": 7473,
+    "path": "FEB_Soldier\\Textures\\FEB_Metallic.png"
+  },
+  {
+    "sha256": "18DAB8F2D4E6A0AD5366EE330AE75D40A54BE45CFE27E92B4968456E0F77A236",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Textures\\FEB_Metallic.png.meta"
+  },
+  {
+    "sha256": "8BF4C8D2D1D13D3920D70F990231665666927F5F96D01E2E8DA82F910DA956E3",
+    "bytes": 3874875,
+    "path": "FEB_Soldier\\Textures\\FEB_MetallicSmoothness_URP.png"
+  },
+  {
+    "sha256": "C134B9FE6E84AE70B73FAE8B5A33F04FA5A1C295149ED4DD3215540B67108A88",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Textures\\FEB_MetallicSmoothness_URP.png.meta"
+  },
+  {
+    "sha256": "3A8AA0F84D29F773E70D5E4A0EC660A22A6815EEAC2F3659B4422FEA4B5C7C65",
+    "bytes": 8463268,
+    "path": "FEB_Soldier\\Textures\\FEB_Normal.png"
+  },
+  {
+    "sha256": "796DBC53BA47D8920E25E9379B0877B6CC356A312CC1194B13C07E5304E537E6",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Textures\\FEB_Normal.png.meta"
+  },
+  {
+    "sha256": "470F563973B03489B9D5180185D887E78ECA2C79EE3DA1C5F8749A91C6D1086B",
+    "bytes": 310210,
+    "path": "FEB_Soldier\\Textures\\FEB_Patch.png"
+  },
+  {
+    "sha256": "68FC3F38423F76C72CADC60C716A26261DC7C30D4B029363E273FFB4F8016FEF",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Textures\\FEB_Patch.png.meta"
+  },
+  {
+    "sha256": "E096B297197C2AB839CAEBAE258C256CA72094679C1873D79C0A28E0695C462B",
+    "bytes": 2788021,
+    "path": "FEB_Soldier\\Textures\\FEB_Roughness.png"
+  },
+  {
+    "sha256": "514C5FA75AA926D49DB0366381916185D57645D48A5F39D952B21C0E709AC320",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Textures\\FEB_Roughness.png.meta"
+  },
+  {
+    "sha256": "0F2BF876F45C83B9240B2947B04C84FDEAD9CFE335B572258B6979F18BF7348F",
+    "bytes": 2787995,
+    "path": "FEB_Soldier\\Textures\\FEB_Smoothness.png"
+  },
+  {
+    "sha256": "2FDBE58E7C7C3D276E545DDC021575402DE3BBD09F4AB02AE5714663D7CCE9F9",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Textures\\FEB_Smoothness.png.meta"
+  },
+  {
+    "sha256": "F0270096BE66371B085C8AFCE31171406FF06B059E0910A911C225FAA0AD2861",
+    "bytes": 262651,
+    "path": "FEB_Soldier\\Textures\\FifthArmy_Patch.png"
+  },
+  {
+    "sha256": "34B2F63BE063FE190A0D54899EE4F6BBE7A1513EE2E343FAF93F7E4F820DBE3E",
+    "bytes": 3018,
+    "path": "FEB_Soldier\\Textures\\FifthArmy_Patch.png.meta"
+  },
+  {
+    "sha256": "104C592BC6E372AF4264DF3A74269DEF71CDA26AFE611BC988FB5CE706CE0F67",
+    "bytes": 5442,
+    "path": "FEB_Soldiers\\GUIA_TEXTURAS_PELE.txt"
+  },
+  {
+    "sha256": "12F4CF285D52C4568BAA1D51B6990C551CD4FB8273ED02CA23A9DB601855C4C3",
+    "bytes": 158,
+    "path": "FEB_Soldiers\\GUIA_TEXTURAS_PELE.txt.meta"
+  },
+  {
+    "sha256": "6D9A39D759B5DC1129B1E8C42F4219A5A02EF1A4C6189742E840142E38B1FA64",
+    "bytes": 8061,
+    "path": "FEB_Soldiers\\LEIA-ME.txt"
+  },
+  {
+    "sha256": "7A4FF288D50822099529F1216249B33FA1171A35E0E8EB1A172829BC2A904D21",
+    "bytes": 158,
+    "path": "FEB_Soldiers\\LEIA-ME.txt.meta"
+  },
+  {
+    "sha256": "5D227CFE9B2390470D1C018B51059E7F9FFEC6FBD1B2C3E76AE311B3B63035C9",
+    "bytes": 172,
+    "path": "FEB_Soldiers\\Models.meta"
+  },
+  {
+    "sha256": "3C6237D7524009C28D0FEBAC819C9B5CB86856029A893EFFCC95701C80C16268",
+    "bytes": 172,
+    "path": "FEB_Soldiers\\Textures.meta"
+  },
+  {
+    "sha256": "8FAC22DFDF955E90FD953B4687D3B922CD1E4443292BE184DEC31A451EE8F836",
+    "bytes": 447596,
+    "path": "FEB_Soldiers\\Models\\FEB_Soldado_01.fbx"
+  },
+  {
+    "sha256": "DA8A89BA2ED8B07A9CF49E9C6A59793FC1B00ADA67A8435BA57E6EDFE622E46B",
+    "bytes": 2861,
+    "path": "FEB_Soldiers\\Models\\FEB_Soldado_01.fbx.meta"
+  },
+  {
+    "sha256": "1C72326222C8C4321176C66DAAD01AB84A212BC48A87FA15667D46A88C3A5ED9",
+    "bytes": 424812,
+    "path": "FEB_Soldiers\\Models\\FEB_Soldado_02.fbx"
+  },
+  {
+    "sha256": "A9F8C30ED3748D698D2DFA0D8DE29DE3EDA3B456124FD55025968B627F10B15B",
+    "bytes": 2861,
+    "path": "FEB_Soldiers\\Models\\FEB_Soldado_02.fbx.meta"
+  },
+  {
+    "sha256": "7E62020639137FAD13C411A63C3DF6BE800DC4DE80817F8C20345077477BA6BB",
+    "bytes": 379692,
+    "path": "FEB_Soldiers\\Models\\FEB_Soldado_03.fbx"
+  },
+  {
+    "sha256": "D2898993E7AA1EDCD6CF8E997DA2DB3D4F9BD5C4D488BF42D62EC8D765815A60",
+    "bytes": 2861,
+    "path": "FEB_Soldiers\\Models\\FEB_Soldado_03.fbx.meta"
+  },
+  {
+    "sha256": "8F63853F44248A44CF6F02570537ADB279B6D68AC70BC798032EE20AAB446C93",
+    "bytes": 389372,
+    "path": "FEB_Soldiers\\Models\\FEB_Soldado_04.fbx"
+  },
+  {
+    "sha256": "5DCDB7E80117AA650922E2AEC14794466D3C495905B2F6EA7334C935B9F15FC6",
+    "bytes": 2861,
+    "path": "FEB_Soldiers\\Models\\FEB_Soldado_04.fbx.meta"
+  },
+  {
+    "sha256": "87F68A180EA8185F8C1E2154D8592B01618E940CA6E288F1FB50CD425E21E828",
+    "bytes": 395116,
+    "path": "FEB_Soldiers\\Models\\FEB_Soldado_05.fbx"
+  },
+  {
+    "sha256": "061276E6EF6EFA5AA87CB11CDD37785C7C89F55DD089C2ED5799636BB59CDA42",
+    "bytes": 2861,
+    "path": "FEB_Soldiers\\Models\\FEB_Soldado_05.fbx.meta"
+  },
+  {
+    "sha256": "6E0CC4AF63C897B9AFD1E3467D1B38C09A0E5FF8FB528618A97CDB617DFBC42B",
+    "bytes": 404604,
+    "path": "FEB_Soldiers\\Models\\FEB_Soldado_06.fbx"
+  },
+  {
+    "sha256": "E911412527D43EB0E663DAB3F1F1049DB18550768B9AC105019564863FC666A0",
+    "bytes": 2861,
+    "path": "FEB_Soldiers\\Models\\FEB_Soldado_06.fbx.meta"
+  },
+  {
+    "sha256": "F7FCF567963D1E1C8BB9B6C83CDEB8AA4BAA864EA7116E221AB2ED88ABACBAC8",
+    "bytes": 2328108,
+    "path": "FEB_Soldiers\\Models\\FEB_Soldiers_6_Soldados.fbx"
+  },
+  {
+    "sha256": "DC3ED14DDBAB9C34397094553438332790A37179757E6E74BF04FD8954769661",
+    "bytes": 2861,
+    "path": "FEB_Soldiers\\Models\\FEB_Soldiers_6_Soldados.fbx.meta"
+  },
+  {
+    "sha256": "7B7F15FF9E5A6D18CD733DA4F3CE0C11706CFE06382EFFD7AA44F38483405764",
+    "bytes": 1537638,
+    "path": "FEB_Soldiers\\Textures\\braebury_color_0_4X.png"
+  },
+  {
+    "sha256": "EAD53EC01296D09512C58E8B51B02BD02ECD244F3CEFECADBF005CA7CDB0E229",
+    "bytes": 3018,
+    "path": "FEB_Soldiers\\Textures\\braebury_color_0_4X.png.meta"
+  },
+  {
+    "sha256": "65FE11F75742EC79052B105BEE30055BBD47A4E959EFD2199B9031888459E93D",
+    "bytes": 5333176,
+    "path": "FEB_Soldiers\\Textures\\david_head_col_0_4X.png"
+  },
+  {
+    "sha256": "D69ED8BB9410E92498D3E807D75646D4C2D80F15261E6B2B801EAC796E1E6E2D",
+    "bytes": 3018,
+    "path": "FEB_Soldiers\\Textures\\david_head_col_0_4X.png.meta"
+  },
+  {
+    "sha256": "09DE5466AC0B55844166CBF7F853FB859DB5FB053433B213A1BB9E6BE3B7CCF7",
+    "bytes": 13509860,
+    "path": "FEB_Soldiers\\Textures\\FEB_Cores_PDF_4K.png"
+  },
+  {
+    "sha256": "DAB22CF601B00E2B2B0FB64705C69995FF87E67EB463A185BB73E1860416CCEC",
+    "bytes": 3018,
+    "path": "FEB_Soldiers\\Textures\\FEB_Cores_PDF_4K.png.meta"
+  },
+  {
+    "sha256": "470F563973B03489B9D5180185D887E78ECA2C79EE3DA1C5F8749A91C6D1086B",
+    "bytes": 310210,
+    "path": "FEB_Soldiers\\Textures\\FEB_Patch.png"
+  },
+  {
+    "sha256": "476CF1801431ADC6E6D13E9F48F715784FE81E5A4D845041CEE0AB4A46F4DA8C",
+    "bytes": 3018,
+    "path": "FEB_Soldiers\\Textures\\FEB_Patch.png.meta"
+  },
+  {
+    "sha256": "1B1F5DA76123D65E85113C2385EEA6C4B9302690B852B3F6FD1EC2B3F38B82E4",
+    "bytes": 12439606,
+    "path": "FEB_Soldiers\\Textures\\FEB_Soldiers_Uniforme_4K.png"
+  },
+  {
+    "sha256": "E6FFE5147A4E260772C7FEC676A17DBFF37035339F5D2F50309D58C129226ACD",
+    "bytes": 3018,
+    "path": "FEB_Soldiers\\Textures\\FEB_Soldiers_Uniforme_4K.png.meta"
+  },
+  {
+    "sha256": "F0270096BE66371B085C8AFCE31171406FF06B059E0910A911C225FAA0AD2861",
+    "bytes": 262651,
+    "path": "FEB_Soldiers\\Textures\\FifthArmy_Patch.png"
+  },
+  {
+    "sha256": "A5ED4F3FD70C035870C65527D144D522C77CD58D64E1CD47A54DA40EC36C629E",
+    "bytes": 3018,
+    "path": "FEB_Soldiers\\Textures\\FifthArmy_Patch.png.meta"
+  },
+  {
+    "sha256": "55AB4615F7B9766C5836A484DACCCD7580575A6FF46406DC01FB575C8C4F3DB7",
+    "bytes": 5281674,
+    "path": "FEB_Soldiers\\Textures\\mo_head_col_0_4X.png"
+  },
+  {
+    "sha256": "2E4CD4610A2734D06335F31772881CEF447ABC6A85050A31FEA8905CE2B41665",
+    "bytes": 3018,
+    "path": "FEB_Soldiers\\Textures\\mo_head_col_0_4X.png.meta"
+  },
+  {
+    "sha256": "7A2D70EE229A95536C35FE8031EB766A8BF0A2818D038D8518F7DDB0993EA5BD",
+    "bytes": 172,
+    "path": "FEB_Soldiers\\Textures\\Pele.meta"
+  },
+  {
+    "sha256": "8CBCC2FCF420CD536E28A7E18A0E6F238228F681C5C7E691517DF28047DE837E",
+    "bytes": 5561966,
+    "path": "FEB_Soldiers\\Textures\\Radio_Col_4X.png"
+  },
+  {
+    "sha256": "B6D03164D1EF08DDFF39A32532F864E30801DCFA145AD1BA7033F7827ABB44BB",
+    "bytes": 3018,
+    "path": "FEB_Soldiers\\Textures\\Radio_Col_4X.png.meta"
+  },
+  {
+    "sha256": "BE058E8CE53CECC2FE65C0A69F8494BCC4640EE78E59144A299080C974FFA441",
+    "bytes": 5240737,
+    "path": "FEB_Soldiers\\Textures\\randall_head_col_0_4X.png"
+  },
+  {
+    "sha256": "E094A51B15B5AAD3428D4238F31762A31AD102F76B30DEF62972CF3ED27625EA",
+    "bytes": 3018,
+    "path": "FEB_Soldiers\\Textures\\randall_head_col_0_4X.png.meta"
+  },
+  {
+    "sha256": "5ABDB70E0BE63DBE45B1791948095A573017E09982B0E4DD52416B0356B5A128",
+    "bytes": 1277374,
+    "path": "FEB_Soldiers\\Textures\\ranger_markings_0_4X.png"
+  },
+  {
+    "sha256": "70D5CC1ED2A3CF8BF4AB435521CD08B1372916A300BE10A81937825014CAD8B2",
+    "bytes": 3018,
+    "path": "FEB_Soldiers\\Textures\\ranger_markings_0_4X.png.meta"
+  },
+  {
+    "sha256": "5E467503CCC202A42CA2165C4E8F6BB767CFC25BF39467B88EF8825F8E09A09F",
+    "bytes": 5345783,
+    "path": "FEB_Soldiers\\Textures\\wolf_head_col_4X.png"
+  },
+  {
+    "sha256": "B9CB5D7BF8B3518C2F461D56836B11A98F3E4DA02EFEB74BEA1E14C43CF476E2",
+    "bytes": 3018,
+    "path": "FEB_Soldiers\\Textures\\wolf_head_col_4X.png.meta"
+  },
+  {
+    "sha256": "F79E9E2A0D3DDA9FB4094C0076EBB96F8554A4C4CB1FCCE2CA28A05E2408FC7F",
+    "bytes": 800962,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_01_Pele_Maos.png"
+  },
+  {
+    "sha256": "F22F9061458AF4FFDC62EB90F8B397B9CBD443CF5557C9FCB30D2F7E09D581A1",
+    "bytes": 3018,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_01_Pele_Maos.png.meta"
+  },
+  {
+    "sha256": "6CBC3260A14FACADED4D720EDCAC363A129165ABF8D4BE461C84FACE825BF212",
+    "bytes": 1668602,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_01_Pele_Rosto.png"
+  },
+  {
+    "sha256": "95F13BF1AD17FF8F57B8328359F04C96E8C70872B177150EEA64C0AEDD2948EA",
+    "bytes": 3018,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_01_Pele_Rosto.png.meta"
+  },
+  {
+    "sha256": "CC89CA4E02AF48A521BD69E0E5BB1A1E126BBD03BCAAA2E108919366A8C5ABBF",
+    "bytes": 590010,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_02_Pele_Maos.png"
+  },
+  {
+    "sha256": "88557D12925D50AD2BA3C9DB89051F0D7B0B7E683E4FD4828F12F269C72148A2",
+    "bytes": 3018,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_02_Pele_Maos.png.meta"
+  },
+  {
+    "sha256": "33A85C76D6AEDCEC9958D7C48E5ABE478207500CE4B9FAD12F28E2DF2B06A5CE",
+    "bytes": 5049763,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_02_Pele_Rosto.png"
+  },
+  {
+    "sha256": "D8C37309F4B929CD96D7DE9894EC0DFBC78ED606D8FD91B548C2B2475780AC35",
+    "bytes": 3018,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_02_Pele_Rosto.png.meta"
+  },
+  {
+    "sha256": "F3C97F2507419E20FA9960F6F2049352A861F9476CD78E1A00B5C971F3C4AB0C",
+    "bytes": 715262,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_03_Pele_Maos.png"
+  },
+  {
+    "sha256": "1A142606538DE5827DA1C7BFE1C3B2548DAB90B3EA33E0D642B56DB2A069093C",
+    "bytes": 3018,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_03_Pele_Maos.png.meta"
+  },
+  {
+    "sha256": "CE8DD0DD460E5106572FB859154B97B28CA699D172C71DCE1954A75B9444FD36",
+    "bytes": 5674570,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_03_Pele_Rosto.png"
+  },
+  {
+    "sha256": "FA21B8A8DC9869796AEF4B9C39D6A6126F67A9D9337BF265500A50B40768D120",
+    "bytes": 3018,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_03_Pele_Rosto.png.meta"
+  },
+  {
+    "sha256": "5B5F835F94C08175C74CCA5E945DB980230E384CE4EEBF664F6283AF1EE0CA94",
+    "bytes": 786399,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_04_Pele_Maos.png"
+  },
+  {
+    "sha256": "E8920CB37E99021D279FDFC4C0C8F4A29E526207D1CB44E5ACD80E4BCE351A67",
+    "bytes": 3018,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_04_Pele_Maos.png.meta"
+  },
+  {
+    "sha256": "A9BC1491C1AA66A5F9A734CEE94DF689C8EBD10D180A64FBEEED31EB0C23CE27",
+    "bytes": 6164030,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_04_Pele_Rosto.png"
+  },
+  {
+    "sha256": "09E995A05D95AB3F73DBC1005541F04470F20F5256207CB5BDDDBFE76302AF97",
+    "bytes": 3018,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_04_Pele_Rosto.png.meta"
+  },
+  {
+    "sha256": "2EEFAC36BAC6EADF968E41742A1F9450D9515EAEC827AA95A26E4398419411B1",
+    "bytes": 660406,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_05_Pele_Maos.png"
+  },
+  {
+    "sha256": "929444968D1D727859824351159C8FF69998AD69D4E85E9A5894C4713F33C16A",
+    "bytes": 3018,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_05_Pele_Maos.png.meta"
+  },
+  {
+    "sha256": "EC48494313E8143923B1886A7326C9AEC8721E5D0DC9CD5B67345F5DE877DE13",
+    "bytes": 5346330,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_05_Pele_Rosto.png"
+  },
+  {
+    "sha256": "0C3168E75FEEAC0940BEA8B6A7E56362D1894AF094E12BA4CBFF61365C594B25",
+    "bytes": 3018,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_05_Pele_Rosto.png.meta"
+  },
+  {
+    "sha256": "3CCDF1723BE2EC6639338EC5FA26F71462470B7B8050B832D1B57D3F8A81F611",
+    "bytes": 548979,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_06_Pele_Maos.png"
+  },
+  {
+    "sha256": "950C71321854E5F87C873E216AB55FD1E7304D0EEB32ABFBD2B614BE6A36776D",
+    "bytes": 3018,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_06_Pele_Maos.png.meta"
+  },
+  {
+    "sha256": "599611AAF58A086563630FA91524F1511BD91787240749D04FC3B5939B3BE18F",
+    "bytes": 4638748,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_06_Pele_Rosto.png"
+  },
+  {
+    "sha256": "6FA43AC884303AB9F27B61FBF9209DB0F339FF6714B35F552EED8C4140CAB318",
+    "bytes": 3018,
+    "path": "FEB_Soldiers\\Textures\\Pele\\FEB_06_Pele_Rosto.png.meta"
+  }
+]

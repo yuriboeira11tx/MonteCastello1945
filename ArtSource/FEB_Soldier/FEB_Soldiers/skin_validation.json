@@ -1,0 +1,83 @@
+{
+  "objects_unchanged": 50,
+  "original_textures_unchanged": 11,
+  "variants": [
+    {
+      "id": 1,
+      "protected_head_pixels_unchanged": true,
+      "skin_pixels": 503022,
+      "hand_pixels": 256462
+    },
+    {
+      "id": 2,
+      "protected_head_pixels_unchanged": true,
+      "skin_pixels": 2263032,
+      "hand_pixels": 256462
+    },
+    {
+      "id": 3,
+      "protected_head_pixels_unchanged": true,
+      "skin_pixels": 2257145,
+      "hand_pixels": 256462
+    },
+    {
+      "id": 4,
+      "protected_head_pixels_unchanged": true,
+      "skin_pixels": 2257145,
+      "hand_pixels": 256462
+    },
+    {
+      "id": 5,
+      "protected_head_pixels_unchanged": true,
+      "skin_pixels": 2361293,
+      "hand_pixels": 256462
+    },
+    {
+      "id": 6,
+      "protected_head_pixels_unchanged": true,
+      "skin_pixels": 2566242,
+      "hand_pixels": 256462
+    }
+  ],
+  "fbx_roundtrip": [
+    {
+      "id": 1,
+      "triangles": 10634,
+      "skin_textures_resolved": true,
+      "uniform_and_badge_textures_resolved": true
+    },
+    {
+      "id": 2,
+      "triangles": 10385,
+      "skin_textures_resolved": true,
+      "uniform_and_badge_textures_resolved": true
+    },
+    {
+      "id": 3,
+      "triangles": 9290,
+      "skin_textures_resolved": true,
+      "uniform_and_badge_textures_resolved": true
+    },
+    {
+      "id": 4,
+      "triangles": 9439,
+      "skin_textures_resolved": true,
+      "uniform_and_badge_textures_resolved": true
+    },
+    {
+      "id": 5,
+      "triangles": 9559,
+      "skin_textures_resolved": true,
+      "uniform_and_badge_textures_resolved": true
+    },
+    {
+      "id": 6,
+      "triangles": 9831,
+      "skin_textures_resolved": true,
+      "uniform_and_badge_textures_resolved": true
+    }
+  ],
+  "triangles_total": 59138,
+  "geometry_uv_transforms_identical": 50,
+  "unrelated_material_assignments_unchanged": true
+}

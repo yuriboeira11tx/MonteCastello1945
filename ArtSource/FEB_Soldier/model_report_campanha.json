@@ -1,0 +1,31 @@
+{
+  "vertices": 103559,
+  "triangles": 188188,
+  "bones": 22,
+  "mesh_objects": 17,
+  "materials": 17,
+  "meshes": {
+    "FEB_Jaqueta de campanha FEB": 44130,
+    "FEB_Ferragens escurecidas": 9332,
+    "FEB_Borracha": 3384,
+    "FEB_Couro dos coturnos": 9012,
+    "FEB_Pelos": 4416,
+    "FEB_Lona caqui.001": 7212,
+    "FEB_Linha de costura": 15312,
+    "FEB_Pintura fosca M1": 4888,
+    "FEB_Latao": 188,
+    "FEB_Aluminio": 932,
+    "FEB_Pele facial | poros e barba": 35552,
+    "FEB_Olhos castanhos": 2752,
+    "FEB_Forro": 156,
+    "FEB_Calca oliva": 22698,
+    "FEB_Pele anatomica maos": 25920,
+    "FEB_Distintivo_FEB_esquerdo": 1152,
+    "FEB_Distintivo_5Exercito_direito": 1152
+  },
+  "emblemas_sha256": {
+    "FEB_Patch.png": "470f563973b03489b9d5180185d887e78eca2c79ee3da1c5f8749a91c6d1086b",
+    "FifthArmy_Patch.png": "f0270096be66371b085c8afce31171406ff06b059e0910a911c225faa0ad2861"
+  },
+  "references": "User supplied FEB photos and humanoid reference; original PDF emblem images retained."
+}

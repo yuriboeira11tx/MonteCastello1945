@@ -1,0 +1,16 @@
+{
+  "triangles": 8610,
+  "meshes": 3,
+  "bones": 53,
+  "texture_resolution": 2048,
+  "fbx": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldier\\BaseGLB\\Models\\FEB_Soldado_BaseGLB.fbx",
+  "glb": "E:\\Unity\\MonteCastello1945\\ArtSource\\FEB_Soldier\\BaseGLB\\FEB_Soldado_BaseGLB.glb",
+  "blend": "E:\\Unity\\MonteCastello1945\\ArtSource\\FEB_Soldier\\BaseGLB\\FEB_Soldado_BaseGLB.blend",
+  "source_glb_sha256": "4e0940b3c83db31691a44543670ff1de6d0274f7db358c5dbe208b408d9f3177",
+  "source_attribution": {
+    "title": "Call Of Duty 1 Soldier rig",
+    "author": "_NETHER_FIRE_",
+    "license_declared_in_source": "CC-BY-4.0",
+    "url": "https://sketchfab.com/3d-models/call-of-duty-1-soldier-rig-2943f5966daf4f0a8f3d7a3eb45050ea"
+  }
+}

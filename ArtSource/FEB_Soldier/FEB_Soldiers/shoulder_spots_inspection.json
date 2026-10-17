@@ -1,0 +1,134 @@
+[
+  {
+    "object": "FEB_01_Corpo_uniforme",
+    "polygons": [
+      2709,
+      3015,
+      3023,
+      3024
+    ],
+    "bounds": [
+      [
+        -0.20902,
+        -0.00938,
+        1.43097
+      ],
+      [
+        -0.18159,
+        0.02949,
+        1.45213
+      ]
+    ],
+    "material": "FEB_Soldiers_Cores_PDF",
+    "image": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_Cores_PDF_4K.png",
+    "rgba_median": [
+      0.03529411926865578,
+      0.03921568766236305,
+      0.03529411926865578,
+      1.0
+    ],
+    "alpha_default": 1.0,
+    "alpha_links": [],
+    "unchanged_since_before_skin": true,
+    "all_same_material_before_skin": true
+  },
+  {
+    "object": "FEB_02_M41_parte_superior",
+    "polygons": [
+      1718,
+      1719,
+      2065,
+      2066
+    ],
+    "bounds": [
+      [
+        -0.1844,
+        0.01106,
+        1.42341
+      ],
+      [
+        -0.15899,
+        0.04941,
+        1.44369
+      ]
+    ],
+    "material": "FEB_Soldiers_Cores_PDF",
+    "image": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_Cores_PDF_4K.png",
+    "rgba_median": [
+      0.03529411926865578,
+      0.03921568766236305,
+      0.03529411926865578,
+      1.0
+    ],
+    "alpha_default": 1.0,
+    "alpha_links": [],
+    "unchanged_since_before_skin": true,
+    "all_same_material_before_skin": true
+  },
+  {
+    "object": "FEB_05_M41_parte_superior",
+    "polygons": [
+      1682,
+      1742,
+      1743,
+      1744
+    ],
+    "bounds": [
+      [
+        -0.20079,
+        0.02745,
+        1.42577
+      ],
+      [
+        -0.17571,
+        0.06596,
+        1.44588
+      ]
+    ],
+    "material": "FEB_Soldiers_Cores_PDF",
+    "image": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_Cores_PDF_4K.png",
+    "rgba_median": [
+      0.03529411926865578,
+      0.03921568766236305,
+      0.03529411926865578,
+      1.0
+    ],
+    "alpha_default": 1.0,
+    "alpha_links": [],
+    "unchanged_since_before_skin": true,
+    "all_same_material_before_skin": true
+  },
+  {
+    "object": "FEB_06_Corpo_uniforme",
+    "polygons": [
+      2987,
+      3047,
+      3048,
+      3049
+    ],
+    "bounds": [
+      [
+        -0.18812,
+        -0.03124,
+        1.42421
+      ],
+      [
+        -0.16304,
+        0.00727,
+        1.44432
+      ]
+    ],
+    "material": "FEB_Soldiers_Cores_PDF",
+    "image": "E:\\Unity\\MonteCastello1945\\Assets\\Art\\Characters\\FEB_Soldiers\\Textures\\FEB_Cores_PDF_4K.png",
+    "rgba_median": [
+      0.03529411926865578,
+      0.03921568766236305,
+      0.03529411926865578,
+      1.0
+    ],
+    "alpha_default": 1.0,
+    "alpha_links": [],
+    "unchanged_since_before_skin": true,
+    "all_same_material_before_skin": true
+  }
+]

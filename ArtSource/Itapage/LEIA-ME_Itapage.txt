@@ -1,0 +1,86 @@
+ITAPAGE - RECONSTRUCAO EXTERIOR PARA BLENDER
+
+Criado em 17/10/2026 usando a ponte MCP local do Blender.
+Arquivo principal: Itapage.blend
+Unidades: metros. Comprimento do casco: 119,70 m. Boca modelada: 15,88 m.
+Proa: eixo +X. Linha d'agua: Z=0. Casco completo abaixo da linha d'agua.
+
+Organizacao: colecoes 01 a 07 = navio; 08 = cameras e luzes;
+09 Mar = agua, esteira e fumaca estatica de apresentacao, independentes do navio.
+Para ver as obras vivas, desligue a colecao 09 Mar.
+Materiais: nos procedurais editaveis, com pintura naval, teca, metal, vidro,
+bronze, lona e cordas. A imagem da bandeira historica esta empacotada no .blend.
+Malhas com UV_Metros para edicao posterior. Mapas de cor e normal foram
+exportados para o Unity em Assets/Art/Ships/Itapage/Textures.
+
+O modelo foi construido como reconstrucao visual com base no postal fornecido
+e em referencias historicas. Nao e uma replica certificada por plantas de estaleiro.
+As fontes publicam comprimentos diferentes (cerca de 113 m e 119,7 m).
+Adotou-se 119,7 m para o comprimento total desta reconstrucao.
+Arranjo superior, interiores aparentes, botes, ferragens, emblema, bandeira
+e obras vivas possuem aproximacoes onde nao havia detalhes suficientes.
+Emblema da chamine interpretado do postal; estrela em objeto separado.
+Nao foram modelados interiores completos, sistema de vapor ou salas de maquinas.
+Fumaca e mar servem somente a visualizacao, sem simulacao nem animacao.
+
+REFERENCIAS CONSULTADAS
+1. Imagem fornecida pelo usuario, correspondente ao postal colorizado:
+   Celio Maielo, Vapor Itapage (2007), Wikimedia Commons.
+   https://commons.wikimedia.org/wiki/File:Vapor_Itapage.jpg
+   A pagina identifica a imagem como interpretacao artistica de um postal.
+2. Uboat.net - Itapage, construido em 1927, Chantier de Normandie, Rouen.
+   https://uboat.net/allies/merchants/ships/3087.html
+   Fotografia historica creditada a State Library of New South Wales.
+3. Mauricio Carvalho, Naufragios do Brasil - Itapage.
+   https://www.naufragiosdobrasil.com.br/naufragio/itapage/
+   Medidas, casco de aco, dois eixos, guincho de proa, turcos e maquinas.
+4. Biblioteca Nacional, reportagem de 1943: comprimento 112,77 m,
+   boca 15,85 m, duas helices e dois motores.
+   https://hemeroteca-pdf.bn.gov.br/093092/per093092_1943_04693.pdf
+
+O navio de 1927 e descrito como mercante a motor diesel nas fontes;
+o levantamento de naufragio tambem registra equipamentos a vapor.
+Foi preservado o aspecto externo com chamine solicitado pelo usuario.
+
+ENTREGA UNITY URP - 17/10/2026
+
+Prefab: Assets/Art/Ships/Itapage/Prefabs/Itapage.prefab
+Cena: Assets/Scenes/CutsceneInicial.unity
+Materiais: Assets/Art/Ships/Itapage/Materials (18 materiais URP/Lit).
+Texturas: Assets/Art/Ships/Itapage/Textures (Base Color e Normal).
+Modelos: Assets/Art/Ships/Itapage/Models (FBX em metros, Y para cima).
+Animacao: Assets/Art/Ships/Itapage/Animations/Brasil_Vento_Loop.anim
+Controlador: Assets/Art/Ships/Itapage/Animations/Brasil_Bandeira.controller
+
+A bandeira se move automaticamente ao entrar em Play Mode. Ciclo de 8 s,
+30 FPS, 16 blend shapes, sem simulacao de Cloth e sem script de animacao.
+Para ve-la no Blender, abra Itapage.blend, cena ITAPAGE | Reconstrucao 1927,
+selecione Brasil_Bandeira_Animada em 07 Identificacao e reproduza a Timeline.
+
+O prefab possui tres LODs e tres Box Colliders simplificados para o casco.
+LOD0 ~837 mil triangulos, LOD1 ~401 mil, LOD2 ~150 mil: modelo detalhado para
+um navio principal de cutscene em PC. Para grandes frotas ou mobile, reduzir
+mais a geometria conforme o orcamento de desempenho do jogo.
+As colisoes do casco nao substituem colisoes de conveses para andar no navio.
+
+A linha d'agua do prefab e Y=0. Na cena, o navio foi colocado na altura da
+agua existente (Y=3,82), com escala 1 e proa no eixo +X.
+WaterBlock_50m foi ampliado para uma area de aproximadamente 4 km.
+O material da agua foi copiado para Mar_CutsceneInicial, preservando o shader.
+Ceu: Skybox/Panoramic com HDRI 4K de nuvens, luz solar, reflexo de ambiente,
+nevoa leve e Volume com tonemapping ACES. As nuvens do HDRI sao estaticas.
+Costa_Distante: Terrain nativo, 3000 x 1500 m, quatro camadas editaveis,
+praia e colinas a aproximadamente 800-1000 m do navio.
+Ambiente: Assets/Art/Environment/CutsceneInicial.
+O alcance de sombras do PC_RPAsset foi ampliado de 50 para 350 m para cobrir
+o navio visto pela camera. Esse ajuste pertence ao perfil URP compartilhado.
+
+Nao ha Timeline nem percurso de camera/navio: a cena esta preparada para
+a futura cutscene. A animacao pronta e a da bandeira, alem da agua do shader.
+O Blender editavel continua em ArtSource; Unity usa FBX, PNG e assets nativos.
+UnityDelivery/Itapage_Unity.blend guarda a cena separada de exportacao.
+Backups da cena e do Blender anteriores a esta entrega estao em Backups.
+Os dois scripts temporarios de configuracao e validacao foram arquivados em
+UnityDelivery/EditorTools, fora de Assets. Nao sao necessarios para usar o prefab.
+Validacao: UnityDelivery/unity_validation.txt; previa geral: CutsceneInicial_Unity.png;
+close da bandeira: Bandeira_Unity.png (ambas as imagens em UnityDelivery).
