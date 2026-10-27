@@ -1,12 +1,15 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Video;
 
 namespace FEB.Cinematics
 {
     [DisallowMultipleComponent]
+    [DefaultExecutionOrder(1000)]
     public sealed class TorpedoCutsceneController : MonoBehaviour
     {
         public PlayableDirector director;
@@ -31,6 +34,14 @@ namespace FEB.Cinematics
         public AudioSource[] audioSources;
         public bool autoPlay = true;
 
+        [Header("Video de arquivo")]
+        public VideoPlayer archiveVideo;
+        public AudioSource archiveAudio;
+        public CanvasGroup archiveGroup;
+        [Range(0, 1)] public float archiveVolume = .7f;
+        public Volume surfaceVolume;
+        public Vector3 shipFocusOffset = new Vector3(0, 5, 0);
+
         [Serializable]
         public struct FireSite
         {
@@ -48,6 +59,13 @@ namespace FEB.Cinematics
         CameraClearFlags savedClearFlags;
         Color savedBackground;
         bool initialized;
+        bool videoReady;
+        bool videoFailed;
+        bool videoSeeking;
+        double lastVideoTime;
+        float lastVideoSeek;
+        Coroutine startingSequence;
+        DepthOfField surfaceFocus;
 
         void Awake()
         {
@@ -58,6 +76,13 @@ namespace FEB.Cinematics
             savedClearFlags = outputCamera.clearFlags;
             savedBackground = outputCamera.backgroundColor;
             initialized = true;
+            if (archiveVideo != null)
+            {
+                archiveVideo.errorReceived += OnVideoError;
+                archiveVideo.seekCompleted += OnVideoSeekCompleted;
+            }
+            if (archiveGroup != null) archiveGroup.alpha = 0;
+            if (surfaceVolume != null) surfaceVolume.profile.TryGet(out surfaceFocus);
         }
 
         void Start()
@@ -91,12 +116,25 @@ namespace FEB.Cinematics
             }
             bool showTorpedo = director.time < 100.12;
             foreach (var renderer in torpedoRenderers) if (renderer != null) renderer.enabled = showTorpedo;
+            if (surfaceFocus != null && ship != null)
+            {
+                Vector3 subject = ship.TransformPoint(shipFocusOffset);
+                subject.y = Mathf.Max(seaLevel + 1f, subject.y);
+                surfaceFocus.focusDistance.value = Mathf.Max(1f,
+                    Vector3.Dot(subject - outputCamera.transform.position, outputCamera.transform.forward));
+            }
+            UpdateArchiveVideo();
         }
 
         [ContextMenu("Reiniciar cutscene (180 segundos)")]
         public void RestartCutscene()
         {
             if (!Application.isPlaying || director == null) return;
+            if (startingSequence != null) StopCoroutine(startingSequence);
+            if (archiveVideo != null) archiveVideo.Stop();
+            videoReady = videoFailed = videoSeeking = false;
+            lastVideoSeek = -10;
+            if (archiveGroup != null) archiveGroup.alpha = 0;
             director.Stop();
             foreach (var ps in controlledParticles)
                 if (ps != null) ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
@@ -107,11 +145,92 @@ namespace FEB.Cinematics
             underwaterBlend = fade = impactFlash = 0;
             director.time = 0;
             director.Evaluate();
+            startingSequence = StartCoroutine(PrepareAndPlay());
+        }
+
+        IEnumerator PrepareAndPlay()
+        {
+            if (archiveVideo != null && archiveVideo.clip != null)
+            {
+                yield return null;
+                archiveVideo.timeReference = VideoTimeReference.Freerun;
+                archiveVideo.timeUpdateMode = VideoTimeUpdateMode.GameTime;
+                archiveVideo.Prepare();
+                float deadline = Time.realtimeSinceStartup + 15f;
+                while (!archiveVideo.isPrepared && !videoFailed && Time.realtimeSinceStartup < deadline)
+                    yield return null;
+
+                if (archiveVideo.isPrepared && !videoFailed)
+                {
+                    if (archiveAudio != null) archiveAudio.volume = 0;
+                    archiveVideo.Play();
+                    deadline = Time.realtimeSinceStartup + 5f;
+                    while (archiveVideo.frame < 0 && !videoFailed && Time.realtimeSinceStartup < deadline)
+                        yield return null;
+                    videoReady = archiveVideo.frame >= 0 && !videoFailed;
+                }
+                if (!videoReady && !videoFailed)
+                    OnVideoError(archiveVideo, "Tempo limite ao preparar o video.");
+            }
+            lastVideoTime = 0;
             director.Play();
+            startingSequence = null;
+        }
+
+        void UpdateArchiveVideo()
+        {
+            if (archiveVideo == null || !videoReady || videoFailed) return;
+            double time = director.time;
+            double lastFrameTime = Math.Max(0, archiveVideo.length - 1.0 / Math.Max(1, archiveVideo.frameRate));
+            double target = Math.Min(Math.Max(0, time), lastFrameTime);
+            // Both clocks use game time. Only explicit Timeline jumps require a decoder seek.
+            double step = time - lastVideoTime;
+            bool jumped = step < -.05 || Math.Abs(step) > Math.Max(.3, Time.unscaledDeltaTime * 2);
+            if (videoSeeking && Time.realtimeSinceStartup - lastVideoSeek > 3) videoSeeking = false;
+            if (jumped && !videoSeeking && archiveVideo.canSetTime &&
+                Time.realtimeSinceStartup - lastVideoSeek > .25f)
+            {
+                archiveVideo.Pause();
+                videoSeeking = true;
+                lastVideoSeek = Time.realtimeSinceStartup;
+                archiveVideo.time = target;
+            }
+            bool playing = director.state == PlayState.Playing && Time.timeScale > 0 && time < lastFrameTime;
+            if (playing && !videoSeeking && !archiveVideo.isPlaying) archiveVideo.Play();
+            else if (!playing && archiveVideo.isPlaying) archiveVideo.Pause();
+            lastVideoTime = time;
+
+            float opacity = Mathf.SmoothStep(0, 1, Mathf.Clamp01((float)time / 1.5f)) * (1 - Mathf.Clamp01(fade));
+            if (archiveGroup != null) archiveGroup.alpha = opacity;
+            if (archiveAudio != null)
+            {
+                float end = Mathf.Clamp01((float)(archiveVideo.length - time) / 1.25f);
+                float start = Mathf.Clamp01((float)time / .5f);
+                archiveAudio.volume = archiveVolume * Mathf.Min(start, end) * (1 - Mathf.Clamp01(fade));
+            }
+        }
+
+        void OnVideoSeekCompleted(VideoPlayer player)
+        {
+            videoSeeking = false;
+        }
+
+        void OnVideoError(VideoPlayer player, string message)
+        {
+            videoFailed = true;
+            videoReady = false;
+            if (archiveGroup != null) archiveGroup.alpha = 0;
+            if (archiveAudio != null) archiveAudio.Stop();
+            player.Stop();
+            Debug.LogWarning("Video de arquivo indisponivel. A cutscene 3D continua. " + message, this);
         }
 
         void OnDisable()
         {
+            if (startingSequence != null) { StopCoroutine(startingSequence); startingSequence = null; }
+            if (archiveVideo != null) archiveVideo.Stop();
+            if (archiveGroup != null) archiveGroup.alpha = 0;
+            videoReady = false;
             if (!initialized) return;
             RenderSettings.fog = savedFog;
             RenderSettings.fogColor = savedFogColor;
@@ -119,6 +238,13 @@ namespace FEB.Cinematics
             RenderSettings.fogMode = savedFogMode;
             if (outputCamera != null) { outputCamera.clearFlags = savedClearFlags; outputCamera.backgroundColor = savedBackground; }
             if (impactLight != null) impactLight.enabled = false;
+        }
+
+        void OnDestroy()
+        {
+            if (archiveVideo == null) return;
+            archiveVideo.errorReceived -= OnVideoError;
+            archiveVideo.seekCompleted -= OnVideoSeekCompleted;
         }
     }
 }
