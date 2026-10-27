@@ -86200,6 +86200,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Itapage
       objectReference: {fileID: 0}
+    - target: {fileID: 2287877759547013112, guid: ab26cd5733a13be48bdba8b78d585353, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 9c4c1d8709d38bd4f8dd8af17bdb2dc2, type: 2}
+    - target: {fileID: 2287877759547013112, guid: ab26cd5733a13be48bdba8b78d585353, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 14cca950d0f05c948982d278d2190a7b, type: 2}
     - target: {fileID: 5030711348864648036, guid: ab26cd5733a13be48bdba8b78d585353, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.704958
@@ -122117,7 +122125,7 @@ Camera:
     height: 1
   near clip plane: 0.08
   far clip plane: 40000
-  field of view: 47
+  field of view: 50
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -122143,8 +122151,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832994709}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.089300334, y: -0.24732895, z: 0.022898639, w: 0.9645359}
-  m_LocalPosition: {x: 95, y: 48, z: -160}
+  m_LocalRotation: {x: -0.010545043, y: 0.47915345, z: 0.005757079, w: 0.87764895}
+  m_LocalPosition: {x: -22.369999, y: -1.1, z: -110.94227}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -127426,8 +127434,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 1
-  m_Color: {r: 1, g: 0.91, b: 0.78, a: 1}
-  m_Intensity: 1.8
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 2.05
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -127470,7 +127478,7 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6200
+  m_ColorTemperature: 4400
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -127489,7 +127497,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1899598951}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.06508466, y: 0.93111, z: -0.20642215, w: 0.29357788}
+  m_LocalRotation: {x: 0.118249305, y: 0.24011865, z: -0.029482864, w: 0.9630633}
   m_LocalPosition: {x: -20.13, y: 12.39, z: 1.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
