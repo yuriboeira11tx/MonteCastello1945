@@ -33,6 +33,9 @@ namespace FEB.Persistence
                 var data = JsonUtility.FromJson<ResearchSave>(File.ReadAllText(path));
                 if (data == null || data.version != 1 || data.slot != slot || string.IsNullOrEmpty(data.id)) return null;
                 data.evidence ??= new System.Collections.Generic.List<string>();
+                data.discoveredEvidence ??= new System.Collections.Generic.List<string>();
+                foreach (var id in data.evidence)
+                    if (!data.discoveredEvidence.Contains(id)) data.discoveredEvidence.Add(id);
                 data.events ??= new System.Collections.Generic.List<ResearchEvent>();
                 return data;
             }

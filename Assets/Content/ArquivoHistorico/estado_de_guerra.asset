@@ -29,3 +29,5 @@ MonoBehaviour:
   sourceUrl: https://legis.senado.gov.br/norma/419110/publicacao/15768380
   chronologyLabel: "Declara\xE7\xE3o do estado de guerra"
   chronologyOrder: 1
+  inspectionPrefab: {fileID: 1751116703574677043, guid: d57e5283f32cd204fb394227a23a9f45, type: 3}
+  inspectionRotation: {x: 6, y: -14, z: -3}

@@ -30,3 +30,5 @@ MonoBehaviour:
   sourceUrl: https://www.marinha.mil.br/com1dn/sites/www.marinha.mil.br.com1dn/files/upload/Introdu%C3%A7%C3%A3o%20%C3%A0%20Hist%C3%B3ria%20Mar%C3%ADtima%20Brasileira.pdf
   chronologyLabel: "Torpedeamento do Itapag\xE9"
   chronologyOrder: 2
+  inspectionPrefab: {fileID: 1349003803854075350, guid: 72def6cec7e65d24a8c722dc6aee2ae6, type: 3}
+  inspectionRotation: {x: 6, y: -14, z: -3}

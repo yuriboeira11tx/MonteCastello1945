@@ -16,5 +16,7 @@ namespace FEB.Archive
         public string sourceUrl;
         public string chronologyLabel;
         public int chronologyOrder;
+        public GameObject inspectionPrefab;
+        public Vector3 inspectionRotation = new Vector3(6, -14, -3);
     }
 }

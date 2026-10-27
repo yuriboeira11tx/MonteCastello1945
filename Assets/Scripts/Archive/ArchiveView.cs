@@ -28,6 +28,10 @@ namespace FEB.Archive
         [SerializeField] TMP_Text objective;
         [SerializeField] TMP_Text progress;
         [SerializeField] CanvasGroup transition;
+        [SerializeField] GameObject hud;
+        [SerializeField] EvidenceInspection inspection;
+        [SerializeField] GameObject inspectionControls;
+        [SerializeField] Button resetInspectionButton;
         public event Action<bool> VisibilityChanged;
         public bool IsOpen => modal.activeSelf;
         int openedFrame;
@@ -39,6 +43,9 @@ namespace FEB.Archive
             closeButton.onClick.AddListener(Close);
             zoomButton.onClick.AddListener(() => zoomPanel.SetActive(true));
             zoomCloseButton.onClick.AddListener(() => zoomPanel.SetActive(false));
+            resetInspectionButton.onClick.AddListener(inspection.ResetView);
+            inspection.Hide();
+            inspectionControls.SetActive(false);
             modal.SetActive(false);
             zoomPanel.SetActive(false);
             if (transition != null) { transition.alpha = 0; transition.blocksRaycasts = false; }
@@ -55,6 +62,9 @@ namespace FEB.Archive
 
         public void Show(string heading, string context, string text, Texture texture = null, string credit = "", string caption = "")
         {
+            inspection.Hide();
+            inspectionControls.SetActive(false);
+            hud.SetActive(false);
             title.text = heading;
             subtitle.text = context;
             body.text = text;
@@ -73,13 +83,26 @@ namespace FEB.Archive
             VisibilityChanged?.Invoke(true);
         }
 
+        public void ShowEvidence(HistoricalEvidence document)
+        {
+            Show(document.title, document.dateLabel, document.description, document.image, document.citation, document.imageCaption);
+            if (inspection.Show(document))
+            {
+                illustration.gameObject.SetActive(false);
+                imagePlaceholder.SetActive(false);
+                inspectionControls.SetActive(true);
+            }
+        }
+
         public void AddChoice(string label, Action action, bool enabled = true)
         {
             if (choiceIndex >= choices.Length) throw new InvalidOperationException("O painel não possui espaço para todas as opções.");
             var button = choices[choiceIndex++];
             button.gameObject.SetActive(true);
             button.interactable = enabled;
-            button.GetComponentInChildren<TMP_Text>().text = label;
+            var labelText = button.GetComponentInChildren<TMP_Text>(true);
+            labelText.gameObject.SetActive(true);
+            labelText.text = label;
             button.onClick.AddListener(() => action());
         }
 
@@ -92,8 +115,11 @@ namespace FEB.Archive
         public void Close()
         {
             if (transitioning) return;
+            inspection.Hide();
+            inspectionControls.SetActive(false);
             zoomPanel.SetActive(false);
             modal.SetActive(false);
+            hud.SetActive(true);
             VisibilityChanged?.Invoke(false);
         }
 

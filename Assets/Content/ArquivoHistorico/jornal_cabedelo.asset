@@ -30,3 +30,5 @@ MonoBehaviour:
   sourceUrl: https://bndigital.bn.gov.br/hemeroteca-digital/
   chronologyLabel: "Not\xEDcia sobre o Cabedelo"
   chronologyOrder: 0
+  inspectionPrefab: {fileID: 5760285545952390909, guid: 105e8216ba7532841a0f0bf1145968d0, type: 3}
+  inspectionRotation: {x: 6, y: -14, z: -3}

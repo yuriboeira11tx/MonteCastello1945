@@ -24,6 +24,9 @@ namespace FEB.Archive
         void Start()
         {
             progress = ResearchSaveStore.EnsureSession();
+            progress.discoveredEvidence ??= new List<string>();
+            foreach (var id in progress.evidence)
+                if (!progress.discoveredEvidence.Contains(id)) progress.discoveredEvidence.Add(id);
             progress.scene = caseDefinition.archiveScene;
             if (progress.hasPlayerPosition)
             {
@@ -69,7 +72,14 @@ namespace FEB.Archive
         {
             if (document == null) return;
             progress.Record("document_opened", document.id);
-            view.Show(document.title, document.dateLabel, document.description, document.image, document.citation, document.imageCaption);
+            if (!progress.discoveredEvidence.Contains(document.id))
+            {
+                progress.discoveredEvidence.Add(document.id);
+                progress.Record("evidence_discovered", document.id);
+                if (!SaveProgress()) return;
+            }
+            RefreshHud();
+            view.ShowEvidence(document);
             bool collected = progress.evidence.Contains(document.id);
             view.AddChoice(collected ? "Evidência registrada — voltar" : "Registrar evidência no caderno", () =>
             {
@@ -83,11 +93,12 @@ namespace FEB.Archive
 
         public void OpenNotebook()
         {
-            view.Show("Caderno de pesquisa", caseDefinition.title, "Releia as evidências registradas e acompanhe as etapas do dossiê.\n\n" + (progress.formationUnlocked ? "Próximo capítulo liberado: Formação e envio da FEB." : "A exposição será construída a partir das suas descobertas."));
+            view.Show("Caderneta de pesquisa", caseDefinition.title, "Reexamine os objetos encontrados e registre as evidências que sustentam a investigação.\n\n" + (progress.formationUnlocked ? "Próximo capítulo liberado: Formação e envio da FEB." : "A exposição será construída a partir das suas descobertas."));
             foreach (var evidence in caseDefinition.evidence)
             {
                 var item = evidence;
-                view.AddChoice((progress.evidence.Contains(item.id) ? "✓ " : "○ ") + item.title, () => OpenEvidence(item), progress.evidence.Contains(item.id));
+                string state = progress.evidence.Contains(item.id) ? "Registrada" : progress.discoveredEvidence.Contains(item.id) ? "Encontrada" : "Não encontrada";
+                view.AddChoice(item.title + " · " + state, () => OpenEvidence(item), progress.discoveredEvidence.Contains(item.id));
             }
             view.AddChoice("Organizar a linha do tempo", OpenChronology);
             view.AddChoice("Examinar a reconstrução", OpenReconstruction);
@@ -189,7 +200,9 @@ namespace FEB.Archive
         void RefreshHud()
         {
             string goal = !progress.briefingRead ? "Examine a pasta de pesquisa sobre a mesa." : progress.evidence.Count < caseDefinition.evidence.Length ? "Examine e registre os três documentos da sala." : !progress.chronologySolved ? "Organize os acontecimentos no painel da linha do tempo." : !HasReconstruction ? "Examine o caso Itapagé na mesa de reconstrução." : !progress.reportCompleted ? "Conclua o relatório no caderno de pesquisa." : "Dossiê concluído. Explore o arquivo ou volte ao menu.";
-            view.SetHud(goal, $"ARQUIVO HISTÓRICO    •    {progress.evidence.Count}/{caseDefinition.evidence.Length} evidências    •    [TAB] Caderno    [ESC] Pausa");
+            int found = caseDefinition.evidence.Count(d => progress.discoveredEvidence.Contains(d.id));
+            int registered = caseDefinition.evidence.Count(d => progress.evidence.Contains(d.id));
+            view.SetHud("OBJETIVO ATUAL\n" + goal, $"Encontradas: {found}/{caseDefinition.evidence.Length}     Registradas: {registered}/{caseDefinition.evidence.Length}");
         }
 
         bool SaveProgress()

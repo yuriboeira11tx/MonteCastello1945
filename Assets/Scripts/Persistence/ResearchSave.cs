@@ -25,6 +25,7 @@ namespace FEB.Persistence
         public int chronologyAttempts;
         public int reportAttempts;
         public List<string> evidence = new List<string>();
+        public List<string> discoveredEvidence = new List<string>();
         public List<ResearchEvent> events = new List<ResearchEvent>();
 
         public string StageLabel => reportCompleted ? "Dossiê concluído" : reconstructionViewed || reconstructionSkipped ? "Relatório pendente" : chronologySolved ? "Reconstrução disponível" : "Investigação no arquivo";
