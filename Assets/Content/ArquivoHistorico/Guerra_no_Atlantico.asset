@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9428a9180c93f7641bf99ce40d560f0c, type: 3}
+  m_Name: Guerra_no_Atlantico
+  m_EditorClassIdentifier: Assembly-CSharp::FEB.Archive.ArchiveCaseDefinition
+  title: A guerra chega ao Brasil
+  mission: "Voc\xEA \xE9 respons\xE1vel por organizar uma exposi\xE7\xE3o sobre a
+    trajet\xF3ria brasileira at\xE9 Monte Castello. Sua primeira tarefa \xE9 investigar
+    como a guerra atingiu o litoral do Brasil.\n\nExamine o jornal, o decreto e o
+    dossi\xEA do Itapag\xE9. Registre as evid\xEAncias, compare as datas e organize
+    os acontecimentos. Depois, examine uma reconstru\xE7\xE3o do naufr\xE1gio.\n\nWASD:
+    caminhar \u2022 Mouse: olhar \u2022 E: examinar \u2022 Tab: caderno"
+  evidence:
+  - {fileID: 11400000, guid: 696af3eac5d96954caa8b486898f654b, type: 2}
+  - {fileID: 11400000, guid: 01a4a62c70493184788c59b4c8791aae, type: 2}
+  - {fileID: 11400000, guid: fd591885d83c7644e8a6d99c9e84723f, type: 2}
+  chronologyIntroduction: "Selecione os tr\xEAs acontecimentos, do mais antigo para
+    o mais recente. As datas est\xE3o nos documentos registrados no seu caderno."
+  chronologyExplanation: "Abril de 1942: o jornal noticia o desaparecimento do Cabedelo.\nAgosto
+    de 1942: \xE9 declarado o estado de guerra.\nSetembro de 1943: ocorre o torpedeamento
+    do Itapag\xE9.\n\nOs ataques e a decis\xE3o pol\xEDtica s\xE3o acontecimentos
+    distintos. O caso Itapag\xE9 demonstra a continuidade da guerra no Atl\xE2ntico."
+  reconstructionIntroduction: "Observe o navio e as consequ\xEAncias do ataque. Relacione
+    o que \xE9 apresentado \xE0s fontes consultadas.\n\nA sequ\xEAncia combina imagens
+    de arquivo sobre o contexto da guerra e uma reconstru\xE7\xE3o art\xEDstica em
+    3D do caso Itapag\xE9."
+  reportQuestion: "Que conclus\xE3o \xE9 sustentada pela cronologia e pelas fontes
+    examinadas?"
+  reportAnswers:
+  - "O Itapag\xE9 foi o acontecimento que levou o Brasil a entrar na guerra em 1942."
+  - "Os ataques \xE0 navega\xE7\xE3o brasileira continuaram depois da entrada do
+    pa\xEDs na guerra."
+  - Os ataques se encerraram assim que o estado de guerra foi declarado.
+  correctReportAnswer: 1
+  reportExplanation: "O decreto \xE9 de 1942 e o ataque ao Itapag\xE9 ocorreu em
+    1943. Logo, os ataques continuaram ap\xF3s a entrada do Brasil na guerra. Ao
+    comparar fontes de naturezas diferentes, voc\xEA construiu uma conclus\xE3o apoiada
+    em evid\xEAncias."
+  archiveScene: ArquivoHistorico
+  reconstructionScene: CutsceneInicial
+  menuScene: Menu

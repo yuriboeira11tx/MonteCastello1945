@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3fbc34bcf34ba4c9e8f05a6ef7b306, type: 3}
+  m_Name: estado_de_guerra
+  m_EditorClassIdentifier: Assembly-CSharp::FEB.Archive.HistoricalEvidence
+  id: estado_de_guerra
+  title: O estado de guerra
+  dateLabel: "31 de agosto de 1942 \u2022 Decreto n\xBA 10.358"
+  description: "O Decreto n\xBA 10.358 declara o estado de guerra em todo o territ\xF3rio
+    nacional. Seu artigo 1\xBA registra formalmente essa decis\xE3o.\n\nCompare a
+    natureza desta fonte oficial com a not\xEDcia do jornal: o decreto documenta
+    uma decis\xE3o do Estado; a imprensa mostra a circula\xE7\xE3o das informa\xE7\xF5es
+    e as rea\xE7\xF5es da sociedade."
+  keyFinding: "Em agosto de 1942, o Brasil j\xE1 havia entrado na guerra. O decreto
+    de 31 de agosto formaliza o estado de guerra no territ\xF3rio nacional."
+  image: {fileID: 0}
+  imageCaption: "Transcri\xE7\xE3o e contextualiza\xE7\xE3o de uma fonte oficial."
+  citation: "Decreto n\xBA 10.358, de 31 ago. 1942, art. 1\xBA. Legisla\xE7\xE3o
+    Federal, Senado Federal."
+  sourceUrl: https://legis.senado.gov.br/norma/419110/publicacao/15768380
+  chronologyLabel: "Declara\xE7\xE3o do estado de guerra"
+  chronologyOrder: 1

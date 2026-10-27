@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3fbc34bcf34ba4c9e8f05a6ef7b306, type: 3}
+  m_Name: jornal_cabedelo
+  m_EditorClassIdentifier: Assembly-CSharp::FEB.Archive.HistoricalEvidence
+  id: jornal_cabedelo
+  title: O desaparecimento do Cabedelo
+  dateLabel: "8 de abril de 1942 \u2022 Di\xE1rio Carioca"
+  description: "A primeira p\xE1gina noticia o desaparecimento do Cabedelo e trata
+    seu torpedeamento como prov\xE1vel. Observe como a manchete expressa o grau de
+    certeza dispon\xEDvel naquele momento.\n\nA not\xEDcia tamb\xE9m registra pedidos
+    de repres\xE1lia. Ela permite investigar a repercuss\xE3o p\xFAblica dos ataques,
+    mas n\xE3o demonstra, sozinha, que o Brasil j\xE1 havia declarado guerra."
+  keyFinding: "Uma fonte de imprensa registra o que se sabia e se discutia em sua
+    \xE9poca. A not\xEDcia de abril de 1942 \xE9 anterior \xE0 declara\xE7\xE3o do
+    estado de guerra, em agosto."
+  image: {fileID: 2800000, guid: a8fdf06f56456534a82deba40c81ec15, type: 3}
+  imageCaption: "Fonte de \xE9poca \u2022 consulte a data e a linguagem da manchete."
+  citation: "Di\xE1rio Carioca, 8 abr. 1942, primeira p\xE1gina. Reprodu\xE7\xE3o
+    fornecida no acervo febmidia."
+  sourceUrl: https://bndigital.bn.gov.br/hemeroteca-digital/
+  chronologyLabel: "Not\xEDcia sobre o Cabedelo"
+  chronologyOrder: 0

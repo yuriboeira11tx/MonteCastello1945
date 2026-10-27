@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3fbc34bcf34ba4c9e8f05a6ef7b306, type: 3}
+  m_Name: caso_itapage
+  m_EditorClassIdentifier: Assembly-CSharp::FEB.Archive.HistoricalEvidence
+  id: caso_itapage
+  title: "O caso Itapag\xE9"
+  dateLabel: "26 de setembro de 1943 \u2022 Litoral de Alagoas"
+  description: "O Itapag\xE9 foi torpedeado no litoral de Alagoas em 26 de setembro
+    de 1943. Esse ataque aconteceu depois da entrada do Brasil na guerra.\n\nA maquete
+    e a sequ\xEAncia 3D ajudam a visualizar o epis\xF3dio. S\xE3o reconstru\xE7\xF5es
+    art\xEDsticas: seus enquadramentos, dura\xE7\xE3o e efeitos n\xE3o constituem
+    registro filmado do naufr\xE1gio."
+  keyFinding: "O caso Itapag\xE9 evidencia que os ataques \xE0 navega\xE7\xE3o brasileira
+    continuaram ap\xF3s 1942. N\xE3o deve ser apresentado como a causa da entrada
+    do Brasil na guerra."
+  image: {fileID: 0}
+  imageCaption: "Registro de pesquisa \u2022 a maquete representa o navio."
+  citation: "Marinha do Brasil. Introdu\xE7\xE3o \xE0 Hist\xF3ria Mar\xEDtima Brasileira.
+    Quadro de navios mercantes atacados: Itapag\xE9, 26 set. 1943."
+  sourceUrl: https://www.marinha.mil.br/com1dn/sites/www.marinha.mil.br.com1dn/files/upload/Introdu%C3%A7%C3%A3o%20%C3%A0%20Hist%C3%B3ria%20Mar%C3%ADtima%20Brasileira.pdf
+  chronologyLabel: "Torpedeamento do Itapag\xE9"
+  chronologyOrder: 2
