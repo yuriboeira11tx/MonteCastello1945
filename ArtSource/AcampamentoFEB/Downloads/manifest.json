@@ -1,0 +1,317 @@
+[
+  {
+    "source": "https://polyhaven.com/a/old_military_crate",
+    "license": "CC0",
+    "id": "old_military_crate",
+    "files": [
+      {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/2k/old_military_crate/old_military_crate_2k.fbx",
+        "md5": "584bf50bba55f2b7824d77064e4045bd",
+        "size": 354396,
+        "include": {
+          "textures/old_military_crate_diff_2k.jpg": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/old_military_crate/old_military_crate_diff_2k.jpg",
+            "md5": "141e3163cfd56a2654440a4f4fac9bfa",
+            "size": 2968985
+          },
+          "textures/old_military_crate_metal_2k.exr": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/old_military_crate/old_military_crate_metal_2k.exr",
+            "md5": "e6cc6bd94c9018b5e2957d5f57c07edc",
+            "size": 253403
+          },
+          "textures/old_military_crate_nor_gl_2k.exr": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/old_military_crate/old_military_crate_nor_gl_2k.exr",
+            "md5": "4a1e2ce6f2d21eddb4b12370bcd9cf53",
+            "size": 7194445
+          },
+          "textures/old_military_crate_rough_2k.exr": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/old_military_crate/old_military_crate_rough_2k.exr",
+            "md5": "661a73753fd09fecd588e3082fb702a1",
+            "size": 2565788
+          }
+        }
+      },
+      {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/old_military_crate/old_military_crate_ao_2k.jpg",
+        "md5": "58e762627c95eaa32e1e3b17a4366e93",
+        "size": 627455
+      },
+      {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/old_military_crate/old_military_crate_arm_2k.jpg",
+        "md5": "84727b16aef55f262d04dd1ebd265dc6",
+        "size": 2808924
+      },
+      {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/old_military_crate/old_military_crate_diff_2k.jpg",
+        "md5": "141e3163cfd56a2654440a4f4fac9bfa",
+        "size": 2968985
+      },
+      {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/old_military_crate/old_military_crate_metal_2k.jpg",
+        "md5": "7c2fb5066c94a652db6f7a3306656e54",
+        "size": 129724
+      },
+      {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/old_military_crate/old_military_crate_nor_gl_2k.jpg",
+        "md5": "d7fc7062b059c6f99ae5de99af6c33b6",
+        "size": 3184154
+      },
+      {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/old_military_crate/old_military_crate_rough_2k.jpg",
+        "md5": "cf1965da3150a06c39f144b98adae9eb",
+        "size": 2450827
+      }
+    ]
+  },
+  {
+    "source": "https://polyhaven.com/a/metal_jerrycan_green",
+    "license": "CC0",
+    "id": "metal_jerrycan_green",
+    "files": [
+      {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/2k/metal_jerrycan_green/metal_jerrycan_green_2k.fbx",
+        "md5": "3b155fcf5fce6af8321ae386d50a2445",
+        "size": 316716,
+        "include": {
+          "textures/metal_jerrycan_green_diff_2k.jpg": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/metal_jerrycan_green/metal_jerrycan_green_diff_2k.jpg",
+            "md5": "500b0639e58a66d638feb6e8b67b6e1c",
+            "size": 2155082
+          },
+          "textures/metal_jerrycan_green_metal_2k.exr": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/metal_jerrycan_green/metal_jerrycan_green_metal_2k.exr",
+            "md5": "be68d1948234a5addcad65b09bdc3e7c",
+            "size": 3379373
+          },
+          "textures/metal_jerrycan_green_nor_gl_2k.exr": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/metal_jerrycan_green/metal_jerrycan_green_nor_gl_2k.exr",
+            "md5": "0cd4da4fbf2bff8e60373c2091e0c72a",
+            "size": 6857827
+          },
+          "textures/metal_jerrycan_green_rough_2k.exr": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/metal_jerrycan_green/metal_jerrycan_green_rough_2k.exr",
+            "md5": "95ef5ac039a9799464862274a54dd373",
+            "size": 3025528
+          }
+        }
+      },
+      {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/metal_jerrycan_green/metal_jerrycan_green_ao_2k.jpg",
+        "md5": "2ddcac94e0e16c3943b133fadf55fab6",
+        "size": 806756
+      },
+      {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/metal_jerrycan_green/metal_jerrycan_green_arm_2k.jpg",
+        "md5": "05de4231d9c4109dc2a4cc95f15e9715",
+        "size": 3930892
+      },
+      {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/metal_jerrycan_green/metal_jerrycan_green_diff_2k.jpg",
+        "md5": "500b0639e58a66d638feb6e8b67b6e1c",
+        "size": 2155082
+      },
+      {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/metal_jerrycan_green/metal_jerrycan_green_metal_2k.jpg",
+        "md5": "0645dec8204c3475de3375800bcda420",
+        "size": 2416255
+      },
+      {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/metal_jerrycan_green/metal_jerrycan_green_nor_gl_2k.jpg",
+        "md5": "0a2cbae4d1a70ef08c64704144873762",
+        "size": 3015642
+      },
+      {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/metal_jerrycan_green/metal_jerrycan_green_rough_2k.jpg",
+        "md5": "229e16b8e83052057181cdc3a8960a9f",
+        "size": 3000534
+      }
+    ]
+  },
+  {
+    "source": "https://polyhaven.com/a/Barrel_01",
+    "license": "CC0",
+    "id": "Barrel_01",
+    "files": [
+      {
+        "include": {
+          "textures/Barrel_01_explosive_diff_2k.png": {
+            "size": 4805672,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/Barrel_01/Barrel_01_explosive_diff_2k.png",
+            "md5": "9dfe6e69c3a19cdc008a6d2d3487c6bd"
+          },
+          "textures/Barrel_01_explosive_nor_gl_2k.png": {
+            "size": 6658513,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/Barrel_01/Barrel_01_explosive_nor_gl_2k.png",
+            "md5": "10e97bbdc562736070d01577b428e16d"
+          },
+          "textures/Barrel_01_explosive_metallic_2k.png": {
+            "size": 1105564,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/Barrel_01/Barrel_01_explosive_metallic_2k.png",
+            "md5": "3926c40318c1bbdcff551cb1f717989f"
+          },
+          "textures/Barrel_01_explosive_roughness_2k.png": {
+            "size": 2086761,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/2k/Barrel_01/Barrel_01_explosive_roughness_2k.png",
+            "md5": "afe41d88d2d1fff979219d4950e0eb91"
+          }
+        },
+        "size": 97052,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/2k/Barrel_01/Barrel_01_2k.fbx",
+        "md5": "1a23ba2fcafea04ac9208d4b75c2b0a7"
+      },
+      {
+        "size": 720875,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/Barrel_01/Barrel_01_oxide_green_metallic_2k.jpg",
+        "md5": "5e4d35ab1ccb310e92755dcf3ed9497d"
+      },
+      {
+        "size": 497291,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/Barrel_01/Barrel_01_oxide_green_diff_2k.jpg",
+        "md5": "8eb7550e64089afcf14e290d62a0e4c6"
+      },
+      {
+        "size": 999683,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/Barrel_01/Barrel_01_oxide_green_nor_gl_2k.jpg",
+        "md5": "7092d74eb616c36f8f515ec278d8791e"
+      },
+      {
+        "size": 838911,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/Barrel_01/Barrel_01_oxide_green_roughness_2k.jpg",
+        "md5": "0411fcfee334e7cde142d383103d3ded"
+      },
+      {
+        "size": 844167,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/Barrel_01/Barrel_01_oxide_green_arm_2k.jpg",
+        "md5": "56d19caacc340a846b3bad47852b7211"
+      }
+    ]
+  },
+  {
+    "source": "https://polyhaven.com/a/wooden_table_02",
+    "license": "CC0",
+    "id": "wooden_table_02",
+    "files": [
+      {
+        "include": {
+          "textures/wooden_table_02_metal_2k.exr": {
+            "size": 13296,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/wooden_table_02/wooden_table_02_metal_2k.exr",
+            "md5": "b03fd78d6179d5408bc5f6b6fbd6136c"
+          },
+          "textures/wooden_table_02_diff_2k.jpg": {
+            "size": 711929,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/wooden_table_02/wooden_table_02_diff_2k.jpg",
+            "md5": "2a346503ce15e4df59c0fd4ed1891047"
+          },
+          "textures/wooden_table_02_rough_2k.jpg": {
+            "size": 785964,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/wooden_table_02/wooden_table_02_rough_2k.jpg",
+            "md5": "50647bce6cdbba9eed1d7f7fab403d01"
+          },
+          "textures/wooden_table_02_nor_gl_2k.exr": {
+            "size": 5041006,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/wooden_table_02/wooden_table_02_nor_gl_2k.exr",
+            "md5": "88b2bc4f3d04100599722aaa3b1dad4b"
+          }
+        },
+        "size": 28284,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/2k/wooden_table_02/wooden_table_02_2k.fbx",
+        "md5": "123a41b3f2f31e89c8b3d345311c9a1e"
+      },
+      {
+        "size": 711929,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/wooden_table_02/wooden_table_02_diff_2k.jpg",
+        "md5": "2a346503ce15e4df59c0fd4ed1891047"
+      },
+      {
+        "size": 543822,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/wooden_table_02/wooden_table_02_nor_gl_2k.jpg",
+        "md5": "f3bbfc11f954c5799f24b6b8f23cc3db"
+      },
+      {
+        "size": 49548,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/wooden_table_02/wooden_table_02_metal_2k.jpg",
+        "md5": "55a2f4c6c290ccc7dca012bae0d5413e"
+      },
+      {
+        "size": 681917,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/wooden_table_02/wooden_table_02_arm_2k.jpg",
+        "md5": "740c00078718bdcf8660e17851e62c8e"
+      },
+      {
+        "size": 785964,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/wooden_table_02/wooden_table_02_rough_2k.jpg",
+        "md5": "50647bce6cdbba9eed1d7f7fab403d01"
+      },
+      {
+        "size": 186082,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/wooden_table_02/wooden_table_02_ao_2k.jpg",
+        "md5": "57fd9096e4061218b122131532dac1e6"
+      }
+    ]
+  },
+  {
+    "source": "https://polyhaven.com/a/folding_wooden_stool",
+    "license": "CC0",
+    "id": "folding_wooden_stool",
+    "files": [
+      {
+        "include": {
+          "textures/folding_wooden_stool_metal_2k.exr": {
+            "size": 303696,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/folding_wooden_stool/folding_wooden_stool_metal_2k.exr",
+            "md5": "eae1b1aa1ccd4c49c94de7456bd7e342"
+          },
+          "textures/folding_wooden_stool_diff_2k.jpg": {
+            "size": 2406740,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/folding_wooden_stool/folding_wooden_stool_diff_2k.jpg",
+            "md5": "9202cf518785dfc72a047a02a4a7b863"
+          },
+          "textures/folding_wooden_stool_rough_2k.exr": {
+            "size": 1865129,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/folding_wooden_stool/folding_wooden_stool_rough_2k.exr",
+            "md5": "1b243a4fa4ffd0bb87285a99836258bf"
+          },
+          "textures/folding_wooden_stool_nor_gl_2k.exr": {
+            "size": 6510755,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/2k/folding_wooden_stool/folding_wooden_stool_nor_gl_2k.exr",
+            "md5": "6045cf10e8ff29700c51e00715fd39d7"
+          }
+        },
+        "size": 209148,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/2k/folding_wooden_stool/folding_wooden_stool_2k.fbx",
+        "md5": "a3e5e3d98711ea8f018e6b7f8d9fa8f9"
+      },
+      {
+        "size": 2406740,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/folding_wooden_stool/folding_wooden_stool_diff_2k.jpg",
+        "md5": "9202cf518785dfc72a047a02a4a7b863"
+      },
+      {
+        "size": 3043203,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/folding_wooden_stool/folding_wooden_stool_nor_gl_2k.jpg",
+        "md5": "bb309aa7e9fee5cfd5c749182ccdbd88"
+      },
+      {
+        "size": 282044,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/folding_wooden_stool/folding_wooden_stool_metal_2k.jpg",
+        "md5": "fabcbf78ea8992093a680521a476282a"
+      },
+      {
+        "size": 2455054,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/folding_wooden_stool/folding_wooden_stool_arm_2k.jpg",
+        "md5": "1e3529acb1b8ae19abc3c79a03c5a0ca"
+      },
+      {
+        "size": 803407,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/folding_wooden_stool/folding_wooden_stool_ao_2k.jpg",
+        "md5": "34fe191542ecb6905a5f149d7f93f584"
+      },
+      {
+        "size": 1880759,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/folding_wooden_stool/folding_wooden_stool_rough_2k.jpg",
+        "md5": "df339a5666a2f87c3a69fd54d30562e9"
+      }
+    ]
+  }
+]

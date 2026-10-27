@@ -1,5 +1,0 @@
-Unity Editor Game view, fixed camera. Render counters, not standalone frame-time benchmark.
-Stage=0 triangles=4211875 batches=117 drawCalls=117 setPass=37
-Stage=1 triangles=4313363 batches=151 drawCalls=151 setPass=41
-Stage=2 triangles=4313375 batches=152 drawCalls=152 setPass=42
-0=water and ship; 1=add coast; 2=add sea mist. Environment restored.
