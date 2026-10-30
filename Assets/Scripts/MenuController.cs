@@ -3,15 +3,15 @@ using UnityEngine.InputSystem;
 
 public class MenuController : MonoBehaviour
 {
-    public GameObject menuOpcoes;
-    public GameObject menuTecla;
+    public GameObject menuOptions;
+    public GameObject menuKey;
 
     void Update()
     {
-        if (menuTecla != null && menuTecla.activeSelf && Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame)
+        if (menuKey != null && menuKey.activeSelf && Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame)
         {
-            if (menuOpcoes != null) menuOpcoes.SetActive(true);
-            menuTecla.SetActive(false);
+            if (menuOptions != null) menuOptions.SetActive(true);
+            menuKey.SetActive(false);
         }
     }
 }

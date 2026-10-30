@@ -3296,6 +3296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 406976234}
   - component: {fileID: 406976235}
+  - component: {fileID: 406976236}
   m_Layer: 0
   m_Name: Luz_Difusa_Janela
   m_TagString: Untagged
@@ -3383,6 +3384,35 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &406976236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406976233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!65 &425445364
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4567,8 +4597,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "01  IMPRENSA     \u2192     02  ESTADO DE GUERRA     \u2192     03  ITAPAG\xC9\n\nCompare
-    as fontes. Organize os acontecimentos."
+  m_text: "1 - MPRENSA\n2 -  ESTADO DE GUERRA\n3 - ITAPAG\xC9\n\nCompare as fontes.
+    Organize os acontecimentos!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 98d2785ce319f0f4eb795b1c7a423c4e, type: 2}
   m_sharedMaterial: {fileID: 3396005741213677404, guid: 98d2785ce319f0f4eb795b1c7a423c4e, type: 2}
