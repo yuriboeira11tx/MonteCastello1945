@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 public class SoldierAnimStateController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private float secondsToIdle = 5f;
+    [SerializeField] private bool isWalking = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,13 +16,13 @@ public class SoldierAnimStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Keyboard.current != null && Keyboard.current.wKey.isPressed)
+        secondsToIdle -= Time.deltaTime;
+
+        if (secondsToIdle <= 0)
         {
-            animator.SetBool("isWalking", true);
+            secondsToIdle = 5f;
+            isWalking = !isWalking;
+            animator.SetBool("isWalking", isWalking);
         }
-        else
-        {
-            animator.SetBool("isWalking", false);
-        }
-    }
+    } 
 }
