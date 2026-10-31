@@ -1,0 +1,1 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements"><ui:Style src="Cronologia_Conteudo.uss" /><ui:Label name="text" text="1 - MPRENSA&#10;2 -  ESTADO DE GUERRA&#10;3 - ITAPAGÉ&#10;&#10;Compare as fontes. Organize os acontecimentos!" class="world-text" picking-mode="Ignore" /></ui:UXML>

@@ -1,0 +1,1 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements"><ui:Style src="Dossie_Titulo.uss" /><ui:Label name="text" text="ITAPAGÉ&#10;26 SETEMBRO 1943&#10;Registro de pesquisa" class="world-text" picking-mode="Ignore" /></ui:UXML>

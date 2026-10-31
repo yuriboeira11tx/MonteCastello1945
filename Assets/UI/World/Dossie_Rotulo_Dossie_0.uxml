@@ -1,0 +1,1 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements"><ui:Style src="Dossie_Rotulo_Dossie_0.uss" /><ui:Label name="text" text="ARQUIVO HISTÓRICO&#10;&#10;ITAPAGÉ&#10;&#10;26 SETEMBRO 1943&#10;LITORAL DE ALAGOAS&#10;&#10;Dossiê de pesquisa" class="world-text" picking-mode="Ignore" /></ui:UXML>

@@ -37,7 +37,8 @@ namespace FEB.Cinematics
         [Header("Video de arquivo")]
         public VideoPlayer archiveVideo;
         public AudioSource archiveAudio;
-        public CanvasGroup archiveGroup;
+        public FEB.UI.CutsceneView archiveUI;
+        [Range(0, 1)] public float titleOpacity;
         [Range(0, 1)] public float archiveVolume = .7f;
         public Volume surfaceVolume;
         public Vector3 shipFocusOffset = new Vector3(0, 5, 0);
@@ -81,7 +82,7 @@ namespace FEB.Cinematics
                 archiveVideo.errorReceived += OnVideoError;
                 archiveVideo.seekCompleted += OnVideoSeekCompleted;
             }
-            if (archiveGroup != null) archiveGroup.alpha = 0;
+            if (archiveUI != null) archiveUI.SetVideoOpacity(0);
             if (surfaceVolume != null) surfaceVolume.profile.TryGet(out surfaceFocus);
         }
 
@@ -124,6 +125,7 @@ namespace FEB.Cinematics
                     Vector3.Dot(subject - outputCamera.transform.position, outputCamera.transform.forward));
             }
             UpdateArchiveVideo();
+            if (archiveUI != null) archiveUI.SetTitleOpacity(titleOpacity);
         }
 
         [ContextMenu("Reiniciar cutscene (180 segundos)")]
@@ -134,7 +136,7 @@ namespace FEB.Cinematics
             if (archiveVideo != null) archiveVideo.Stop();
             videoReady = videoFailed = videoSeeking = false;
             lastVideoSeek = -10;
-            if (archiveGroup != null) archiveGroup.alpha = 0;
+            if (archiveUI != null) { archiveUI.SetVideoOpacity(0); archiveUI.SetTitleOpacity(0); }
             director.Stop();
             foreach (var ps in controlledParticles)
                 if (ps != null) ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
@@ -201,7 +203,7 @@ namespace FEB.Cinematics
             lastVideoTime = time;
 
             float opacity = Mathf.SmoothStep(0, 1, Mathf.Clamp01((float)time / 1.5f)) * (1 - Mathf.Clamp01(fade));
-            if (archiveGroup != null) archiveGroup.alpha = opacity;
+            if (archiveUI != null) archiveUI.SetVideoOpacity(opacity);
             if (archiveAudio != null)
             {
                 float end = Mathf.Clamp01((float)(archiveVideo.length - time) / 1.25f);
@@ -219,7 +221,7 @@ namespace FEB.Cinematics
         {
             videoFailed = true;
             videoReady = false;
-            if (archiveGroup != null) archiveGroup.alpha = 0;
+            if (archiveUI != null) archiveUI.SetVideoOpacity(0);
             if (archiveAudio != null) archiveAudio.Stop();
             player.Stop();
             Debug.LogWarning("Video de arquivo indisponivel. A cutscene 3D continua. " + message, this);
@@ -229,7 +231,7 @@ namespace FEB.Cinematics
         {
             if (startingSequence != null) { StopCoroutine(startingSequence); startingSequence = null; }
             if (archiveVideo != null) archiveVideo.Stop();
-            if (archiveGroup != null) archiveGroup.alpha = 0;
+            if (archiveUI != null) { archiveUI.SetVideoOpacity(0); archiveUI.SetTitleOpacity(0); }
             videoReady = false;
             if (!initialized) return;
             RenderSettings.fog = savedFog;

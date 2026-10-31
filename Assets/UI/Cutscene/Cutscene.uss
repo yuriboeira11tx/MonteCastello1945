@@ -1,0 +1,5 @@
+.video-group, .title-group { opacity: 0; }
+.archive-video { opacity: 0.1; }
+.opening-title { position: absolute; left: 8%; right: 8%; top: 31%; bottom: 53%; font-size: 76px; -unity-text-align: middle-center; color: rgb(247, 242, 230); }
+.opening-description { position: absolute; left: 12%; right: 12%; top: 49%; bottom: 37%; font-size: 28px; -unity-text-align: middle-center; color: rgb(247, 242, 230); }
+.title-shadow { translate: 2px 3px; color: rgba(0, 0, 0, 0.85); }

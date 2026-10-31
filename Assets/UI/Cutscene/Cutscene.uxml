@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="Cutscene.uss" />
+    <ui:VisualElement name="cutsceneRoot" class="screen" picking-mode="Ignore">
+        <ui:VisualElement name="videoGroup" class="fill video-group" picking-mode="Ignore">
+            <ui:Image name="archiveVideo" class="fill archive-video" picking-mode="Ignore" />
+        </ui:VisualElement>
+        <ui:VisualElement name="titleGroup" class="fill title-group" picking-mode="Ignore">
+            <ui:Label text="Monte Castello: 1945" class="opening-title title-shadow stencil" picking-mode="Ignore" />
+            <ui:Label text="um jogo sério inspirado na trajetória da força expedicionária brasileira" class="opening-description title-shadow typewriter" picking-mode="Ignore" />
+            <ui:Label text="Monte Castello: 1945" class="opening-title stencil" picking-mode="Ignore" />
+            <ui:Label text="um jogo sério inspirado na trajetória da força expedicionária brasileira" class="opening-description typewriter" picking-mode="Ignore" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

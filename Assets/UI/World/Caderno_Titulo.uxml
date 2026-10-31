@@ -1,0 +1,1 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements"><ui:Style src="Caderno_Titulo.uss" /><ui:Label name="text" text="CADERNO&#10;DE PESQUISA" class="world-text" picking-mode="Ignore" /></ui:UXML>

@@ -1,0 +1,11 @@
+.saves-root { background-color: rgb(8, 11, 9); align-items: center; justify-content: center; }
+.save-content { width: 1200px; height: 810px; }
+.save-title { height: 80px; font-size: 60px; }
+.save-message { margin-top: 20px; height: 90px; font-size: 28px; }
+.credits-open .save-message { height: 350px; }
+.slots { margin-top: 35px; }
+.slot { height: 100px; margin-bottom: 20px; padding: 8px 24px; font-size: 30px; }
+.save-actions { position: absolute; bottom: 0; left: 0; right: 0; flex-direction: row; justify-content: space-between; }
+.save-actions > Button { width: 31%; height: 70px; font-size: 27px; padding: 8px 24px; }
+.saves-root Button { background-color: rgb(43, 51, 41); }
+.saves-root Button:hover, .saves-root Button:focus { background-color: rgb(60, 70, 54); }

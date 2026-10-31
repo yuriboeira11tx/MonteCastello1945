@@ -1,0 +1,49 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="Archive.uss" />
+    <ui:VisualElement name="archiveRoot" class="screen" picking-mode="Ignore">
+        <ui:VisualElement name="hud" class="fill" picking-mode="Ignore">
+            <ui:VisualElement class="objective-backdrop" picking-mode="Ignore" />
+            <ui:Label text="ARQUIVO HISTÓRICO" class="archive-heading stencil" picking-mode="Ignore" />
+            <ui:Label name="progress" text="Encontradas: 0/3     Registradas: 0/3" class="progress" picking-mode="Ignore" />
+            <ui:Label name="objective" text="OBJETIVO ATUAL&#10;Examine a pasta de pesquisa sobre a mesa." class="objective" picking-mode="Ignore" />
+            <ui:Label name="interaction" class="interaction" picking-mode="Ignore" />
+            <ui:Label text="·" class="crosshair" picking-mode="Ignore" />
+            <ui:Label text="[E] Examinar     [TAB] Caderneta     [ESC] Pausa" class="commands" picking-mode="Ignore" />
+        </ui:VisualElement>
+        <ui:VisualElement name="documentPanel" class="fill document-panel hidden">
+            <ui:VisualElement name="notebook" class="notebook">
+                <ui:Label name="title" class="document-title stencil" />
+                <ui:Label name="subtitle" class="document-subtitle" />
+                <ui:VisualElement class="document-rule" picking-mode="Ignore" />
+                <ui:Label name="imagePlaceholder" text="MONTE&#10;CASTELLO&#10;1945" class="archive-stamp stencil" picking-mode="Ignore" />
+                <ui:Image name="illustration" class="document-image" picking-mode="Ignore" />
+                <ui:Image name="inspection" class="document-image hidden" />
+                <ui:VisualElement name="inspectionControls" class="fill hidden" picking-mode="Ignore">
+                    <ui:Label text="Arraste: girar  •  Roda: aproximar  •  R: restaurar" class="inspection-help" picking-mode="Ignore" />
+                    <ui:Button name="resetInspection" text="Restaurar posição" class="reset-inspection" />
+                </ui:VisualElement>
+                <ui:Label name="imageCaption" class="image-caption" />
+                <ui:Label name="citation" class="citation" />
+                <ui:Label text="F.E.B. / CADERNETA DE CAMPANHA&#10;ARQUIVO DE PESQUISA" class="notes-heading typewriter" />
+                <ui:ScrollView name="bodyScroll" class="body-scroll" mode="Vertical" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Auto">
+                    <ui:Label name="body" class="document-body" />
+                </ui:ScrollView>
+                <ui:VisualElement name="choices" class="choices">
+                    <ui:Button name="choice0" class="hidden" />
+                    <ui:Button name="choice1" class="hidden" />
+                    <ui:Button name="choice2" class="hidden" />
+                    <ui:Button name="choice3" class="hidden" />
+                    <ui:Button name="choice4" class="hidden" />
+                    <ui:Button name="choice5" class="hidden" />
+                </ui:VisualElement>
+                <ui:Button name="zoom" text="Ampliar imagem" class="zoom-button" />
+                <ui:Button name="close" text="×" class="close-button" tooltip="Fechar (Esc)" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="zoomPanel" class="fill zoom-panel hidden">
+            <ui:Image name="zoomImage" class="zoom-image" picking-mode="Ignore" />
+            <ui:Button name="zoomClose" text="Voltar ao documento" class="zoom-close" />
+        </ui:VisualElement>
+        <ui:VisualElement name="transition" class="fill transition hidden" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,17 @@
+.menu-root { background-color: black; }
+.slideshow { --unity-image-tint-color: rgb(77, 77, 77); }
+.intro-title { position: absolute; left: 17.87%; right: 18.32%; top: 28.43%; bottom: 28.53%; font-size: 60px; -unity-text-align: middle-center; color: white; }
+.intro-prompt { position: absolute; left: 17.87%; right: 18.32%; top: 79.1%; bottom: 5.54%; font-size: 25px; -unity-text-align: middle-center; color: white; }
+.collage { background-image: url("project://database/Assets/Images/backgroundmc45.png"); background-size: 100% 100%; -unity-background-image-tint-color: rgb(183, 183, 183); }
+.menu-shade { position: absolute; left: 0; top: 0; bottom: 0; width: 29%; background-color: rgba(0, 0, 0, 0.75); }
+.menu-title { position: absolute; left: 4.11%; top: 14.9%; font-size: 60px; color: white; }
+.title-rule { position: absolute; left: 4.1%; top: 25.8%; width: 21.3%; height: 5px; border-radius: 3px; background-color: rgb(255, 196, 0); }
+.menu-options { position: absolute; left: 4.11%; top: 36.5%; width: 30%; }
+.menu-option { height: 59px; padding: 0; font-size: 24px; -unity-font-style: bold; color: white; justify-content: center; background-color: transparent; }
+.menu-option:hover, .menu-option:focus, .menu-option:active { background-color: transparent; }
+.menu-caption { align-self: flex-start; }
+.menu-underline { height: 5px; margin-top: 4px; border-radius: 3px; background-color: white; opacity: 0; }
+.menu-option:hover .menu-underline, .menu-option:focus .menu-underline { opacity: 1; }
+.menu-option:disabled .menu-underline { opacity: 0; }
+.menu-credit { position: absolute; left: 4.11%; bottom: 2%; font-size: 15px; color: white; }
+.menu-song { position: absolute; right: 0.5%; bottom: 4.5%; width: 15%; height: 163px; font-size: 10px; -unity-text-align: upper-center; color: black; }

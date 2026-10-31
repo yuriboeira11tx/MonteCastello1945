@@ -1,86 +1,152 @@
 using System;
 using System.Collections;
-using TMPro;
+using FEB.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 namespace FEB.Archive
 {
+    [RequireComponent(typeof(UIDocument), typeof(EvidenceInspection))]
     public sealed class ArchiveView : MonoBehaviour
     {
-        [SerializeField] GameObject modal;
-        [SerializeField] TMP_Text title;
-        [SerializeField] TMP_Text subtitle;
-        [SerializeField] TMP_Text body;
-        [SerializeField] TMP_Text citation;
-        [SerializeField] RawImage illustration;
-        [SerializeField] AspectRatioFitter illustrationAspect;
-        [SerializeField] TMP_Text imageCaption;
-        [SerializeField] GameObject imagePlaceholder;
-        [SerializeField] Button[] choices;
-        [SerializeField] Button closeButton;
-        [SerializeField] Button zoomButton;
-        [SerializeField] GameObject zoomPanel;
-        [SerializeField] RawImage zoomImage;
-        [SerializeField] AspectRatioFitter zoomAspect;
-        [SerializeField] Button zoomCloseButton;
-        [SerializeField] TMP_Text objective;
-        [SerializeField] TMP_Text progress;
-        [SerializeField] CanvasGroup transition;
-        [SerializeField] GameObject hud;
-        [SerializeField] EvidenceInspection inspection;
-        [SerializeField] GameObject inspectionControls;
-        [SerializeField] Button resetInspectionButton;
+        VisualElement modal;
+        Label title;
+        Label subtitle;
+        Label body;
+        Label citation;
+        Image illustration;
+        Label imageCaption;
+        VisualElement imagePlaceholder;
+        Button[] choices;
+        readonly Action[] choiceActions = new Action[6];
+        Button closeButton;
+        Button zoomButton;
+        VisualElement zoomPanel;
+        Image zoomImage;
+        Button zoomCloseButton;
+        Label objective;
+        Label progress;
+        Label interactionLabel;
+        VisualElement transition;
+        VisualElement hud;
+        EvidenceInspection inspection;
+        VisualElement inspectionControls;
+        Button resetInspectionButton;
         public event Action<bool> VisibilityChanged;
-        public bool IsOpen => modal.activeSelf;
+        public bool IsOpen => ScreenUI.IsVisible(modal);
         int openedFrame;
         int choiceIndex;
         bool transitioning;
 
-        void Awake()
+        void OnEnable()
         {
-            closeButton.onClick.AddListener(Close);
-            zoomButton.onClick.AddListener(() => zoomPanel.SetActive(true));
-            zoomCloseButton.onClick.AddListener(() => zoomPanel.SetActive(false));
-            resetInspectionButton.onClick.AddListener(inspection.ResetView);
-            inspection.Hide();
-            inspectionControls.SetActive(false);
-            modal.SetActive(false);
-            zoomPanel.SetActive(false);
-            if (transition != null) { transition.alpha = 0; transition.blocksRaycasts = false; }
+            var root = GetComponent<UIDocument>().rootVisualElement;
+            root.pickingMode = PickingMode.Ignore;
+            modal = root.Q("documentPanel");
+            title = root.Q<Label>("title");
+            subtitle = root.Q<Label>("subtitle");
+            body = root.Q<Label>("body");
+            body.RegisterCallback<GeometryChangedEvent>(OnBodyGeometryChanged);
+            citation = root.Q<Label>("citation");
+            illustration = root.Q<Image>("illustration");
+            imageCaption = root.Q<Label>("imageCaption");
+            imagePlaceholder = root.Q("imagePlaceholder");
+            closeButton = root.Q<Button>("close");
+            zoomButton = root.Q<Button>("zoom");
+            zoomPanel = root.Q("zoomPanel");
+            zoomImage = root.Q<Image>("zoomImage");
+            zoomCloseButton = root.Q<Button>("zoomClose");
+            objective = root.Q<Label>("objective");
+            progress = root.Q<Label>("progress");
+            interactionLabel = root.Q<Label>("interaction");
+            transition = root.Q("transition");
+            hud = root.Q("hud");
+            inspectionControls = root.Q("inspectionControls");
+            resetInspectionButton = root.Q<Button>("resetInspection");
+            inspection = GetComponent<EvidenceInspection>();
+            inspection.Initialize(root.Q<Image>("inspection"));
+            choices = new Button[6];
+            for (int i = 0; i < choices.Length; i++) choices[i] = root.Q<Button>("choice" + i);
+            closeButton.clicked += Close;
+            zoomButton.clicked += OpenZoom;
+            zoomCloseButton.clicked += CloseZoom;
+            resetInspectionButton.clicked += inspection.ResetView;
+            illustration.scaleMode = zoomImage.scaleMode = ScaleMode.ScaleToFit;
+            ResetChoices();
+            ScreenUI.Show(modal, false);
+            ScreenUI.Show(zoomPanel, false);
+            ScreenUI.Show(inspectionControls, false);
+            ScreenUI.Show(transition, false);
+            transitioning = false;
         }
 
         void Update()
         {
             if (!transitioning && IsOpen && Time.frameCount > openedFrame && Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
             {
-                if (zoomPanel.activeSelf) zoomPanel.SetActive(false);
+                if (ScreenUI.IsVisible(zoomPanel)) CloseZoom();
                 else Close();
+            }
+        }
+
+        void OpenZoom() { modal.SetEnabled(false); ScreenUI.Show(zoomPanel, true); zoomCloseButton.Focus(); }
+        void CloseZoom() { ScreenUI.Show(zoomPanel, false); modal.SetEnabled(true); zoomButton.Focus(); }
+
+        void ResetChoices()
+        {
+            choiceIndex = 0;
+            for (int i = 0; i < choices.Length; i++)
+            {
+                if (choiceActions[i] != null) choices[i].clicked -= choiceActions[i];
+                choiceActions[i] = null;
+                ScreenUI.Show(choices[i], false);
             }
         }
 
         public void Show(string heading, string context, string text, Texture texture = null, string credit = "", string caption = "")
         {
             inspection.Hide();
-            inspectionControls.SetActive(false);
-            hud.SetActive(false);
+            ScreenUI.Show(inspectionControls, false);
+            ScreenUI.Show(hud, false);
+            modal.SetEnabled(true);
             title.text = heading;
+            ScreenUI.FitText(title, 31, 41);
             subtitle.text = context;
             body.text = text;
+            body.schedule.Execute(ResizeBody);
+            ScrollToTop();
             citation.text = credit;
             imageCaption.text = caption;
-            illustration.texture = zoomImage.texture = texture;
-            illustration.gameObject.SetActive(texture != null);
-            imagePlaceholder.SetActive(texture == null);
-            zoomButton.gameObject.SetActive(texture != null);
-            if (texture != null) illustrationAspect.aspectRatio = zoomAspect.aspectRatio = (float)texture.width / texture.height;
-            choiceIndex = 0;
-            foreach (var button in choices) { button.onClick.RemoveAllListeners(); button.gameObject.SetActive(false); }
-            zoomPanel.SetActive(false);
-            modal.SetActive(true);
+            illustration.image = zoomImage.image = texture;
+            ScreenUI.Show(illustration, texture != null);
+            ScreenUI.Show(imagePlaceholder, texture == null);
+            ScreenUI.Show(zoomButton, texture != null);
+            ResetChoices();
+            ScreenUI.Show(zoomPanel, false);
+            ScreenUI.Show(modal, true);
             openedFrame = Time.frameCount;
+            closeButton.Focus();
             VisibilityChanged?.Invoke(true);
+        }
+
+        void OnBodyGeometryChanged(GeometryChangedEvent evt)
+        {
+            if (!Mathf.Approximately(evt.newRect.width, evt.oldRect.width)) ResizeBody();
+        }
+
+        void ResizeBody()
+        {
+            if (body.contentRect.width <= 0) return;
+            var measured = body.MeasureTextSize(body.text, body.contentRect.width,
+                VisualElement.MeasureMode.Exactly, 0, VisualElement.MeasureMode.Undefined);
+            body.style.height = Mathf.Ceil(measured.y) + 2;
+        }
+
+        void ScrollToTop()
+        {
+            var scroll = body.GetFirstAncestorOfType<ScrollView>();
+            if (scroll != null) scroll.scrollOffset = Vector2.zero;
         }
 
         public void ShowEvidence(HistoricalEvidence document)
@@ -88,22 +154,23 @@ namespace FEB.Archive
             Show(document.title, document.dateLabel, document.description, document.image, document.citation, document.imageCaption);
             if (inspection.Show(document))
             {
-                illustration.gameObject.SetActive(false);
-                imagePlaceholder.SetActive(false);
-                inspectionControls.SetActive(true);
+                ScreenUI.Show(illustration, false);
+                ScreenUI.Show(imagePlaceholder, false);
+                ScreenUI.Show(inspectionControls, true);
             }
         }
 
         public void AddChoice(string label, Action action, bool enabled = true)
         {
             if (choiceIndex >= choices.Length) throw new InvalidOperationException("O painel não possui espaço para todas as opções.");
-            var button = choices[choiceIndex++];
-            button.gameObject.SetActive(true);
-            button.interactable = enabled;
-            var labelText = button.GetComponentInChildren<TMP_Text>(true);
-            labelText.gameObject.SetActive(true);
-            labelText.text = label;
-            button.onClick.AddListener(() => action());
+            int index = choiceIndex++;
+            var button = choices[index];
+            button.text = label;
+            button.SetEnabled(enabled);
+            ScreenUI.Show(button, true);
+            ScreenUI.FitText(button, 19, 23);
+            choiceActions[index] = action;
+            button.clicked += action;
         }
 
         public void SetHud(string nextObjective, string completion)
@@ -112,29 +179,45 @@ namespace FEB.Archive
             progress.text = completion;
         }
 
+        public void SetInteraction(string message)
+        {
+            if (interactionLabel != null) interactionLabel.text = message;
+        }
+
         public void Close()
         {
             if (transitioning) return;
             inspection.Hide();
-            inspectionControls.SetActive(false);
-            zoomPanel.SetActive(false);
-            modal.SetActive(false);
-            hud.SetActive(true);
+            ScreenUI.Show(inspectionControls, false);
+            ScreenUI.Show(zoomPanel, false);
+            ScreenUI.Show(modal, false);
+            ScreenUI.Show(hud, true);
             VisibilityChanged?.Invoke(false);
         }
 
         public IEnumerator FadeToBlack(float duration)
         {
             transitioning = true;
-            closeButton.interactable = false;
-            if (transition == null) yield break;
-            transition.blocksRaycasts = true;
+            closeButton.SetEnabled(false);
+            ScreenUI.Show(transition, true);
             for (float elapsed = 0; elapsed < duration; elapsed += Time.unscaledDeltaTime)
             {
-                transition.alpha = Mathf.SmoothStep(0, 1, elapsed / duration);
+                transition.style.opacity = Mathf.SmoothStep(0, 1, elapsed / duration);
                 yield return null;
             }
-            transition.alpha = 1;
+            transition.style.opacity = 1;
+        }
+
+        void OnDisable()
+        {
+            if (closeButton == null) return;
+            closeButton.clicked -= Close;
+            zoomButton.clicked -= OpenZoom;
+            zoomCloseButton.clicked -= CloseZoom;
+            resetInspectionButton.clicked -= inspection.ResetView;
+            body.UnregisterCallback<GeometryChangedEvent>(OnBodyGeometryChanged);
+            ResetChoices();
+            inspection.Detach();
         }
     }
 }

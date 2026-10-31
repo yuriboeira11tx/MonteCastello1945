@@ -1,0 +1,20 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="Saves.uss" />
+    <ui:VisualElement name="slotsPanel" class="screen saves-root hidden">
+        <ui:VisualElement class="save-content">
+            <ui:Label name="panelTitle" text="NOVA PESQUISA" class="save-title stencil" />
+            <ui:Label name="panelMessage" class="save-message" />
+            <ui:VisualElement name="slots" class="slots">
+                <ui:Button name="slot1" class="slot" />
+                <ui:Button name="slot2" class="slot" />
+                <ui:Button name="slot3" class="slot" />
+                <ui:Button name="slot4" class="slot" />
+            </ui:VisualElement>
+            <ui:VisualElement class="save-actions">
+                <ui:Button name="cancel" text="Voltar" />
+                <ui:Button name="continueSlot" text="Continuar este save" class="hidden" />
+                <ui:Button name="confirmOverwrite" text="Confirmar novo jogo" class="hidden" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

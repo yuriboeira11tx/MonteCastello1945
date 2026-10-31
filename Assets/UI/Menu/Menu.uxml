@@ -1,0 +1,25 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="Menu.uss" />
+    <ui:VisualElement name="menuRoot" class="screen menu-root">
+        <ui:VisualElement name="intro" class="fill intro">
+            <ui:Image name="slideshow" source="project://database/Assets/Images/feb-forca-expedicionaria-brasileira-foto-do-pelotao-do-ten-cavalcanti-1280x856-recorte.jpg" scale-mode="StretchToFill" class="fill slideshow" picking-mode="Ignore" />
+            <ui:Label name="introTitle" text="MONTE CASTELLO&#10;1945" class="intro-title stencil" picking-mode="Ignore" />
+            <ui:Label name="introPrompt" text="Pressione qualquer tecla para continuar" class="intro-prompt typewriter" picking-mode="Ignore" />
+        </ui:VisualElement>
+        <ui:VisualElement name="options" class="fill options hidden">
+            <ui:VisualElement class="fill collage" picking-mode="Ignore" />
+            <ui:VisualElement class="menu-shade" picking-mode="Ignore" />
+            <ui:Label text="MC: 1945" class="menu-title stencil" picking-mode="Ignore" />
+            <ui:VisualElement class="title-rule" picking-mode="Ignore" />
+            <ui:VisualElement class="menu-options">
+                <ui:Button name="newGame" class="menu-option typewriter"><ui:VisualElement class="menu-caption" picking-mode="Ignore"><ui:Label text="Novo Jogo" picking-mode="Ignore" /><ui:VisualElement class="menu-underline" picking-mode="Ignore" /></ui:VisualElement></ui:Button>
+                <ui:Button name="continueGame" class="menu-option typewriter"><ui:VisualElement class="menu-caption" picking-mode="Ignore"><ui:Label text="Continuar Jogo" picking-mode="Ignore" /><ui:VisualElement class="menu-underline" picking-mode="Ignore" /></ui:VisualElement></ui:Button>
+                <ui:Button name="credits" class="menu-option typewriter"><ui:VisualElement class="menu-caption" picking-mode="Ignore"><ui:Label text="Créditos" picking-mode="Ignore" /><ui:VisualElement class="menu-underline" picking-mode="Ignore" /></ui:VisualElement></ui:Button>
+                <ui:Button name="quit" class="menu-option typewriter"><ui:VisualElement class="menu-caption" picking-mode="Ignore"><ui:Label text="Sair" picking-mode="Ignore" /><ui:VisualElement class="menu-underline" picking-mode="Ignore" /></ui:VisualElement></ui:Button>
+            </ui:VisualElement>
+            <ui:Label text="v1.0&#10;&#10;Yuri Boeira" class="menu-credit typewriter" picking-mode="Ignore" />
+            <ui:Label name="song" text="&quot;Você sabe de onde eu venho?&#10;Venho do morro, do Engenho&#10;Das selvas, dos cafezais&#10;Da boa terra do coco&#10;Da choupana onde um é pouco&#10;Dois é bom, três é demais&#10;Venho das praias sedosas&#10;Das montanhas alterosas&#10;Dos pampas, do seringal&#10;Das margens crespas dos rios&#10;Dos verdes mares bravios&#10;Da minha terra Natal&quot;" class="menu-song typewriter" picking-mode="Ignore" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
+

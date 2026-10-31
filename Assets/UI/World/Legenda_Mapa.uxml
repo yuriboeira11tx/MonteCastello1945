@@ -1,0 +1,1 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements"><ui:Style src="Legenda_Mapa.uss" /><ui:Label name="text" text="BATALHA DO ATLÂNTICO&#10;Mapa de 1944–1945" class="world-text" picking-mode="Ignore" /></ui:UXML>

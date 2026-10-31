@@ -1,0 +1,29 @@
+.unity-ui-document__root { flex-grow: 1; }
+.screen {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/LiberationSans.asset");
+    color: rgb(235, 224, 196);
+}
+.stencil { -unity-font-definition: url("project://database/Assets/UI/Fonts/AllertaStencil.asset"); }
+.typewriter { -unity-font-definition: url("project://database/Assets/UI/Fonts/SpecialElite.asset"); }
+.fill { position: absolute; left: 0; right: 0; top: 0; bottom: 0; }
+.hidden { display: none; }
+Label { margin: 0; padding: 0; white-space: normal; }
+Button {
+    margin: 0;
+    border-width: 0;
+    border-radius: 0;
+    padding: 4px 18px;
+    -unity-text-align: middle-left;
+    white-space: normal;
+    background-color: rgb(69, 74, 46);
+    color: rgb(240, 230, 196);
+    font-size: 25px;
+}
+Button:hover, Button:focus { background-color: rgb(84, 89, 58); }
+Button:active { background-color: rgb(55, 59, 37); }
+Button:disabled { opacity: 0.5; }

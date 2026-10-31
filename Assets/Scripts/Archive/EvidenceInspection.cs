@@ -1,18 +1,19 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
+using FEB.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
 
 namespace FEB.Archive
 {
-    [RequireComponent(typeof(UnityEngine.UI.RawImage))]
-    public sealed class EvidenceInspection : MonoBehaviour, IDragHandler, IScrollHandler, IPointerEnterHandler, IPointerExitHandler
+    public sealed class EvidenceInspection : MonoBehaviour
     {
         [SerializeField, Range(256, 2048)] int textureSize = 1024;
         [SerializeField] float rotationSensitivity = .25f;
         [SerializeField] float defaultDistance = 3f;
         const int PreviewLayer = 31;
-        UnityEngine.UI.RawImage viewport;
+        Image viewport;
+        InspectionManipulator manipulator;
         GameObject studio;
         Transform pivot;
         GameObject instance;
@@ -27,7 +28,6 @@ namespace FEB.Archive
         void EnsureStudio()
         {
             if (studio != null) return;
-            viewport = GetComponent<UnityEngine.UI.RawImage>();
             studio = new GameObject("Estudio_Inspecao");
             UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(studio, gameObject.scene);
             studio.transform.position = new Vector3(0, -1000, 0);
@@ -48,11 +48,12 @@ namespace FEB.Archive
             cameraData.renderPostProcessing = false;
             cameraData.renderShadows = false;
             cameraData.volumeLayerMask = 0;
-            float aspect = viewport.rectTransform.rect.width / Mathf.Max(1, viewport.rectTransform.rect.height);
+            float aspect = viewport.contentRect.width / Mathf.Max(1, viewport.contentRect.height);
+            if (!float.IsFinite(aspect) || aspect < .1f) aspect = 650f / 460f;
             renderTexture = new RenderTexture(textureSize, Mathf.RoundToInt(textureSize / aspect), 24, RenderTextureFormat.ARGB32) { name = "Inspecao_Evidencia", useMipMap = false };
             renderTexture.Create();
             previewCamera.targetTexture = renderTexture;
-            viewport.texture = renderTexture;
+            viewport.image = renderTexture;
             AddLight("Luz_Principal", new Vector3(-1.5f, 1.5f, -2), new Color(1, .91f, .77f), 8f);
             AddLight("Preenchimento", new Vector3(1.4f, .3f, -1.5f), new Color(.8f, .9f, 1), 4f);
             AddLight("Luz_Verso", new Vector3(0, 1.5f, 1.8f), new Color(1, .94f, .8f), 3f);
@@ -78,7 +79,7 @@ namespace FEB.Archive
             if (evidence.inspectionPrefab == null) return false;
             EnsureStudio();
             studio.SetActive(true);
-            gameObject.SetActive(true);
+            ScreenUI.Show(viewport, true);
             pivot.localRotation = Quaternion.identity;
             instance = Instantiate(evidence.inspectionPrefab, pivot, false);
             foreach (var child in instance.GetComponentsInChildren<Transform>(true)) child.gameObject.layer = PreviewLayer;
@@ -110,10 +111,63 @@ namespace FEB.Archive
         }
 
         public void Zoom(float amount) => targetDistance = Mathf.Clamp(targetDistance - amount * .2f, 1.65f, 4.8f);
-        public void OnDrag(PointerEventData data) { if (data.button == PointerEventData.InputButton.Left) Rotate(data.delta); }
-        public void OnScroll(PointerEventData data) => Zoom(Mathf.Clamp(data.scrollDelta.y, -1, 1));
-        public void OnPointerEnter(PointerEventData data) => pointerInside = true;
-        public void OnPointerExit(PointerEventData data) => pointerInside = false;
+        public void Initialize(Image image)
+        {
+            Detach();
+            viewport = image;
+            viewport.scaleMode = ScaleMode.ScaleToFit;
+            if (renderTexture != null) viewport.image = renderTexture;
+            manipulator = new InspectionManipulator(this);
+            viewport.AddManipulator(manipulator);
+            Hide();
+        }
+
+        public void Detach()
+        {
+            if (viewport != null && manipulator != null) viewport.RemoveManipulator(manipulator);
+            manipulator = null;
+            Hide();
+        }
+
+        sealed class InspectionManipulator : PointerManipulator
+        {
+            readonly EvidenceInspection owner;
+            int pointer = -1;
+            public InspectionManipulator(EvidenceInspection owner) => this.owner = owner;
+            protected override void RegisterCallbacksOnTarget()
+            {
+                target.RegisterCallback<PointerDownEvent>(Down);
+                target.RegisterCallback<PointerMoveEvent>(Move);
+                target.RegisterCallback<PointerUpEvent>(Up);
+                target.RegisterCallback<PointerCaptureOutEvent>(CaptureOut);
+                target.RegisterCallback<WheelEvent>(Wheel);
+                target.RegisterCallback<PointerEnterEvent>(Enter);
+                target.RegisterCallback<PointerLeaveEvent>(Leave);
+            }
+            protected override void UnregisterCallbacksFromTarget()
+            {
+                if (pointer >= 0 && target.HasPointerCapture(pointer)) target.ReleasePointer(pointer);
+                target.UnregisterCallback<PointerDownEvent>(Down);
+                target.UnregisterCallback<PointerMoveEvent>(Move);
+                target.UnregisterCallback<PointerUpEvent>(Up);
+                target.UnregisterCallback<PointerCaptureOutEvent>(CaptureOut);
+                target.UnregisterCallback<WheelEvent>(Wheel);
+                target.UnregisterCallback<PointerEnterEvent>(Enter);
+                target.UnregisterCallback<PointerLeaveEvent>(Leave);
+            }
+            void Down(PointerDownEvent evt) { if (evt.button != 0) return; pointer = evt.pointerId; target.CapturePointer(pointer); evt.StopPropagation(); }
+            void Move(PointerMoveEvent evt) { if (pointer != evt.pointerId || !target.HasPointerCapture(pointer)) return; owner.Rotate(new Vector2(evt.deltaPosition.x, -evt.deltaPosition.y)); evt.StopPropagation(); }
+            void Up(PointerUpEvent evt) { if (evt.pointerId != pointer) return; target.ReleasePointer(pointer); pointer = -1; evt.StopPropagation(); }
+            void CaptureOut(PointerCaptureOutEvent evt) => pointer = -1;
+            void Wheel(WheelEvent evt) { owner.Zoom(-Mathf.Clamp(evt.delta.y, -1, 1)); evt.StopPropagation(); }
+            void Enter(PointerEnterEvent evt) => owner.pointerInside = true;
+            void Leave(PointerLeaveEvent evt) => owner.pointerInside = false;
+            public void Cancel()
+            {
+                if (pointer >= 0 && target.HasPointerCapture(pointer)) target.ReleasePointer(pointer);
+                pointer = -1;
+            }
+        }
 
         void Update()
         {
@@ -133,10 +187,11 @@ namespace FEB.Archive
 
         public void Hide()
         {
+            manipulator?.Cancel();
             pointerInside = false;
             if (instance != null) { instance.SetActive(false); Destroy(instance); instance = null; }
             if (studio != null) studio.SetActive(false);
-            gameObject.SetActive(false);
+            if (viewport != null) ScreenUI.Show(viewport, false);
         }
 
         void OnDisable() { if (studio != null) studio.SetActive(false); }
