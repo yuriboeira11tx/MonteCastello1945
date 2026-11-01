@@ -28,14 +28,7 @@
                 <ui:ScrollView name="bodyScroll" class="body-scroll" mode="Vertical" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Auto">
                     <ui:Label name="body" class="document-body" />
                 </ui:ScrollView>
-                <ui:VisualElement name="choices" class="choices">
-                    <ui:Button name="choice0" class="hidden" />
-                    <ui:Button name="choice1" class="hidden" />
-                    <ui:Button name="choice2" class="hidden" />
-                    <ui:Button name="choice3" class="hidden" />
-                    <ui:Button name="choice4" class="hidden" />
-                    <ui:Button name="choice5" class="hidden" />
-                </ui:VisualElement>
+                <ui:ScrollView name="choices" class="choices body-scroll" mode="Vertical" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Auto" />
                 <ui:Button name="zoom" text="Ampliar imagem" class="zoom-button" />
                 <ui:Button name="close" text="×" class="close-button" tooltip="Fechar (Esc)" />
             </ui:VisualElement>
@@ -43,6 +36,33 @@
         <ui:VisualElement name="zoomPanel" class="fill zoom-panel hidden">
             <ui:Image name="zoomImage" class="zoom-image" picking-mode="Ignore" />
             <ui:Button name="zoomClose" text="Voltar ao documento" class="zoom-close" />
+        </ui:VisualElement>
+        <ui:VisualElement name="readerPanel" class="fill reader-panel hidden">
+            <ui:VisualElement class="reader-sheet">
+                <ui:Label name="readerTitle" class="reader-title stencil" />
+                <ui:Label name="readerPage" class="reader-page typewriter" />
+                <ui:VisualElement class="reader-columns">
+                    <ui:VisualElement name="readerImageColumn" class="reader-image-column">
+                        <ui:VisualElement name="readerImageViewport" class="reader-image-viewport">
+                            <ui:Image name="readerImage" class="fill" picking-mode="Ignore" />
+                        </ui:VisualElement>
+                        <ui:Label text="Roda: ampliar • Arraste: deslocar a imagem" class="reader-hint" />
+                        <ui:Button name="readerFit" text="Enquadrar imagem" />
+                    </ui:VisualElement>
+                    <ui:ScrollView name="readerScroll" class="reader-scroll body-scroll" mode="Vertical" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Auto">
+                        <ui:Label name="readerText" class="reader-text" />
+                    </ui:ScrollView>
+                </ui:VisualElement>
+                <ui:Label name="readerCitation" class="reader-citation" />
+                <ui:VisualElement class="reader-toolbar">
+                    <ui:Button name="readerPrevious" text="← Anterior" />
+                    <ui:Button name="readerNext" text="Próxima →" />
+                    <ui:Button name="readerSmaller" text="A−" tooltip="Diminuir texto" />
+                    <ui:Button name="readerLarger" text="A+" tooltip="Aumentar texto" />
+                    <ui:Button name="readerDone" text="Concluir leitura" />
+                    <ui:Button name="readerClose" text="Voltar" />
+                </ui:VisualElement>
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="transition" class="fill transition hidden" />
     </ui:VisualElement>

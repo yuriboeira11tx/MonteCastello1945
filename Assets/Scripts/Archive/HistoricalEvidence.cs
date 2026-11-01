@@ -14,9 +14,19 @@ namespace FEB.Archive
         [TextArea(2, 5)] public string imageCaption;
         [TextArea(2, 5)] public string citation;
         public string sourceUrl;
+        public DocumentPage[] pages = System.Array.Empty<DocumentPage>();
         public string chronologyLabel;
         public int chronologyOrder;
         public GameObject inspectionPrefab;
         public Vector3 inspectionRotation = new Vector3(6, -14, -3);
+    }
+
+    [System.Serializable]
+    public sealed class DocumentPage
+    {
+        public string title;
+        [TextArea(8, 30)] public string text;
+        public Texture2D image;
+        [TextArea(2, 5)] public string caption;
     }
 }

@@ -16,17 +16,25 @@ namespace FEB.Archive
         [SerializeField] Transform player;
         readonly List<HistoricalEvidence> orderedEvidence = new List<HistoricalEvidence>();
         ResearchSave progress;
+        DossierProgress dossier;
+        readonly List<ArchiveCaseDefinition> cases = new List<ArchiveCaseDefinition>();
         float nextAutosave;
         bool leaving;
-        bool HasReconstruction => progress.reconstructionViewed || progress.reconstructionSkipped;
+        bool HasReconstruction => dossier.reconstructionViewed;
         public ResearchSave Progress => progress;
 
         void Start()
         {
             progress = ResearchSaveStore.EnsureSession();
-            progress.discoveredEvidence ??= new List<string>();
-            foreach (var id in progress.evidence)
-                if (!progress.discoveredEvidence.Contains(id)) progress.discoveredEvidence.Add(id);
+            for (var item = caseDefinition; item != null && !cases.Contains(item); item = item.nextCase) cases.Add(item);
+            if (string.IsNullOrWhiteSpace(progress.activeCaseId)) progress.SelectCase(caseDefinition.Id);
+            var savedCase = cases.Find(c => c.Id == progress.activeCaseId);
+            if (savedCase != null) caseDefinition = savedCase;
+            dossier = progress.SelectCase(caseDefinition.Id);
+            progress.archiveScene = caseDefinition.archiveScene;
+            dossier.discoveredEvidence ??= new List<string>();
+            foreach (var id in dossier.evidence)
+                if (!dossier.discoveredEvidence.Contains(id)) dossier.discoveredEvidence.Add(id);
             progress.scene = caseDefinition.archiveScene;
             if (progress.hasPlayerPosition)
             {
@@ -39,13 +47,13 @@ namespace FEB.Archive
             interaction.SetBlocked(false);
             nextAutosave = Time.unscaledTime + 30;
             RefreshHud();
-            if (HasReconstruction && !progress.reportCompleted) OpenReport();
+            if (HasReconstruction && !dossier.reportCompleted) OpenReport();
         }
 
         void Update()
         {
             if (progress == null || leaving) return;
-            if (Application.isFocused) progress.archiveSeconds += Time.unscaledDeltaTime;
+            if (Application.isFocused) dossier.archiveSeconds += Time.unscaledDeltaTime;
             if (Time.unscaledTime >= nextAutosave) { SaveProgress(); nextAutosave = Time.unscaledTime + 30; }
         }
 
@@ -64,57 +72,91 @@ namespace FEB.Archive
 
         public void OpenBriefing()
         {
-            view.Show("Sua primeira investigação", caseDefinition.title, caseDefinition.mission);
-            view.AddChoice("Assumir a pesquisa", () => { progress.briefingRead = true; progress.Record("briefing_read"); SaveProgress(); view.Close(); RefreshHud(); });
+            view.Show("Pasta de pesquisa", caseDefinition.title, caseDefinition.mission);
+            view.AddChoice("Assumir a pesquisa", () => { dossier.briefingRead = true; progress.Record("briefing_read"); SaveProgress(); view.Close(); RefreshHud(); });
         }
 
         public void OpenEvidence(HistoricalEvidence document)
         {
             if (document == null) return;
-            progress.Record("document_opened", document.id);
-            if (!progress.discoveredEvidence.Contains(document.id))
+            if (!caseDefinition.evidence.Contains(document))
             {
-                progress.discoveredEvidence.Add(document.id);
+                view.Show("Documento de outro dossiê", document.title, "Selecione o dossiê correspondente na caderneta para registrar esta fonte.");
+                view.AddChoice("Selecionar dossiê", OpenCaseSelection);
+                return;
+            }
+            progress.Record("document_opened", document.id);
+            if (!dossier.discoveredEvidence.Contains(document.id))
+            {
+                dossier.discoveredEvidence.Add(document.id);
                 progress.Record("evidence_discovered", document.id);
                 if (!SaveProgress()) return;
             }
             RefreshHud();
             view.ShowEvidence(document);
-            bool collected = progress.evidence.Contains(document.id);
+            bool collected = dossier.evidence.Contains(document.id);
+            view.AddChoice("Ler documento no arquivo", () => view.ReadDocument(document, () =>
+            {
+                if (!dossier.readEvidence.Contains(document.id)) dossier.readEvidence.Add(document.id);
+                progress.Record("document_read", document.id);
+                SaveProgress();
+                OpenEvidence(document);
+            }));
             view.AddChoice(collected ? "Evidência registrada — voltar" : "Registrar evidência no caderno", () =>
             {
-                if (!progress.evidence.Contains(document.id)) { progress.evidence.Add(document.id); progress.Record("evidence_recorded", document.id); }
+                if (!dossier.evidence.Contains(document.id)) { dossier.evidence.Add(document.id); progress.Record("evidence_recorded", document.id); }
                 SaveProgress(); RefreshHud();
                 view.Show("Anotação de pesquisa", document.title, document.keyFinding);
                 view.AddChoice("Voltar à investigação", view.Close);
-            });
-            if (!string.IsNullOrWhiteSpace(document.sourceUrl)) view.AddChoice("Consultar fonte original", () => Application.OpenURL(document.sourceUrl));
+            }, dossier.readEvidence.Contains(document.id));
         }
 
         public void OpenNotebook()
         {
-            view.Show("Caderneta de pesquisa", caseDefinition.title, "Reexamine os objetos encontrados e registre as evidências que sustentam a investigação.\n\n" + (progress.formationUnlocked ? "Próximo capítulo liberado: Formação e envio da FEB." : "A exposição será construída a partir das suas descobertas."));
+            view.Show("Caderneta de pesquisa", caseDefinition.title, "Reexamine os objetos encontrados, leia as fontes e registre as evidências que sustentam a investigação.\n\nCada dossiê reúne documentos, cronologia, reconstrução e uma conclusão.");
             foreach (var evidence in caseDefinition.evidence)
             {
                 var item = evidence;
-                string state = progress.evidence.Contains(item.id) ? "Registrada" : progress.discoveredEvidence.Contains(item.id) ? "Encontrada" : "Não encontrada";
-                view.AddChoice(item.title + " · " + state, () => OpenEvidence(item), progress.discoveredEvidence.Contains(item.id));
+                string state = dossier.evidence.Contains(item.id) ? "Registrada" : dossier.discoveredEvidence.Contains(item.id) ? "Encontrada" : "Não encontrada";
+                view.AddChoice(item.title + " · " + state, () => OpenEvidence(item), dossier.discoveredEvidence.Contains(item.id));
             }
             view.AddChoice("Organizar a linha do tempo", OpenChronology);
             view.AddChoice("Examinar a reconstrução", OpenReconstruction);
             view.AddChoice("Relatório da investigação", OpenReport);
+            if (cases.Count > 1) view.AddChoice("Selecionar dossiê", OpenCaseSelection);
+        }
+
+        public void OpenCaseSelection()
+        {
+            view.Show("Dossiês do arquivo", "Investigações e experiências", "Conclua uma investigação para liberar a seguinte. As evidências e conclusões de cada dossiê ficam preservadas.");
+            for (int i = 0; i < cases.Count; i++)
+            {
+                var item = cases[i];
+                var previous = i > 0 ? cases[i - 1] : null;
+                var state = previous == null ? null : progress.dossiers.Find(d => d.caseId == previous.Id);
+                bool available = previous == null || (state != null && state.reportCompleted &&
+                    (string.IsNullOrWhiteSpace(previous.followUpScene) || state.followUpCompleted));
+                view.AddChoice(item.title + (available ? "" : " · Bloqueado"), () =>
+                {
+                    caseDefinition = item;
+                    dossier = progress.SelectCase(item.Id);
+                    progress.archiveScene = item.archiveScene;
+                    orderedEvidence.Clear();
+                    SaveProgress(); RefreshHud(); OpenBriefing();
+                }, available);
+            }
         }
 
         public void OpenChronology()
         {
-            if (!caseDefinition.evidence.All(d => progress.evidence.Contains(d.id)))
+            if (!caseDefinition.evidence.All(d => dossier.evidence.Contains(d.id)))
             {
-                view.Show("Linha do tempo", "Evidências pendentes", "Consulte e registre os três documentos na sala. Procure as datas e o que cada fonte permite concluir.");
+                view.Show("Linha do tempo", "Evidências pendentes", "Consulte e registre todos os documentos deste dossiê. Procure as datas e o que cada fonte permite concluir.");
                 view.AddChoice("Continuar a pesquisa", view.Close); return;
             }
-            if (progress.chronologySolved)
+            if (dossier.chronologySolved)
             {
-                view.Show("Cronologia estabelecida", "1942 — 1943", caseDefinition.chronologyExplanation);
+                view.Show("Cronologia estabelecida", caseDefinition.title, caseDefinition.chronologyExplanation);
                 view.AddChoice("Examinar a reconstrução", OpenReconstruction); return;
             }
             orderedEvidence.Clear();
@@ -135,20 +177,20 @@ namespace FEB.Archive
 
         void CheckChronology()
         {
-            progress.chronologyAttempts++;
+            dossier.chronologyAttempts++;
             bool correct = orderedEvidence.SequenceEqual(orderedEvidence.OrderBy(d => d.chronologyOrder));
-            progress.Record("chronology_answer", "atlantic", string.Join(",", orderedEvidence.Select(d => d.id)) + ";correct=" + correct);
-            progress.chronologySolved = correct;
+            progress.Record("chronology_answer", caseDefinition.Id, string.Join(",", orderedEvidence.Select(d => d.id)) + ";correct=" + correct);
+            dossier.chronologySolved = correct;
             SaveProgress(); RefreshHud();
-            view.Show(correct ? "Cronologia estabelecida" : "Reveja as datas", correct ? "Reconstrução disponível" : "Você pode consultar o caderno", correct ? caseDefinition.chronologyExplanation : "Compare a data do jornal, a declaração do estado de guerra e o registro do Itapagé. Uma notícia sobre ataques não é o mesmo acontecimento que a decisão política de entrar na guerra.");
+            view.Show(correct ? "Cronologia estabelecida" : "Reveja as datas", correct ? "Reconstrução disponível" : "Você pode consultar o caderno", correct ? caseDefinition.chronologyExplanation : "Compare as datas e diferencie os acontecimentos apresentados nas fontes. Consulte os documentos e tente novamente.");
             view.AddChoice(correct ? "Examinar a reconstrução" : "Tentar novamente", correct ? (Action)OpenReconstruction : OpenChronology);
             view.AddChoice("Voltar ao arquivo", view.Close);
         }
 
         public void OpenReconstruction()
         {
-            view.Show("O caso Itapagé", "Litoral de Alagoas • 26 de setembro de 1943", progress.chronologySolved ? caseDefinition.reconstructionIntroduction + "\n\nDuração: 3 minutos. Segure Esc por 2 segundos para voltar ao arquivo." : "Organize a linha do tempo antes de examinar este caso. Isso permite situar o naufrágio depois da entrada do Brasil na guerra.");
-            view.AddChoice("Examinar reconstrução", () => LeaveFor(caseDefinition.reconstructionScene), progress.chronologySolved);
+            view.Show("Reconstrução interativa", caseDefinition.title, dossier.chronologySolved ? caseDefinition.reconstructionIntroduction + "\n\nSegure Esc por 2 segundos para voltar ao arquivo. Sair antes de concluir mantém a atividade pendente." : "Registre as fontes e organize a linha do tempo antes de examinar a reconstrução deste caso.");
+            view.AddChoice("Examinar reconstrução", () => LeaveFor(caseDefinition.reconstructionScene), dossier.chronologySolved);
         }
 
         public void OpenReport()
@@ -158,7 +200,7 @@ namespace FEB.Archive
                 view.Show("Relatório de pesquisa", "Investigação em andamento", "Registre as evidências, organize a cronologia e examine a reconstrução para concluir o dossiê.");
                 view.AddChoice("Voltar ao arquivo", view.Close); return;
             }
-            if (progress.reportCompleted) { ShowCompletedReport(); return; }
+            if (dossier.reportCompleted) { ShowCompletedReport(); return; }
             view.Show("Sua conclusão", "Relacione os documentos ao caso investigado", caseDefinition.reportQuestion);
             for (int i = 0; i < caseDefinition.reportAnswers.Length; i++)
             {
@@ -169,10 +211,10 @@ namespace FEB.Archive
 
         void SubmitReport(int answer)
         {
-            progress.reportAttempts++;
+            dossier.reportAttempts++;
             bool correct = answer == caseDefinition.correctReportAnswer;
-            progress.Record("report_answer", "atlantic", answer + ";correct=" + correct);
-            if (correct) { progress.reportCompleted = progress.formationUnlocked = true; SaveProgress(); RefreshHud(); ShowCompletedReport(); }
+            progress.Record("report_answer", caseDefinition.Id, answer + ";correct=" + correct);
+            if (correct) { dossier.reportCompleted = true; SaveProgress(); RefreshHud(); ShowCompletedReport(); }
             else
             {
                 SaveProgress();
@@ -184,7 +226,10 @@ namespace FEB.Archive
 
         void ShowCompletedReport()
         {
-            view.Show("Dossiê concluído", "Próximo capítulo: Formação e envio da FEB", caseDefinition.reportExplanation + $"\n\nEvidências: {progress.evidence.Count}/{caseDefinition.evidence.Length}   •   Cronologia: concluída   •   Interpretação: concluída\nTempo no arquivo: {TimeSpan.FromSeconds(progress.archiveSeconds):mm\\:ss}\nTentativas de cronologia: {progress.chronologyAttempts}   •   Tentativas de interpretação: {progress.reportAttempts}");
+            view.Show("Dossiê concluído", caseDefinition.title, caseDefinition.reportExplanation + $"\n\nEvidências: {dossier.evidence.Count}/{caseDefinition.evidence.Length}   •   Cronologia: concluída   •   Interpretação: concluída\nTempo no arquivo: {TimeSpan.FromSeconds(dossier.archiveSeconds):mm\\:ss}\nTentativas de cronologia: {dossier.chronologyAttempts}   •   Tentativas de interpretação: {dossier.reportAttempts}");
+            if (!string.IsNullOrWhiteSpace(caseDefinition.followUpScene))
+                view.AddChoice("Entrar na experiência deste dossiê", () => LeaveFor(caseDefinition.followUpScene));
+            if (caseDefinition.nextCase != null) view.AddChoice("Próximo dossiê", OpenCaseSelection);
             view.AddChoice("Continuar explorando o arquivo", view.Close);
             view.AddChoice("Salvar e voltar ao menu", () => LeaveFor(caseDefinition.menuScene));
         }
@@ -199,9 +244,9 @@ namespace FEB.Archive
 
         void RefreshHud()
         {
-            string goal = !progress.briefingRead ? "Examine a pasta de pesquisa sobre a mesa." : progress.evidence.Count < caseDefinition.evidence.Length ? "Examine e registre os três documentos da sala." : !progress.chronologySolved ? "Organize os acontecimentos no painel da linha do tempo." : !HasReconstruction ? "Examine o caso Itapagé na mesa de reconstrução." : !progress.reportCompleted ? "Conclua o relatório no caderno de pesquisa." : "Dossiê concluído. Explore o arquivo ou volte ao menu.";
-            int found = caseDefinition.evidence.Count(d => progress.discoveredEvidence.Contains(d.id));
-            int registered = caseDefinition.evidence.Count(d => progress.evidence.Contains(d.id));
+            string goal = !dossier.briefingRead ? "Examine a pasta de pesquisa sobre a mesa." : dossier.evidence.Count < caseDefinition.evidence.Length ? "Leia e registre os documentos deste dossiê." : !dossier.chronologySolved ? "Organize os acontecimentos no painel da linha do tempo." : !HasReconstruction ? "Conclua a atividade na mesa de reconstrução." : !dossier.reportCompleted ? "Conclua o relatório no caderno de pesquisa." : "Dossiê concluído. Consulte as experiências e dossiês na caderneta.";
+            int found = caseDefinition.evidence.Count(d => dossier.discoveredEvidence.Contains(d.id));
+            int registered = caseDefinition.evidence.Count(d => dossier.evidence.Contains(d.id));
             view.SetHud("OBJETIVO ATUAL\n" + goal, $"Encontradas: {found}/{caseDefinition.evidence.Length}     Registradas: {registered}/{caseDefinition.evidence.Length}");
         }
 

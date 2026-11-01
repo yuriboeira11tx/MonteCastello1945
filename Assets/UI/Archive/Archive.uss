@@ -19,8 +19,8 @@
 .notes-heading { position: absolute; left: 1000px; top: 88px; width: 675px; height: 82px; font-size: 28px; color: rgb(97, 82, 56); }
 .body-scroll { position: absolute; left: 1000px; top: 205px; width: 675px; height: 330px; }
 .document-body { font-size: 26px; flex-shrink: 0; }
-.choices { position: absolute; left: 1000px; top: 563px; width: 675px; }
-.choices > Button { height: 52px; margin-bottom: 6px; flex-shrink: 0; font-size: 23px; }
+.choices.body-scroll { top: 563px; height: 355px; }
+.archive-choice { min-height: 52px; margin-bottom: 6px; flex-shrink: 0; font-size: 23px; }
 .zoom-button { position: absolute; left: 115px; top: 263px; width: 250px; height: 42px; font-size: 23px; }
 .close-button { position: absolute; left: 1650px; top: 55px; width: 50px; height: 45px; padding: 0; -unity-text-align: middle-center; }
 .zoom-panel { background-color: rgba(5, 6, 5, 0.99); }
@@ -36,3 +36,18 @@
 .unity-base-slider__dragger-border { display: none; }
 .unity-scroller__low-button, .unity-scroller__high-button { display: none; }
 .unity-base-slider__dragger { position: absolute; left: 0; right: 0; background-color: rgba(97, 82, 56, 0.5); border-radius: 3px; min-width: 6px; min-height: 16px; }
+.reader-panel { background-color: rgba(4, 5, 4, 0.97); padding: 36px 55px; }
+.reader-sheet { flex-grow: 1; min-height: 0; background-color: rgb(222, 209, 173); color: rgb(46, 39, 26); border-width: 2px; border-color: rgb(114, 104, 74); padding: 32px 38px; }
+.reader-title { font-size: 38px; }
+.reader-page { font-size: 23px; margin-top: 8px; margin-bottom: 22px; color: rgb(100, 80, 47); }
+.reader-columns { flex-direction: row; flex-grow: 1; min-height: 0; }
+.reader-image-column { width: 52%; margin-right: 32px; }
+.reader-image-viewport { flex-grow: 1; overflow: hidden; background-color: rgb(32, 32, 27); border-width: 1px; border-color: rgb(125, 110, 77); }
+.reader-hint { font-size: 20px; margin-top: 10px; margin-bottom: 10px; }
+.reader-scroll.body-scroll { position: relative; left: auto; top: auto; width: auto; height: auto; flex-grow: 1; flex-basis: 0; min-width: 0; }
+.reader-text { font-size: 29px; white-space: normal; flex-shrink: 0; }
+.reader-text-large { font-size: 34px; }
+.reader-text-small { font-size: 25px; }
+.reader-citation { font-size: 20px; margin-top: 20px; margin-bottom: 18px; }
+.reader-toolbar { flex-direction: row; }
+.reader-toolbar > Button { margin-right: 12px; min-height: 54px; font-size: 23px; flex-grow: 1; }

@@ -18,8 +18,8 @@ namespace FEB.Archive
         Image illustration;
         Label imageCaption;
         VisualElement imagePlaceholder;
-        Button[] choices;
-        readonly Action[] choiceActions = new Action[6];
+        ScrollView choices;
+        HistoricalDocumentReader reader;
         Button closeButton;
         Button zoomButton;
         VisualElement zoomPanel;
@@ -36,7 +36,6 @@ namespace FEB.Archive
         public event Action<bool> VisibilityChanged;
         public bool IsOpen => ScreenUI.IsVisible(modal);
         int openedFrame;
-        int choiceIndex;
         bool transitioning;
 
         void OnEnable()
@@ -66,8 +65,8 @@ namespace FEB.Archive
             resetInspectionButton = root.Q<Button>("resetInspection");
             inspection = GetComponent<EvidenceInspection>();
             inspection.Initialize(root.Q<Image>("inspection"));
-            choices = new Button[6];
-            for (int i = 0; i < choices.Length; i++) choices[i] = root.Q<Button>("choice" + i);
+            choices = root.Q<ScrollView>("choices");
+            reader = new HistoricalDocumentReader(root, () => modal.SetEnabled(true));
             closeButton.clicked += Close;
             zoomButton.clicked += OpenZoom;
             zoomCloseButton.clicked += CloseZoom;
@@ -85,7 +84,8 @@ namespace FEB.Archive
         {
             if (!transitioning && IsOpen && Time.frameCount > openedFrame && Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
             {
-                if (ScreenUI.IsVisible(zoomPanel)) CloseZoom();
+                if (reader.IsOpen) reader.Close();
+                else if (ScreenUI.IsVisible(zoomPanel)) CloseZoom();
                 else Close();
             }
         }
@@ -95,17 +95,19 @@ namespace FEB.Archive
 
         void ResetChoices()
         {
-            choiceIndex = 0;
-            for (int i = 0; i < choices.Length; i++)
-            {
-                if (choiceActions[i] != null) choices[i].clicked -= choiceActions[i];
-                choiceActions[i] = null;
-                ScreenUI.Show(choices[i], false);
-            }
+            choices.Clear();
+            choices.scrollOffset = Vector2.zero;
+        }
+
+        public void ReadDocument(HistoricalEvidence document, Action completed)
+        {
+            modal.SetEnabled(false);
+            reader.Open(document, completed);
         }
 
         public void Show(string heading, string context, string text, Texture texture = null, string credit = "", string caption = "")
         {
+            reader.Close();
             inspection.Hide();
             ScreenUI.Show(inspectionControls, false);
             ScreenUI.Show(hud, false);
@@ -162,15 +164,10 @@ namespace FEB.Archive
 
         public void AddChoice(string label, Action action, bool enabled = true)
         {
-            if (choiceIndex >= choices.Length) throw new InvalidOperationException("O painel não possui espaço para todas as opções.");
-            int index = choiceIndex++;
-            var button = choices[index];
-            button.text = label;
+            var button = new Button(action) { text = label, name = "choice" + choices.childCount };
+            button.AddToClassList("archive-choice");
             button.SetEnabled(enabled);
-            ScreenUI.Show(button, true);
-            ScreenUI.FitText(button, 19, 23);
-            choiceActions[index] = action;
-            button.clicked += action;
+            choices.Add(button);
         }
 
         public void SetHud(string nextObjective, string completion)
@@ -187,6 +184,7 @@ namespace FEB.Archive
         public void Close()
         {
             if (transitioning) return;
+            reader.Close();
             inspection.Hide();
             ScreenUI.Show(inspectionControls, false);
             ScreenUI.Show(zoomPanel, false);
@@ -217,6 +215,7 @@ namespace FEB.Archive
             resetInspectionButton.clicked -= inspection.ResetView;
             body.UnregisterCallback<GeometryChangedEvent>(OnBodyGeometryChanged);
             ResetChoices();
+            reader.Dispose();
             inspection.Detach();
         }
     }

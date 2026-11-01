@@ -1,14 +1,33 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements">
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:feb="FEB.UI">
     <ui:Style src="Cutscene.uss" />
     <ui:VisualElement name="cutsceneRoot" class="screen" picking-mode="Ignore">
-        <ui:VisualElement name="videoGroup" class="fill video-group" picking-mode="Ignore">
-            <ui:Image name="archiveVideo" class="fill archive-video" picking-mode="Ignore" />
+        <ui:VisualElement class="archive-half" picking-mode="Ignore">
+            <ui:Image name="archiveVideo" class="archive-video" picking-mode="Ignore" />
         </ui:VisualElement>
-        <ui:VisualElement name="titleGroup" class="fill title-group" picking-mode="Ignore">
-            <ui:Label text="Monte Castello: 1945" class="opening-title title-shadow stencil" picking-mode="Ignore" />
-            <ui:Label text="um jogo sério inspirado na trajetória da força expedicionária brasileira" class="opening-description title-shadow typewriter" picking-mode="Ignore" />
-            <ui:Label text="Monte Castello: 1945" class="opening-title stencil" picking-mode="Ignore" />
-            <ui:Label text="um jogo sério inspirado na trajetória da força expedicionária brasileira" class="opening-description typewriter" picking-mode="Ignore" />
+        <ui:VisualElement class="navigation-half" picking-mode="Ignore">
+            <ui:Image name="navigationView" class="navigation-image" picking-mode="Ignore" />
+            <feb:NavalRadar name="navalRadar" class="naval-radar" picking-mode="Ignore" />
+        </ui:VisualElement>
+        <ui:VisualElement name="finalFade" class="final-fade hidden" picking-mode="Ignore" />
+        <ui:VisualElement name="outcome" class="outcome hidden" picking-mode="Ignore">
+            <ui:VisualElement class="archive-sheet" picking-mode="Ignore">
+                <ui:VisualElement class="sheet-watermark" picking-mode="Ignore" />
+                <ui:VisualElement class="document-letterhead" picking-mode="Ignore">
+                    <ui:VisualElement class="feb-emblem" picking-mode="Ignore" />
+                    <ui:VisualElement class="letterhead-copy" picking-mode="Ignore">
+                        <ui:Label text="FORÇA EXPEDICIONÁRIA BRASILEIRA" class="letterhead-title stencil" picking-mode="Ignore" />
+                        <ui:Label text="ARQUIVO HISTÓRICO · REGISTRO DE MANOBRA" class="letterhead-subtitle typewriter" picking-mode="Ignore" />
+                    </ui:VisualElement>
+                    <ui:VisualElement class="brasil-emblem" picking-mode="Ignore" />
+                </ui:VisualElement>
+                <ui:Label text="FICHA DO RECRUTA" class="record-title typewriter" picking-mode="Ignore" />
+                <ui:Image name="archiveStamp" class="archive-stamp" picking-mode="Ignore" />
+                <ui:Label name="outcomeMessage" class="outcome-message typewriter" picking-mode="Ignore" />
+                <ui:VisualElement class="document-footer" picking-mode="Ignore">
+                    <ui:Label text="SITUAÇÃO: NOVA TENTATIVA NECESSÁRIA" class="typewriter" picking-mode="Ignore" />
+                    <ui:Label text="MONTE CASTELLO: 1945" class="typewriter" picking-mode="Ignore" />
+                </ui:VisualElement>
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

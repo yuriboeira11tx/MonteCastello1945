@@ -37,6 +37,8 @@ namespace FEB.Persistence
                 foreach (var id in data.evidence)
                     if (!data.discoveredEvidence.Contains(id)) data.discoveredEvidence.Add(id);
                 data.events ??= new System.Collections.Generic.List<ResearchEvent>();
+                data.dossiers ??= new System.Collections.Generic.List<DossierProgress>();
+                foreach (var dossier in data.dossiers) dossier.Normalize();
                 return data;
             }
             catch (Exception e) when (e is IOException || e is ArgumentException || e is UnauthorizedAccessException)

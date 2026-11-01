@@ -5,6 +5,8 @@ namespace FEB.Archive
     [CreateAssetMenu(menuName = "FEB/Caso de pesquisa")]
     public sealed class ArchiveCaseDefinition : ScriptableObject
     {
+        public string caseId;
+        public string Id => string.IsNullOrWhiteSpace(caseId) ? name : caseId;
         public string title;
         [TextArea(5, 12)] public string mission;
         public HistoricalEvidence[] evidence;
@@ -18,5 +20,7 @@ namespace FEB.Archive
         public string archiveScene = "ArquivoHistorico";
         public string reconstructionScene = "CutsceneInicial";
         public string menuScene = "Menu";
+        public string followUpScene;
+        public ArchiveCaseDefinition nextCase;
     }
 }

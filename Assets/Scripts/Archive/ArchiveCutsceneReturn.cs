@@ -1,33 +1,43 @@
 using FEB.Persistence;
+using FEB.Cinematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
 namespace FEB.Archive
 {
     public sealed class ArchiveCutsceneReturn : MonoBehaviour
     {
-        [SerializeField] PlayableDirector director;
+        [SerializeField] NavalArchiveSession session;
         [SerializeField] string archiveScene = "ArquivoHistorico";
-        float skipHeld;
+        float exitHeld;
         bool returning;
+
+        void Start() => session.ReturnRequested += ReturnToArchive;
 
         void Update()
         {
-            var progress = ResearchSaveStore.Current;
-            if (returning || progress == null || progress.scene != gameObject.scene.name || !progress.chronologySolved) return;
-            skipHeld = Keyboard.current != null && Keyboard.current.escapeKey.isPressed ? skipHeld + Time.unscaledDeltaTime : 0;
-            bool complete = director.time >= director.duration - .02;
-            if (!complete && skipHeld < 2) return;
-            progress.reconstructionViewed |= complete;
-            progress.reconstructionSkipped |= !complete;
-            progress.scene = archiveScene;
-            progress.Record(complete ? "reconstruction_completed" : "reconstruction_skipped", "itapage");
-            if (!ResearchSaveStore.Save(out _)) { progress.scene = gameObject.scene.name; return; }
-            returning = true;
-            director.Stop();
-            SceneManager.LoadSceneAsync(archiveScene);
+            if (returning || session.IsEnding) return;
+            exitHeld = Keyboard.current != null && Keyboard.current.escapeKey.isPressed ? exitHeld + Time.unscaledDeltaTime : 0;
+            if (exitHeld >= 2) ReturnToArchive();
         }
+
+        public void ReturnToArchive()
+        {
+            if (returning) return;
+            var progress = ResearchSaveStore.EnsureSession();
+            string destination = string.IsNullOrWhiteSpace(progress.archiveScene) ? archiveScene : progress.archiveScene;
+            if (!Application.CanStreamedLevelBeLoaded(destination))
+            { Debug.LogError("Cena de arquivo indisponível: " + destination, this); return; }
+            if (progress.ActiveDossier != null) progress.ActiveDossier.reconstructionViewed |= session.Completed;
+            string previousScene = progress.scene;
+            progress.scene = destination;
+            progress.Record(session.Completed ? "reconstruction_completed" : session.Defeated ? "naval_exercise_failed" : "reconstruction_left", progress.activeCaseId);
+            if (!ResearchSaveStore.Save(out _)) { progress.scene = previousScene; return; }
+            returning = true;
+            SceneManager.LoadSceneAsync(destination);
+        }
+
+        void OnDestroy() { if (session != null) session.ReturnRequested -= ReturnToArchive; }
     }
 }

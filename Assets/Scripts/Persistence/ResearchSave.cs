@@ -27,12 +27,68 @@ namespace FEB.Persistence
         public List<string> evidence = new List<string>();
         public List<string> discoveredEvidence = new List<string>();
         public List<ResearchEvent> events = new List<ResearchEvent>();
+        public string activeCaseId;
+        public string archiveScene = "ArquivoHistorico";
+        public List<DossierProgress> dossiers = new List<DossierProgress>();
 
-        public string StageLabel => reportCompleted ? "Dossiê concluído" : reconstructionViewed || reconstructionSkipped ? "Relatório pendente" : chronologySolved ? "Reconstrução disponível" : "Investigação no arquivo";
+        public DossierProgress ActiveDossier => dossiers?.Find(d => d.caseId == activeCaseId);
+        public string StageLabel => ActiveDossier?.StageLabel ?? (reportCompleted ? "Dossiê concluído" : reconstructionViewed ? "Relatório pendente" : chronologySolved ? "Reconstrução disponível" : "Investigação no arquivo");
+
+        public DossierProgress SelectCase(string caseId)
+        {
+            dossiers ??= new List<DossierProgress>();
+            var dossier = dossiers.Find(d => d.caseId == caseId);
+            if (dossier == null)
+            {
+                dossier = new DossierProgress { caseId = caseId };
+                if (dossiers.Count == 0)
+                {
+                    dossier.briefingRead = briefingRead;
+                    dossier.chronologySolved = chronologySolved;
+                    dossier.reconstructionViewed = reconstructionViewed || reportCompleted;
+                    dossier.reportCompleted = reportCompleted;
+                    dossier.archiveSeconds = archiveSeconds;
+                    dossier.chronologyAttempts = chronologyAttempts;
+                    dossier.reportAttempts = reportAttempts;
+                    dossier.evidence = new List<string>(evidence ?? new List<string>());
+                    dossier.discoveredEvidence = new List<string>(discoveredEvidence ?? new List<string>());
+                    dossier.readEvidence = new List<string>(dossier.evidence);
+                }
+                dossiers.Add(dossier);
+            }
+            dossier.Normalize();
+            activeCaseId = caseId;
+            return dossier;
+        }
 
         public void Record(string action, string subject = "", string detail = "")
         {
             events.Add(new ResearchEvent { utc = DateTime.UtcNow.ToString("O"), action = action, subject = subject, detail = detail });
+        }
+    }
+
+    [Serializable]
+    public sealed class DossierProgress
+    {
+        public string caseId;
+        public bool briefingRead, chronologySolved, reconstructionViewed, reportCompleted, followUpCompleted;
+        public double archiveSeconds;
+        public int chronologyAttempts, reportAttempts;
+        public List<string> evidence = new List<string>();
+        public List<string> discoveredEvidence = new List<string>();
+        public List<string> readEvidence = new List<string>();
+        public string StageLabel => reportCompleted ? "Dossiê concluído" : reconstructionViewed ? "Relatório pendente" : chronologySolved ? "Reconstrução disponível" : "Investigação no arquivo";
+
+        public void Normalize()
+        {
+            evidence ??= new List<string>();
+            discoveredEvidence ??= new List<string>();
+            readEvidence ??= new List<string>();
+            foreach (var id in evidence)
+            {
+                if (!discoveredEvidence.Contains(id)) discoveredEvidence.Add(id);
+                if (!readEvidence.Contains(id)) readEvidence.Add(id);
+            }
         }
     }
 

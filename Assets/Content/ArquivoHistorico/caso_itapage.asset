@@ -28,6 +28,29 @@ MonoBehaviour:
   citation: "Marinha do Brasil. Introdu\xE7\xE3o \xE0 Hist\xF3ria Mar\xEDtima Brasileira.
     Quadro de navios mercantes atacados: Itapag\xE9, 26 set. 1943."
   sourceUrl: https://www.marinha.mil.br/com1dn/sites/www.marinha.mil.br.com1dn/files/upload/Introdu%C3%A7%C3%A3o%20%C3%A0%20Hist%C3%B3ria%20Mar%C3%ADtima%20Brasileira.pdf
+  pages:
+  - title: "Ficha de pesquisa \u2022 Itapag\xE9"
+    text: "O Itapag\xE9 foi torpedeado no litoral de Alagoas em 26 de setembro de
+      1943. Esse ataque aconteceu depois da entrada do Brasil na guerra.\n\nA maquete
+      e a sequ\xEAncia 3D ajudam a visualizar o epis\xF3dio. S\xE3o reconstru\xE7\xF5es
+      art\xEDsticas: seus enquadramentos, dura\xE7\xE3o e efeitos n\xE3o constituem
+      registro filmado do naufr\xE1gio.\n\nData do caso: 26 de setembro de 1943.\nLocal:
+      litoral de Alagoas."
+    image: {fileID: 0}
+    caption: "S\xEDntese de pesquisa; n\xE3o \xE9 reprodu\xE7\xE3o de uma p\xE1gina
+      do livro citado."
+  - title: Relacionar as fontes
+    text: "O filme de arquivo \xE9 apresentado ao lado de uma manobra noturna interativa.\n\nConduza
+      o navio com A/D ou as setas e ajuste a velocidade com W/S. Observe o radar:
+      o navio fica no centro, com a proa para cima; os contatos alaranjados indicam
+      torpedos. Antecipe as curvas, pois o leme e as m\xE1quinas t\xEAm resposta
+      gradual.\n\nSe o casco for atingido, a tentativa ser\xE1 arquivada e o filme
+      ser\xE1 interrompido. Voc\xEA voltar\xE1 ao acervo para tentar novamente desde
+      o come\xE7o. A fase s\xF3 termina ao sobreviver at\xE9 o final integral do
+      filme.\n\nO exerc\xEDcio n\xE3o altera o registro hist\xF3rico apresentado
+      neste dossi\xEA."
+    image: {fileID: 0}
+    caption: "Orienta\xE7\xE3o da atividade interativa."
   chronologyLabel: "Torpedeamento do Itapag\xE9"
   chronologyOrder: 2
   inspectionPrefab: {fileID: 1349003803854075350, guid: 72def6cec7e65d24a8c722dc6aee2ae6, type: 3}

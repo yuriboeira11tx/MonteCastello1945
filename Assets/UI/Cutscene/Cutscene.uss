@@ -1,5 +1,20 @@
-.video-group, .title-group { opacity: 0; }
-.archive-video { opacity: 0.1; }
-.opening-title { position: absolute; left: 8%; right: 8%; top: 31%; bottom: 53%; font-size: 76px; -unity-text-align: middle-center; color: rgb(247, 242, 230); }
-.opening-description { position: absolute; left: 12%; right: 12%; top: 49%; bottom: 37%; font-size: 28px; -unity-text-align: middle-center; color: rgb(247, 242, 230); }
-.title-shadow { translate: 2px 3px; color: rgba(0, 0, 0, 0.85); }
+.archive-half { position: absolute; left: 0; top: 0; bottom: 0; width: 50%; background-color: black; border-right-width: 1px; border-right-color: rgb(58, 65, 53); }
+.archive-video { position: absolute; left: 0; right: 0; top: 0; bottom: 0; }
+.navigation-half { position: absolute; left: 50%; right: 0; top: 0; bottom: 0; }
+.navigation-full { left: 0; }
+.final-fade { position: absolute; left: 0; right: 0; top: 0; bottom: 0; background-color: black; }
+.navigation-image { position: absolute; left: 0; right: 0; top: 0; bottom: 0; }
+.naval-radar { position: absolute; right: 28px; bottom: 28px; width: 280px; height: 280px; }
+.outcome { position: absolute; left: 0; right: 0; top: 0; bottom: 0; background-color: rgb(27, 31, 24); align-items: center; justify-content: center; }
+.archive-sheet { width: 82%; height: 88%; max-width: 1600px; background-color: rgb(220, 208, 177); border-width: 2px; border-color: rgb(126, 111, 78); padding: 38px 65px; align-items: center; }
+.sheet-watermark { position: absolute; left: 37%; top: 27%; width: 26%; height: 52%; background-image: url("project://database/Assets/UI/Cutscene/Distintivo_FEB.png"); -unity-background-scale-mode: scale-to-fit; opacity: .065; }
+.document-letterhead { width: 100%; height: 160px; flex-direction: row; align-items: center; border-bottom-width: 2px; border-bottom-color: rgb(104, 91, 62); padding-bottom: 20px; }
+.feb-emblem { width: 110px; height: 140px; background-image: url("project://database/Assets/UI/Cutscene/Distintivo_FEB.png"); -unity-background-scale-mode: scale-to-fit; }
+.brasil-emblem { width: 130px; height: 130px; background-image: url("project://database/Assets/UI/Cutscene/Distintivo_Brasil.png"); -unity-background-scale-mode: scale-to-fit; }
+.letterhead-copy { flex-grow: 1; align-items: center; padding-left: 24px; padding-right: 24px; }
+.letterhead-title { font-size: 36px; color: rgb(51, 56, 39); -unity-text-align: middle-center; white-space: normal; }
+.letterhead-subtitle { font-size: 22px; margin-top: 15px; color: rgb(91, 78, 52); -unity-text-align: middle-center; white-space: normal; }
+.record-title { font-size: 25px; color: rgb(91, 78, 52); margin-top: 30px; letter-spacing: 3px; }
+.archive-stamp { width: 75%; height: 38%; background-image: url("project://database/Assets/UI/Cutscene/Arquivado.png"); -unity-background-scale-mode: scale-to-fit; }
+.outcome-message { color: rgb(53, 46, 37); font-size: 32px; -unity-text-align: middle-center; white-space: normal; width: 92%; margin-top: 12px; }
+.document-footer { position: absolute; left: 65px; right: 65px; bottom: 36px; flex-direction: row; justify-content: space-between; border-top-width: 1px; border-top-color: rgb(133, 116, 79); padding-top: 18px; color: rgb(91, 78, 52); font-size: 18px; }
