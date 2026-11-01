@@ -6,23 +6,24 @@ public class SoldierAnimStateController : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private float secondsToIdle = 5f;
     [SerializeField] private bool isWalking = false;
+    [SerializeField] private bool isStandingRifle = false;
+
+    private int isWalkingHash;
+    private int isStandingRifleHash;
+    private int isWalkingRifleHash;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        isWalkingHash = Animator.StringToHash("isWalking");
+        isStandingRifleHash = Animator.StringToHash("isStandingRifle");
     }
 
     // Update is called once per frame
     void Update()
     {
-        secondsToIdle -= Time.deltaTime;
+        animator.SetBool(isWalkingHash, isWalking);
 
-        if (secondsToIdle <= 0)
-        {
-            secondsToIdle = 5f;
-            isWalking = !isWalking;
-            animator.SetBool("isWalking", isWalking);
-        }
+        animator.SetBool(isStandingRifleHash, isStandingRifle);
     } 
 }
