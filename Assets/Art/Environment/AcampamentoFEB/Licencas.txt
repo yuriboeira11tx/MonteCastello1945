@@ -1,0 +1,11 @@
+Referencias visuais: Call of Duty 3, versao PS2, treinamento de Saint-Lo.
+Gameplay: https://www.youtube.com/watch?v=tdp1Nur6v-c
+Imagens do treinamento: https://www.gamepressure.com/callofduty3/chapter-i-saint-lo/z0709
+Portifolio do designer da fase: https://www.monster-clip.com/cod3.html
+
+Textura de madeira: Rough Wood, Rob Tuytel, Poly Haven.
+https://polyhaven.com/a/rough_wood
+Licenca CC0: https://polyhaven.com/license
+
+Modelos recriados no Blender a partir das referencias visuais. Nenhum modelo ou textura foi extraido dos arquivos de Call of Duty.
+As texturas de lona oliva, lona caqui e aco desgastado foram geradas especificamente para este pack. Os demais mapas foram produzidos na preparacao dos materiais.
