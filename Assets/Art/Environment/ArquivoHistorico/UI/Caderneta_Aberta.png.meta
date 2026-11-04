@@ -1,7 +1,10 @@
 fileFormatVersion: 2
 guid: 67fb64c31a6f7024585b1ed2afaaf2c8
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -3104783749531561432
+    second: Caderneta_Aberta_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -53,7 +56,9 @@ TextureImporter:
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
+  spriteTessellationMethod: 0
   spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -108,7 +113,29 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Caderneta_Aberta_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1672
+        height: 941
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82214c031a799e4d0800000000000000
+      internalID: -3104783749531561432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -125,25 +152,6 @@ TextureImporter:
     nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  userData: '{"asset":"Original generated UI background; fictional FEB research notebook
-    inspired by WWII service books. Museum photographs were used as references, not
-    incorporated.","generator":"Built-in image generation","prompt":"Create a production-ready
-    transparent PNG background asset for a Unity historical military notebook UI.
-    Use case: historical-scene / UI texture. Straight orthographic top-down view
-    of an open 1940s pocket army field notebook, expanded to landscape 16:9 proportions,
-    almost perfectly rectangular symmetrical two-page spread. Dark muted olive canvas
-    cloth hardcover border visible around warm ivory aged paper pages, realistic
-    fine paper fibers, subtle handling wear and yellowed edges, sewn center binding/gutter
-    strictly in the middle. Each page broad, flat and almost uniformly light cream
-    with ample completely blank space, minimal wrinkles, restrained stains ONLY at
-    outside edges. Realistic materials, soft neutral diffuse lighting, subtle natural
-    depth at book edges, no perspective tilt. The open notebook fills 97 percent
-    of the image, entire outline visible, transparent background outside. Absolutely
-    NO text, NO letters, NO writing, NO symbols, NO logos, NO emblems, NO stamps,
-    NO illustrations, NO ruled lines, NO decorative props or hands. This image will
-    sit behind real editable interface text and a 3D object viewport; keep both page
-    interiors smooth and highly legible. Wide landscape high-resolution asset. Dark
-    olive binding, warm cream paper, understated military archival mood, not fantasy
-    parchment.","references":["https://collections.museumsvictoria.com.au/items/2219628","https://museum-collection.hackney.gov.uk/object-1994-108"],"interactionReference":"https://www.ggrecon.com/guides/resident-evil-4-remake-old-wayshrine-key/"}'
+  userData: '{"asset":"Original generated UI background; fictional FEB research notebook inspired by WWII service books. Museum photographs were used as references, not incorporated.","generator":"Built-in image generation","prompt":"Create a production-ready transparent PNG background asset for a Unity historical military notebook UI. Use case: historical-scene / UI texture. Straight orthographic top-down view of an open 1940s pocket army field notebook, expanded to landscape 16:9 proportions, almost perfectly rectangular symmetrical two-page spread. Dark muted olive canvas cloth hardcover border visible around warm ivory aged paper pages, realistic fine paper fibers, subtle handling wear and yellowed edges, sewn center binding/gutter strictly in the middle. Each page broad, flat and almost uniformly light cream with ample completely blank space, minimal wrinkles, restrained stains ONLY at outside edges. Realistic materials, soft neutral diffuse lighting, subtle natural depth at book edges, no perspective tilt. The open notebook fills 97 percent of the image, entire outline visible, transparent background outside. Absolutely NO text, NO letters, NO writing, NO symbols, NO logos, NO emblems, NO stamps, NO illustrations, NO ruled lines, NO decorative props or hands. This image will sit behind real editable interface text and a 3D object viewport; keep both page interiors smooth and highly legible. Wide landscape high-resolution asset. Dark olive binding, warm cream paper, understated military archival mood, not fantasy parchment.","references":["https://collections.museumsvictoria.com.au/items/2219628","https://museum-collection.hackney.gov.uk/object-1994-108"],"interactionReference":"https://www.ggrecon.com/guides/resident-evil-4-remake-old-wayshrine-key/"}'
   assetBundleName: 
   assetBundleVariant: 
