@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,12 +8,15 @@ public class SoldierAI : MonoBehaviour
     public Transform player;
     public NavMeshAgent agent;
     public bool isStandingRifle;
+    public bool isJack;
 
     [SerializeField] private Animator animator;
     [SerializeField, Min(0.05f)] private float repathInterval = 0.2f;
 
     private static readonly int IsWalkingHash = Animator.StringToHash("isWalking");
     private static readonly int IsStandingRifleHash = Animator.StringToHash("isStandingRifle");
+    private static readonly int IsJack = Animator.StringToHash("isJack");
+
     private float nextRepathTime;
     private Vector3 lastDestination;
     private bool hasDestination;
@@ -46,7 +50,7 @@ public class SoldierAI : MonoBehaviour
         }
 
         // Atualiza o destino periodicamente para acompanhar o jogador em movimento.
-        if (Time.time >= nextRepathTime)
+        if (Time.time >= nextRepathTime && !isJack)
         {
             // Só recalcula quando o alvo mudou, preservando a frenagem na chegada.
             if (!hasDestination || (player.position - lastDestination).sqrMagnitude > 0.01f)
@@ -56,8 +60,14 @@ public class SoldierAI : MonoBehaviour
             }
             nextRepathTime = Time.time + repathInterval;
         }
-
-        SetWalking(agent.velocity.sqrMagnitude > 0.01f);
+        
+        if (isJack)
+        {
+            animator.SetBool(IsJack, isJack);
+        } else
+        {
+            SetWalking(agent.velocity.sqrMagnitude > 0.01f);
+        }
     }
 
     void OnDisable()
