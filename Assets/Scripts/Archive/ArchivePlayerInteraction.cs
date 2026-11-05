@@ -10,7 +10,9 @@ namespace FEB.Archive
         [SerializeField] Camera viewCamera;
         [SerializeField] FirstPersonController movement;
         [SerializeField] StarterAssetsInputs inputs;
+        [Tooltip("Vincule nas cenas que possuem a investigação do arquivo histórico.")]
         [SerializeField] ArchiveExperience experience;
+        [Tooltip("Interface opcional do arquivo histórico nesta cena.")]
         [SerializeField] ArchiveView view;
         [SerializeField] float reach = 2.8f;
         [SerializeField] LayerMask interactionMask = ~0;
@@ -18,8 +20,17 @@ namespace FEB.Archive
         bool blocked;
         int unblockedFrame;
 
+        void Awake()
+        {
+            if (viewCamera == null) viewCamera = GetComponentInChildren<Camera>();
+            if (movement == null) movement = GetComponent<FirstPersonController>();
+            if (inputs == null) inputs = GetComponent<StarterAssetsInputs>();
+        }
+
         void Update()
         {
+            // O pesquisador também pode ser usado em cenas sem o arquivo histórico.
+            if (experience == null || view == null || viewCamera == null) return;
             if (blocked || Time.frameCount <= unblockedFrame) return;
             focused = null;
             if (Physics.Raycast(viewCamera.transform.position, viewCamera.transform.forward, out var hit, reach, interactionMask, QueryTriggerInteraction.Collide))
@@ -35,15 +46,18 @@ namespace FEB.Archive
         {
             blocked = value;
             if (!value) unblockedFrame = Time.frameCount;
-            movement.enabled = !value;
-            inputs.cursorLocked = !value;
-            inputs.cursorInputForLook = !value;
-            inputs.move = Vector2.zero;
-            inputs.look = Vector2.zero;
-            inputs.jump = inputs.sprint = false;
+            if (movement != null) movement.enabled = !value;
+            if (inputs != null)
+            {
+                inputs.cursorLocked = !value;
+                inputs.cursorInputForLook = !value;
+                inputs.move = Vector2.zero;
+                inputs.look = Vector2.zero;
+                inputs.jump = inputs.sprint = false;
+            }
             Cursor.lockState = value ? CursorLockMode.None : CursorLockMode.Locked;
             Cursor.visible = value;
-            view.SetInteraction("");
+            if (view != null) view.SetInteraction("");
         }
 
         void OnDisable()
