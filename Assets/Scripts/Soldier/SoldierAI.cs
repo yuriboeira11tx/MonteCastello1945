@@ -1,25 +1,26 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class SoldierAI : MonoBehaviour
 {
-    public Transform player;
     public NavMeshAgent agent;
     public bool isStandingRifle;
     public bool isJack;
+    public bool isBurpee;
+    public bool isPushup;
 
     [SerializeField] private Animator animator;
+    [SerializeField] private Transform[] patrolPoints;
     [SerializeField, Min(0.05f)] private float repathInterval = 0.2f;
+    private int nextPatrolPoint;
+    private float nextRouteCheck;
 
     private static readonly int IsWalkingHash = Animator.StringToHash("isWalking");
     private static readonly int IsStandingRifleHash = Animator.StringToHash("isStandingRifle");
-    private static readonly int IsJack = Animator.StringToHash("isJack");
-
-    private float nextRepathTime;
-    private Vector3 lastDestination;
-    private bool hasDestination;
+    private static readonly int IsJackHash = Animator.StringToHash("isJack");
+    private static readonly int IsBurpeeHash = Animator.StringToHash("isBurpee");
+    private static readonly int IsPushupHash = Animator.StringToHash("isPushup");
 
     void Awake()
     {
@@ -30,63 +31,27 @@ public class SoldierAI : MonoBehaviour
     private void Start()
     {
         animator.SetBool(IsStandingRifleHash, isStandingRifle);
+        animator.SetBool(IsJackHash, isJack);
+        animator.SetBool(IsBurpeeHash, isBurpee);
+        animator.SetBool(IsPushupHash, isPushup);
     }
 
     void Update()
     {
-        if (agent == null || !agent.isActiveAndEnabled || !agent.isOnNavMesh)
-        {
-            hasDestination = false;
-            SetWalking(false);
-            return;
-        }
-
-        if (player == null)
-        {
-            if (agent.hasPath) agent.ResetPath();
-            hasDestination = false;
-            SetWalking(false);
-            return;
-        }
-
-        // Atualiza o destino periodicamente para acompanhar o jogador em movimento.
-        if (Time.time >= nextRepathTime && !isJack)
-        {
-            // Só recalcula quando o alvo mudou, preservando a frenagem na chegada.
-            if (!hasDestination || (player.position - lastDestination).sqrMagnitude > 0.01f)
-            {
-                hasDestination = agent.SetDestination(player.position);
-                if (hasDestination) lastDestination = player.position;
-            }
-            nextRepathTime = Time.time + repathInterval;
-        }
-        
-        if (isJack)
-        {
-            animator.SetBool(IsJack, isJack);
-        } else
-        {
-            SetWalking(agent.velocity.sqrMagnitude > 0.01f);
-        }
+        bool onNavMesh = agent.isActiveAndEnabled && agent.isOnNavMesh;
+        animator.SetBool(IsWalkingHash, onNavMesh && agent.velocity.sqrMagnitude > 0.01f);
+        if (onNavMesh && patrolPoints != null && patrolPoints.Length > 1)
+            UpdatePatrol();
     }
 
-    void OnDisable()
+    private void UpdatePatrol()
     {
-        hasDestination = false;
-        if (agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh)
-            agent.ResetPath();
+        if (Time.time < nextRouteCheck || agent.pathPending) return;
+        nextRouteCheck = Time.time + repathInterval;
+        if (agent.hasPath && agent.remainingDistance > agent.stoppingDistance + 0.15f) return;
 
-        SetWalking(false);
-    }
-
-    void SetWalking(bool walking)
-    {
-        if (animator == null)
-            return;
-
-        if (animator.runtimeAnimatorController != null)
-        {
-            animator.SetBool(IsWalkingHash, walking);
-        }
+        Transform point = patrolPoints[nextPatrolPoint];
+        nextPatrolPoint = (nextPatrolPoint + 1) % patrolPoints.Length;
+        if (point != null) agent.SetDestination(point.position);
     }
 }
