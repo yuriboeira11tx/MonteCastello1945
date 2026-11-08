@@ -2427,6 +2427,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.119
       objectReference: {fileID: 0}
+    - target: {fileID: 9050365558905170667, guid: c5bac9409b5ebbf4db8744e424a708b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -4420,6 +4424,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FEB_Soldado_02
       objectReference: {fileID: 0}
+    - target: {fileID: 4650712915065533688, guid: 72ae652bc66de564b9aa4601ea04cb7f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4864612553920636878, guid: 72ae652bc66de564b9aa4601ea04cb7f, type: 3}
       propertyPath: m_Controller
       value: 
@@ -6015,6 +6023,10 @@ PrefabInstance:
     - target: {fileID: 2284650120812729595, guid: 6b51228ef812478418161e6eb59d3368, type: 3}
       propertyPath: SprintSpeed
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2284650120812729595, guid: 6b51228ef812478418161e6eb59d3368, type: 3}
+      propertyPath: RotationSpeed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4054099852956549813, guid: 6b51228ef812478418161e6eb59d3368, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13133,6 +13145,10 @@ PrefabInstance:
     - target: {fileID: 6308695493894042797, guid: bc0ec1ff64378504da555a48dff00acf, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.069
+      objectReference: {fileID: 0}
+    - target: {fileID: 7954813958841374174, guid: bc0ec1ff64378504da555a48dff00acf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
