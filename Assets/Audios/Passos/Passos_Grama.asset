@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bceb8d060105d4d4faf4907980b16a5a, type: 3}
+  m_Name: Passos_Grama
+  m_EditorClassIdentifier: Assembly-CSharp::FootstepSounds
+  leftFoot:
+  - clip: {fileID: 8300000, guid: 3e8c2447db77e3941bc853c9853bd2d1, type: 3}
+    gainDb: -2.5
+  - clip: {fileID: 8300000, guid: c07e89054b896034d98c909edafc1a77, type: 3}
+    gainDb: -3.69
+  - clip: {fileID: 8300000, guid: 947ab98ef7cd97d40b29f6dc326014ea, type: 3}
+    gainDb: -6.38
+  rightFoot:
+  - clip: {fileID: 8300000, guid: 47bde36f05637fa46a5651e21afad7b9, type: 3}
+    gainDb: 0
+  - clip: {fileID: 8300000, guid: c4070b1ed22e0b946a7156b6b303d78b, type: 3}
+    gainDb: -5.25
+  - clip: {fileID: 8300000, guid: 0738f30e53a65604f8131e357a120070, type: 3}
+    gainDb: -3.5
