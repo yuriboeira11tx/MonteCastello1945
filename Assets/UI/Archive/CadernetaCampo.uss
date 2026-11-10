@@ -1,0 +1,30 @@
+.book { flex-grow: 1; color: #372e21; -unity-font-definition: url("../Fonts/LiberationSans.asset"); }
+.paper { position: absolute; top: 32px; bottom: 0; left: 0; right: 0; background-image: url("../../Art/Environment/ArquivoHistorico/UI/Caderneta_Aberta.png"); background-size: 100% 100%; }
+.tabs { position: absolute; left: 96px; top: 8px; height: 66px; flex-direction: row; align-items: flex-start; }
+.tab { height: 59px; padding: 2px 26px 6px; margin-right: 9px; border-top-left-radius: 8px; border-top-right-radius: 8px; border-width: 1px; border-color: rgba(40,33,21,.55); font-size: 27px; color: #fff1cb; -unity-font-definition: url("../Fonts/SpecialElite.asset"); }
+.tab { background-color: #4e5940; }
+.tab:hover, .tab:focus { background-color: #404b35; }
+.tab.current { background-color: #404b35; border-bottom-width: 5px; border-bottom-color: #a3ae8e; height: 65px; }
+.columns { position: absolute; left: 0; right: 0; top: 110px; bottom: 64px; flex-direction: row; }
+.leaf { width: 50%; padding: 0 70px 0 78px; }
+.right-leaf { padding-left: 67px; padding-right: 78px; }
+.kicker, .folio, .entry-date, .status { -unity-font-definition: url("../Fonts/SpecialElite.asset"); font-size: 21px; color: #695d48; white-space: normal; }
+.heading { -unity-font-definition: url("../Fonts/AllertaStencil.asset"); color: #363e32; font-size: 48px; white-space: normal; margin-top: 13px; margin-bottom: 14px; }
+.rule { height: 2px; background-color: #a99c7b; margin-bottom: 17px; }
+.content { flex-grow: 1; min-height: 0; }
+.copy { font-size: 29px; white-space: normal; color: #372f23; margin-bottom: 12px; }
+.fine { font-size: 22px; white-space: normal; color: #62543d; margin-bottom: 10px; }
+.entry, .action { padding: 10px 12px; min-height: 53px; margin: 4px 0; -unity-text-align: middle-left; font-size: 25px; white-space: normal; background-color: rgba(101,87,55,.10); border-left-width: 3px; border-left-color: #8a7956; color: #3b3428; }
+.entry:hover, .entry:focus, .action:hover, .action:focus { background-color: rgba(99,101,60,.23); }
+.entry.chosen { background-color: #495540; color: #fff0cd; border-left-color: #a99357; }
+.photo { overflow: hidden; flex-shrink: 0; height: 272px; background-color: #cbbfa0; border-width: 6px; border-color: #eee3c6; margin-bottom: 12px; }
+.plate-image { flex-grow: 1; }
+.seal { width: 84px; height: 82px; align-self: flex-start; margin: 1px 0 14px; }
+.foot { min-height: 47px; border-top-width: 1px; border-top-color: #a99c7b; flex-direction: row; align-items: center; justify-content: space-between; margin-top: 10px; }
+.link { background-color: rgba(0,0,0,0); color: #434e3d; font-size: 24px; padding: 5px 9px; -unity-font-definition: url("../Fonts/SpecialElite.asset"); }
+.link:hover, .link:focus { background-color: rgba(99,101,60,.16); }
+.link:disabled { opacity: .38; }
+.note { height: 190px; flex-shrink: 0; margin: 9px 0; font-size: 27px; }
+.note .unity-text-field__input { height: 100%; align-self: stretch; white-space: normal; background-color: rgba(247,238,209,.78); color: #363328; padding: 10px; border-width: 1px; border-color: #94886a; -unity-text-align: upper-left; }
+.status { margin-top: 6px; }
+

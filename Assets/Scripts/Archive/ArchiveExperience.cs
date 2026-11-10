@@ -111,20 +111,9 @@ namespace FEB.Archive
             }, dossier.readEvidence.Contains(document.id));
         }
 
-        public void OpenNotebook()
-        {
-            view.Show("Caderneta de pesquisa", caseDefinition.title, "Reexamine os objetos encontrados, leia as fontes e registre as evidências que sustentam a investigação.\n\nCada dossiê reúne documentos, cronologia, reconstrução e uma conclusão.");
-            foreach (var evidence in caseDefinition.evidence)
-            {
-                var item = evidence;
-                string state = dossier.evidence.Contains(item.id) ? "Registrada" : dossier.discoveredEvidence.Contains(item.id) ? "Encontrada" : "Não encontrada";
-                view.AddChoice(item.title + " · " + state, () => OpenEvidence(item), dossier.discoveredEvidence.Contains(item.id));
-            }
-            view.AddChoice("Organizar a linha do tempo", OpenChronology);
-            view.AddChoice("Examinar a reconstrução", OpenReconstruction);
-            view.AddChoice("Relatório da investigação", OpenReport);
-            if (cases.Count > 1) view.AddChoice("Selecionar dossiê", OpenCaseSelection);
-        }
+        public ArchiveCaseDefinition ActiveCase => caseDefinition;
+        public bool HasMultipleCases => cases.Count > 1;
+        public void OpenNotebook() => interaction.OpenNotebook();
 
         public void OpenCaseSelection()
         {

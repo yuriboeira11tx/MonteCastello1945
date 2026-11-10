@@ -1,0 +1,33 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+  <ui:Style src="CadernetaCampo.uss" />
+  <ui:VisualElement class="book">
+    <ui:VisualElement class="paper" picking-mode="Ignore" />
+    <ui:VisualElement class="tabs">
+      <ui:Button name="indexTab" text="Índice" class="tab" />
+      <ui:Button name="readingTab" text="Leituras" class="tab" />
+      <ui:Button name="evidenceTab" text="Evidências" class="tab" />
+      <ui:Button name="notesTab" text="Anotações" class="tab" />
+    </ui:VisualElement>
+    <ui:VisualElement class="columns" picking-mode="Ignore">
+      <ui:VisualElement class="leaf">
+        <ui:Label text="FORÇA EXPEDICIONÁRIA BRASILEIRA" class="kicker" />
+        <ui:Label name="leftTitle" class="heading" />
+        <ui:VisualElement class="rule" />
+        <ui:ScrollView name="leftContent" class="content" horizontal-scroller-visibility="Hidden" />
+        <ui:VisualElement class="foot"><ui:Label name="leftFolio" class="folio" /><ui:Button name="closeBook" text="Guardar · Esc" class="link" /></ui:VisualElement>
+      </ui:VisualElement>
+      <ui:VisualElement class="leaf right-leaf">
+        <ui:Label name="section" class="kicker" />
+        <ui:Label name="rightTitle" class="heading" />
+        <ui:VisualElement class="rule" />
+        <ui:ScrollView name="rightContent" class="content" horizontal-scroller-visibility="Hidden" />
+        <ui:VisualElement class="foot">
+          <ui:Button name="previousPage" text="‹ Anterior" class="link" />
+          <ui:Label name="rightFolio" class="folio" />
+          <ui:Button name="nextPage" text="Seguinte ›" class="link" />
+        </ui:VisualElement>
+      </ui:VisualElement>
+    </ui:VisualElement>
+  </ui:VisualElement>
+</ui:UXML>
+

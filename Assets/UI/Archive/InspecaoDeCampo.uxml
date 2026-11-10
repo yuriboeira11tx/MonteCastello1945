@@ -1,0 +1,43 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="InspecaoDeCampo.uss" />
+    <ui:VisualElement class="screen" picking-mode="Ignore">
+        <ui:Label name="fieldPrompt" class="evidence-prompt typewriter hidden" picking-mode="Ignore" />
+        <ui:VisualElement name="fieldInspection" class="fill inspection-split hidden">
+            <ui:VisualElement name="objectSide" class="inspection-half object-side">
+                <ui:Image name="objectPreview" class="object-viewport" />
+                <ui:Image name="objectPhoto" class="object-viewport hidden" picking-mode="Ignore" />
+                <ui:Label name="objectCaption" class="object-caption" />
+                <ui:VisualElement name="objectTools" class="file-row object-tools">
+                    <ui:Label text="Arraste para girar. Use a roda para aproximar." />
+                    <ui:Button name="resetObject" text="Repor posição" class="inspection-button" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="fileSide" class="inspection-half dossier-side">
+                <ui:VisualElement class="file-row">
+                    <ui:Label text="EVIDÊNCIA DE CAMPO" class="typewriter file-section" />
+                    <ui:Button name="closeInspection" text="Voltar · Esc" class="inspection-button paper-button" />
+                </ui:VisualElement>
+                <ui:ScrollView name="readingScroll" class="file-scroll" horizontal-scroller-visibility="Hidden">
+                    <ui:Label name="fileTitle" class="stencil file-title" />
+                    <ui:Label name="fileDate" class="typewriter file-date" />
+                    <ui:VisualElement class="file-divider" />
+                    <ui:Label name="pageHeading" class="typewriter file-heading" />
+                    <ui:Label name="pageText" class="file-body" />
+                    <ui:VisualElement name="sources">
+                        <ui:Label text="Referências" class="typewriter file-heading" />
+                        <ui:Label name="bibliography" class="file-source" />
+                    </ui:VisualElement>
+                </ui:ScrollView>
+                <ui:VisualElement class="file-footer">
+                    <ui:VisualElement name="pageNavigation" class="file-row">
+                        <ui:Button name="previousPage" text="‹ Anterior" class="inspection-button paper-button" />
+                        <ui:Label name="pageNumber" class="typewriter file-page" />
+                        <ui:Button name="nextPage" text="Seguinte ›" class="inspection-button paper-button" />
+                    </ui:VisualElement>
+                    <ui:Label name="registrationError" class="file-status hidden" />
+                    <ui:Button name="registerEvidence" text="Registrar evidência" class="inspection-button file-register" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3fbc34bcf34ba4c9e8f05a6ef7b306, type: 3}
+  m_Name: Intendencia_na_Italia
+  m_EditorClassIdentifier: Assembly-CSharp::FEB.Archive.HistoricalEvidence
+  id: Intendencia_na_Italia
+  title: O abastecimento da FEB
+  dateLabel: "Campanha da It\xE1lia, 1944"
+  description: "\u201CDep\xF3sito Geral: LIVORNO, e Dep\xF3sito avan\xE7ado: MASSAROSA.\u201D\n\nO relato da Intend\xEAncia registra essa disposi\xE7\xE3o em setembro de 1944. Um dep\xF3sito avan\xE7ado aproximava o material de quem precisava receb\xEA-lo. Entre o porto e o soldado havia trabalho de transporte, separa\xE7\xE3o e distribui\xE7\xE3o."
+  keyFinding: 
+  image: {fileID: 2800000, guid: 0611362f7ec5ffc45888b48c0461066f, type: 3}
+  imageCaption: Massarosa aparece no relato do abastecimento. A fotografia situa a localidade.
+  citation: "A Intend\xEAncia no T.O. da It\xE1lia, pp. 37\u201338. Biblioteca da ECEME. Trecho e coment\xE1rio."
+  sourceUrl: https://www.eceme.eb.mil.br/images/biblioteca/a_intendencia_to_italia.pdf
+  pages:
+  - title: Entre o porto e a tropa
+    text: "\u201CDep\xF3sito Geral: LIVORNO, e Dep\xF3sito avan\xE7ado: MASSAROSA.\u201D\n\nO relato da Intend\xEAncia registra essa disposi\xE7\xE3o em setembro de 1944. Um dep\xF3sito avan\xE7ado aproximava o material de quem precisava receb\xEA-lo. Entre o porto e o soldado havia trabalho de transporte, separa\xE7\xE3o e distribui\xE7\xE3o."
+    image: {fileID: 2800000, guid: 0611362f7ec5ffc45888b48c0461066f, type: 3}
+    caption: Massarosa aparece no relato do abastecimento. A fotografia situa a localidade.
+  - title: "Abrigo tamb\xE9m era suprimento"
+    text: "\u201CA tropa partiu do Rio sem barracas\u201D.\n\nO relato reserva espa\xE7o para o problema dos abrigos. Ao percorrer as fileiras de barracas no jogo, imagine o trabalho anterior \xE0 montagem. Quem recebeu o material? Como ele chegou ao acampamento? Anote quais pistas voc\xEA precisaria encontrar para responder."
+    image: {fileID: 0}
+    caption: 
+  chronologyLabel: 
+  chronologyOrder: 0
+  inspectionPrefab: {fileID: 0}
+  inspectionRotation: {x: 6, y: -14, z: -3}

@@ -35,6 +35,7 @@ namespace FEB.Archive
         Button resetInspectionButton;
         public event Action<bool> VisibilityChanged;
         public bool IsOpen => ScreenUI.IsVisible(modal);
+        public void SetHudVisible(bool visible) => ScreenUI.Show(hud, visible);
         int openedFrame;
         bool transitioning;
 

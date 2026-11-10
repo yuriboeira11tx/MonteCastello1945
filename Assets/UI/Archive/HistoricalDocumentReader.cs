@@ -120,7 +120,7 @@ namespace FEB.UI
             image.parent.RemoveManipulator(imageManipulator);
         }
 
-        sealed class DocumentImageManipulator : PointerManipulator
+        internal sealed class DocumentImageManipulator : PointerManipulator
         {
             readonly Image image;
             float zoom = 1;

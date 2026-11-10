@@ -48,16 +48,34 @@ namespace FEB.Archive
             cameraData.renderPostProcessing = false;
             cameraData.renderShadows = false;
             cameraData.volumeLayerMask = 0;
-            float aspect = viewport.contentRect.width / Mathf.Max(1, viewport.contentRect.height);
-            if (!float.IsFinite(aspect) || aspect < .1f) aspect = 650f / 460f;
-            renderTexture = new RenderTexture(textureSize, Mathf.RoundToInt(textureSize / aspect), 24, RenderTextureFormat.ARGB32) { name = "Inspecao_Evidencia", useMipMap = false };
-            renderTexture.Create();
-            previewCamera.targetTexture = renderTexture;
-            viewport.image = renderTexture;
+            ResizePreview(viewport.contentRect.size);
             AddLight("Luz_Principal", new Vector3(-1.5f, 1.5f, -2), new Color(1, .91f, .77f), 8f);
             AddLight("Preenchimento", new Vector3(1.4f, .3f, -1.5f), new Color(.8f, .9f, 1), 4f);
             AddLight("Luz_Verso", new Vector3(0, 1.5f, 1.8f), new Color(1, .94f, .8f), 3f);
         }
+
+        void ResizePreview(Vector2 size)
+        {
+            if (previewCamera == null || !float.IsFinite(size.x) || !float.IsFinite(size.y) || size.x < 1 || size.y < 1) return;
+            float aspect = size.x / size.y;
+            int width = Mathf.Max(1, Mathf.RoundToInt(textureSize * Mathf.Min(aspect, 1)));
+            int height = Mathf.Max(1, Mathf.RoundToInt(textureSize * Mathf.Min(1 / aspect, 1)));
+            if (renderTexture != null && renderTexture.width == width && renderTexture.height == height) return;
+            if (renderTexture != null)
+            {
+                previewCamera.targetTexture = null;
+                renderTexture.Release();
+                Destroy(renderTexture);
+            }
+            renderTexture = new RenderTexture(width, height, 24, RenderTextureFormat.ARGB32) { name = "Inspecao_Evidencia", useMipMap = false };
+            renderTexture.Create();
+            previewCamera.targetTexture = renderTexture;
+            previewCamera.fieldOfView = Camera.HorizontalToVerticalFieldOfView(32, Mathf.Min(aspect, 1));
+            viewport.image = renderTexture;
+            previewCamera.enabled = true;
+        }
+
+        void OnViewportGeometry(GeometryChangedEvent evt) => ResizePreview(evt.newRect.size);
 
         void AddLight(string label, Vector3 position, Color color, float intensity)
         {
@@ -79,6 +97,7 @@ namespace FEB.Archive
             if (evidence.inspectionPrefab == null) return false;
             EnsureStudio();
             studio.SetActive(true);
+            previewCamera.enabled = renderTexture != null;
             ScreenUI.Show(viewport, true);
             pivot.localRotation = Quaternion.identity;
             instance = Instantiate(evidence.inspectionPrefab, pivot, false);
@@ -116,6 +135,7 @@ namespace FEB.Archive
             Detach();
             viewport = image;
             viewport.scaleMode = ScaleMode.ScaleToFit;
+            viewport.RegisterCallback<GeometryChangedEvent>(OnViewportGeometry);
             if (renderTexture != null) viewport.image = renderTexture;
             manipulator = new InspectionManipulator(this);
             viewport.AddManipulator(manipulator);
@@ -124,7 +144,11 @@ namespace FEB.Archive
 
         public void Detach()
         {
-            if (viewport != null && manipulator != null) viewport.RemoveManipulator(manipulator);
+            if (viewport != null)
+            {
+                viewport.UnregisterCallback<GeometryChangedEvent>(OnViewportGeometry);
+                if (manipulator != null) viewport.RemoveManipulator(manipulator);
+            }
             manipulator = null;
             Hide();
         }

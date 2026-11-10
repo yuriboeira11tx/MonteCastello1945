@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3fbc34bcf34ba4c9e8f05a6ef7b306, type: 3}
+  m_Name: Fotografia_das_Enfermeiras
+  m_EditorClassIdentifier: Assembly-CSharp::FEB.Archive.HistoricalEvidence
+  id: acampamento_fotografia_enfermeiras
+  title: Fotografia das enfermeiras da FEB
+  dateLabel: "\xC1rea de Pistoia, It\xE1lia \xB7 10 de mar\xE7o de 1945"
+  description: "Um grupo de mulheres uniformizadas posa diante de barracas. O retrato abre uma investiga\xE7\xE3o sobre o trabalho de enfermagem nos hospitais que atenderam os expedicion\xE1rios brasileiros na It\xE1lia."
+  keyFinding: "A presen\xE7a das enfermeiras brasileiras permitiu que feridos descrevessem sintomas em portugu\xEAs nos hospitais aliados. As cartas de pacientes e os relatos de plant\xE3o revelam parte do trabalho que o retrato de grupo n\xE3o mostra."
+  image: {fileID: 2800000, guid: 3f64ff5080562264198d633eae9c6f1c, type: 3}
+  imageCaption: "Enfermeiras da FEB na \xE1rea de Pistoia, 10 de mar\xE7o de 1945. Recorte do Fundo Virg\xEDnia Portocarrero, Casa de Oswaldo Cruz/Fiocruz, item 083."
+  citation: "Fotografia \xB7 Casa de Oswaldo Cruz/Fiocruz. Fundo Virg\xEDnia Portocarrero, BR RJCOC VP-03-06.v.02-083.\n\nM. M. R. Bernardes, G. T. Lopes e T. C. F. Santos. \u201CO cotidiano das enfermeiras do Ex\xE9rcito na For\xE7a Expedicion\xE1ria Brasileira (FEB) no teatro de opera\xE7\xF5es da 2\xAA Guerra Mundial, na It\xE1lia (1942\u20131945)\u201D. Revista Latino-Americana de Enfermagem, 13(3), 2005, pp. 314\u2013321.\n\nM. M. R. Bernardes et al. \u201CUma enfermeira da For\xE7a Expedicion\xE1ria Brasileira na Segunda Guerra Mundial\u201D. Hist\xF3ria, Ci\xEAncias, Sa\xFAde \u2013 Manguinhos, 29(2), 2022, pp. 531\u2013550, fig. 5. Fundo Virg\xEDnia Portocarrero, Casa de Oswaldo Cruz/Fiocruz."
+  sourceUrl: https://basearch.coc.fiocruz.br/corpo-de-enfermeiras-da-feb-designadas-ao-16th-evacuation-hospital-em-pistoia
+  pages:
+  - title: "As volunt\xE1rias"
+    text: "Na \xE1rea de Pistoia, enfermeiras brasileiras posam diante das barracas de um hospital de evacua\xE7\xE3o. A fotografia foi feita em 10 de mar\xE7o de 1945. Em 1944, 67 enfermeiras do Ex\xE9rcito brasileiro seguiram para a It\xE1lia com a FEB. Entre as volunt\xE1rias havia mulheres com diferentes forma\xE7\xF5es em enfermagem. Antes do embarque, elas passaram por um curso de emerg\xEAncia que reunia aulas te\xF3ricas, prepara\xE7\xE3o f\xEDsica e instru\xE7\xE3o militar.\n\nNos hospitais norte-americanos que recebiam brasileiros, a l\xEDngua criava uma dificuldade imediata. Como explicar onde do\xEDa ou pedir ajuda durante a madrugada? Ter uma enfermeira que entendesse a resposta fazia diferen\xE7a j\xE1 no primeiro atendimento."
+    image: {fileID: 2800000, guid: 3f64ff5080562264198d633eae9c6f1c, type: 3}
+    caption: "Enfermeiras da FEB na \xE1rea de Pistoia, 10 de mar\xE7o de 1945. Recorte do Fundo Virg\xEDnia Portocarrero, Casa de Oswaldo Cruz/Fiocruz, item 083."
+  - title: "Uma carta para Virg\xEDnia"
+    text: "Durante os plant\xF5es, as enfermeiras acompanhavam os doentes graves, recebiam feridos e faziam rondas pelas enfermarias. Um documento do arquivo pessoal de Virg\xEDnia Portocarrero registra o atendimento pela perspectiva de quem estava no leito.\n\nEm carta de 26 de fevereiro de 1945, o sargento Virgolino agradeceu a Virg\xEDnia pelos cuidados recebidos. A carta foi guardada e hoje integra o acervo da Casa de Oswaldo Cruz. Lidos juntos, o retrato e a carta permitem ver a equipe reunida e acompanhar um encontro entre uma enfermeira e um paciente."
+    image: {fileID: 0}
+    caption: 
+  - title: O inverno sob a lona
+    text: "Bertha Moraes contou que deixava um cabo de vassoura ao lado da cama. Quando a neve pesava sobre a barraca e fazia o teto descer at\xE9 o seu rosto, ela empurrava a lona por dentro. A neve escorregava pelos lados, e Bertha podia voltar a dormir.\n\nEm outro depoimento, Elza Cansan\xE7\xE3o lembrou das noites frias em Livorno, onde vestia a capa sobre o pijama para percorrer o hospital. Olhe novamente as barracas no retrato. Que parte de um plant\xE3o de inverno seria imposs\xEDvel conhecer apenas olhando esta fotografia?"
+    image: {fileID: 0}
+    caption: 
+  chronologyLabel: 
+  chronologyOrder: 0
+  inspectionPrefab: {fileID: 4497887934772962994, guid: bbb96b562a3d60449b6a034c0b69ee54, type: 3}
+  inspectionRotation: {x: 2, y: -5, z: -1}

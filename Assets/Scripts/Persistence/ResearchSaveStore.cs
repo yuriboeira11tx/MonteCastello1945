@@ -34,6 +34,8 @@ namespace FEB.Persistence
                 if (data == null || data.version != 1 || data.slot != slot || string.IsNullOrEmpty(data.id)) return null;
                 data.evidence ??= new System.Collections.Generic.List<string>();
                 data.discoveredEvidence ??= new System.Collections.Generic.List<string>();
+                data.fieldEvidence ??= new System.Collections.Generic.List<string>();
+                data.fieldNotes ??= new System.Collections.Generic.List<EvidenceNote>();
                 foreach (var id in data.evidence)
                     if (!data.discoveredEvidence.Contains(id)) data.discoveredEvidence.Add(id);
                 data.events ??= new System.Collections.Generic.List<ResearchEvent>();
@@ -75,6 +77,19 @@ namespace FEB.Persistence
 
         // Opening the scene directly in the Editor never overwrites a player's save.
         public static ResearchSave EnsureSession() => Current ??= new ResearchSave();
+
+        public static bool RegisterFieldEvidence(string id)
+        {
+            if (string.IsNullOrWhiteSpace(id)) return false;
+            var save = EnsureSession();
+            if (save.fieldEvidence.Contains(id)) return true;
+            save.fieldEvidence.Add(id);
+            save.Record("field_evidence_registered", id);
+            if (Save(out _)) return true;
+            save.fieldEvidence.Remove(id);
+            save.events.RemoveAt(save.events.Count - 1);
+            return false;
+        }
 
         public static bool Save(out string error)
         {

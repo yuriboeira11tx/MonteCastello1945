@@ -26,6 +26,8 @@ namespace FEB.Persistence
         public int reportAttempts;
         public List<string> evidence = new List<string>();
         public List<string> discoveredEvidence = new List<string>();
+        public List<string> fieldEvidence = new List<string>();
+        public List<EvidenceNote> fieldNotes = new List<EvidenceNote>();
         public List<ResearchEvent> events = new List<ResearchEvent>();
         public string activeCaseId;
         public string archiveScene = "ArquivoHistorico";
@@ -77,6 +79,7 @@ namespace FEB.Persistence
         public List<string> evidence = new List<string>();
         public List<string> discoveredEvidence = new List<string>();
         public List<string> readEvidence = new List<string>();
+        public List<EvidenceNote> notes = new List<EvidenceNote>();
         public string StageLabel => reportCompleted ? "Dossiê concluído" : reconstructionViewed ? "Relatório pendente" : chronologySolved ? "Reconstrução disponível" : "Investigação no arquivo";
 
         public void Normalize()
@@ -84,12 +87,20 @@ namespace FEB.Persistence
             evidence ??= new List<string>();
             discoveredEvidence ??= new List<string>();
             readEvidence ??= new List<string>();
+            notes ??= new List<EvidenceNote>();
             foreach (var id in evidence)
             {
                 if (!discoveredEvidence.Contains(id)) discoveredEvidence.Add(id);
                 if (!readEvidence.Contains(id)) readEvidence.Add(id);
             }
         }
+    }
+
+    [Serializable]
+    public sealed class EvidenceNote
+    {
+        public string evidenceId;
+        public string text;
     }
 
     [Serializable]
