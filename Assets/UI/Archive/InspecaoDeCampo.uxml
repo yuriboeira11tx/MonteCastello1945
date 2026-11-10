@@ -14,7 +14,7 @@
             </ui:VisualElement>
             <ui:VisualElement name="fileSide" class="inspection-half dossier-side">
                 <ui:VisualElement class="file-row">
-                    <ui:Label text="EVIDÊNCIA DE CAMPO" class="typewriter file-section" />
+                    <ui:Label name="collection" text="EVIDÊNCIA DE CAMPO" class="typewriter file-section" />
                     <ui:Button name="closeInspection" text="Voltar · Esc" class="inspection-button paper-button" />
                 </ui:VisualElement>
                 <ui:ScrollView name="readingScroll" class="file-scroll" horizontal-scroller-visibility="Hidden">

@@ -1,3 +1,4 @@
+using System;
 using StarterAssets;
 using FEB.Persistence;
 using UnityEngine;
@@ -13,16 +14,16 @@ namespace FEB.Archive
         [SerializeField] StarterAssetsInputs inputs;
         [Tooltip("Vincule nas cenas que possuem a investigação do arquivo histórico.")]
         [SerializeField] ArchiveExperience experience;
-        [Tooltip("Interface opcional do arquivo histórico nesta cena.")]
-        [SerializeField] ArchiveView view;
         [SerializeField] float reach = 2.8f;
         [SerializeField] LayerMask interactionMask = ~0;
         FieldEvidenceView fieldView;
+        ArchiveInteractable focusedArchive;
         HistoricalEvidence focusedEvidence;
         bool blocked;
         int unblockedFrame;
         FieldNotebook notebook;
         public ArchiveExperience Experience => experience;
+        public FieldNotebook Notebook => notebook;
 
         void Awake()
         {
@@ -50,8 +51,7 @@ namespace FEB.Archive
                 if (fieldView != null) fieldTarget = hit.collider.GetComponentInParent<FieldEvidenceTarget>()?.Evidence;
                 if (experience != null && fieldTarget == null) archiveTarget = hit.collider.GetComponentInParent<ArchiveInteractable>();
             }
-            SetFieldTarget(fieldTarget);
-            if (view != null) view.SetInteraction(archiveTarget != null ? "[E]  " + archiveTarget.Prompt : "");
+            SetTarget(fieldTarget, archiveTarget);
             if (Keyboard.current == null) return;
             if (Keyboard.current.eKey.wasPressedThisFrame)
             {
@@ -61,38 +61,49 @@ namespace FEB.Archive
             else if (experience != null && Keyboard.current.escapeKey.wasPressedThisFrame) experience.OpenPause();
         }
 
-        void SetFieldTarget(HistoricalEvidence evidence)
+        void SetTarget(HistoricalEvidence evidence, ArchiveInteractable archiveTarget)
         {
-            if (focusedEvidence == evidence) return;
+            if (focusedEvidence == evidence && focusedArchive == archiveTarget) return;
             focusedEvidence = evidence;
-            if (fieldView != null) fieldView.SetPrompt(evidence != null ? "[E]  Examinar · " + evidence.title : null);
+            focusedArchive = archiveTarget;
+            if (fieldView == null) return;
+            string prompt = archiveTarget != null ? archiveTarget.Prompt : null;
+            if (evidence != null) prompt = "Examinar · " + evidence.title;
+            fieldView.SetPrompt(prompt == null ? null : "[E]  " + prompt);
         }
 
         void Inspect(HistoricalEvidence evidence)
         {
             var save = ResearchSaveStore.EnsureSession();
+            OpenInspection(evidence, save.fieldEvidence.Contains(evidence.id),
+                () => ResearchSaveStore.RegisterFieldEvidence(evidence.id));
+        }
+
+        public void OpenInspection(HistoricalEvidence evidence, bool registered, Func<bool> onRegister,
+            bool alreadyRead = false, Func<bool> onRead = null, Action onClosed = null)
+        {
+            if (fieldView.IsOpen) return;
             SetReading(true);
-            fieldView.Open(evidence, save.fieldEvidence.Contains(evidence.id),
-                () => ResearchSaveStore.RegisterFieldEvidence(evidence.id), () => SetReading(false));
+            fieldView.Open(evidence, registered, onRegister, notebook != null ? notebook.PlayPageTurn : (Action)null,
+                () => { SetReading(false); onClosed?.Invoke(); }, alreadyRead, onRead,
+                experience != null ? "ARQUIVO HISTÓRICO" : "EVIDÊNCIA DE CAMPO");
         }
 
         public void OpenNotebook()
         {
             if (notebook == null) return;
-            if (view != null && view.IsOpen) view.Close();
             notebook.Open();
         }
 
         public void SetReading(bool value)
         {
-            if (view != null) view.SetHudVisible(!value);
             SetBlocked(value);
         }
 
         public void SetBlocked(bool value)
         {
             blocked = value;
-            if (value) SetFieldTarget(null);
+            if (value) SetTarget(null, null);
             if (!value) unblockedFrame = Time.frameCount;
             if (movement != null) movement.enabled = !value;
             if (inputs != null)
@@ -105,7 +116,6 @@ namespace FEB.Archive
             }
             Cursor.lockState = value ? CursorLockMode.None : CursorLockMode.Locked;
             Cursor.visible = value;
-            if (view != null) view.SetInteraction("");
         }
 
         void OnDisable()

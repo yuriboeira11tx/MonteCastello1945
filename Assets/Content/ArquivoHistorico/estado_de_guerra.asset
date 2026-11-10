@@ -15,36 +15,25 @@ MonoBehaviour:
   id: estado_de_guerra
   title: O estado de guerra
   dateLabel: "31 de agosto de 1942 \u2022 Decreto n\xBA 10.358"
-  description: "O Decreto n\xBA 10.358 declara o estado de guerra em todo o territ\xF3rio
-    nacional. Seu artigo 1\xBA registra formalmente essa decis\xE3o.\n\nCompare a
-    natureza desta fonte oficial com a not\xEDcia do jornal: o decreto documenta
-    uma decis\xE3o do Estado; a imprensa mostra a circula\xE7\xE3o das informa\xE7\xF5es
-    e as rea\xE7\xF5es da sociedade."
-  keyFinding: "Em agosto de 1942, o Brasil j\xE1 havia entrado na guerra. O decreto
-    de 31 de agosto formaliza o estado de guerra no territ\xF3rio nacional."
-  image: {fileID: 0}
-  imageCaption: "Transcri\xE7\xE3o e contextualiza\xE7\xE3o de uma fonte oficial."
-  citation: "Decreto n\xBA 10.358, de 31 ago. 1942, art. 1\xBA. Legisla\xE7\xE3o
-    Federal, Senado Federal."
+  description: "O Decreto nº 10.358 ocupa a coluna superior esquerda do Diário Oficial de 1º de setembro de 1942. Suas três disposições mostram como o estado de guerra atingia também a vida de quem permanecia no Brasil."
+  keyFinding: "O governo reconheceu a beligerância com Alemanha e Itália em 22 de agosto de 1942. Em 31 de agosto, Vargas assinou o decreto que declarou o estado de guerra em todo o território nacional."
+  image: {fileID: 2800000, guid: 1e27d8c632b241a19d413899d54e315c, type: 3}
+  imageCaption: "Decreto nº 10.358, coluna superior esquerda. Diário Oficial dos Estados Unidos do Brasil, Seção 1, 1º de setembro de 1942, p. 13.413. Acervo digital da Imprensa Nacional."
+  citation: "Brasil. Decreto nº 10.358, de 31 de agosto de 1942. Diário Oficial dos Estados Unidos do Brasil, Seção 1, 1º set. 1942, p. 13.413. Acervo digital da Imprensa Nacional. Registro bibliográfico do Superior Tribunal Militar.\nhttps://dspace.stm.jus.br/handle/123456789/90690\n\nFundação Getulio Vargas. «Getúlio Vargas». Atlas Histórico do Brasil, seção sobre a entrada na guerra.\nhttps://atlas.fgv.br/verbete/5458"
   sourceUrl: https://legis.senado.gov.br/norma/419110/publicacao/15768380
   pages:
-  - title: "Decreto n\xBA 10.358 \u2022 Artigo 1\xBA"
-    text: "31 DE AGOSTO DE 1942\n\nArt. 1\xBA \xC9 declarado o estado de guerra em
-      todo o territ\xF3rio nacional.\n\nTrecho da publica\xE7\xE3o disponibilizada
-      pelo Senado Federal. Consulte a p\xE1gina seguinte para a contextualiza\xE7\xE3o."
+  - title: "Duas datas na mesma folha"
+    text: "Na linha que atravessa o alto da página, lê-se 1º de setembro de 1942. Logo abaixo, à esquerda, o título do decreto traz 31 de agosto. A primeira data pertence à edição do Diário Oficial. A segunda corresponde ao dia em que Getúlio Vargas assinou o ato no Rio de Janeiro.\n\nO artigo 3º liga as duas datas ao estabelecer que o decreto entraria em vigor com sua publicação."
+    image: {fileID: 2800000, guid: 1e27d8c632b241a19d413899d54e315c, type: 3}
+    caption: "Decreto nº 10.358, coluna superior esquerda. Diário Oficial dos Estados Unidos do Brasil, Seção 1, 1º de setembro de 1942, p. 13.413. Acervo digital da Imprensa Nacional."
+  - title: "A guerra dentro do país"
+    text: "No artigo 1º, o presidente declarou o estado de guerra em todo o território nacional. No artigo 2º aparecem os efeitos sobre a Constituição então vigente. Entre as garantias que perderam vigência estava o direito de manifestação do pensamento previsto no artigo 122, nº 15.\n\nNa folha, procure a expressão “manifestação de pensamento”. Ela ajuda a perceber o alcance de um decreto de guerra para quem escrevia, lia jornais ou discutia política em terra."
     image: {fileID: 0}
-    caption: "Transcri\xE7\xE3o do artigo 1\xBA. O documento original cont\xE9m outros
-      artigos."
-  - title: "Uma decis\xE3o de Estado \u2022 Texto de apoio"
-    text: "O Decreto n\xBA 10.358 declara o estado de guerra em todo o territ\xF3rio
-      nacional. Seu artigo 1\xBA registra formalmente essa decis\xE3o.\n\nCompare
-      a natureza desta fonte oficial com a not\xEDcia do jornal: o decreto documenta
-      uma decis\xE3o do Estado; a imprensa mostra a circula\xE7\xE3o das informa\xE7\xF5es
-      e as rea\xE7\xF5es da sociedade.\n\nQuest\xE3o para o dossi\xEA\nEm agosto
-      de 1942, o Brasil j\xE1 havia entrado na guerra. O decreto de 31 de agosto
-      formaliza o estado de guerra no territ\xF3rio nacional."
+    caption: ""
+  - title: "O lugar do decreto na cronologia"
+    text: "Em agosto de 1942, novos ataques a navios brasileiros provocaram protestos. No dia 22, o governo reconheceu publicamente o estado de beligerância com a Alemanha e a Itália. Nove dias depois, Vargas assinou o decreto que você tem diante de si.\n\nCompare com a capa do Diário Carioca. Em abril, um jornal recolhia pedidos de represália. Em agosto, o governo estabelecia medidas que teriam efeitos jurídicos em todo o Brasil."
     image: {fileID: 0}
-    caption: "Transcri\xE7\xE3o e contextualiza\xE7\xE3o de uma fonte oficial."
+    caption: ""
   chronologyLabel: "Declara\xE7\xE3o do estado de guerra"
   chronologyOrder: 1
   inspectionPrefab: {fileID: 1751116703574677043, guid: d57e5283f32cd204fb394227a23a9f45, type: 3}

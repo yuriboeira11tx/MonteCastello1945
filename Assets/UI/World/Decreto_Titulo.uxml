@@ -1,1 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements"><ui:Style src="Decreto_Titulo.uss" /><ui:Label name="text" text="31 AGOSTO 1942&#10;DECRETO Nº 10.358&#10;Estado de guerra" class="world-text" picking-mode="Ignore" /></ui:UXML>

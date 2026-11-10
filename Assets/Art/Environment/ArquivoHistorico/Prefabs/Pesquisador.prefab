@@ -241,7 +241,6 @@ MonoBehaviour:
   movement: {fileID: 2284650120812729595}
   inputs: {fileID: 3004046553404149253}
   experience: {fileID: 0}
-  view: {fileID: 0}
   reach: 2.8
   interactionMask:
     serializedVersion: 2

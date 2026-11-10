@@ -11,14 +11,15 @@ namespace FEB.Archive
     {
         VisualElement panel, tools, sources, navigation;
         Image preview, photo;
-        Label prompt, caption, title, date, heading, body, bibliography, pageNumber, registrationError;
+        Label prompt, collection, caption, title, date, heading, body, bibliography, pageNumber, registrationError;
         Button reset, close, previous, next, register;
         ScrollView reading;
         EvidenceInspection inspection;
 
         HistoricalEvidence document;
         Func<bool> registerEvidence;
-        Action closed;
+        Func<bool> completeReading;
+        Action pageTurned, closed;
         int page;
         bool reachedLastPage, registered;
         public bool IsOpen => document != null;
@@ -27,9 +28,11 @@ namespace FEB.Archive
         void OnEnable()
         {
             var root = GetComponent<UIDocument>().rootVisualElement;
+            root.StretchToParentSize();
             root.pickingMode = PickingMode.Ignore;
             prompt = root.Q<Label>("fieldPrompt");
             panel = root.Q("fieldInspection");
+            collection = panel.Q<Label>("collection");
             tools = panel.Q("objectTools");
             preview = panel.Q<Image>("objectPreview");
             photo = panel.Q<Image>("objectPhoto");
@@ -71,15 +74,19 @@ namespace FEB.Archive
             ScreenUI.Show(prompt, visible);
         }
 
-        public void Open(HistoricalEvidence evidence, bool registered, Func<bool> onRegistered, Action onClosed)
+        public void Open(HistoricalEvidence evidence, bool registered, Func<bool> onRegistered, Action onPageTurn, Action onClosed,
+            bool alreadyRead, Func<bool> onRead, string collectionName)
         {
             if (evidence == null || IsOpen) return;
             document = evidence;
             this.registered = registered;
             registerEvidence = onRegistered;
+            completeReading = alreadyRead || registered ? null : onRead;
+            collection.text = collectionName;
+            pageTurned = onPageTurn;
             closed = onClosed;
             page = 0;
-            reachedLastPage = false;
+            reachedLastPage = alreadyRead || registered;
             SetPrompt(null);
             ScreenUI.Show(panel, true);
             ScreenUI.Show(registrationError, false);
@@ -100,28 +107,38 @@ namespace FEB.Archive
         void OnPanelGeometry(GeometryChangedEvent evt)
         {
             var bounds = evt.newRect;
-            panel.EnableInClassList("inspection-split--compact", bounds.width < 1180 || bounds.height < 650);
+            panel.EnableInClassList("inspection-split--compact",
+                bounds.width < 1180 || bounds.height < 650 || bounds.width < bounds.height * 1.35f);
         }
 
         void PreviousPage()
         {
             if (!IsOpen || page == 0) return;
-            page--;
-            ShowPage();
+            TurnTo(page - 1);
         }
 
         void NextPage()
         {
             if (!IsOpen || page + 1 >= PageCount) return;
-            page++;
+            TurnTo(page + 1);
+        }
+
+        void TurnTo(int newPage)
+        {
+            page = newPage;
             ShowPage();
+            pageTurned?.Invoke();
         }
 
         void ShowPage()
         {
             int total = PageCount;
             bool last = page + 1 == total;
-            reachedLastPage |= last;
+            if (last && !reachedLastPage)
+            {
+                reachedLastPage = true;
+                SaveReading();
+            }
             var sheet = document.pages != null && page < document.pages.Length ? document.pages[page] : null;
             heading.text = sheet?.title;
             ScreenUI.Show(heading, !string.IsNullOrWhiteSpace(heading.text) && heading.text != title.text);
@@ -143,11 +160,20 @@ namespace FEB.Archive
 
         void Register()
         {
-            if (!IsOpen || registered || !reachedLastPage || registerEvidence == null) return;
+            if (!IsOpen || registered || !reachedLastPage || registerEvidence == null || !SaveReading()) return;
             registered = registerEvidence();
             ScreenUI.Show(registrationError, !registered);
             if (!registered) registrationError.text = "Não foi possível salvar. Tente registrar novamente.";
             UpdateRegistration();
+        }
+
+        bool SaveReading()
+        {
+            if (completeReading == null) return true;
+            if (completeReading()) { completeReading = null; return true; }
+            registrationError.text = "Não foi possível salvar a leitura. Tente novamente ao registrar.";
+            ScreenUI.Show(registrationError, true);
+            return false;
         }
 
         void Update()
@@ -163,6 +189,8 @@ namespace FEB.Archive
             photo.image = null;
             ScreenUI.Show(panel, false);
             registerEvidence = null;
+            completeReading = null;
+            pageTurned = null;
             var notify = closed;
             closed = null;
             notify?.Invoke();

@@ -151,6 +151,8 @@ namespace FEB.Archive
             }
             manipulator = null;
             Hide();
+            if (viewport != null) viewport.image = null;
+            viewport = null;
         }
 
         sealed class InspectionManipulator : PointerManipulator

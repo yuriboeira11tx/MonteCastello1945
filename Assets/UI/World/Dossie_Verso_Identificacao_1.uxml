@@ -1,1 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements"><ui:Style src="Dossie_Verso_Identificacao_1.uss" /><ui:Label name="text" text="ACERVO DE PESQUISA&#10;&#10;Material de consulta&#10;&#10;Monte Castello: 1945" class="world-text" picking-mode="Ignore" /></ui:UXML>

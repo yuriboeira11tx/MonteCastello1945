@@ -1,5 +1,4 @@
 using System;
-using FEB.Persistence;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -75,9 +74,10 @@ namespace FEB.Archive
             surface.SetPropertyBlock(properties);
         }
 
-        public void Open()
+        void RaiseBook()
         {
-            if (holding) return;
+            if (raised) return;
+            if (holding) PutAway();
             PreparePanel();
             raised = holding = true;
             opening = 0;
@@ -86,11 +86,44 @@ namespace FEB.Archive
             book.SetActive(true);
             panel.SetScreenToPanelSpaceFunction(PickPage);
             pages = new FieldNotebookPages(document.rootVisualElement, firstCase, commonReadings, chapters,
-                gameObject.scene.name, fieldPhoto, emblem, interaction.Experience, RequestClose, OpenArchiveAction,
-                () => { if (raised) PlaySound(pageTurnSound); });
+                gameObject.scene.name, fieldPhoto, emblem, interaction.Experience, CloseBook, ExamineFromNotebook, PlayPageTurn);
             PositionBook();
             PlaySound(openSound);
         }
+
+        public void Open() => ShowIndex();
+
+        public void ShowIndex()
+        {
+            RaiseBook();
+            pages.ShowIndex();
+        }
+
+        public void ShowEvidenceIndex(HistoricalEvidence selected = null)
+        {
+            bool wasOpen = raised;
+            RaiseBook();
+            pages.ShowEvidenceIndex(selected, wasOpen);
+        }
+
+        public void ShowActivity(string kicker, string title, string body, bool isPause = false)
+        {
+            bool wasOpen = raised;
+            RaiseBook();
+            pages.ShowActivity(kicker, title, body, isPause, wasOpen);
+        }
+
+        public void AddChoice(string text, Action action, bool enabled = true) =>
+            pages?.AddChoice(text, action, enabled);
+
+        void ExamineFromNotebook(HistoricalEvidence evidence)
+        {
+            if (!BeginClose()) return;
+            PutAway();
+            interaction.Experience.OpenEvidence(evidence, fromNotebook: true);
+        }
+
+        public void PlayPageTurn() => PlaySound(pageTurnSound);
 
         void PlaySound(AudioClip clip)
         {
@@ -102,9 +135,13 @@ namespace FEB.Archive
         void Update()
         {
             var keys = Keyboard.current;
-            if (raised && Time.frameCount != openedFrame && keys != null &&
-                (keys.escapeKey.wasPressedThisFrame || keys.tabKey.wasPressedThisFrame))
-                RequestClose();
+            if (!raised || Time.frameCount == openedFrame || keys == null) return;
+            if (keys.tabKey.wasPressedThisFrame) CloseBook();
+            else if (keys.escapeKey.wasPressedThisFrame)
+            {
+                if (interaction.Experience != null && !pages.IsPausePage) interaction.Experience.OpenPause();
+                else CloseBook();
+            }
         }
 
         void LateUpdate()
@@ -157,14 +194,7 @@ namespace FEB.Archive
             return true;
         }
 
-        void RequestClose() => BeginClose();
-
-        void OpenArchiveAction(Action action)
-        {
-            if (!BeginClose()) return;
-            PutAway();
-            action();
-        }
+        public void CloseBook() => BeginClose();
 
         void PutAway()
         {

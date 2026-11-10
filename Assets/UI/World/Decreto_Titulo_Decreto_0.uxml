@@ -1,1 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements"><ui:Style src="Decreto_Titulo_Decreto_0.uss" /><ui:Label name="text" text="REPÚBLICA DOS ESTADOS&#10;UNIDOS DO BRASIL&#10;&#10;DECRETO Nº 10.358&#10;31 DE AGOSTO DE 1942&#10;&#10;ESTADO DE GUERRA&#10;&#10;Transcrição para pesquisa" class="world-text" picking-mode="Ignore" /></ui:UXML>

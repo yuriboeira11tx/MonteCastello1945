@@ -15,42 +15,25 @@ MonoBehaviour:
   id: jornal_cabedelo
   title: O desaparecimento do Cabedelo
   dateLabel: "8 de abril de 1942 \u2022 Di\xE1rio Carioca"
-  description: "A primeira p\xE1gina noticia o desaparecimento do Cabedelo. A manchete
-    apresenta o torpedeamento como certo, enquanto o subt\xEDtulo usa uma formula\xE7\xE3o
-    condicional. Compare essas escolhas de linguagem e o que elas permitem afirmar.\n\nA
-    not\xEDcia tamb\xE9m registra pedidos de repres\xE1lia. Ela permite investigar
-    a repercuss\xE3o p\xFAblica dos ataques, mas n\xE3o demonstra, sozinha, que o
-    Brasil j\xE1 havia declarado guerra."
-  keyFinding: "Uma fonte de imprensa registra o que se sabia e se discutia em sua
-    \xE9poca. A not\xEDcia de abril de 1942 \xE9 anterior \xE0 declara\xE7\xE3o do
-    estado de guerra, em agosto."
+  description: "Em abril de 1942, as famílias dos tripulantes do Cabedelo ainda buscavam notícias. A primeira página do Diário Carioca reuniu retratos da tripulação, declarações de leitores e uma hipótese sobre o destino do navio."
+  keyFinding: "A notícia do desaparecimento circulou em abril de 1942. Naquela data, o Brasil ainda não havia reconhecido o estado de guerra com a Alemanha e a Itália."
   image: {fileID: 2800000, guid: a8fdf06f56456534a82deba40c81ec15, type: 3}
-  imageCaption: "Fonte de \xE9poca \u2022 consulte a data e a linguagem da manchete."
-  citation: "Di\xE1rio Carioca, 8 abr. 1942, primeira p\xE1gina. Reprodu\xE7\xE3o
-    fornecida no acervo febmidia."
-  sourceUrl: https://bndigital.bn.gov.br/hemeroteca-digital/
+  imageCaption: "Primeira página do Diário Carioca, Rio de Janeiro, 8 de abril de 1942. Fundação Biblioteca Nacional, Hemeroteca Digital Brasileira."
+  citation: "Diário Carioca. Rio de Janeiro, 8 abr. 1942, p. 1. Fundação Biblioteca Nacional, Hemeroteca Digital Brasileira.\nhttps://hemeroteca-pdf.bn.gov.br/093092/per093092_1942_04235.pdf\n\nBrasil. Tribunal Marítimo. Acórdão do processo nº 812/1943, sobre o pesqueiro Changri-Lá. O relatório registra separadamente as dúvidas sobre o desaparecimento do Cabedelo.\nhttps://tm-jurisprudencia.marinha.mil.br/solr/anuarios/812.pdf"
+  sourceUrl: https://hemeroteca-pdf.bn.gov.br/093092/per093092_1942_04235.pdf
   pages:
-  - title: "Primeira p\xE1gina \u2022 Reprodu\xE7\xE3o do acervo"
-    text: "Di\xE1rio Carioca \u2022 8 de abril de 1942\n\nExamine a manchete, a data
-      e as express\xF5es de certeza ou d\xFAvida usadas pelo jornal. Use a roda para
-      ampliar a reprodu\xE7\xE3o e arraste para percorrer suas colunas.\n\nA imagem
-      reproduz a fonte; as orienta\xE7\xF5es de leitura s\xE3o texto de apoio do
-      jogo."
+  - title: "Um navio que deixou de dar notícias"
+    text: "Em 14 de fevereiro de 1942, o cargueiro Cabedelo deixou a Filadélfia, nos Estados Unidos, com carvão destinado à Paraíba. O navio era esperado no porto de Cabedelo em 3 de março. A data passou sem que ele chegasse.\n\nNa primeira página de 8 de abril, o Diário Carioca publicou retratos de tripulantes. Junto aos rostos, uma chamada informava que o Lloyd enviara condolências às famílias dos 55 homens de bordo."
     image: {fileID: 2800000, guid: a8fdf06f56456534a82deba40c81ec15, type: 3}
-    caption: "Fonte de \xE9poca \u2022 consulte a data e a linguagem da manchete."
-  - title: "Leitura cr\xEDtica \u2022 Texto de apoio"
-    text: "A primeira p\xE1gina noticia o desaparecimento do Cabedelo. A manchete
-      apresenta o torpedeamento como certo, enquanto o subt\xEDtulo usa uma formula\xE7\xE3o
-      condicional. Compare essas escolhas de linguagem e o que elas permitem afirmar.\n\nA
-      not\xEDcia tamb\xE9m registra pedidos de repres\xE1lia. Ela permite investigar
-      a repercuss\xE3o p\xFAblica dos ataques, mas n\xE3o demonstra, sozinha, que
-      o Brasil j\xE1 havia declarado guerra.\n\nQuest\xE3o para o dossi\xEA\nUma
-      fonte de imprensa registra o que se sabia e se discutia em sua \xE9poca. A
-      not\xEDcia de abril de 1942 \xE9 anterior \xE0 declara\xE7\xE3o do estado de
-      guerra, em agosto."
+    caption: "Primeira página do Diário Carioca, Rio de Janeiro, 8 de abril de 1942. Fundação Biblioteca Nacional, Hemeroteca Digital Brasileira."
+  - title: "O peso de uma palavra"
+    text: "Leia a manchete e, em seguida, a linha logo abaixo. No alto, o jornal trata o torpedeamento como certo. Poucos centímetros abaixo, escreve que o navio “teria afundado”. Esse verbo deixa em aberto o que aconteceu depois da partida.\n\nOutra coluna recolhe opiniões de pessoas que pediam represálias. Ao registrar a evidência, considere quem fala em cada trecho. A indignação dos entrevistados ajuda a entender como a notícia foi recebida."
     image: {fileID: 0}
-    caption: "Contextualiza\xE7\xE3o escrita para a pesquisa no jogo; n\xE3o \xE9
-      transcri\xE7\xE3o integral do jornal."
+    caption: ""
+  - title: "Até onde vai a evidência?"
+    text: "Décadas depois, a Procuradoria Especial da Marinha voltou ao caso ao discutir o desaparecimento de outro barco, o Changri-Lá. Segundo o relato recolhido pelo Tribunal Marítimo, o Cabedelo entrara na relação de perdas de guerra mesmo com as circunstâncias de seu desaparecimento ainda incertas.\n\nNa cronologia do dossiê, 8 de abril marca a publicação da notícia. A última partida conhecida do Cabedelo ocorreu em fevereiro."
+    image: {fileID: 0}
+    caption: ""
   chronologyLabel: "Not\xEDcia sobre o Cabedelo"
   chronologyOrder: 0
   inspectionPrefab: {fileID: 5760285545952390909, guid: 105e8216ba7532841a0f0bf1145968d0, type: 3}

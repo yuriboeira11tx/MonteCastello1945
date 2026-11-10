@@ -15,42 +15,25 @@ MonoBehaviour:
   id: caso_itapage
   title: "O caso Itapag\xE9"
   dateLabel: "26 de setembro de 1943 \u2022 Litoral de Alagoas"
-  description: "O Itapag\xE9 foi torpedeado no litoral de Alagoas em 26 de setembro
-    de 1943. Esse ataque aconteceu depois da entrada do Brasil na guerra.\n\nA maquete
-    e a sequ\xEAncia 3D ajudam a visualizar o epis\xF3dio. S\xE3o reconstru\xE7\xF5es
-    art\xEDsticas: seus enquadramentos, dura\xE7\xE3o e efeitos n\xE3o constituem
-    registro filmado do naufr\xE1gio."
-  keyFinding: "O caso Itapag\xE9 evidencia que os ataques \xE0 navega\xE7\xE3o brasileira
-    continuaram ap\xF3s 1942. N\xE3o deve ser apresentado como a causa da entrada
-    do Brasil na guerra."
-  image: {fileID: 0}
-  imageCaption: "Registro de pesquisa \u2022 a maquete representa o navio."
-  citation: "Marinha do Brasil. Introdu\xE7\xE3o \xE0 Hist\xF3ria Mar\xEDtima Brasileira.
-    Quadro de navios mercantes atacados: Itapag\xE9, 26 set. 1943."
-  sourceUrl: https://www.marinha.mil.br/com1dn/sites/www.marinha.mil.br.com1dn/files/upload/Introdu%C3%A7%C3%A3o%20%C3%A0%20Hist%C3%B3ria%20Mar%C3%ADtima%20Brasileira.pdf
+  description: "Uma fotografia do Itapagé chegou à primeira página de O Radical depois do ataque de 26 de setembro de 1943. O exame do recorte e dos destroços permite reconstruir partes diferentes da história do navio."
+  keyFinding: "Em setembro de 1943, o torpedeamento do Itapagé atingiu a navegação de cabotagem no litoral de Alagoas. O Brasil já estava em guerra havia mais de um ano."
+  image: {fileID: 2800000, guid: 39edb2f097a44eebb38744e38968f035, type: 3}
+  imageCaption: "Fotografia do Itapagé publicada em O Radical, Rio de Janeiro, 2 de outubro de 1943, p. 1. Recorte da Hemeroteca Digital Brasileira, Fundação Biblioteca Nacional."
+  citation: "O Radical. Rio de Janeiro, ano XII, nº 4.017, 2 out. 1943, p. 1. Fotografia do navio na reportagem sobre o torpedeamento. Fundação Biblioteca Nacional, Hemeroteca Digital Brasileira.\nhttps://hemeroteca-pdf.bn.gov.br/830399/per830399_1943_04017.pdf\n\nPorto, Otávio Arruda. Arqueologia marítima/subaquática da 2ª Guerra Mundial: sua aplicabilidade no Brasil. Dissertação de mestrado em Arqueologia, Universidade Federal de Sergipe, 2013, seção 1.2.2, pp. 56–60.\nhttps://ri.ufs.br/handle/riufs/3209"
+  sourceUrl: https://hemeroteca-pdf.bn.gov.br/830399/per830399_1943_04017.pdf
   pages:
-  - title: "Ficha de pesquisa \u2022 Itapag\xE9"
-    text: "O Itapag\xE9 foi torpedeado no litoral de Alagoas em 26 de setembro de
-      1943. Esse ataque aconteceu depois da entrada do Brasil na guerra.\n\nA maquete
-      e a sequ\xEAncia 3D ajudam a visualizar o epis\xF3dio. S\xE3o reconstru\xE7\xF5es
-      art\xEDsticas: seus enquadramentos, dura\xE7\xE3o e efeitos n\xE3o constituem
-      registro filmado do naufr\xE1gio.\n\nData do caso: 26 de setembro de 1943.\nLocal:
-      litoral de Alagoas."
+  - title: "Um retrato na primeira página"
+    text: "O navio aparece de perfil. A fumaça sai da chaminé, e é possível distinguir os mastros e os conveses. Em 2 de outubro de 1943, o jornal carioca O Radical usou a fotografia para que os leitores reconhecessem o mercante que havia sido torpedeado seis dias antes.\n\nA data no jornal indica quando a imagem foi publicada. O recorte mostra o aspecto do navio em serviço. Gire a pasta para ver a capa inteira e localizar a fotografia na reportagem."
+    image: {fileID: 2800000, guid: 39edb2f097a44eebb38744e38968f035, type: 3}
+    caption: "Fotografia do Itapagé publicada em O Radical, Rio de Janeiro, 2 de outubro de 1943, p. 1. Recorte da Hemeroteca Digital Brasileira, Fundação Biblioteca Nacional."
+  - title: "A rota de cabotagem"
+    text: "O Itapagé pertencia à Companhia Nacional de Navegação Costeira. Transportava passageiros e mercadorias entre portos brasileiros, atividade conhecida como cabotagem. Em setembro de 1943, depois de passar por Salvador, seguia em direção a Recife.\n\nEm 26 de setembro, o submarino alemão U-161 atingiu o navio perto de Lagoa Azeda, a cerca de oito milhas da costa de Alagoas. Quando souberam da perda, as famílias já viviam havia mais de um ano num país em guerra."
+    image: {fileID: 2800000, guid: 7eeec16134e14526b440e3ebe53667d1, type: 3}
+    caption: "Capa integral de O Radical, 2 de outubro de 1943. Hemeroteca Digital Brasileira, Fundação Biblioteca Nacional."
+  - title: "O que ficou no fundo"
+    text: "Em 2012, o arqueólogo Otávio Arruda Porto fez dois mergulhos nos destroços. Na parte central do navio, registrou estruturas fragmentadas e identificou elementos da praça de máquinas, entre eles as caldeiras. Também observou linhas de pesca presas ao casco.\n\nVolte à fotografia e localize a chaminé. Compare a silhueta que o jornal ofereceu a seus leitores com o que foi possível reconhecer no fundo do mar quase setenta anos depois."
     image: {fileID: 0}
-    caption: "S\xEDntese de pesquisa; n\xE3o \xE9 reprodu\xE7\xE3o de uma p\xE1gina
-      do livro citado."
-  - title: Relacionar as fontes
-    text: "O filme de arquivo \xE9 apresentado ao lado de uma manobra noturna interativa.\n\nConduza
-      o navio com A/D ou as setas e ajuste a velocidade com W/S. Observe o radar:
-      o navio fica no centro, com a proa para cima; os contatos alaranjados indicam
-      torpedos. Antecipe as curvas, pois o leme e as m\xE1quinas t\xEAm resposta
-      gradual.\n\nSe o casco for atingido, a tentativa ser\xE1 arquivada e o filme
-      ser\xE1 interrompido. Voc\xEA voltar\xE1 ao acervo para tentar novamente desde
-      o come\xE7o. A fase s\xF3 termina ao sobreviver at\xE9 o final integral do
-      filme.\n\nO exerc\xEDcio n\xE3o altera o registro hist\xF3rico apresentado
-      neste dossi\xEA."
-    image: {fileID: 0}
-    caption: "Orienta\xE7\xE3o da atividade interativa."
+    caption: ""
   chronologyLabel: "Torpedeamento do Itapag\xE9"
   chronologyOrder: 2
   inspectionPrefab: {fileID: 1349003803854075350, guid: 72def6cec7e65d24a8c722dc6aee2ae6, type: 3}

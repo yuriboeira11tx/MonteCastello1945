@@ -1,1 +1,0 @@
-.world-text { flex-grow: 1; margin: 0; padding: 0; white-space: normal; -unity-text-align: middle-center; -unity-font-definition: url("project://database/Assets/UI/Fonts/SpecialElite.asset"); font-size: 2.2px; color: #1F2117FF; }
