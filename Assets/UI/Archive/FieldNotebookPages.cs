@@ -225,10 +225,14 @@ namespace FEB.Archive
                 if (archive != null)
                 {
                     ActionButton(left, "Pasta de pesquisa", archive.OpenBriefing);
-                    ActionButton(left, "Organizar a linha do tempo", archive.OpenChronology);
-                    ActionButton(left, "Examinar a reconstrução", archive.OpenReconstruction);
-                    ActionButton(left, "Relatório da investigação", archive.OpenReport);
-                    if (archive.HasMultipleCases) ActionButton(left, "Selecionar dossiê", archive.OpenCaseSelection);
+                    if (archive.ActiveCase.fieldStudy) ActionButton(left, "Visita de campo", archive.OpenReconstruction);
+                    else
+                    {
+                        ActionButton(left, "Organizar a linha do tempo", archive.OpenChronology);
+                        if (save.ActiveDossier?.reconstructionViewed != true)
+                            ActionButton(left, "Examinar a reconstrução", archive.OpenReconstruction);
+                        ActionButton(left, "Relatório da investigação", archive.OpenReport);
+                    }
                     ActionButton(left, "Opções", archive.OpenPause);
 
                     Text(right, "Objetivo atual", "entry-date");
@@ -294,7 +298,7 @@ namespace FEB.Archive
             if (!library)
             {
                 ActionButton(right, "Anotar sobre esta evidência", () => Switch(Section.Notes));
-                if (archive != null && archive.ActiveCase.evidence.Contains(current))
+                if (archive != null && archive.CanReexamine(current))
                     ActionButton(right, "Reexaminar no acervo", () => examine(current));
             }
             Footer(library ? "Biblioteca da fase" : "Arquivo de evidências", page + 1, total);

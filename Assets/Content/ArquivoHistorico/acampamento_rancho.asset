@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3fbc34bcf34ba4c9e8f05a6ef7b306, type: 3}
+  m_Name: acampamento_rancho
+  m_EditorClassIdentifier: Assembly-CSharp::FEB.Archive.HistoricalEvidence
+  id: acampamento_rancho
+  title: "A hora do rancho"
+  dateLabel: "Setembro de 1944 • Ponte San Pietro"
+  description: "Em Ponte San Pietro, o expedicionário Antônio Martins trabalha sentado num caixote. A fotografia preserva um encontro entre a cozinha de campanha e a população italiana."
+  keyFinding: "As unidades procuravam servir uma refeição quente por dia. Em Ponte San Pietro, Antônio Martins ajudou a preparar comida para os civis locais."
+  image: {fileID: 2800000, guid: 912ee55057af4c92ab50933de6307105, type: 3}
+  imageCaption: "Antônio Martins prepara galinhas em Ponte San Pietro, setembro de 1944. National Archives at College Park, Photographs and Graphic Works. Reprodução em Toscano, figura 4."
+  citation: "NATIONAL ARCHIVES AT COLLEGE PARK (Maryland). Photographs and Graphic Works. Fotografia de Antônio Martins em Ponte San Pietro, setembro de 1944, identificada na figura 4 de Toscano.\n\nTOSCANO, Frederico de Oliveira. A guerra das scatolettas: cultura material e comidas enlatadas entre os soldados da Força Expedicionária Brasileira na Itália. Anais do Museu Paulista, v. 28, e47, 2020. Figuras 4 e 5 e relato do correspondente Francis Hallawell.\nhttps://doi.org/10.1590/1982-02672020v28e47"
+  sourceUrl: "https://doi.org/10.1590/1982-02672020v28e47"
+  pages:
+  - title: "Uma cozinha improvisada"
+    text: "O homem sentado no caixote se chamava Antônio Martins e era de Itatiba, em São Paulo. A legenda preservada com a fotografia permite ir além do que os objetos revelam. As galinhas que ele preparava naquele dia ajudariam a alimentar moradores italianos.\n\nProcure a superfície que virou bancada. Uma tarefa que exigiria uma cozinha no quartel podia ocupar um canto improvisado durante a campanha."
+    image: {fileID: 2800000, guid: 912ee55057af4c92ab50933de6307105, type: 3}
+    caption: "Antônio Martins prepara galinhas em Ponte San Pietro, setembro de 1944. National Archives at College Park, Photographs and Graphic Works. Reprodução em Toscano, figura 4."
+  - title: "O que ia na marmita"
+    text: "As unidades buscavam oferecer pelo menos uma refeição quente por dia. Quando o terreno ou as operações dificultavam a chegada da cozinha, entravam em cena as rações. As latas da ração C podiam ser abertas pelos próprios soldados. A embalagem coletiva apelidada de “10 por 1” reunia dez refeições.\n\nO correspondente brasileiro Francis Hallawell registrou outra parte do rancho. Enquanto esperavam com as marmitas, os homens contavam piadas e davam apelidos aos companheiros. A fila também era um lugar de convívio."
+    image: {fileID: 0}
+    caption: ""
+  chronologyLabel: ""
+  chronologyOrder: 1
+  inspectionPrefab: {fileID: 4497887934772962994, guid: c2298de7746c4356a50682734ab04bf2, type: 3}
+  inspectionRotation: {x: 2, y: -5, z: -1}

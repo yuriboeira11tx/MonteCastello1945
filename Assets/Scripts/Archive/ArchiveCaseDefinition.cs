@@ -8,6 +8,8 @@ namespace FEB.Archive
         public string caseId;
         public string Id => string.IsNullOrWhiteSpace(caseId) ? name : caseId;
         public string title;
+        [Tooltip("As evidências registradas liberam diretamente a visita de campo.")]
+        public bool fieldStudy;
         [TextArea(5, 12)] public string mission;
         public HistoricalEvidence[] evidence;
         [TextArea(3, 8)] public string chronologyIntroduction;

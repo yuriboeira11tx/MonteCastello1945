@@ -68,6 +68,7 @@ namespace FEB.Archive
             focusedArchive = archiveTarget;
             if (fieldView == null) return;
             string prompt = archiveTarget != null ? archiveTarget.Prompt : null;
+            if (archiveTarget != null && archiveTarget.Action == ArchiveAction.Evidence) evidence = archiveTarget.Evidence;
             if (evidence != null) prompt = "Examinar · " + evidence.title;
             fieldView.SetPrompt(prompt == null ? null : "[E]  " + prompt);
         }
@@ -85,7 +86,12 @@ namespace FEB.Archive
             if (fieldView.IsOpen) return;
             SetReading(true);
             fieldView.Open(evidence, registered, onRegister, notebook != null ? notebook.PlayPageTurn : (Action)null,
-                () => { SetReading(false); onClosed?.Invoke(); }, alreadyRead, onRead,
+                () =>
+                {
+                    if (!isActiveAndEnabled || !fieldView.isActiveAndEnabled) return;
+                    SetReading(false);
+                    onClosed?.Invoke();
+                }, alreadyRead, onRead,
                 experience != null ? "ARQUIVO HISTÓRICO" : "EVIDÊNCIA DE CAMPO");
         }
 

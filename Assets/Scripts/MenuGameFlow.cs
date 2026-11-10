@@ -1,4 +1,5 @@
 using System;
+using FEB.Archive;
 using FEB.Persistence;
 using FEB.UI;
 using UnityEngine;
@@ -11,6 +12,7 @@ public sealed class MenuGameFlow : MonoBehaviour
 {
     [SerializeField] MenuController menu;
     [SerializeField] string firstScene = "ArquivoHistorico";
+    [SerializeField] ArchiveCaseDefinition firstCase;
     VisualElement panel;
     VisualElement slots;
     Label panelTitle;
@@ -128,7 +130,14 @@ public sealed class MenuGameFlow : MonoBehaviour
     {
         if (loading) return;
         if (save == null) { OpenNewGame(); return; }
-        var scene = Application.CanStreamedLevelBeLoaded(save.scene) ? save.scene : firstScene;
+        string destination = save.scene;
+        if (firstCase != null && destination == firstCase.reconstructionScene)
+        {
+            var firstDossier = save.dossiers?.Find(d => d.caseId == firstCase.Id);
+            bool alreadyViewed = firstDossier?.reconstructionViewed ?? (save.reconstructionViewed || save.reportCompleted);
+            if (alreadyViewed) destination = firstCase.archiveScene;
+        }
+        var scene = Application.CanStreamedLevelBeLoaded(destination) ? destination : firstScene;
         ResearchSaveStore.Resume(save);
         Load(scene);
     }

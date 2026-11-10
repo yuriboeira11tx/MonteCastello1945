@@ -288,6 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MenuGameFlow
   menu: {fileID: 890877146}
   firstScene: ArquivoHistorico
+  firstCase: {fileID: 11400000, guid: 906f71a0a54adcb40973faeb896597eb, type: 2}
 --- !u!224 &403981169
 RectTransform:
   m_ObjectHideFlags: 0

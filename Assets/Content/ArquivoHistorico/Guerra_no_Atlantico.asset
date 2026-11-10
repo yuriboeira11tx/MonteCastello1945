@@ -55,4 +55,4 @@ MonoBehaviour:
   reconstructionScene: CutsceneInicial
   menuScene: Menu
   followUpScene: 
-  nextCase: {fileID: 0}
+  nextCase: {fileID: 11400000, guid: 912ee55057af4c92ab50933de6307110, type: 2}

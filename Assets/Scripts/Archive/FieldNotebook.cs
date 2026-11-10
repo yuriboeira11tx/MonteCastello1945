@@ -196,6 +196,11 @@ namespace FEB.Archive
 
         public void CloseBook() => BeginClose();
 
+        internal void StoreForTransition()
+        {
+            if (BeginClose()) PutAway();
+        }
+
         void PutAway()
         {
             raised = holding = false;
