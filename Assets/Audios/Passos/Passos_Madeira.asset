@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bceb8d060105d4d4faf4907980b16a5a, type: 3}
+  m_Name: Passos_Madeira
+  m_EditorClassIdentifier: Assembly-CSharp::FootstepSounds
+  leftFoot:
+  - clip: {fileID: 8300000, guid: 80c7c43f79efe1941af7e26d18a67a0a, type: 3}
+    gainDb: -9.28
+  - clip: {fileID: 8300000, guid: 48990dcef62878e4dab187d3bc3297a1, type: 3}
+    gainDb: -7.98
+  - clip: {fileID: 8300000, guid: c636bd3a3cde3454f98bdbdcb9ae0a93, type: 3}
+    gainDb: -8.04
+  rightFoot:
+  - clip: {fileID: 8300000, guid: 80c7c43f79efe1941af7e26d18a67a0a, type: 3}
+    gainDb: -8
+  - clip: {fileID: 8300000, guid: 48990dcef62878e4dab187d3bc3297a1, type: 3}
+    gainDb: -6.71
+  - clip: {fileID: 8300000, guid: c636bd3a3cde3454f98bdbdcb9ae0a93, type: 3}
+    gainDb: -6.76

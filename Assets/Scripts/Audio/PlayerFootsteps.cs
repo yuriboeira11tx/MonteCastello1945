@@ -27,7 +27,7 @@ public sealed class PlayerFootsteps : MonoBehaviour
         Vector3 velocity = controller.velocity;
         velocity.y = 0f;
 
-        if (!controller.isGrounded || velocity.sqrMagnitude < 0.01f)
+        if ((movement != null && !movement.isActiveAndEnabled) || !controller.isGrounded || velocity.sqrMagnitude < 0.01f)
         {
             distanceTravelled = distancePerStep * 0.5f;
             return;
