@@ -124,6 +124,7 @@ namespace FEB.Archive
         }
 
         public void PlayPageTurn() => PlaySound(pageTurnSound);
+        internal void PlayCloseSound() => PlaySound(closeSound);
 
         void PlaySound(AudioClip clip)
         {
@@ -190,7 +191,7 @@ namespace FEB.Archive
         {
             if (!raised || !pages.FlushNote()) return false;
             raised = false;
-            PlaySound(closeSound);
+            PlayCloseSound();
             return true;
         }
 

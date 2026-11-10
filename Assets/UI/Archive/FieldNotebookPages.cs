@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using FEB.Persistence;
+using FEB.UI;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,7 +10,7 @@ namespace FEB.Archive
 {
     internal sealed class FieldNotebookPages
     {
-        enum Section { Index, Reading, Evidence, Notes, Activity }
+        enum Section { Index, Reading, Evidence, Notes, Activity, Subtitles }
         readonly VisualElement root;
         readonly ScrollView left, right;
         readonly Button[] tabs;
@@ -132,6 +133,7 @@ namespace FEB.Archive
             ClearPages();
             Titles(kicker, title, isPause ? "OPÇÕES" : "ARQUIVO HISTÓRICO");
             Text(right, body);
+            if (isPause) ActionButton(left, "Legendas", () => Switch(Section.Subtitles));
             Footer(isPause ? "Opções da pesquisa" : "Dossiê em andamento");
             if (sound) pageChanged();
         }
@@ -222,6 +224,7 @@ namespace FEB.Archive
                 ActionButton(left, $"Leituras da fase  ·  {readings.Count}", () => Switch(Section.Reading));
                 ActionButton(left, $"Evidências registradas  ·  {records.Count}", () => Switch(Section.Evidence));
                 ActionButton(left, "Minhas anotações", () => Switch(Section.Notes));
+                ActionButton(left, "Legendas", () => Switch(Section.Subtitles));
                 if (archive != null)
                 {
                     ActionButton(left, "Pasta de pesquisa", archive.OpenBriefing);
@@ -242,6 +245,11 @@ namespace FEB.Archive
                 Photo(right, photo, "Expedicionários brasileiros na Itália. Fotografia do acervo do projeto.");
                 if (archive == null) Text(right, "O caderno acompanha a pesquisa do arquivo ao campo. Reúna aqui as fontes consultadas e as observações que elas despertam.");
                 Footer("Índice geral"); return;
+            }
+            if (section == Section.Subtitles)
+            {
+                ShowSubtitleOptions();
+                return;
             }
 
             bool library = section == Section.Reading, notes = section == Section.Notes;
@@ -302,6 +310,46 @@ namespace FEB.Archive
                     ActionButton(right, "Reexaminar no acervo", () => examine(current));
             }
             Footer(library ? "Biblioteca da fase" : "Arquivo de evidências", page + 1, total);
+        }
+
+        void ShowSubtitleOptions()
+        {
+            Titles("Legendas", "Tamanho do texto", "OPÇÕES");
+            AddSubtitleSwitch("Exibir legendas", () => SubtitlePreferences.Enabled, value => SubtitlePreferences.Enabled = value);
+
+            string[] sizes = { "Normal", "Grande", "Muito grande" };
+            var sizeButtons = new Button[sizes.Length];
+            for (int i = 0; i < sizes.Length; i++)
+            {
+                int index = i;
+                sizeButtons[i] = ActionButton(right, sizes[i], () =>
+                {
+                    SubtitlePreferences.SizeIndex = index;
+                    for (int j = 0; j < sizeButtons.Length; j++)
+                        sizeButtons[j].EnableInClassList("chosen", j == index);
+                }, "entry");
+                sizeButtons[i].EnableInClassList("chosen", i == SubtitlePreferences.SizeIndex);
+            }
+            Footer("Preferências de leitura");
+        }
+
+        void AddSubtitleSwitch(string title, Func<bool> read, Action<bool> write)
+        {
+            var button = new Button();
+            button.AddToClassList("entry");
+            void Refresh()
+            {
+                bool enabled = read();
+                button.text = title + (enabled ? " · Sim" : " · Não");
+                button.EnableInClassList("chosen", enabled);
+            }
+            button.clicked += () =>
+            {
+                write(!read());
+                Refresh();
+            };
+            left.Add(button);
+            Refresh();
         }
 
         public bool FlushNote()

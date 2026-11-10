@@ -30,10 +30,12 @@
     max-width: 820px;
     margin: 2% 2.5% 2% 0;
     padding: 32px 36px;
-    color: #302e24;
+    color: #282820;
     background-color: #eee4cc;
+    background-image: url("Papeis/PapelDeArquivo.png");
+    background-size: 100% 100%;
     border-width: 1px 2px 3px 1px;
-    border-color: #c5b89c;
+    border-color: #b09b78 #a48e6b #8d795b #bca583;
 }
 .file-row {
     flex-direction: row;
@@ -90,6 +92,45 @@
 .paper-button { color: #404a35; background-color: rgba(75, 84, 53, 0.08); }
 .paper-button:hover, .paper-button:focus { background-color: rgba(75, 84, 53, 0.2); }
 .file-register { align-self: flex-end; margin-top: 12px; }
+.paper-mark, .paper-mark-inner {
+    position: absolute;
+}
+.dossier-side .file-date, .dossier-side .file-source { color: #504a3c; }
+.dossier-side .file-body { color: #282820; }
+.dossier-side .file-scroll .unity-base-slider__tracker { background-color: rgba(105, 85, 56, 0.16); }
+.dossier-side .file-scroll .unity-base-slider__dragger { background-color: #696b55; }
+
+.dossier-side .paper-mark {
+    left: 61%;
+    top: 1px;
+    width: 17px;
+    height: 47px;
+    border-width: 3px;
+    border-color: #908c79 #615e51 #565449 #b7b4a2;
+    border-radius: 8px;
+    rotate: -13deg;
+}
+.dossier-side .paper-mark-inner {
+    left: 2px;
+    right: 1px;
+    top: -2px;
+    height: 35px;
+    border-left-width: 2px;
+    border-bottom-width: 2px;
+    border-color: #878573;
+    border-bottom-left-radius: 5px;
+}
+.dossier-side .file-section {
+    color: #713d2d;
+    border-width: 2px;
+    border-color: #9b6855;
+    padding: 5px 11px 3px;
+    rotate: -1deg;
+}
+.dossier-side .file-title { color: #343e32; }
+.dossier-side .file-divider { height: 4px; background-color: #9c7860; border-bottom-width: 2px; border-bottom-color: #decdb2; }
+.dossier-side .file-page { color: #5a4937; }
+
 .inspection-split--compact .inspection-half { padding: 14px 18px; }
 .inspection-split--compact .dossier-side { width: 44%; margin: 10px 12px 10px 0; }
 .inspection-split--compact .file-title { font-size: 33px; margin-top: 12px; }

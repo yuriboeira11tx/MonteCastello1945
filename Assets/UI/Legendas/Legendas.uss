@@ -1,0 +1,17 @@
+.subtitle-anchor {
+    position: absolute;
+    left: 16%;
+    right: 16%;
+    bottom: 4%;
+    align-items: center;
+}
+.subtitle-line {
+    max-width: 100%;
+    color: #fbf8ec;
+    -unity-font-style: italic;
+    -unity-text-outline-width: 0.45px;
+    -unity-text-outline-color: rgba(28, 30, 25, 0.85);
+    text-shadow: 0 1px 1px rgba(25, 27, 22, 0.8);
+    -unity-text-align: middle-center;
+    white-space: normal;
+}

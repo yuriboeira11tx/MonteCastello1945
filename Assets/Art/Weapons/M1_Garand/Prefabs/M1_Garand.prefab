@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 604985037513774563}
+  - component: {fileID: 4639720591127548601}
   m_Layer: 0
   m_Name: M1_Garand
   m_TagString: Untagged
@@ -33,6 +34,18 @@ Transform:
   - {fileID: 2454170389378349360}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4639720591127548601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217628971155428712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 970b2cc7c0bc42b8b6a862ea0fdb3016, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::RifleEquipment
 --- !u!1 &2741017884204386285
 GameObject:
   m_ObjectHideFlags: 0

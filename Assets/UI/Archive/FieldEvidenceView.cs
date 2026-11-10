@@ -19,7 +19,7 @@ namespace FEB.Archive
         HistoricalEvidence document;
         Func<bool> registerEvidence;
         Func<bool> completeReading;
-        Action pageTurned, closed;
+        Action pageTurned, closed, registrationClosed;
         int page;
         bool reachedLastPage, registered;
         public bool IsOpen => document != null;
@@ -75,7 +75,7 @@ namespace FEB.Archive
         }
 
         public void Open(HistoricalEvidence evidence, bool registered, Func<bool> onRegistered, Action onPageTurn, Action onClosed,
-            bool alreadyRead, Func<bool> onRead, string collectionName)
+            bool alreadyRead, Func<bool> onRead, string collectionName, Action onRegistrationClosed = null)
         {
             if (evidence == null || IsOpen) return;
             document = evidence;
@@ -85,6 +85,7 @@ namespace FEB.Archive
             collection.text = collectionName;
             pageTurned = onPageTurn;
             closed = onClosed;
+            registrationClosed = onRegistrationClosed;
             page = 0;
             reachedLastPage = alreadyRead || registered;
             SetPrompt(null);
@@ -161,10 +162,15 @@ namespace FEB.Archive
         void Register()
         {
             if (!IsOpen || registered || !reachedLastPage || registerEvidence == null || !SaveReading()) return;
-            registered = registerEvidence();
-            ScreenUI.Show(registrationError, !registered);
-            if (!registered) registrationError.text = "Não foi possível salvar. Tente registrar novamente.";
-            UpdateRegistration();
+            if (!registerEvidence())
+            {
+                registrationError.text = "Não foi possível salvar. Tente registrar novamente.";
+                ScreenUI.Show(registrationError, true);
+                return;
+            }
+            var playClose = registrationClosed;
+            Close();
+            playClose?.Invoke();
         }
 
         bool SaveReading()
@@ -191,6 +197,7 @@ namespace FEB.Archive
             registerEvidence = null;
             completeReading = null;
             pageTurned = null;
+            registrationClosed = null;
             var notify = closed;
             closed = null;
             notify?.Invoke();

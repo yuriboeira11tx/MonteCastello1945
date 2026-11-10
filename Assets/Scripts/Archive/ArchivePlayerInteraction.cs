@@ -24,6 +24,8 @@ namespace FEB.Archive
         FieldNotebook notebook;
         public ArchiveExperience Experience => experience;
         public FieldNotebook Notebook => notebook;
+        public bool IsReading => blocked;
+        public event Action<HistoricalEvidence> FieldEvidenceRegistered;
 
         void Awake()
         {
@@ -76,8 +78,12 @@ namespace FEB.Archive
         void Inspect(HistoricalEvidence evidence)
         {
             var save = ResearchSaveStore.EnsureSession();
-            OpenInspection(evidence, save.fieldEvidence.Contains(evidence.id),
-                () => ResearchSaveStore.RegisterFieldEvidence(evidence.id));
+            OpenInspection(evidence, save.fieldEvidence.Contains(evidence.id), () =>
+            {
+                if (!ResearchSaveStore.RegisterFieldEvidence(evidence.id)) return false;
+                FieldEvidenceRegistered?.Invoke(evidence);
+                return true;
+            });
         }
 
         public void OpenInspection(HistoricalEvidence evidence, bool registered, Func<bool> onRegister,
@@ -92,7 +98,8 @@ namespace FEB.Archive
                     SetReading(false);
                     onClosed?.Invoke();
                 }, alreadyRead, onRead,
-                experience != null ? "ARQUIVO HISTÓRICO" : "EVIDÊNCIA DE CAMPO");
+                experience != null ? "ARQUIVO HISTÓRICO" : "EVIDÊNCIA DE CAMPO",
+                notebook != null ? notebook.PlayCloseSound : (Action)null);
         }
 
         public void OpenNotebook()

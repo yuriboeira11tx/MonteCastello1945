@@ -13,6 +13,9 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="fileSide" class="inspection-half dossier-side">
+                <ui:VisualElement class="paper-mark" picking-mode="Ignore">
+                    <ui:VisualElement class="paper-mark-inner" picking-mode="Ignore" />
+                </ui:VisualElement>
                 <ui:VisualElement class="file-row">
                     <ui:Label name="collection" text="EVIDÊNCIA DE CAMPO" class="typewriter file-section" />
                     <ui:Button name="closeInspection" text="Voltar · Esc" class="inspection-button paper-button" />
