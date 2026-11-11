@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 6bb33439c6a2a5945aae123c98457a4a
+AudioImporter:
+  externalObjects: {}
+  serializedVersion: 8
+  defaultSettings:
+    serializedVersion: 2
+    loadType: 0
+    sampleRateSetting: 0
+    sampleRateOverride: 44100
+    compressionFormat: 0
+    quality: 1
+    conversionMode: 0
+    preloadAudioData: 1
+  platformSettingOverrides: {}
+  forceToMono: 0
+  normalize: 1
+  loadInBackground: 0
+  ambisonic: 0
+  3D: 1
+  userData: 'Pneus lentos em cascalho: TRP, Blyth 2012. Freesound 577501, CC0. https://freesound.org/s/577501/ | Trecho filtrado, mono e em loop.'
+  assetBundleName: 
+  assetBundleVariant: 

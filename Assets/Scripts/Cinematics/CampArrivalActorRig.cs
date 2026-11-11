@@ -33,10 +33,14 @@ public sealed class CampArrivalActorRig : MonoBehaviour
     public static CampArrivalActorRig Begin(Animator actor, Transform jeep = null) =>
         Begin(actor, jeep, null);
 
+    public static CampArrivalActorRig BeginSupplyDriver(Animator actor, Transform jeep) =>
+        Begin(actor, jeep, null, true);
+
     public static CampArrivalActorRig BeginPassenger(Animator actor, Transform jeep, Vector3 hipLocal) =>
         Begin(actor, jeep, hipLocal);
 
-    private static CampArrivalActorRig Begin(Animator actor, Transform jeep, Vector3? passengerHip)
+    private static CampArrivalActorRig Begin(Animator actor, Transform jeep, Vector3? passengerHip,
+        bool supplyDriver = false)
     {
         if (actor == null || !actor.isHuman || actor.avatar == null || !actor.avatar.isValid)
             return null;
@@ -53,7 +57,7 @@ public sealed class CampArrivalActorRig : MonoBehaviour
         if (passengerHip.HasValue)
             rig.SeatPassenger(jeep, passengerHip.Value);
         else if (jeep != null)
-            rig.SeatDriver(jeep);
+            rig.SeatDriver(jeep, supplyDriver);
         else
         {
             rig.PrepareStandingHand(true);
@@ -72,12 +76,20 @@ public sealed class CampArrivalActorRig : MonoBehaviour
             rig.builder.Build();
         else
             rig.builder.enabled = true;
+        if (supplyDriver || passengerHip.HasValue)
+            rig.builder.Evaluate(0f);
         return rig;
     }
 
     public void SetLookTarget(Transform target) => lookTarget = target;
     public void ClearLookTarget() => lookTarget = null;
     public void SetHandTarget(bool left, Transform target) => (left ? leftHand : rightHand).target = target;
+
+    public void SetCrateGrips(Transform left, Transform right, float weight)
+    {
+        leftHand.SetCrateGrip(left, weight);
+        rightHand.SetCrateGrip(right, weight);
+    }
 
     public void SetPassengerSeated(bool sitting)
     {
@@ -88,6 +100,8 @@ public sealed class CampArrivalActorRig : MonoBehaviour
             sitting ? seatedPose.rotation : originalRotation);
         leftHand.SetSeated(sitting, actor.transform.TransformPoint(new Vector3(-.45f, 1.1f, -.12f)));
         rightHand.SetSeated(sitting, actor.transform.TransformPoint(new Vector3(.45f, 1.1f, -.12f)));
+        // Publica a pose no mesmo quadro em que o soldado troca de lugar.
+        builder.Evaluate(0f);
     }
 
     private void CreateHeadAim()
@@ -123,7 +137,7 @@ public sealed class CampArrivalActorRig : MonoBehaviour
         rightHand.Update(Time.deltaTime);
     }
 
-    private void SeatDriver(Transform jeep)
+    private void SeatDriver(Transform jeep, bool stabilizeKnees)
     {
         seated = true;
         // Coordinates measured from the cushion, steering rim and footwell of Jeep_Willys_MB.
@@ -131,8 +145,8 @@ public sealed class CampArrivalActorRig : MonoBehaviour
         Transform pelvis = Marker(jeep, controls, "Assento", DriverSeatX, 0.835f, -0.46f);
         PinHips(pelvis);
 
-        PlaceDriverSide(jeep, true);
-        PlaceDriverSide(jeep, false);
+        PlaceDriverSide(jeep, true, stabilizeKnees);
+        PlaceDriverSide(jeep, false, stabilizeKnees);
     }
 
     private MultiPositionConstraint PinHips(Transform pelvis)
@@ -151,7 +165,7 @@ public sealed class CampArrivalActorRig : MonoBehaviour
         Transform pelvis = actor.GetBoneTransform(HumanBodyBones.Hips);
         actor.transform.position += jeep.TransformPoint(hip) - pelvis.position;
         seatedPose = new Pose(actor.transform.localPosition, actor.transform.localRotation);
-        passengerSeat = new List<IRigConstraint>(5)
+        passengerSeat = new List<IRigConstraint>(7)
         {
             PinHips(Marker(jeep, controls, "Assento", hip.x, hip.y, hip.z))
         };
@@ -183,6 +197,7 @@ public sealed class CampArrivalActorRig : MonoBehaviour
         else arm.data.targetRotationWeight = 0f;
         RegisterHand(left, arm);
 
+        passengerSeat.Add(PrimeKnee(left, suffix));
         var leg = Limb("Perna" + suffix,
             left ? HumanBodyBones.LeftUpperLeg : HumanBodyBones.RightUpperLeg,
             left ? HumanBodyBones.LeftLowerLeg : HumanBodyBones.RightLowerLeg,
@@ -203,7 +218,7 @@ public sealed class CampArrivalActorRig : MonoBehaviour
             leg.data.targetRotationWeight = 0f;
     }
 
-    private void PlaceDriverSide(Transform jeep, bool left)
+    private void PlaceDriverSide(Transform jeep, bool left, bool stabilizeKnees)
     {
         float side = left ? -1f : 1f;
         string suffix = left ? " E" : " D";
@@ -227,6 +242,7 @@ public sealed class CampArrivalActorRig : MonoBehaviour
             arm.data.targetRotationWeight = 0f;
         RegisterHand(left, arm);
 
+        if (stabilizeKnees) PrimeKnee(left, suffix);
         var leg = Limb("Perna" + suffix,
             left ? HumanBodyBones.LeftUpperLeg : HumanBodyBones.RightUpperLeg,
             left ? HumanBodyBones.LeftLowerLeg : HumanBodyBones.RightLowerLeg,
@@ -251,15 +267,30 @@ public sealed class CampArrivalActorRig : MonoBehaviour
         Transform elbow = actor.GetBoneTransform(left ? HumanBodyBones.LeftLowerArm : HumanBodyBones.RightLowerArm);
         Transform wrist = actor.GetBoneTransform(left ? HumanBodyBones.LeftHand : HumanBodyBones.RightHand);
         // The idle clip straightens the left elbow past neutral. Supply a stable bend plane before Two Bone IK.
-        Vector3 upper = (elbow.position - shoulder.position).normalized;
-        Vector3 forward = Vector3.ProjectOnPlane(actor.transform.forward, upper).normalized;
-        Vector3 bent = Vector3.RotateTowards(upper, forward, 52f * Mathf.Deg2Rad, 0f);
-        Quaternion bend = Quaternion.FromToRotation(wrist.position - elbow.position, bent) * elbow.rotation;
-        var rest = Child(controls, "Flexão do cotovelo" + suffix).gameObject.AddComponent<OverrideTransform>();
+        return PrimeBend(shoulder, elbow, wrist, actor.transform.forward, 52f, "Flexão do cotovelo" + suffix);
+    }
+
+    private OverrideTransform PrimeKnee(bool left, string suffix)
+    {
+        Transform thigh = actor.GetBoneTransform(left ? HumanBodyBones.LeftUpperLeg : HumanBodyBones.RightUpperLeg);
+        Transform shin = actor.GetBoneTransform(left ? HumanBodyBones.LeftLowerLeg : HumanBodyBones.RightLowerLeg);
+        Transform foot = actor.GetBoneTransform(left ? HumanBodyBones.LeftFoot : HumanBodyBones.RightFoot);
+        // O idle deixa a perna quase reta. Uma flexão para trás mantém o joelho apontado à frente durante o IK.
+        return PrimeBend(thigh, shin, foot, -actor.transform.forward, 65f, "Flexão do joelho" + suffix);
+    }
+
+    private OverrideTransform PrimeBend(Transform root, Transform joint, Transform tip,
+        Vector3 direction, float degrees, string constraintName)
+    {
+        Vector3 upper = (joint.position - root.position).normalized;
+        Vector3 bendDirection = Vector3.ProjectOnPlane(direction, upper).normalized;
+        Vector3 bent = Vector3.RotateTowards(upper, bendDirection, degrees * Mathf.Deg2Rad, 0f);
+        Quaternion bend = Quaternion.FromToRotation(tip.position - joint.position, bent) * joint.rotation;
+        var rest = Child(controls, constraintName).gameObject.AddComponent<OverrideTransform>();
         rest.Reset();
-        rest.data.constrainedObject = elbow;
+        rest.data.constrainedObject = joint;
         rest.data.space = OverrideTransformData.Space.Local;
-        rest.data.rotation = (Quaternion.Inverse(elbow.parent.rotation) * bend).eulerAngles;
+        rest.data.rotation = (Quaternion.Inverse(joint.parent.rotation) * bend).eulerAngles;
         rest.data.positionWeight = 0;
         return rest;
     }
@@ -295,16 +326,20 @@ public sealed class CampArrivalActorRig : MonoBehaviour
         private readonly TwoBoneIKConstraint arm;
         private bool seatedRest;
         private readonly Vector3 restPosition;
+        private readonly Quaternion restRotation;
         private readonly Vector3 restHint;
         private readonly float restRotationWeight;
         private Vector3 reachPosition;
         private float blend;
+        private Transform crateGrip;
+        private float gripWeight;
 
         public HandReach(TwoBoneIKConstraint arm, bool seated)
         {
             this.arm = arm;
             seatedRest = seated;
             restPosition = arm.data.target.localPosition;
+            restRotation = arm.data.target.localRotation;
             restHint = arm.data.hint.localPosition;
             restRotationWeight = arm.data.targetRotationWeight;
         }
@@ -312,17 +347,36 @@ public sealed class CampArrivalActorRig : MonoBehaviour
         public void SetSeated(bool seated, Vector3 standingHint)
         {
             target = null;
+            crateGrip = null;
             blend = 0f;
             seatedRest = seated;
-            arm.data.target.localPosition = restPosition;
+            arm.data.target.SetLocalPositionAndRotation(restPosition, restRotation);
             if (seated) arm.data.hint.localPosition = restHint;
             else arm.data.hint.position = standingHint;
             arm.data.targetRotationWeight = seated ? restRotationWeight : 0f;
             arm.weight = seated ? 1f : 0f;
         }
 
+        public void SetCrateGrip(Transform grip, float weight)
+        {
+            crateGrip = grip;
+            gripWeight = weight;
+            if (!grip)
+            {
+                arm.weight = 0f;
+                arm.data.targetRotationWeight = 0f;
+            }
+        }
+
         public void Update(float deltaTime)
         {
+            if (crateGrip)
+            {
+                arm.data.target.SetPositionAndRotation(crateGrip.position, crateGrip.rotation);
+                arm.data.targetRotationWeight = 1f;
+                arm.weight = gripWeight;
+                return;
+            }
             if (target == null && blend <= 0f)
                 return;
             Transform marker = arm.data.target;

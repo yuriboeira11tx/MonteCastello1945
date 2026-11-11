@@ -28,6 +28,8 @@ public sealed class CampSupplyCrewMember : MonoBehaviour
     private bool originalColliderEnabled;
     private Transform leftGrip;
     private Transform rightGrip;
+    private CampCrateGrip grip;
+    private float gripWeight;
     private Coroutine transfer;
     private bool dropping;
     private Vector3 dropPoint;
@@ -70,7 +72,7 @@ public sealed class CampSupplyCrewMember : MonoBehaviour
         actor.Play(Idle, 0, 0f);
         actor.Update(0f);
         if (!rig)
-            rig = driver ? CampArrivalActorRig.Begin(actor, jeep)
+            rig = driver ? CampArrivalActorRig.BeginSupplyDriver(actor, jeep)
                          : CampArrivalActorRig.BeginPassenger(actor, jeep, hipLocal);
         else if (!driver)
             rig.SetPassengerSeated(true);
@@ -166,35 +168,29 @@ public sealed class CampSupplyCrewMember : MonoBehaviour
         originalColliderEnabled = box.enabled;
         box.enabled = false;
         cargo.SetParent(chest, true);
-        // Mesmo encaixe das caixas dos carregadores já presentes no acampamento.
-        Vector3 carryPosition = chest.InverseTransformPoint(actor.transform.TransformPoint(new Vector3(0f, .978f, .395f)));
-        Quaternion carryRotation = Quaternion.Inverse(chest.rotation) * actor.transform.rotation;
+        // Encaixe no referencial do peito FEB, independente da fase da animação ao sair do banco.
+        Vector3 carryPosition = new Vector3(0f, -.205f, .345f);
         if (!leftGrip)
         {
             leftGrip = new GameObject("Pega esquerda").transform;
             rightGrip = new GameObject("Pega direita").transform;
         }
-        PositionGrip(leftGrip, -1f);
-        PositionGrip(rightGrip, 1f);
-        SetGrips();
-        transfer = StartCoroutine(MoveCrate(carryPosition, carryRotation));
+        leftGrip.SetParent(cargo, false);
+        rightGrip.SetParent(cargo, false);
+        grip ??= new CampCrateGrip(actor);
+        grip.PositionTargets(box, leftGrip, rightGrip);
+        transfer = StartCoroutine(MoveCrate(carryPosition, Quaternion.identity));
         return true;
     }
 
-    private void PositionGrip(Transform grip, float side)
+    private void SetGripWeight(float weight)
     {
-        grip.SetParent(cargo, false);
-        Vector3 center = cargoCollider.center;
-        Vector3 size = cargoCollider.size;
-        grip.localPosition = center + new Vector3(side * (size.x * .5f + .025f), -size.y * .22f, -size.z * .11f);
+        weight *= grip.ContactWeight(leftGrip, rightGrip);
+        gripWeight = weight;
+        if (rig) rig.SetCrateGrips(leftGrip, rightGrip, weight);
     }
 
-    private void SetGrips()
-    {
-        if (!rig) return;
-        rig.SetHandTarget(true, leftGrip);
-        rig.SetHandTarget(false, rightGrip);
-    }
+    private void LateUpdate() => grip?.CloseFingers(gripWeight);
 
     public void DropCrate(Vector3 ground, Quaternion rotation, Transform destinationParent = null)
     {
@@ -212,15 +208,18 @@ public sealed class CampSupplyCrewMember : MonoBehaviour
     {
         Vector3 startPosition = cargo.localPosition;
         Quaternion startRotation = cargo.localRotation;
+        float startWeight = gripWeight, endWeight = dropping ? 0f : 1f;
         const float duration = .42f;
         for (float elapsed = 0f; elapsed < duration; elapsed += Time.deltaTime)
         {
             float t = Mathf.SmoothStep(0f, 1f, elapsed / duration);
             cargo.SetLocalPositionAndRotation(Vector3.Lerp(startPosition, endPosition, t),
                 Quaternion.Slerp(startRotation, endRotation, t));
+            SetGripWeight(Mathf.Lerp(startWeight, endWeight, t));
             yield return null;
         }
         cargo.SetLocalPositionAndRotation(endPosition, endRotation);
+        SetGripWeight(endWeight);
         transfer = null;
         if (dropping) FinishDrop();
     }
@@ -234,11 +233,8 @@ public sealed class CampSupplyCrewMember : MonoBehaviour
     private void FinishDrop()
     {
         StopTransfer();
-        if (rig)
-        {
-            rig.SetHandTarget(true, null);
-            rig.SetHandTarget(false, null);
-        }
+        gripWeight = 0f;
+        if (rig) rig.SetCrateGrips(null, null, 0f);
         leftGrip.SetParent(transform, false);
         rightGrip.SetParent(transform, false);
         if (dropping)

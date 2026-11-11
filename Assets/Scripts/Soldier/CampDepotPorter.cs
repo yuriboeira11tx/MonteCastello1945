@@ -18,6 +18,7 @@ public sealed class CampDepotPorter : MonoBehaviour
     Pose posto, encaixeEmRepouso;
     Transform caixa;
     BoxCollider caixaCollider;
+    CampCrateGrip pega;
     Action<Transform, bool> aoConcluir;
     bool ocupado, chegou, nasMaos, colliderOriginal;
     static readonly float[] AngulosDeAcesso = { 0f, 60f, -60f, 180f };
@@ -69,6 +70,8 @@ public sealed class CampDepotPorter : MonoBehaviour
                 caixaCollider.enabled = false;
                 caixa.SetParent(encaixeDaCaixa, false);
                 caixa.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+                pega ??= new CampCrateGrip(GetComponentInChildren<Animator>());
+                pega.PositionTargets(caixaCollider, maoEsquerda.data.target, maoDireita.data.target);
                 nasMaos = true;
                 yield return MoverEncaixe(encaixeEmRepouso, 0f, 1f);
             }
@@ -192,8 +195,15 @@ public sealed class CampDepotPorter : MonoBehaviour
 
     void PesoDosBracos(float peso)
     {
+        if (nasMaos && peso > 0f)
+            peso *= pega.ContactWeight(maoEsquerda.data.target, maoDireita.data.target);
         maoEsquerda.weight = peso;
         maoDireita.weight = peso;
+    }
+
+    void LateUpdate()
+    {
+        if (nasMaos) pega.CloseFingers(maoEsquerda.weight);
     }
 
     void Parar()

@@ -12,6 +12,8 @@ namespace FEB.Cinematics
         [Tooltip("Raio do pneu em unidades locais do jipe.")]
         [SerializeField, Min(.01f)] float raioDoPneu = .36f;
         [SerializeField, Range(1f, 60f)] float anguloMaximoDeDirecao = 32f;
+        [Tooltip("Fonte 3D em loop junto aos eixos. O volume da fonte define o máximo na estrada.")]
+        [SerializeField] AudioSource rolagemNaTerra;
 
         struct Roda
         {
@@ -22,6 +24,7 @@ namespace FEB.Cinematics
 
         Roda[] dianteiras, traseiras;
         float entreEixos;
+        float volumeDeRolagem, pitchDeRolagem;
         Vector3 posicaoAnterior;
         Quaternion rotacaoAnterior;
 
@@ -35,6 +38,11 @@ namespace FEB.Cinematics
                 return;
             }
             entreEixos = Mathf.Abs(frente - tras);
+            if (rolagemNaTerra)
+            {
+                volumeDeRolagem = rolagemNaTerra.volume;
+                pitchDeRolagem = rolagemNaTerra.pitch;
+            }
         }
 
         bool LerEixo(Transform[] pivos, out Roda[] rodas, out float centroZ)
@@ -60,23 +68,39 @@ namespace FEB.Cinematics
         }
 
         void OnEnable() => SincronizarPose();
+        void OnDisable() => SilenciarRolagem();
 
         // Chamar depois de reposicionar o jipe instantaneamente, antes de retomar a marcha.
         public void SincronizarPose()
         {
             posicaoAnterior = transform.position;
             rotacaoAnterior = transform.rotation;
+            SilenciarRolagem();
         }
 
         void LateUpdate()
         {
             Vector3 deslocamento = transform.position - posicaoAnterior;
             Quaternion anterior = rotacaoAnterior;
-            SincronizarPose();
-            if (deslocamento.sqrMagnitude < 1e-10f) return;
+            posicaoAnterior = transform.position;
+            rotacaoAnterior = transform.rotation;
+            float dt = Time.deltaTime;
+            // Acima da velocidade das rotas do acampamento, um salto é um reposicionamento.
+            float passoMaximo = Mathf.Max(.75f, 14f * dt);
+            if (dt <= 0f || deslocamento.sqrMagnitude > passoMaximo * passoMaximo)
+            {
+                SilenciarRolagem();
+                return;
+            }
+            if (deslocamento.sqrMagnitude < 1e-10f)
+            {
+                AtualizarRolagem(0f, dt);
+                return;
+            }
 
             Quaternion meiaRotacao = Quaternion.Slerp(anterior, rotacaoAnterior, .5f);
             float avanco = Vector3.Dot(deslocamento, meiaRotacao * Vector3.forward);
+            AtualizarRolagem(Mathf.Abs(avanco) / dt, dt);
             if (Mathf.Abs(avanco) < .00001f) return;
 
             Vector3 normal = meiaRotacao * Vector3.up;
@@ -87,6 +111,31 @@ namespace FEB.Cinematics
             float raio = Mathf.Max(.01f, raioDoPneu * Mathf.Abs(escala.y));
             GirarEixo(dianteiras, avanco, guinada, entreEixos * Mathf.Abs(escala.z), escala.x, raio);
             GirarEixo(traseiras, avanco, guinada, 0f, escala.x, raio);
+        }
+
+        void AtualizarRolagem(float metrosPorSegundo, float dt)
+        {
+            if (!rolagemNaTerra || !rolagemNaTerra.isActiveAndEnabled || !rolagemNaTerra.clip) return;
+            float ritmo = Mathf.InverseLerp(.09f, 5.5f, metrosPorSegundo);
+            if (ritmo <= 0f && !rolagemNaTerra.isPlaying) return;
+            float alvo = volumeDeRolagem * Mathf.Sqrt(ritmo);
+            float taxa = alvo > rolagemNaTerra.volume ? 3f : 5f;
+            rolagemNaTerra.volume = Mathf.MoveTowards(rolagemNaTerra.volume, alvo, volumeDeRolagem * taxa * dt);
+            float pitch = pitchDeRolagem * Mathf.Lerp(.80f, 1.10f, ritmo);
+            rolagemNaTerra.pitch = Mathf.MoveTowards(rolagemNaTerra.pitch, pitch, 1.2f * dt);
+            if (rolagemNaTerra.volume > .001f)
+            {
+                if (!rolagemNaTerra.isPlaying) rolagemNaTerra.Play();
+            }
+            else if (alvo <= 0f) SilenciarRolagem();
+        }
+
+        void SilenciarRolagem()
+        {
+            if (!rolagemNaTerra) return;
+            if (rolagemNaTerra.isPlaying) rolagemNaTerra.Stop();
+            rolagemNaTerra.volume = 0f;
+            rolagemNaTerra.pitch = pitchDeRolagem * .80f;
         }
 
         void GirarEixo(Roda[] rodas, float avanco, float guinada, float distanciaAoEixoTraseiro,
