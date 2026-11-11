@@ -12,6 +12,7 @@ namespace FEB.Cinematics
         [SerializeField] VideoPlayer archiveVideo;
         [SerializeField] AudioSource archiveAudio;
         [SerializeField] AudioSource oceanAudio;
+        [SerializeField] AudioSource failureStamp;
         [SerializeField] CutsceneView view;
         [SerializeField] ShipEvasionController navigation;
         [SerializeField] ShipImpactEffects impactEffects;
@@ -84,6 +85,8 @@ namespace FEB.Cinematics
         {
             yield return new WaitForSecondsRealtime(impactPresentationSeconds);
             view.ShowFailure();
+            if (failureStamp) failureStamp.Play();
+            impactEffects.FadeAudio(.25f);
             if (oceanAudio != null) oceanAudio.Stop();
             yield return ReturnAfter(failureDisplaySeconds);
         }
@@ -111,9 +114,11 @@ namespace FEB.Cinematics
             impactEffects.Play(navigation.LastImpactPoint);
             yield return new WaitForSeconds(finalFireSeconds);
             float oceanVolume = oceanAudio != null ? oceanAudio.volume : 0;
-            for (float elapsed = 0; elapsed < 1.2f; elapsed += Time.unscaledDeltaTime)
+            const float fadeSeconds = 1.2f;
+            impactEffects.FadeAudio(fadeSeconds);
+            for (float elapsed = 0; elapsed < fadeSeconds; elapsed += Time.unscaledDeltaTime)
             {
-                float fade = Mathf.Clamp01(elapsed / 1.2f);
+                float fade = Mathf.Clamp01(elapsed / fadeSeconds);
                 view.SetFinalFade(fade);
                 if (oceanAudio != null) oceanAudio.volume = Mathf.Lerp(oceanVolume, 0, fade);
                 yield return null;
@@ -145,6 +150,7 @@ namespace FEB.Cinematics
             StopAllCoroutines();
             if (archiveVideo != null) archiveVideo.Stop();
             if (oceanAudio != null) oceanAudio.Stop();
+            if (failureStamp) failureStamp.Stop();
             if (navigation != null) navigation.SetRunning(false);
         }
 

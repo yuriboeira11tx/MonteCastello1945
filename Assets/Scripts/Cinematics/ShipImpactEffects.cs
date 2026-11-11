@@ -9,6 +9,9 @@ namespace FEB.Cinematics
         [SerializeField] ParticleSystem[] fireAndSmoke;
         [SerializeField] Light impactLight;
         [SerializeField] float seaLevel = 3.82f;
+        [SerializeField] AudioSource explosionAudio;
+        [SerializeField] AudioSource fireAudio;
+        float explosionVolume, fireVolume;
         float elapsed;
         bool active;
 
@@ -19,6 +22,8 @@ namespace FEB.Cinematics
                     ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
             foreach (var ps in fireAndSmoke) ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
             impactLight.enabled = false;
+            if (explosionAudio) explosionVolume = explosionAudio.volume;
+            if (fireAudio) fireVolume = fireAudio.volume;
         }
 
         public void Play(Vector3 contact)
@@ -34,6 +39,7 @@ namespace FEB.Cinematics
             impactLight.transform.position = contact + Vector3.up * 7;
             impactLight.enabled = true;
             impactLight.range = 65;
+            if (explosionAudio) explosionAudio.Play();
             StartCoroutine(Ignite());
         }
 
@@ -41,6 +47,33 @@ namespace FEB.Cinematics
         {
             yield return new WaitForSeconds(.3f);
             foreach (var ps in fireAndSmoke) ps.Play();
+            if (fireAudio) fireAudio.Play();
+        }
+
+        public void FadeAudio(float duration) => StartCoroutine(FadeImpactAudio(duration));
+
+        IEnumerator FadeImpactAudio(float duration)
+        {
+            for (float elapsed = 0; elapsed < duration; elapsed += Time.unscaledDeltaTime)
+            {
+                float gain = 1f - elapsed / duration;
+                if (explosionAudio) explosionAudio.volume = explosionVolume * gain;
+                if (fireAudio) fireAudio.volume = fireVolume * gain;
+                yield return null;
+            }
+            StopAudio();
+        }
+
+        void StopAudio()
+        {
+            if (explosionAudio) { explosionAudio.Stop(); explosionAudio.volume = explosionVolume; }
+            if (fireAudio) { fireAudio.Stop(); fireAudio.volume = fireVolume; }
+        }
+
+        void OnDisable()
+        {
+            StopAllCoroutines();
+            StopAudio();
         }
 
         void Update()
