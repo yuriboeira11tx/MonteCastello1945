@@ -1,0 +1,170 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1233149941 &-9152009199739128155
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ate_amanha_1933
+  m_AudioClip: {fileID: 8300000, guid: bf26c28a806d4d8e914a607d3fc9190a, type: 3}
+  m_Volume: -0.6
+  m_Enabled: 1
+--- !u!1233149941 &-6874125439385008685
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ultimo_desejo_1938
+  m_AudioClip: {fileID: 8300000, guid: 01155587157f430c833cac162188f702, type: 3}
+  m_Volume: -1.7
+  m_Enabled: 1
+--- !u!1233149941 &-5503391131769139517
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: com_que_roupa_1930
+  m_AudioClip: {fileID: 8300000, guid: a364632da5e54b6aac7fe00b717a6875, type: 3}
+  m_Volume: -2.7
+  m_Enabled: 1
+--- !u!1233149941 &-5375952466074939510
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: silencio_de_um_minuto_1940
+  m_AudioClip: {fileID: 8300000, guid: b2e6ccd8f3254479899d8c90e4c79bdf, type: 3}
+  m_Volume: -3.1
+  m_Enabled: 1
+--- !u!1233149941 &-4590311172648753331
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: gago_apaixonado_1931
+  m_AudioClip: {fileID: 8300000, guid: 2953d3511db243c2bb29182002952d74, type: 3}
+  m_Volume: -2.4
+  m_Enabled: 1
+--- !u!1233149941 &-2650229585895957885
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 1944_06_05_roosevelt_roma
+  m_AudioClip: {fileID: 8300000, guid: fd205a7a2a1d405cb2aff150a8d33b52, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-283986881884358528
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: tico_tico_no_fuba_1943
+  m_AudioClip: {fileID: 8300000, guid: abdae9445c354bc8af0bd95e1a935b79, type: 3}
+  m_Volume: -4.8
+  m_Enabled: 1
+--- !u!1233149941 &3736614721208102232
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: palpite_infeliz_1936
+  m_AudioClip: {fileID: 8300000, guid: 22bf6d076660404ca80d71a4026ec764, type: 3}
+  m_Volume: -3.1
+  m_Enabled: 1
+--- !u!1233149941 &4641868565216552590
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: dengoso_1930
+  m_AudioClip: {fileID: 8300000, guid: 925753c49ee443e39c1d4f7de342d8b9, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &4686062534315914211
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: escorregando_1944
+  m_AudioClip: {fileID: 8300000, guid: 9eb9317d378d4814afe8bd01aaa0338d, type: 3}
+  m_Volume: -2.4
+  m_Enabled: 1
+--- !u!1233149941 &5284596688561348656
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: cordiais_saudacoes_1931
+  m_AudioClip: {fileID: 8300000, guid: 09e97344662d45029f717c66eebc7ef3, type: 3}
+  m_Volume: -2.5
+  m_Enabled: 1
+--- !u!1233149941 &5725206419853151548
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: brejeiro_1943
+  m_AudioClip: {fileID: 8300000, guid: cc167d196d5a48b29cec75acf621ab07, type: 3}
+  m_Volume: -2
+  m_Enabled: 1
+--- !u!1307931743 &6418180475301049370
+AudioRandomContainer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Radio_do_Acampamento
+  m_Volume: 0
+  m_Pitch: 0
+  m_AutomaticTriggerTime: 0.5
+  m_LoopCount: 1
+  m_VolumeRandomizationRange: {x: 0, y: 0}
+  m_PitchRandomizationRange: {x: 0, y: 0}
+  m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
+  m_LoopCountRandomizationRange: {x: 0, y: 0}
+  m_Elements:
+  - {fileID: -2650229585895957885}
+  - {fileID: -9152009199739128155}
+  - {fileID: 5725206419853151548}
+  - {fileID: -5503391131769139517}
+  - {fileID: 5284596688561348656}
+  - {fileID: 4641868565216552590}
+  - {fileID: 4686062534315914211}
+  - {fileID: -4590311172648753331}
+  - {fileID: 8064903218281525832}
+  - {fileID: 3736614721208102232}
+  - {fileID: -5375952466074939510}
+  - {fileID: -283986881884358528}
+  - {fileID: -6874125439385008685}
+  m_AvoidRepeatingLast: 1
+  m_PlaybackMode: 1
+  m_TriggerMode: 1
+  m_AutomaticTriggerMode: 1
+  m_LoopMode: 0
+  m_VolumeRandomizationEnabled: 0
+  m_PitchRandomizationEnabled: 0
+  m_AutomaticTriggerTimeRandomizationEnabled: 0
+  m_LoopCountRandomizationEnabled: 0
+--- !u!1233149941 &8064903218281525832
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: onde_esta_a_honestidade_1933
+  m_AudioClip: {fileID: 8300000, guid: 6187955fee734d0bbfe448e17d7a3b53, type: 3}
+  m_Volume: -2.8
+  m_Enabled: 1
