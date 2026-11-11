@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3fbc34bcf34ba4c9e8f05a6ef7b306, type: 3}
+  m_Name: Aviacao_Missoes
+  m_EditorClassIdentifier: Assembly-CSharp::FEB.Archive.HistoricalEvidence
+  id: acampamento_aviacao_missoes
+  title: "Da pista de Pisa ao alvo"
+  dateLabel: "Itália · março e abril de 1945"
+  description: "Uma coluna de fumaça sobe sobre campos cultivados. O que permite associar essa imagem a uma missão brasileira?"
+  keyFinding: "Uma fotografia aérea registra o ataque a um depósito perto de Fenili. O relatório histórico da FAB sobre 22 de abril descreve outra jornada, em que 22 pilotos realizaram 44 saídas."
+  image: {fileID: 2800000, guid: 37a623b14121564fa4fe9a6c5c98518f, type: 3}
+  imageCaption: "Depósito alemão de munição junto a Fenili, Itália, atingido por P-47 brasileiros em 9 de março de 1945. NARA, EUA, 342-FH-3A24616."
+  citation: "National Air and Space Museum, Latin America in the Air War, NARA 342-FH-3A24616. Centro de Documentação da Aeronáutica, Ordem do Dia de 22 de abril de 2018. Museu Virtual da FEB, Força Aérea Brasileira."
+  sourceUrl: "https://airandspace.si.edu/stories/editorial/latin-america-air-war"
+  pages:
+  - title: "O alvo visto do alto"
+    text: "A fumaça encobre parte do terreno. Para saber o que explodiu, precisamos da legenda preservada no acervo. Ela identifica um depósito de munições alemão perto de Fenili, atingido por P-47 brasileiros em 9 de março de 1945.\n\nDestruir estoques, veículos e ligações de transporte dificultava a chegada de material às tropas alemãs. Essa era uma das formas pelas quais a aviação apoiava a campanha em terra."
+    image: {fileID: 2800000, guid: 37a623b14121564fa4fe9a6c5c98518f, type: 3}
+    caption: "Depósito alemão de munição junto a Fenili, Itália, atingido por P-47 brasileiros em 9 de março de 1945. NARA, EUA, 342-FH-3A24616."
+  - title: "Quantos voos cabem em um dia?"
+    text: "Em 22 de abril de 1945, a primeira esquadrilha brasileira levantou voo de Pisa às 8h30. Segundo o Centro de Documentação da Aeronáutica, 22 pilotos realizaram 44 saídas naquele dia. Um piloto podia pousar e voltar ao combate depois.\n\nEssa repetição dependia do trabalho em terra. Entre uma partida e outra, era preciso tornar o avião novamente disponível para o próximo voo. A data passou a marcar o Dia da Aviação de Caça no Brasil."
+    image: {fileID: 0}
+    caption: ""
+  chronologyLabel: 
+  chronologyOrder: 0
+  inspectionPrefab: {fileID: 1344062721961564308, guid: 4e1716261a8658eeb5c28ff253f1489a, type: 3}
+  inspectionRotation: {x: 2, y: -5, z: -1}

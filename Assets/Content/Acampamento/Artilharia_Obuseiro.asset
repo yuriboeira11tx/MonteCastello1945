@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3fbc34bcf34ba4c9e8f05a6ef7b306, type: 3}
+  m_Name: Artilharia_Obuseiro
+  m_EditorClassIdentifier: Assembly-CSharp::FEB.Archive.HistoricalEvidence
+  id: acampamento_artilharia_obuseiro
+  title: "A granada de Francisco de Paula"
+  dateLabel: "Toscana, Itália · 29 de setembro de 1944"
+  description: "O soldado sorri para a câmera com uma granada junto à culatra. A inscrição no projétil ajuda a explicar por que esse retrato circulou tanto."
+  keyFinding: "Francisco de Paula era o carregador de uma peça de 105 mm. A fotografia de 29 de setembro foi posada depois da estreia da artilharia brasileira em combate, em 16 de setembro."
+  image: {fileID: 2800000, guid: 55891ac946555190b2723cb1a1086261, type: 3}
+  imageCaption: "Francisco de Paula municia um obuseiro de 105 mm. Toscana, Itália, 29 de setembro de 1944. Fotografia do U.S. Army Signal Corps."
+  citation: "U.S. Army Signal Corps. Reprodução identificada pelo Memorial da FEB, Artilharia Expedicionária (2024) e O primeiro tiro de Artilharia da FEB (2011). Federação das Academias de História Militar Terrestre do Brasil, História do 21º GAC e seu antecessor na FEB."
+  sourceUrl: "https://memorialdafeb.com/2024/07/12/artilharia-expedicionaria/"
+  pages:
+  - title: "Leia o que está no projétil"
+    text: "Francisco de Paula segura a munição de um obuseiro de 105 mm. Observe a inscrição “A cobra está fumando” no projétil e no estojo. O apelido dos expedicionários foi incorporado à própria cena fotografada. A imagem chegou à capa do jornal O Cruzeiro do Sul."
+    image: {fileID: 2800000, guid: 55891ac946555190b2723cb1a1086261, type: 3}
+    caption: "Francisco de Paula municia um obuseiro de 105 mm. Toscana, Itália, 29 de setembro de 1944. Fotografia do U.S. Army Signal Corps."
+  - title: "O que veio antes da fotografia?"
+    text: "A artilharia brasileira já havia entrado em combate em 16 de setembro de 1944. O registro de Francisco de Paula é de 29 de setembro. A data impede tomar esta fotografia como um flagrante do primeiro disparo.\n\nPara que uma granada alcançasse um alvo, observadores transmitiam informações à central de tiro. A central calculava os elementos de pontaria, e cada integrante da guarnição tinha uma função na peça. O retrato mostra o homem encarregado do carregamento."
+    image: {fileID: 0}
+    caption: ""
+  chronologyLabel: 
+  chronologyOrder: 0
+  inspectionPrefab: {fileID: 1344062721961564308, guid: 64bfc8a32b695da082cf0e26da702e55, type: 3}
+  inspectionRotation: {x: 2, y: -5, z: -1}

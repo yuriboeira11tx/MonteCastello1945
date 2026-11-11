@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3fbc34bcf34ba4c9e8f05a6ef7b306, type: 3}
+  m_Name: Deslocamentos_Massarosa
+  m_EditorClassIdentifier: Assembly-CSharp::FEB.Archive.HistoricalEvidence
+  id: acampamento_deslocamentos_massarosa
+  title: "O encontro em Massarosa"
+  dateLabel: "Massarosa, Toscana · setembro de 1944"
+  description: "Uma viatura cercada de civis ocupa quase toda a rua. O enquadramento aproxima pessoas que viam a guerra de lugares diferentes."
+  keyFinding: "Massarosa e Camaiore fazem parte do primeiro avanço do destacamento brasileiro no vale do Serchio. A fotografia preserva o encontro da tropa com os habitantes de uma dessas cidades."
+  image: {fileID: 2800000, guid: feafe76a51c457cc8ad42ba63efaf126, type: 3}
+  imageCaption: "Recepção aos soldados brasileiros em Massarosa, Itália, setembro de 1944. Reprodução disponibilizada por Durval Jr., Wikimedia Commons, CC BY-SA 3.0."
+  citation: "Fotografia disponibilizada por Durval Jr., Wikimedia Commons, Massarosaw.jpg, CC BY-SA 3.0 (creativecommons.org/licenses/by-sa/3.0). Museu Virtual da FEB, Da Pátria ao Front: a jornada dos soldados, Em combate."
+  sourceUrl: "https://commons.wikimedia.org/wiki/File:Massarosaw.jpg"
+  pages:
+  - title: "Na rua, junto à viatura"
+    text: "Olhe primeiro para quem está no veículo e depois para quem ficou na rua. Entre fachadas e janelas, soldados brasileiros e moradores de Massarosa dividem o mesmo pequeno espaço. A reprodução disponível documenta a recepção da tropa em setembro de 1944. A identificação do fotógrafo permanece em aberto."
+    image: {fileID: 2800000, guid: feafe76a51c457cc8ad42ba63efaf126, type: 3}
+    caption: "Recepção aos soldados brasileiros em Massarosa, Itália, setembro de 1944. Reprodução disponibilizada por Durval Jr., Wikimedia Commons, CC BY-SA 3.0."
+  - title: "O caminho pelo vale"
+    text: "O destacamento brasileiro, comandado por Zenóbio da Costa, entrou em linha na Toscana em setembro de 1944. Em 16 de setembro alcançou Massarosa. Dois dias depois, tomou Camaiore.\n\nSão etapas distintas que às vezes cabem numa única frase do relato militar. A fotografia conserva uma experiência que essa lista de localidades não descreve: o que acontece na rua quando a coluna chega."
+    image: {fileID: 0}
+    caption: ""
+  chronologyLabel: 
+  chronologyOrder: 0
+  inspectionPrefab: {fileID: 1344062721961564308, guid: e2687d2f62965d44aee6379dac38547f, type: 3}
+  inspectionRotation: {x: 2, y: -5, z: -1}

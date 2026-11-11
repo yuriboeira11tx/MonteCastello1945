@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3fbc34bcf34ba4c9e8f05a6ef7b306, type: 3}
+  m_Name: Mapa_da_Frente_Italiana
+  m_EditorClassIdentifier: Assembly-CSharp::FEB.Archive.HistoricalEvidence
+  id: acampamento_mapa_frente_1943
+  title: "Ler o mapa da It\xE1lia"
+  dateLabel: "War Department, Estados Unidos \xB7 20 de setembro de 1943"
+  description: "A carta Battleground in Italy apresenta a pen\xEDnsula, suas estradas, ferrovias e rios. Sobre a mesa, ela ajuda a situar o pesquisador no terreno da campanha."
+  keyFinding: "O mapa orientava o leitor sobre a It\xE1lia em setembro de 1943. A chegada dos brasileiros e o acampamento de San Rossore pertencem a uma etapa posterior da campanha."
+  image: {fileID: 2800000, guid: ed5b686ef45146c2a007a7db2543067e, type: 3}
+  imageCaption: "Battleground in Italy, 20 de setembro de 1943. Harry S. Truman Library & Museum, M1733-01. Dom\xEDnio p\xFAblico."
+  citation: "Army Orientation Course, Special Service Division, Army Service Forces, War Department (EUA). Battleground in Italy, 20 de setembro de 1943. Acervo Harry S. Truman Library & Museum, Independence, Missouri, M1733-01. Dom\xEDnio p\xFAblico.\nhttps://www.trumanlibrary.gov/maps/m1733-01-map-italian-front\n\nCl\xE1udio Skora Rosty e \xC9dson Skora Rosty. As vit\xF3rias da FEB: do vale do rio Serchio ao vale do rio Po. Biblioteca do Ex\xE9rcito, 2022, p. 47 (acampamento de San Rossore).\nhttps://museuvirtualdafeb.eb.mil.br/literatura-e-publicacoes/as-vitorias-da-feb/"
+  sourceUrl: https://www.trumanlibrary.gov/maps/m1733-01-map-italian-front
+  pages:
+  - title: Por onde passaria uma coluna?
+    text: "A chave no canto inferior direito distingue estradas principais, estradas secund\xE1rias, ferrovias, rios e campos de avia\xE7\xE3o. Encontre uma cidade atravessada por uma estrada e por um rio. Imagine o que aconteceria ao transporte de mantimentos se a travessia fosse interrompida."
+    image: {fileID: 2800000, guid: ed5b686ef45146c2a007a7db2543067e, type: 3}
+    caption: "Battleground in Italy, 20 de setembro de 1943. Harry S. Truman Library & Museum, M1733-01. Dom\xEDnio p\xFAblico."
+  - title: Duas escalas na mesma folha
+    text: "O mapa menor, \xE0 esquerda, inclui os pa\xEDses vizinhos e setas de ataque aliado. Ele situa a pen\xEDnsula no Mediterr\xE2neo. A carta maior permite voltar a uma estrada ou ferrovia espec\xEDfica. Observe como muda o detalhe entre as duas escalas."
+    image: {fileID: 0}
+    caption: 
+  - title: Uma vista de San Rossore
+    text: "Na fotografia, siga a longa fileira de barracas junto ao bosque de San Rossore, nos arredores de Pisa. Procure reconhecer no acampamento o caminho aberto entre as fileiras.\n\nA FEB chegou \xE0 It\xE1lia em 1944. As setas do mapa que voc\xEA acaba de ler pertencem a 1943, antes do desembarque brasileiro. \xC9 a legenda da fotografia publicada pela Biblioteca do Ex\xE9rcito que identifica o local do acampamento."
+    image: {fileID: 2800000, guid: 912ee55057af4c92ab50933de6307104, type: 3}
+    caption: "Acampamento da FEB em San Rossore, perto de Pisa. Data da tomada desconhecida. Fotografia reproduzida por Cl\xE1udio e \xC9dson Rosty, As vit\xF3rias da FEB, Biblioteca do Ex\xE9rcito, 2022, p. 47."
+  chronologyLabel: 
+  chronologyOrder: 0
+  inspectionPrefab: {fileID: 351976121487807613, guid: 669c36c8f5b06884984703c99ca27da9, type: 3}
+  inspectionRotation: {x: 2, y: -5, z: -1}

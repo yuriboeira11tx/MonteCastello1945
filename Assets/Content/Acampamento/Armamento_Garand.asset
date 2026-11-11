@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3fbc34bcf34ba4c9e8f05a6ef7b306, type: 3}
+  m_Name: Armamento_Garand
+  m_EditorClassIdentifier: Assembly-CSharp::FEB.Archive.HistoricalEvidence
+  id: acampamento_armamento_garand
+  title: "O Garand e o fuzil que chegou à FEB"
+  dateLabel: "Estados Unidos e Itália · 1936–1944"
+  description: "O fuzil americano nesta mesa permite comparar o material que o comando brasileiro esperava receber com o que os depósitos aliados de fato entregaram."
+  keyFinding: "O M1 era semiautomático. No reequipamento da FEB na Itália predominou o Springfield M1903, de ferrolho. O mostruário do jogo apresenta o Garand para comparar as duas armas."
+  image: {fileID: 2800000, guid: 1d55d33551005957b4a2251ad8413d2a, type: 3}
+  imageCaption: "John C. Garand com o fuzil de sua criação, 1939. National Park Service, Springfield Armory National Historic Site Archives."
+  citation: "National Park Service, Springfield Armory National Historic Site, John Garand. C. C. Maximiano, Adaptação sob fogo: o aprendizado da 1ª Divisão de Infantaria Expedicionária em combate, 1944–45. Coleção Meira Mattos, v. 8, n. 31 (2014), p. 59–73, especialmente p. 65."
+  sourceUrl: "https://ebrevistas.eb.mil.br/RMM/article/download/383/458/"
+  pages:
+  - title: "O fuzil do retrato"
+    text: "Em 1939, John Garand posou com o M1 que havia desenvolvido no arsenal de Springfield. O Exército dos Estados Unidos adotara o fuzil em 1936. Seu mecanismo aproveitava parte dos gases do disparo para preparar o cartucho seguinte. Um clipe reunia oito cartuchos.\n\nCompare a arma do retrato com os exemplares expostos. O mostruário foi composto para esta reconstrução."
+    image: {fileID: 2800000, guid: 1d55d33551005957b4a2251ad8413d2a, type: 3}
+    caption: "John C. Garand com o fuzil de sua criação, 1939. National Park Service, Springfield Armory National Historic Site Archives."
+  - title: "O que havia nos depósitos?"
+    text: "Na Itália, o general Mascarenhas de Moraes requisitou armamento aos depósitos do teatro de operações. O comando esperava receber o M1 utilizado pela infantaria americana. Os lotes disponíveis para os brasileiros continham sobretudo o Springfield M1903. Entre os disparos, o atirador precisava manejar seu ferrolho.\n\nO fornecimento dependia dos estoques aliados, disputados também por outros teatros de guerra. As unidades brasileiras receberam instrução no armamento que lhes foi entregue. Essa diferença ajuda a ler com cuidado qualquer fotografia de um pracinha armado."
+    image: {fileID: 0}
+    caption: ""
+  chronologyLabel: 
+  chronologyOrder: 0
+  inspectionPrefab: {fileID: 1344062721961564308, guid: 544fa529fa8b598f8fa0a266f17862f2, type: 3}
+  inspectionRotation: {x: 2, y: -5, z: -1}

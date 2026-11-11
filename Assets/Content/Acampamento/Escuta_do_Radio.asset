@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3fbc34bcf34ba4c9e8f05a6ef7b306, type: 3}
+  m_Name: Escuta_do_Radio
+  m_EditorClassIdentifier: Assembly-CSharp::FEB.Archive.HistoricalEvidence
+  id: campo_escuta_do_radio
+  title: "As vozes que atravessavam o Atl\xE2ntico"
+  dateLabel: "It\xE1lia e Brasil \u2022 Segunda Guerra Mundial"
+  description: "Um receptor de mesa e duas hist\xF3rias de escuta: a m\xFAsica brasileira gravada em disco e os boletins de quem acompanhou os expedicion\xE1rios na It\xE1lia."
+  keyFinding: "O correspondente Francis Hallawell gravou entrevistas com expedicion\xE1rios. Gra\xE7as ao r\xE1dio, ouvintes no Brasil puderam conhecer at\xE9 o cotidiano das refei\xE7\xF5es na frente italiana."
+  image: {fileID: 0}
+  imageCaption: 
+  citation: "R\xE1dio MEC/EBC. BBC entrevistou brasileiros sobre comida na Segunda Guerra Mundial. Todas as Vozes, 20 jul. 2015.\nhttps://radiomec.ebc.com.br/programas/todas-as-vozes/bbc-entrevistou-brasileiros-sobre-comida-na-segunda-guerra-mundial\n\nInstituto Moreira Salles. Discografia Brasileira em 78 rpm. Cat\xE1logo de fonogramas e digitaliza\xE7\xF5es.\nhttps://discografiabrasileira.com.br/"
+  sourceUrl: https://radiomec.ebc.com.br/programas/todas-as-vozes/bbc-entrevistou-brasileiros-sobre-comida-na-segunda-guerra-mundial
+  pages:
+  - title: Uma entrevista na cozinha
+    text: "Entre os correspondentes que acompanharam a FEB, Francis Charlton Hallawell ficou conhecido como Chico da BBC. Levava ao microfone as vozes dos homens que serviam na It\xE1lia. Uma das entrevistas preservadas trata de uma pergunta simples: o que se comia na frente?\n\nO cozinheiro podia ocupar o primeiro plano de uma reportagem. Sua fala ajudava o ouvinte a imaginar a guerra pelo trabalho de quem preparava o rancho."
+    image: {fileID: 0}
+    caption: 
+  - title: Ouvir o Brasil
+    text: "Os discos de 78 rota\xE7\xF5es guardaram a interpreta\xE7\xE3o, o acompanhamento e o timbre dos m\xFAsicos. Nas fichas da Discografia Brasileira, do Instituto Moreira Salles, \xE9 poss\xEDvel reconhecer uma grava\xE7\xE3o pelo int\xE9rprete, pela gravadora e pelo n\xFAmero do disco.\n\nA sele\xE7\xE3o que toca neste receptor foi organizada para a ambienta\xE7\xE3o do jogo. Ela re\xFAne grava\xE7\xF5es da \xE9poca. A programa\xE7\xE3o exata ouvida em San Rossore permanece em aberto."
+    image: {fileID: 0}
+    caption: 
+  chronologyLabel: "Boletins da It\xE1lia"
+  chronologyOrder: 0
+  inspectionPrefab: {fileID: 9093548015514212342, guid: 1db947cadd913d741ac9548403bb6011, type: 3}
+  inspectionRotation: {x: 6, y: 160, z: 0}
