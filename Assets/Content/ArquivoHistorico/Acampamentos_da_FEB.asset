@@ -22,10 +22,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 912ee55057af4c92ab50933de6307103, type: 2}
   chronologyIntroduction: ""
   chronologyExplanation: ""
+  chronologyQuestions: []
   reconstructionIntroduction: "Você registrou três aspectos da vida dos expedicionários. Percorra o acampamento e procure no terreno o que reconhece nas fotografias. A caderneta acompanha a visita."
-  reportQuestion: ""
-  reportAnswers: []
-  correctReportAnswer: 0
+  reportQuestions: []
   reportExplanation: ""
   archiveScene: ArquivoHistorico
   reconstructionScene: Acampamento

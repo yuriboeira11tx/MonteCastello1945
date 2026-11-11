@@ -18,7 +18,8 @@ MonoBehaviour:
     trajet\xF3ria brasileira at\xE9 Monte Castello. Sua primeira tarefa \xE9 investigar
     como a guerra atingiu o litoral do Brasil.\n\nExamine o jornal, o decreto e o
     dossi\xEA do Itapag\xE9. Registre as evid\xEAncias, compare as datas e organize
-    os acontecimentos. Depois, examine uma reconstru\xE7\xE3o do naufr\xE1gio.\n\nWASD:
+    os acontecimentos e responda às perguntas sobre as fontes. Depois, acompanhe
+    a reconstrução e use o que observou para concluir o relatório.\n\nWASD:
     caminhar \u2022 Mouse: olhar \u2022 E: examinar \u2022 Tab: caderno"
   evidence:
   - {fileID: 11400000, guid: 696af3eac5d96954caa8b486898f654b, type: 2}
@@ -30,8 +31,33 @@ MonoBehaviour:
     de 1942: \xE9 declarado o estado de guerra.\nSetembro de 1943: ocorre o torpedeamento
     do Itapag\xE9.\n\nOs ataques e a decis\xE3o pol\xEDtica s\xE3o acontecimentos
     distintos. O caso Itapag\xE9 demonstra a continuidade da guerra no Atl\xE2ntico."
+  chronologyQuestions:
+  - id: cabedelo_noticia
+    prompt: "Na primeira página do Diário Carioca, o que a expressão «teria afundado» indica sobre o Cabedelo?"
+    answers:
+    - "O jornal conhecia o local exato do naufrágio."
+    - "As circunstâncias do desaparecimento ainda eram incertas."
+    - "Um tripulante havia confirmado como ocorreu o ataque."
+    correctAnswer: 1
+    explanation: "A manchete trata o torpedeamento como certo, mas o texto diz «teria afundado». O jornal permite conhecer a preocupação das famílias e as informações que circulavam naquele momento."
+  - id: decreto_vida_civil
+    prompt: "Que efeito do Decreto nº 10.358 podia ser sentido por quem escrevia em um jornal no Brasil?"
+    answers:
+    - "A garantia de livre manifestação do pensamento foi suspensa."
+    - "O decreto passou a valer apenas para os jornais do litoral."
+    - "A assinatura de cada notícia passou a ser obrigatória."
+    correctAnswer: 0
+    explanation: "O artigo 2º suspendeu garantias constitucionais, entre elas a manifestação do pensamento. O estado de guerra tinha efeitos também sobre a vida civil em terra."
+  - id: itapage_cabotagem
+    prompt: "Ao sair de Salvador rumo a Recife, que serviço o Itapagé prestava?"
+    answers:
+    - "Conduzia uma escolta militar entre o Brasil e a Itália."
+    - "Trazia carvão da Filadélfia para o porto de Cabedelo."
+    - "Transportava passageiros e mercadorias entre portos brasileiros."
+    correctAnswer: 2
+    explanation: "O Itapagé fazia cabotagem. O dossiê reconstitui um trecho dessa rota costeira entre Salvador e Recife. A viagem com carvão da Filadélfia pertencia ao Cabedelo."
   reconstructionIntroduction: "Recruta, conduza o navio durante toda a exibi\xE7\xE3o
-    do filme de arquivo.\n\nMANOBRA NOTURNA\nA/D ou setas: leme. W/S: velocidade.
+    do filme de arquivo.\n\nMANOBRA AO ENTARDECER\nA/D ou setas: leme. W/S: velocidade.
     O navio tem in\xE9rcia; antecipe a curva. No radar, o marcador central \xE9 o
     navio e a proa aponta para cima. Os contatos alaranjados mostram os torpedos
     e a dire\xE7\xE3o em que se deslocam.\n\nUm \xFAnico impacto encerra a tentativa,
@@ -39,14 +65,39 @@ MonoBehaviour:
     todos os torpedos at\xE9 o final completo do filme.\n\nEsta atividade \xE9 um
     exerc\xEDcio de navega\xE7\xE3o, n\xE3o uma reprodu\xE7\xE3o das decis\xF5es
     hist\xF3ricas da tripula\xE7\xE3o."
-  reportQuestion: "Que conclus\xE3o \xE9 sustentada pela cronologia e pelas fontes
-    examinadas?"
-  reportAnswers:
-  - "O Itapag\xE9 foi o acontecimento que levou o Brasil a entrar na guerra em 1942."
-  - "Os ataques \xE0 navega\xE7\xE3o brasileira continuaram depois da entrada do
-    pa\xEDs na guerra."
-  - Os ataques se encerraram assim que o estado de guerra foi declarado.
-  correctReportAnswer: 1
+  reportQuestions:
+  - id: filme_boia
+    prompt: "Em um plano do filme, lê-se «ANNIBAL BENEVOLO» em uma boia. Ao lado da reconstrução do Itapagé, o que esse detalhe revela?"
+    answers:
+    - "A sequência documenta o lugar exato onde o Itapagé foi atingido."
+    - "O filme também traz referências a outros navios da guerra no mar."
+    - "A sequência mostra um objeto recuperado nos destroços do Itapagé."
+    correctAnswer: 1
+    explanation: "A inscrição permite identificar o nome Annibal Benevolo. O filme reúne imagens da guerra no mar. Para apresentar o Itapagé, o dossiê inclui uma fotografia identificada desse mercante."
+  - id: reconstituicao_desfecho
+    prompt: "Depois que você desviou dos torpedos até o fim do filme, por que a cena ainda mostrou o Itapagé ser atingido?"
+    answers:
+    - "Para representar o destino do mercante após o exercício de manobra."
+    - "Para mostrar que a tripulação histórica repetiu as manobras do jogador."
+    - "Para representar o desaparecimento do Cabedelo em outra viagem."
+    correctAnswer: 0
+    explanation: "Você controla as manobras do exercício. O ataque final retoma o desfecho registrado no dossiê: o Itapagé foi torpedeado perto de Lagoa Azeda, no litoral de Alagoas."
+  - id: itapage_vestigios
+    prompt: "Qual detalhe do Itapagé o pesquisador pôde reconhecer nos destroços durante os mergulhos de 2012?"
+    answers:
+    - "O carvão que o Cabedelo havia embarcado na Filadélfia."
+    - "A boia com o nome Annibal Benevolo que aparece no filme."
+    - "As caldeiras da praça de máquinas na parte central do navio."
+    correctAnswer: 2
+    explanation: "Otávio Arruda Porto identificou as caldeiras entre as estruturas fragmentadas. Os mergulhos permitiram examinar a praça de máquinas, enquanto a fotografia de jornal mostra o navio de perfil."
+  - id: atlantico_continuidade
+    prompt: "Ao comparar a data do decreto com a do torpedeamento do Itapagé, que conclusão você pode registrar no dossiê?"
+    answers:
+    - "O ataque ao Itapagé foi o episódio que motivou o decreto de 1942."
+    - "A navegação brasileira continuou sob ataque depois da entrada do país na guerra."
+    - "O Itapagé já havia sido torpedeado quando o jornal noticiou o desaparecimento do Cabedelo."
+    correctAnswer: 1
+    explanation: "O decreto foi assinado em 31 de agosto de 1942. O ataque ao Itapagé ocorreu em 26 de setembro de 1943, mais de um ano depois."
   reportExplanation: "O decreto \xE9 de 1942 e o ataque ao Itapag\xE9 ocorreu em
     1943. Logo, os ataques continuaram ap\xF3s a entrada do Brasil na guerra. Ao
     comparar fontes de naturezas diferentes, voc\xEA construiu uma conclus\xE3o apoiada

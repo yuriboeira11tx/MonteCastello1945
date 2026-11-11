@@ -75,7 +75,8 @@ namespace FEB.Persistence
     {
         public string caseId;
         public string fieldStudyTitle;
-        public bool briefingRead, chronologySolved, reconstructionViewed, reportCompleted, followUpCompleted;
+        public bool briefingRead, chronologyOrdered, chronologySolved, reconstructionViewed, reportCompleted, followUpCompleted;
+        public List<string> answeredQuestions = new List<string>();
         public double archiveSeconds;
         public int chronologyAttempts, reportAttempts;
         public List<string> evidence = new List<string>();
@@ -83,10 +84,13 @@ namespace FEB.Persistence
         public List<string> readEvidence = new List<string>();
         public List<EvidenceNote> notes = new List<EvidenceNote>();
         public string StageLabel => !string.IsNullOrWhiteSpace(fieldStudyTitle) ? fieldStudyTitle :
-            reportCompleted ? "Dossiê concluído" : reconstructionViewed ? "Relatório pendente" : chronologySolved ? "Reconstrução disponível" : "Investigação no arquivo";
+            reportCompleted ? "Dossiê concluído" : reconstructionViewed ? "Relatório pendente" : chronologySolved ? "Reconstrução disponível" :
+            chronologyOrdered ? "Perguntas sobre as fontes" : "Investigação no arquivo";
 
         public void Normalize()
         {
+            if (chronologySolved) chronologyOrdered = true;
+            answeredQuestions ??= new List<string>();
             evidence ??= new List<string>();
             discoveredEvidence ??= new List<string>();
             readEvidence ??= new List<string>();

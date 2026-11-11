@@ -1,7 +1,21 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace FEB.Archive
 {
+    [Serializable]
+    public sealed class ArchiveQuestion
+    {
+        [Tooltip("Identificador único no dossiê. Mantenha-o ao editar ou reordenar a pergunta para preservar os saves.")]
+        public string id;
+        [TextArea(2, 6)] public string prompt;
+        public string[] answers;
+        [Tooltip("Posição da alternativa correta, começando em 0.")]
+        public int correctAnswer;
+        [TextArea(2, 6)] public string explanation;
+    }
+
     [CreateAssetMenu(menuName = "FEB/Caso de pesquisa")]
     public sealed class ArchiveCaseDefinition : ScriptableObject
     {
@@ -14,15 +28,27 @@ namespace FEB.Archive
         public HistoricalEvidence[] evidence;
         [TextArea(3, 8)] public string chronologyIntroduction;
         [TextArea(3, 8)] public string chronologyExplanation;
+        [Tooltip("Perguntas sobre as fontes já registradas, depois da ordenação.")]
+        public ArchiveQuestion[] chronologyQuestions = Array.Empty<ArchiveQuestion>();
         [TextArea(3, 8)] public string reconstructionIntroduction;
-        [TextArea(2, 6)] public string reportQuestion;
-        public string[] reportAnswers;
-        public int correctReportAnswer;
+        [Tooltip("Perguntas do relatório, depois de concluir a reconstrução.")]
+        public ArchiveQuestion[] reportQuestions = Array.Empty<ArchiveQuestion>();
         [TextArea(3, 8)] public string reportExplanation;
         public string archiveScene = "ArquivoHistorico";
         public string reconstructionScene = "CutsceneInicial";
         public string menuScene = "Menu";
         public string followUpScene;
         public ArchiveCaseDefinition nextCase;
+
+        internal bool QuestionsAreValid()
+        {
+            var ids = new HashSet<string>();
+            bool Valid(ArchiveQuestion q) => q != null && !string.IsNullOrWhiteSpace(q.id) && ids.Add(q.id)
+                && !string.IsNullOrWhiteSpace(q.prompt) && !string.IsNullOrWhiteSpace(q.explanation)
+                && q.answers != null && q.answers.Length >= 2 && !Array.Exists(q.answers, string.IsNullOrWhiteSpace)
+                && q.correctAnswer >= 0 && q.correctAnswer < q.answers.Length;
+            return chronologyQuestions != null && Array.TrueForAll(chronologyQuestions, Valid)
+                && reportQuestions != null && reportQuestions.Length > 0 && Array.TrueForAll(reportQuestions, Valid);
+        }
     }
 }
