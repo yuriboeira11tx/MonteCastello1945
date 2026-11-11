@@ -26,6 +26,8 @@
                     <ui:VisualElement class="file-divider" />
                     <ui:Label name="pageHeading" class="typewriter file-heading" />
                     <ui:Label name="pageText" class="file-body" />
+                    <ui:Image name="pagePhoto" class="file-photo hidden" scale-mode="ScaleToFit" picking-mode="Ignore" />
+                    <ui:Label name="pagePhotoCaption" class="file-source file-photo-caption hidden" picking-mode="Ignore" />
                     <ui:VisualElement name="sources">
                         <ui:Label text="Referências" class="typewriter file-heading" />
                         <ui:Label name="bibliography" class="file-source" />

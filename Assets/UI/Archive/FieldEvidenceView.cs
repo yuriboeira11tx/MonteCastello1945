@@ -10,8 +10,9 @@ namespace FEB.Archive
     public sealed class FieldEvidenceView : MonoBehaviour
     {
         VisualElement panel, tools, sources, navigation;
-        Image preview, photo;
+        Image preview, photo, pagePhoto;
         Label prompt, collection, caption, title, date, heading, body, bibliography, pageNumber, registrationError;
+        Label pagePhotoCaption;
         Button reset, close, previous, next, register;
         ScrollView reading;
         EvidenceInspection inspection;
@@ -42,6 +43,8 @@ namespace FEB.Archive
             date = panel.Q<Label>("fileDate");
             heading = panel.Q<Label>("pageHeading");
             body = panel.Q<Label>("pageText");
+            pagePhoto = panel.Q<Image>("pagePhoto");
+            pagePhotoCaption = panel.Q<Label>("pagePhotoCaption");
             sources = panel.Q("sources");
             bibliography = panel.Q<Label>("bibliography");
             reading = panel.Q<ScrollView>("readingScroll");
@@ -94,8 +97,6 @@ namespace FEB.Archive
             title.text = evidence.title;
             date.text = evidence.dateLabel;
             ScreenUI.Show(date, !string.IsNullOrWhiteSpace(evidence.dateLabel));
-            caption.text = evidence.imageCaption;
-            ScreenUI.Show(caption, !string.IsNullOrWhiteSpace(evidence.imageCaption));
             bibliography.text = evidence.citation;
             bool hasModel = inspection.Show(evidence);
             photo.image = hasModel ? null : evidence.image;
@@ -144,6 +145,10 @@ namespace FEB.Archive
             heading.text = sheet?.title;
             ScreenUI.Show(heading, !string.IsNullOrWhiteSpace(heading.text) && heading.text != title.text);
             body.text = sheet?.text ?? document.description;
+            bool describesObject = sheet?.image != null && sheet.image == document.image;
+            caption.text = describesObject && !string.IsNullOrWhiteSpace(sheet.caption) ? sheet.caption : document.imageCaption;
+            ScreenUI.Show(caption, !string.IsNullOrWhiteSpace(caption.text));
+            SetPagePhoto(describesObject ? null : sheet?.image, sheet?.caption);
             ScreenUI.Show(sources, last && !string.IsNullOrWhiteSpace(document.citation));
             pageNumber.text = $"Folha {page + 1} de {total}";
             ScreenUI.Show(navigation, total > 1);
@@ -151,6 +156,14 @@ namespace FEB.Archive
             next.SetEnabled(!last);
             reading.scrollOffset = Vector2.zero;
             UpdateRegistration();
+        }
+
+        void SetPagePhoto(Texture2D texture, string credit)
+        {
+            pagePhoto.image = texture;
+            pagePhotoCaption.text = texture != null ? credit : null;
+            ScreenUI.Show(pagePhoto, texture != null);
+            ScreenUI.Show(pagePhotoCaption, !string.IsNullOrWhiteSpace(pagePhotoCaption.text));
         }
 
         void UpdateRegistration()
@@ -193,6 +206,7 @@ namespace FEB.Archive
             document = null;
             inspection.Hide();
             photo.image = null;
+            SetPagePhoto(null, null);
             ScreenUI.Show(panel, false);
             registerEvidence = null;
             completeReading = null;

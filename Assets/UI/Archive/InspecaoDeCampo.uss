@@ -80,6 +80,8 @@
 }
 .file-heading { font-size: 34px; color: #444b39; margin: 22px 0 12px; }
 .file-body { flex-shrink: 0; font-size: 30px; white-space: normal; }
+.file-photo { width: 100%; max-height: 340px; flex-shrink: 0; margin-top: 16px; }
+.file-photo-caption { white-space: normal; margin-top: 6px; }
 .file-source { font-size: 23px; color: #5c584a; margin-bottom: 12px; }
 .object-viewport { flex-grow: 1; min-height: 0; width: 100%; }
 .object-caption { font-size: 23px; color: #e1d8bf; margin: 12px 0; }
@@ -136,6 +138,7 @@
 .inspection-split--compact .file-title { font-size: 33px; margin-top: 12px; }
 .inspection-split--compact .file-heading { font-size: 26px; }
 .inspection-split--compact .file-body { font-size: 22px; }
+.inspection-split--compact .file-photo { max-height: 235px; }
 .inspection-split--compact .file-row Label, .inspection-split--compact .file-date,
 .inspection-split--compact .object-caption, .inspection-split--compact .file-source { font-size: 18px; }
 .inspection-split--compact .inspection-button { min-height: 34px; padding: 4px 10px; font-size: 18px; }
