@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.Animations.Rigging;
 
-// A temporary final rig layer on the two existing camp soldiers.
+// Camada final da chegada e dos ocupantes da viatura de abastecimento.
 [DefaultExecutionOrder(-50)]
 [DisallowMultipleComponent]
 public sealed class CampArrivalActorRig : MonoBehaviour
@@ -23,6 +25,8 @@ public sealed class CampArrivalActorRig : MonoBehaviour
     private AnimatorCullingMode originalCulling;
     private HandReach leftHand;
     private HandReach rightHand;
+    private List<IRigConstraint> passengerSeat;
+    private Pose seatedPose;
 
     public Transform Eyes { get; private set; }
 
@@ -75,6 +79,17 @@ public sealed class CampArrivalActorRig : MonoBehaviour
     public void ClearLookTarget() => lookTarget = null;
     public void SetHandTarget(bool left, Transform target) => (left ? leftHand : rightHand).target = target;
 
+    public void SetPassengerSeated(bool sitting)
+    {
+        if (passengerSeat == null) return;
+        // Os controles conservam seus caminhos no Animator durante toda a vida da patrulha.
+        foreach (var constraint in passengerSeat) constraint.weight = sitting ? 1f : 0f;
+        actor.transform.SetLocalPositionAndRotation(sitting ? seatedPose.position : originalPosition,
+            sitting ? seatedPose.rotation : originalRotation);
+        leftHand.SetSeated(sitting, actor.transform.TransformPoint(new Vector3(-.45f, 1.1f, -.12f)));
+        rightHand.SetSeated(sitting, actor.transform.TransformPoint(new Vector3(.45f, 1.1f, -.12f)));
+    }
+
     private void CreateHeadAim()
     {
         gaze = Child(controls, "Alvo do olhar");
@@ -120,12 +135,13 @@ public sealed class CampArrivalActorRig : MonoBehaviour
         PlaceDriverSide(jeep, false);
     }
 
-    private void PinHips(Transform pelvis)
+    private MultiPositionConstraint PinHips(Transform pelvis)
     {
         var seat = Child(controls, "Quadril no banco").gameObject.AddComponent<MultiPositionConstraint>();
         seat.Reset();
         seat.data.constrainedObject = actor.GetBoneTransform(HumanBodyBones.Hips);
         seat.data.sourceObjects = new WeightedTransformArray { new WeightedTransform(pelvis, 1f) };
+        return seat;
     }
 
     private void SeatPassenger(Transform jeep, Vector3 hip)
@@ -134,7 +150,11 @@ public sealed class CampArrivalActorRig : MonoBehaviour
         actor.transform.rotation = jeep.rotation;
         Transform pelvis = actor.GetBoneTransform(HumanBodyBones.Hips);
         actor.transform.position += jeep.TransformPoint(hip) - pelvis.position;
-        PinHips(Marker(jeep, controls, "Assento", hip.x, hip.y, hip.z));
+        seatedPose = new Pose(actor.transform.localPosition, actor.transform.localRotation);
+        passengerSeat = new List<IRigConstraint>(5)
+        {
+            PinHips(Marker(jeep, controls, "Assento", hip.x, hip.y, hip.z))
+        };
         PlacePassengerSide(jeep, hip, true);
         PlacePassengerSide(jeep, hip, false);
     }
@@ -143,26 +163,38 @@ public sealed class CampArrivalActorRig : MonoBehaviour
     {
         float side = left ? -1f : 1f;
         string suffix = left ? " E" : " D";
-        PrimeElbow(left, suffix);
+        passengerSeat.Add(PrimeElbow(left, suffix));
         var arm = Arm(left);
-        arm.data.target = Marker(jeep, arm.transform, "Mão no colo" + suffix,
-            hip.x + side * .145f, hip.y + .13f, hip.z + .20f);
+        var wrist = Marker(jeep, arm.transform, "Mão no colo" + suffix,
+            hip.x + side * .16f, hip.y + .225f, hip.z + .25f);
+        arm.data.target = wrist;
         arm.data.hint = Marker(jeep, arm.transform, "Cotovelo" + suffix,
-            hip.x + side * .30f, hip.y + .20f, hip.z - .015f);
-        arm.data.targetRotationWeight = 0f;
+            hip.x + side * .29f, hip.y + .19f, hip.z - .06f);
+        Transform middle = actor.GetBoneTransform(left ? HumanBodyBones.LeftMiddleProximal : HumanBodyBones.RightMiddleProximal);
+        Transform index = actor.GetBoneTransform(left ? HumanBodyBones.LeftIndexProximal : HumanBodyBones.RightIndexProximal);
+        Transform little = actor.GetBoneTransform(left ? HumanBodyBones.LeftLittleProximal : HumanBodyBones.RightLittleProximal);
+        if (middle && index && little)
+        {
+            // Dedos em direção aos joelhos, com os polegares voltados para dentro.
+            Quaternion palm = Quaternion.LookRotation(middle.position - arm.data.tip.position, index.position - little.position);
+            Quaternion onLap = Quaternion.LookRotation(jeep.forward - .12f * jeep.up, -side * jeep.right);
+            wrist.rotation = onLap * Quaternion.Inverse(palm) * arm.data.tip.rotation;
+        }
+        else arm.data.targetRotationWeight = 0f;
         RegisterHand(left, arm);
 
         var leg = Limb("Perna" + suffix,
             left ? HumanBodyBones.LeftUpperLeg : HumanBodyBones.RightUpperLeg,
             left ? HumanBodyBones.LeftLowerLeg : HumanBodyBones.RightLowerLeg,
             left ? HumanBodyBones.LeftFoot : HumanBodyBones.RightFoot);
+        passengerSeat.Add(leg);
         // O piso é mais alto em frente ao banco traseiro do Willys.
         float ankleHeight = hip.z < -.9f ? .71f : .60f;
         var ankle = Marker(jeep, leg.transform, "Pé no piso" + suffix,
-            hip.x + side * .14f, ankleHeight, hip.z + .34f);
+            hip.x + side * .115f, ankleHeight, hip.z + .54f);
         leg.data.target = ankle;
         leg.data.hint = Marker(jeep, leg.transform, "Joelho" + suffix,
-            hip.x + side * .18f, hip.y + .025f, hip.z + .42f);
+            hip.x + side * .115f, hip.y, hip.z + .46f);
         Transform toes = actor.GetBoneTransform(left ? HumanBodyBones.LeftToes : HumanBodyBones.RightToes);
         if (toes != null)
             ankle.rotation = Quaternion.FromToRotation(toes.position - leg.data.tip.position,
@@ -213,7 +245,7 @@ public sealed class CampArrivalActorRig : MonoBehaviour
             leg.data.targetRotationWeight = 0f;
     }
 
-    private void PrimeElbow(bool left, string suffix)
+    private OverrideTransform PrimeElbow(bool left, string suffix)
     {
         Transform shoulder = actor.GetBoneTransform(left ? HumanBodyBones.LeftUpperArm : HumanBodyBones.RightUpperArm);
         Transform elbow = actor.GetBoneTransform(left ? HumanBodyBones.LeftLowerArm : HumanBodyBones.RightLowerArm);
@@ -229,6 +261,7 @@ public sealed class CampArrivalActorRig : MonoBehaviour
         rest.data.space = OverrideTransformData.Space.Local;
         rest.data.rotation = (Quaternion.Inverse(elbow.parent.rotation) * bend).eulerAngles;
         rest.data.positionWeight = 0;
+        return rest;
     }
 
     private TwoBoneIKConstraint Arm(bool left) => Limb(left ? "Braço E" : "Braço D",
@@ -260,18 +293,32 @@ public sealed class CampArrivalActorRig : MonoBehaviour
     {
         public Transform target;
         private readonly TwoBoneIKConstraint arm;
-        private readonly bool onWheel;
+        private bool seatedRest;
         private readonly Vector3 restPosition;
+        private readonly Vector3 restHint;
         private readonly float restRotationWeight;
         private Vector3 reachPosition;
         private float blend;
 
-        public HandReach(TwoBoneIKConstraint arm, bool onWheel)
+        public HandReach(TwoBoneIKConstraint arm, bool seated)
         {
             this.arm = arm;
-            this.onWheel = onWheel;
+            seatedRest = seated;
             restPosition = arm.data.target.localPosition;
+            restHint = arm.data.hint.localPosition;
             restRotationWeight = arm.data.targetRotationWeight;
+        }
+
+        public void SetSeated(bool seated, Vector3 standingHint)
+        {
+            target = null;
+            blend = 0f;
+            seatedRest = seated;
+            arm.data.target.localPosition = restPosition;
+            if (seated) arm.data.hint.localPosition = restHint;
+            else arm.data.hint.position = standingHint;
+            arm.data.targetRotationWeight = seated ? restRotationWeight : 0f;
+            arm.weight = seated ? 1f : 0f;
         }
 
         public void Update(float deltaTime)
@@ -283,9 +330,9 @@ public sealed class CampArrivalActorRig : MonoBehaviour
                 reachPosition = marker.parent.InverseTransformPoint(target.position);
             blend = Mathf.MoveTowards(blend, target != null ? 1f : 0f, deltaTime * 2.2f);
             float eased = Mathf.SmoothStep(0f, 1f, blend);
-            marker.localPosition = onWheel ? Vector3.Lerp(restPosition, reachPosition, eased) : reachPosition;
-            arm.data.targetRotationWeight = restRotationWeight * (1f - eased);
-            arm.weight = onWheel ? 1f : eased;
+            marker.localPosition = seatedRest ? Vector3.Lerp(restPosition, reachPosition, eased) : reachPosition;
+            arm.data.targetRotationWeight = seatedRest ? restRotationWeight * (1f - eased) : 0f;
+            arm.weight = seatedRest ? 1f : eased;
         }
     }
 
@@ -320,6 +367,10 @@ public sealed class CampArrivalActorRig : MonoBehaviour
         enabled = false;
         builder.Clear();
         builder.layers.Remove(layer);
+        // Clear encerra o PlayableGraph; os vínculos aos controles pertencem ao Animator.
+        // Libere-os antes de excluir os alvos e reconstruir as camadas que continuam em uso.
+        actor.UnbindAllSceneHandles();
+        actor.UnbindAllStreamHandles();
         if (addedBuilder)
         {
             builder.enabled = false;

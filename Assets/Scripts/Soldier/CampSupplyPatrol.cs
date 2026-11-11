@@ -18,6 +18,8 @@ public sealed class CampSupplyPatrol : MonoBehaviour
 
     [Header("Abastecimento")]
     [SerializeField] GameObject caixaDeSuprimentos;
+    [Tooltip("Distribuição compartilhada pelas viaturas que atendem o mesmo acampamento.")]
+    [SerializeField] CampSupplyDistribution distribuicao;
     [Tooltip("A seta azul aponta do lugar onde o soldado para para o lugar da caixa.")]
     [SerializeField] Transform[] pontosDeEntrega;
     [SerializeField] CampJeepRoute[] vias;
@@ -29,9 +31,9 @@ public sealed class CampSupplyPatrol : MonoBehaviour
     readonly Transform[] carga = new Transform[2];
     readonly int[] destinos = { -1, -1 };
     readonly int[] prateleira = new int[2];
-    Transform[,] estoque;
     int[] proximaVaga;
     int ultimaEntrada = -1;
+    bool recolherAoReativar;
 
     static readonly Vector3 BancoDianteiro = new(.355f, .835f, -.46f);
     static readonly Vector3 BancoTraseiro = new(-.20f, .870f, -1.29f);
@@ -43,7 +45,13 @@ public sealed class CampSupplyPatrol : MonoBehaviour
 
     IEnumerator Patrulhar()
     {
-        if (!jipe || !motor || !obstaculoEstacionado || !animacoes || !caixaDeSuprimentos ||
+        if (recolherAoReativar)
+        {
+            yield return null;
+            InterromperVisita();
+            recolherAoReativar = false;
+        }
+        if (!jipe || !motor || !obstaculoEstacionado || !animacoes || !caixaDeSuprimentos || !distribuicao || !distribuicao.Pronta ||
             modelosDosSoldados == null || modelosDosSoldados.Length != 3 ||
             System.Array.Exists(modelosDosSoldados, modelo => !modelo || !modelo.GetComponentInChildren<Animator>(true)) ||
             vias == null || vias.Length == 0 || System.Array.Exists(vias, v => !v || !v.IsValid(true) || !v.IsValid(false)) ||
@@ -53,16 +61,14 @@ public sealed class CampSupplyPatrol : MonoBehaviour
             yield break;
         }
 
-        if (estoque == null)
-        {
-            estoque = new Transform[pontosDeEntrega.Length, 2];
-            proximaVaga = new int[pontosDeEntrega.Length];
-        }
+        proximaVaga ??= new int[pontosDeEntrega.Length];
         while (!ResearchSaveStore.EnsureSession().campArrivalCompleted) yield return new WaitForSeconds(.5f);
         while (true)
         {
             float minimo = Mathf.Max(0f, intervaloEntreVisitas.x);
             yield return new WaitForSeconds(Random.Range(minimo, Mathf.Max(minimo, intervaloEntreVisitas.y)));
+            // Se os setores ainda estiverem ocupados, o novo carregamento aguarda fora do acampamento.
+            while (!TentarReservarDescarga()) yield return new WaitForSeconds(1f);
             yield return Visitar();
         }
     }
@@ -73,28 +79,38 @@ public sealed class CampSupplyPatrol : MonoBehaviour
         // Sorteios separados permitem regressar pela mesma estrada ou seguir para a outra.
         int saida = Random.value < .67f ? EscolherVia(entrada) : entrada;
         ultimaEntrada = entrada;
-        if (!vias[entrada].TryGetStartPose(true, out Pose inicio)) yield break;
-        jipe.SetPositionAndRotation(inicio.position, inicio.rotation);
-        obstaculoEstacionado.enabled = false;
-        jipe.gameObject.SetActive(true);
-        PrepararEquipe();
-        CarregarViatura();
-        motor.pitch = 1.07f;
-        motor.Play();
-
-        yield return vias[entrada].Drive(jipe, true, velocidadeDoJipe, pesquisador);
+        yield return vias[entrada].Drive(jipe, true, velocidadeDoJipe, pesquisador, PrepararChegada);
+        if (!jipe.gameObject.activeSelf)
+        {
+            distribuicao.CancelarReservas(this);
+            yield break;
+        }
         motor.pitch = .93f;
-        obstaculoEstacionado.enabled = true;
         yield return new WaitForSeconds(1f);
         Coroutine primeiraEntrega = StartCoroutine(Descarregar(0));
         yield return new WaitForSeconds(1.1f);
         yield return Descarregar(1);
         yield return primeiraEntrega;
+        distribuicao.CancelarReservas(this);
         yield return new WaitForSeconds(.75f);
-        obstaculoEstacionado.enabled = false;
         motor.pitch = 1.07f;
         yield return vias[saida].Drive(jipe, false, velocidadeDoJipe, pesquisador);
         RecolherViatura();
+    }
+
+    void PrepararChegada()
+    {
+        jipe.gameObject.SetActive(true);
+        obstaculoEstacionado.carveOnlyStationary = true;
+        obstaculoEstacionado.enabled = true;
+        PrepararEquipe();
+        for (int i = 0; i < carga.Length; i++)
+        {
+            if (!carga[i]) carga[i] = distribuicao.PrepararCaixa(caixaDeSuprimentos, jipe);
+            AcomodarCaixa(i);
+        }
+        motor.pitch = 1.07f;
+        motor.Play();
     }
 
     int EscolherVia(int anterior)
@@ -124,9 +140,8 @@ public sealed class CampSupplyPatrol : MonoBehaviour
         int melhor = -1, prioridade = -1, candidatos = 0;
         for (int i = 0; i < pontosDeEntrega.Length; i++)
         {
-            if (i == outro) continue;
-            int valor = i != anteriorA && i != anteriorB ? 2 : 0;
-            if (!estoque[i, proximaVaga[i]]) valor++;
+            if ((outro >= 0 && pontosDeEntrega[i] == pontosDeEntrega[outro]) || BuscarVaga(i) < 0) continue;
+            int valor = i != anteriorA && i != anteriorB ? 1 : 0;
             if (valor < prioridade) continue;
             if (valor > prioridade) { prioridade = valor; candidatos = 0; }
             if (Random.Range(0, ++candidatos) == 0) melhor = i;
@@ -134,21 +149,29 @@ public sealed class CampSupplyPatrol : MonoBehaviour
         return melhor;
     }
 
-    void CarregarViatura()
+    int BuscarVaga(int setor)
     {
-        int anteriorA = destinos[0], anteriorB = destinos[1];
-        for (int i = 0; i < carga.Length; i++)
-        {
-            int setor = SortearEntrega(i == 0 ? -1 : destinos[0], anteriorA, anteriorB);
-            destinos[i] = setor;
-            int vaga = prateleira[i] = proximaVaga[setor];
-            Transform caixa = estoque[setor, vaga];
-            estoque[setor, vaga] = null;
-            if (!caixa) caixa = carga[i] ? carga[i] : Instantiate(caixaDeSuprimentos, jipe).transform;
-            else if (carga[i]) Destroy(carga[i].gameObject);
-            carga[i] = caixa;
-            AcomodarCaixa(i);
-        }
+        var ponto = pontosDeEntrega[setor];
+        int vaga = proximaVaga[setor];
+        if (distribuicao.VagaLivre(ponto, vaga)) return vaga;
+        return distribuicao.VagaLivre(ponto, 1 - vaga) ? 1 - vaga : -1;
+    }
+
+    bool TentarReservarDescarga()
+    {
+        int primeiro = SortearEntrega(-1, destinos[0], destinos[1]);
+        if (primeiro < 0) return false;
+        int segundo = SortearEntrega(primeiro, destinos[0], destinos[1]);
+        if (segundo < 0) return false;
+        int vagaPrimeira = BuscarVaga(primeiro);
+        int vagaSegunda = BuscarVaga(segundo);
+        if (!distribuicao.ReservarDescarga(this, pontosDeEntrega[primeiro], vagaPrimeira, pontosDeEntrega[segundo], vagaSegunda))
+            return false;
+        destinos[0] = primeiro;
+        destinos[1] = segundo;
+        prateleira[0] = vagaPrimeira;
+        prateleira[1] = vagaSegunda;
+        return true;
     }
 
     void AcomodarCaixa(int i)
@@ -164,6 +187,7 @@ public sealed class CampSupplyPatrol : MonoBehaviour
         Vector3 porta = jipe.TransformPoint(Porta(i));
         if (!soldado.Disembark(porta, jipe.rotation * Quaternion.Euler(0, i == 0 ? 90 : -90, 0)))
         {
+            distribuicao.CancelarReservas(this, pontosDeEntrega[destinos[i]]);
             soldado.Board(jipe, false, Banco(i + 1));
             yield break;
         }
@@ -186,28 +210,33 @@ public sealed class CampSupplyPatrol : MonoBehaviour
                 {
                     soldado.Face(deposito);
                     yield return new WaitForSeconds(.3f);
-                    soldado.DropCrate(deposito, ponto.rotation);
+                    soldado.DropCrate(deposito, ponto.rotation, ponto);
                     yield return new WaitForSeconds(.65f);
-                    carga[i].SetParent(ponto, true);
                     carga[i].GetComponent<BoxCollider>().enabled = true;
-                    estoque[destinos[i], prateleira[i]] = carga[i];
-                    proximaVaga[destinos[i]] = 1 - prateleira[i];
-                    carga[i] = null;
+                    if (distribuicao.Receber(this, carga[i], ponto, prateleira[i]))
+                    {
+                        proximaVaga[destinos[i]] = 1 - prateleira[i];
+                        carga[i] = null;
+                    }
+                    else soldado.TakeCrate(carga[i]);
                 }
             }
         }
         // Se um ponto ficar obstruído, a carga volta com a equipe para a próxima visita.
+        if (carga[i]) distribuicao.CancelarReservas(this, pontosDeEntrega[destinos[i]]);
         do
         {
             yield return Caminhar(soldado, porta);
             if (soldado.HasArrived) break;
             yield return Caminhar(soldado, coleta);
+            if (soldado.HasArrived) break;
+            yield return Caminhar(soldado, jipe.TransformPoint(-Porta(i).x, 0, .5f));
             if (!soldado.HasArrived) yield return new WaitForSeconds(1f);
         } while (!soldado.HasArrived);
         soldado.Face(jipe.position);
         if (carga[i])
         {
-            soldado.DropCrate(jipe.TransformPoint(CargaLocal(i)), jipe.rotation);
+            soldado.DropCrate(jipe.TransformPoint(CargaLocal(i)), jipe.rotation, jipe);
             yield return new WaitForSeconds(.65f);
             AcomodarCaixa(i);
         }
@@ -240,12 +269,17 @@ public sealed class CampSupplyPatrol : MonoBehaviour
     void OnDisable()
     {
         StopAllCoroutines();
-        if (jipe && motor && obstaculoEstacionado && gameObject.activeInHierarchy)
-        {
-            RecolherViatura();
-            for (int i = 0; i < carga.Length; i++)
-                if (carga[i]) AcomodarCaixa(i);
-        }
+        if (distribuicao) distribuicao.CancelarReservas(this);
+        if (!jipe || !motor || !obstaculoEstacionado) return;
+        if (gameObject.activeInHierarchy) InterromperVisita();
+        else recolherAoReativar = true;
+    }
+
+    void InterromperVisita()
+    {
+        RecolherViatura();
+        for (int i = 0; i < carga.Length; i++)
+            if (carga[i]) AcomodarCaixa(i);
     }
 }
 

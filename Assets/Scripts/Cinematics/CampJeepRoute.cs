@@ -11,6 +11,11 @@ namespace FEB.Cinematics
         Transform[] chegada;
         [SerializeField, Tooltip("Da mesma vaga até o exterior. O primeiro trecho sai de frente da vaga.")]
         Transform[] partida;
+        [SerializeField, Tooltip("Percurso de um extremo ao outro do acampamento, na ordem da circulação.")]
+        Transform[] passagem;
+        [SerializeField, Min(0), Tooltip("Tempo mínimo em segundos entre duas viaturas que começam a percorrer esta passagem.")]
+        float intervaloMinimoEntreViaturas = 26f;
+        float proximaEntradaNaPassagem;
 
         const float SampleSpacing = .5f;
         const float Acceleration = 1.6f;
@@ -19,12 +24,20 @@ namespace FEB.Cinematics
         public bool IsValid(bool arriving)
         {
             var marks = arriving ? chegada : partida;
-            if (marks == null || marks.Length < 2 || !marks[0]) return false;
-            for (int i = 1; i < marks.Length; i++)
-                if (!marks[i] || Horizontal(marks[i].position - marks[i - 1].position).sqrMagnitude < .01f) return false;
+            if (!ValidMarks(marks)) return false;
             var dock = arriving ? marks[^1] : marks[0];
             Vector3 direction = arriving ? dock.position - marks[^2].position : marks[1].position - dock.position;
             return Vector3.Dot(Horizontal(dock.forward), Horizontal(direction).normalized) > .1f;
+        }
+
+        public bool HasPassage => ValidMarks(passagem);
+
+        static bool ValidMarks(Transform[] marks)
+        {
+            if (marks == null || marks.Length < 2 || !marks[0]) return false;
+            for (int i = 1; i < marks.Length; i++)
+                if (!marks[i] || Horizontal(marks[i].position - marks[i - 1].position).sqrMagnitude < .01f) return false;
+            return true;
         }
 
         public bool TryGetStartPose(bool arriving, out Pose pose)
@@ -37,11 +50,25 @@ namespace FEB.Cinematics
             return true;
         }
 
-        public IEnumerator Drive(Transform jeep, bool arriving, float speed, Transform player = null)
+        public IEnumerator Drive(Transform jeep, bool arriving, float speed, Transform player = null, System.Action onEnter = null)
         {
             if (!jeep || !IsValid(arriving)) yield break;
             var marks = arriving ? chegada : partida;
-            var road = BuildRoad(marks, arriving);
+            var road = BuildDockRoad(marks, arriving);
+            var endDirection = arriving ? marks[^1].forward : Tangent(road, road.Count - 1);
+            yield return DriveRoad(jeep, road, speed, player, endDirection, onEnter);
+        }
+
+        public IEnumerator DriveThrough(Transform jeep, float speed, Transform player, System.Action onEnter)
+        {
+            if (!jeep || !HasPassage) yield break;
+            var road = SampleRoad(Waypoints(passagem));
+            yield return DriveRoad(jeep, road, speed, player, Tangent(road, road.Count - 1), onEnter, this);
+        }
+
+        static IEnumerator DriveRoad(Transform jeep, List<Vector3> road, float speed, Transform player,
+            Vector3 endDirection, System.Action onEnter, CampJeepRoute passagemCompartilhada = null)
+        {
             float[] distances = new float[road.Count];
             float[] limits = new float[road.Count];
             speed = Mathf.Max(.1f, speed);
@@ -62,17 +89,26 @@ namespace FEB.Cinematics
                 limits[i] = Mathf.Min(speedSquared, limits[i + 1] + 2 * Braking * segment);
             }
 
+            while (passagemCompartilhada && Time.time < passagemCompartilhada.proximaEntradaNaPassagem)
+                yield return null;
+            using var traffic = CampRoadTraffic.Request(jeep, road, distances);
+            // Duas viaturas podem esperar pelo mesmo cruzamento antes de a primeira conseguir partir.
+            while (!traffic.MayEnter() || (passagemCompartilhada && Time.time < passagemCompartilhada.proximaEntradaNaPassagem))
+                yield return null;
+            if (passagemCompartilhada)
+                passagemCompartilhada.proximaEntradaNaPassagem = Time.time + passagemCompartilhada.intervaloMinimoEntreViaturas;
             var terrains = Terrain.activeTerrains;
             float distance = 0f, velocity = 0f;
             int segmentIndex = 0;
             Pose pose = GroundPose(road[0], road[1] - road[0], terrains);
             jeep.SetPositionAndRotation(pose.position, pose.rotation);
+            onEnter?.Invoke();
             while (distances[^1] - distance > .003f)
             {
                 int next = segmentIndex + 1;
                 float fraction = Mathf.InverseLerp(distances[segmentIndex], distances[next], distance);
                 float speedLimit = Mathf.Sqrt(Mathf.Lerp(limits[segmentIndex], limits[next], fraction));
-                float clearance = ClearanceToPlayer(jeep, player);
+                float clearance = traffic.Clearance(player, segmentIndex, distance, velocity);
                 speedLimit = Mathf.Min(speedLimit, Mathf.Sqrt(2 * Braking * clearance));
                 velocity = Mathf.MoveTowards(velocity, speedLimit, (velocity < speedLimit ? Acceleration : Braking) * Time.deltaTime);
                 distance = Mathf.Min(distance + Mathf.Min(velocity * Time.deltaTime, clearance), distances[^1]);
@@ -85,29 +121,30 @@ namespace FEB.Cinematics
                 jeep.SetPositionAndRotation(pose.position, pose.rotation);
                 yield return null;
             }
-            Vector3 endDirection = arriving ? marks[^1].forward : Tangent(road, road.Count - 1);
             pose = GroundPose(road[^1], endDirection, terrains);
             jeep.SetPositionAndRotation(pose.position, pose.rotation);
         }
 
-        static float ClearanceToPlayer(Transform jeep, Transform player)
-        {
-            if (!player || player.IsChildOf(jeep)) return float.PositiveInfinity;
-            Vector3 local = Quaternion.Inverse(jeep.rotation) * (player.position - jeep.position);
-            if (local.z < 0 || Mathf.Abs(local.x) > 1.3f || Mathf.Abs(local.y) > 2.3f) return float.PositiveInfinity;
-            return Mathf.Max(0, local.z - 2.35f);
-        }
-
-        static List<Vector3> BuildRoad(Transform[] marks, bool arriving)
+        static List<Vector3> Waypoints(Transform[] marks)
         {
             var points = new List<Vector3>(marks.Length + 1);
             foreach (var mark in marks) points.Add(mark.position);
+            return points;
+        }
+
+        static List<Vector3> BuildDockRoad(Transform[] marks, bool arriving)
+        {
+            var points = Waypoints(marks);
             int dock = arriving ? marks.Length - 1 : 0;
             int neighbor = arriving ? dock - 1 : 1;
             Vector3 heading = Horizontal(marks[dock].forward).normalized;
             float stub = Mathf.Min(1.5f, Horizontal(points[neighbor] - points[dock]).magnitude * .25f);
             points.Insert(arriving ? dock : 1, points[dock] + heading * (arriving ? -stub : stub));
+            return SampleRoad(points);
+        }
 
+        static List<Vector3> SampleRoad(List<Vector3> points)
+        {
             var road = new List<Vector3> { points[0] };
             for (int i = 1; i < points.Count - 1; i++)
             {
@@ -162,15 +199,14 @@ namespace FEB.Cinematics
 
         void OnDrawGizmosSelected()
         {
-            DrawRoute(chegada, true, Color.green);
-            DrawRoute(partida, false, Color.cyan);
+            if (IsValid(true)) DrawRoute(BuildDockRoad(chegada, true), Color.green);
+            if (IsValid(false)) DrawRoute(BuildDockRoad(partida, false), Color.cyan);
+            if (HasPassage) DrawRoute(SampleRoad(Waypoints(passagem)), Color.yellow);
         }
 
-        void DrawRoute(Transform[] marks, bool arriving, Color color)
+        static void DrawRoute(List<Vector3> road, Color color)
         {
-            if (!IsValid(arriving)) return;
             Gizmos.color = color;
-            var road = BuildRoad(marks, arriving);
             for (int i = 1; i < road.Count; i++) Gizmos.DrawLine(road[i - 1], road[i]);
         }
     }

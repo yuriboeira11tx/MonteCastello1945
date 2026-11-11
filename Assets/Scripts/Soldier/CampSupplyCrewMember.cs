@@ -15,13 +15,12 @@ public sealed class CampSupplyCrewMember : MonoBehaviour
     private FootstepSounds sounds;
     private CampArrivalActorRig rig;
     private Transform vehicle;
-    private Vector3 seatHip;
-    private bool atWheel;
     private bool walking;
     private bool hasDestination;
     private Vector3 destination;
-    private float bestDistance;
+    private Vector3 lastProgressPosition;
     private float lastProgress;
+    private float routeDeadline;
     private bool pathFailed;
 
     private Transform cargo;
@@ -40,7 +39,7 @@ public sealed class CampSupplyCrewMember : MonoBehaviour
 
     public bool PathFailed => pathFailed || (hasDestination && (!OnMesh ||
         agent.pathStatus != NavMeshPathStatus.PathComplete ||
-        (!HasArrived && Time.time - lastProgress > 9f)));
+        (!HasArrived && (Time.time - lastProgress > 9f || Time.time > routeDeadline))));
 
     private bool OnMesh => agent && agent.isActiveAndEnabled && agent.isOnNavMesh;
 
@@ -59,21 +58,22 @@ public sealed class CampSupplyCrewMember : MonoBehaviour
     public void Board(Transform jeep, bool driver, Vector3 hipLocal)
     {
         if (cargo) FinishDrop();
-        ReleaseRig();
         gameObject.SetActive(true);
         if (agent) agent.enabled = false;
         hasDestination = false;
         pathFailed = false;
         vehicle = jeep;
-        atWheel = driver;
-        seatHip = hipLocal;
         transform.SetParent(jeep, false);
         transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
         walking = false;
         actor.SetBool(Walking, false);
         actor.Play(Idle, 0, 0f);
         actor.Update(0f);
-        TryBuildRig();
+        if (!rig)
+            rig = driver ? CampArrivalActorRig.Begin(actor, jeep)
+                         : CampArrivalActorRig.BeginPassenger(actor, jeep, hipLocal);
+        else if (!driver)
+            rig.SetPassengerSeated(true);
     }
 
     public bool Disembark(Vector3 point, Quaternion facing)
@@ -81,10 +81,10 @@ public sealed class CampSupplyCrewMember : MonoBehaviour
         if (!NavMesh.SamplePosition(point, out var hit, 1.35f, NavMesh.AllAreas))
             return false;
 
-        ReleaseRig();
         vehicle = null;
         transform.SetParent(home, true);
         transform.SetPositionAndRotation(hit.position, facing);
+        if (rig) rig.SetPassengerSeated(false);
         if (!agent)
         {
             agent = gameObject.AddComponent<NavMeshAgent>();
@@ -114,12 +114,17 @@ public sealed class CampSupplyCrewMember : MonoBehaviour
         agent.updateRotation = true;
         agent.ResetPath();
         if (!NavMesh.SamplePosition(point, out var hit, 1.35f, agent.areaMask) ||
-            !agent.CalculatePath(hit.position, path) || path.status != NavMeshPathStatus.PathComplete ||
-            !agent.SetPath(path)) return false;
+            !agent.CalculatePath(hit.position, path) || path.status != NavMeshPathStatus.PathComplete) return false;
+        Vector3[] corners = path.corners;
+        float length = 0f;
+        for (int i = 1; i < corners.Length; i++)
+            length += Vector3.Distance(corners[i - 1], corners[i]);
+        if (!agent.SetPath(path)) return false;
 
         destination = hit.position;
-        bestDistance = float.PositiveInfinity;
+        lastProgressPosition = transform.position;
         lastProgress = Time.time;
+        routeDeadline = lastProgress + Mathf.Max(25f, 12f + 3f * length / Mathf.Max(.2f, agent.speed));
         pathFailed = false;
         hasDestination = true;
         return true;
@@ -142,27 +147,11 @@ public sealed class CampSupplyCrewMember : MonoBehaviour
             walking = moving;
             actor.SetBool(Walking, moving);
         }
-        if (hasDestination && OnMesh && agent.remainingDistance < bestDistance - .10f)
+        // A distância restante do agente pode ser infinita nas curvas, mesmo enquanto caminha.
+        if (hasDestination && OnMesh && (transform.position - lastProgressPosition).sqrMagnitude > .04f)
         {
-            bestDistance = agent.remainingDistance;
+            lastProgressPosition = transform.position;
             lastProgress = Time.time;
-        }
-        if (!rig && (vehicle || cargo)) TryBuildRig();
-    }
-
-    private void TryBuildRig()
-    {
-        // Dispose libera o componente e o RigBuilder temporário ao fim do frame.
-        if (rig || actor.GetComponent<CampArrivalActorRig>() || !actor.isActiveAndEnabled) return;
-        if (vehicle)
-        {
-            rig = atWheel ? CampArrivalActorRig.Begin(actor, vehicle)
-                          : CampArrivalActorRig.BeginPassenger(actor, vehicle, seatHip);
-        }
-        else if (cargo)
-        {
-            rig = CampArrivalActorRig.Begin(actor);
-            SetGrips();
         }
     }
 
@@ -187,8 +176,7 @@ public sealed class CampSupplyCrewMember : MonoBehaviour
         }
         PositionGrip(leftGrip, -1f);
         PositionGrip(rightGrip, 1f);
-        if (rig) SetGrips();
-        else TryBuildRig();
+        SetGrips();
         transfer = StartCoroutine(MoveCrate(carryPosition, carryRotation));
         return true;
     }
@@ -208,15 +196,16 @@ public sealed class CampSupplyCrewMember : MonoBehaviour
         rig.SetHandTarget(false, rightGrip);
     }
 
-    public void DropCrate(Vector3 ground, Quaternion rotation)
+    public void DropCrate(Vector3 ground, Quaternion rotation, Transform destinationParent = null)
     {
         if (!cargo) return;
         StopTransfer();
         dropping = true;
-        dropPoint = ground;
-        dropRotation = rotation;
-        cargo.SetParent(null, true);
-        transfer = StartCoroutine(MoveCrate(ground, rotation));
+        Transform anchor = destinationParent ? destinationParent : home;
+        cargo.SetParent(anchor, true);
+        dropPoint = anchor ? anchor.InverseTransformPoint(ground) : ground;
+        dropRotation = anchor ? Quaternion.Inverse(anchor.rotation) * rotation : rotation;
+        transfer = StartCoroutine(MoveCrate(dropPoint, dropRotation));
     }
 
     private IEnumerator MoveCrate(Vector3 endPosition, Quaternion endRotation)
@@ -252,9 +241,13 @@ public sealed class CampSupplyCrewMember : MonoBehaviour
         }
         leftGrip.SetParent(transform, false);
         rightGrip.SetParent(transform, false);
-        cargo.SetParent(null, true);
-        if (dropping) cargo.SetPositionAndRotation(dropPoint, dropRotation);
-        else cargo.SetPositionAndRotation(transform.position + transform.forward * .6f, transform.rotation);
+        if (dropping)
+            cargo.SetLocalPositionAndRotation(dropPoint, dropRotation);
+        else
+        {
+            cargo.SetParent(home, true);
+            cargo.SetPositionAndRotation(transform.position + transform.forward * .6f, transform.rotation);
+        }
         cargoCollider.enabled = originalColliderEnabled;
         dropping = false;
         cargo = null;
@@ -264,18 +257,11 @@ public sealed class CampSupplyCrewMember : MonoBehaviour
     public void Park()
     {
         if (cargo) FinishDrop();
-        ReleaseRig();
         hasDestination = false;
         vehicle = null;
         if (agent) agent.enabled = false;
         transform.SetParent(home, true);
         gameObject.SetActive(false);
-    }
-
-    private void ReleaseRig()
-    {
-        if (rig) rig.Dispose();
-        rig = null;
     }
 
     private void EnsureFootsteps()
