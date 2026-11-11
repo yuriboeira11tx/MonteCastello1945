@@ -4,6 +4,11 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class SoldierAI : MonoBehaviour
 {
+    private enum CampActivity
+    {
+        Standard, SittingIdle, SittingRelaxed, Meeting, Talking, Looking, Drinking, LiftingObject, Saluting, Sleeping
+    }
+
     public NavMeshAgent agent;
     public bool isStandingRifle;
     public bool isJack;
@@ -11,6 +16,8 @@ public class SoldierAI : MonoBehaviour
     public bool isPushup;
 
     [SerializeField] private Animator animator;
+    [SerializeField, Tooltip("Atividade fixa no acampamento. Standard mantém patrulhas e exercícios.")]
+    private CampActivity campActivity;
     [SerializeField] private Transform[] patrolPoints;
     [SerializeField, Min(0.05f)] private float repathInterval = 0.2f;
     private int nextPatrolPoint;
@@ -21,6 +28,7 @@ public class SoldierAI : MonoBehaviour
     private static readonly int IsJackHash = Animator.StringToHash("isJack");
     private static readonly int IsBurpeeHash = Animator.StringToHash("isBurpee");
     private static readonly int IsPushupHash = Animator.StringToHash("isPushup");
+    private static readonly int CampActivityHash = Animator.StringToHash("campActivity");
 
     void Awake()
     {
@@ -30,6 +38,13 @@ public class SoldierAI : MonoBehaviour
 
     private void Start()
     {
+        if (campActivity != CampActivity.Standard)
+        {
+            animator.SetInteger(CampActivityHash, (int)campActivity);
+            animator.Play("Base Layer.Camp." + campActivity, 0, 0f);
+            return;
+        }
+
         animator.SetBool(IsStandingRifleHash, isStandingRifle);
         animator.SetBool(IsJackHash, isJack);
         animator.SetBool(IsBurpeeHash, isBurpee);
@@ -38,6 +53,8 @@ public class SoldierAI : MonoBehaviour
 
     void Update()
     {
+        if (campActivity != CampActivity.Standard) return;
+
         bool onNavMesh = agent.isActiveAndEnabled && agent.isOnNavMesh;
         animator.SetBool(IsWalkingHash, onNavMesh && agent.velocity.sqrMagnitude > 0.01f);
         if (onNavMesh && patrolPoints != null && patrolPoints.Length > 1)
