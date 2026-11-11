@@ -25,6 +25,7 @@ namespace FEB.Cinematics
         Roda[] dianteiras, traseiras;
         float entreEixos;
         float volumeDeRolagem, pitchDeRolagem;
+        bool rolagemPreparada;
         Vector3 posicaoAnterior;
         Quaternion rotacaoAnterior;
 
@@ -38,11 +39,19 @@ namespace FEB.Cinematics
                 return;
             }
             entreEixos = Mathf.Abs(frente - tras);
-            if (rolagemNaTerra)
+        }
+
+        bool PrepararRolagem()
+        {
+            if (!rolagemNaTerra) return false;
+            // A rota pode sincronizar o jipe ainda inativo, antes do primeiro Awake.
+            if (!rolagemPreparada)
             {
                 volumeDeRolagem = rolagemNaTerra.volume;
                 pitchDeRolagem = rolagemNaTerra.pitch;
+                rolagemPreparada = true;
             }
+            return true;
         }
 
         bool LerEixo(Transform[] pivos, out Roda[] rodas, out float centroZ)
@@ -115,7 +124,7 @@ namespace FEB.Cinematics
 
         void AtualizarRolagem(float metrosPorSegundo, float dt)
         {
-            if (!rolagemNaTerra || !rolagemNaTerra.isActiveAndEnabled || !rolagemNaTerra.clip) return;
+            if (!PrepararRolagem() || !rolagemNaTerra.isActiveAndEnabled || !rolagemNaTerra.clip) return;
             float ritmo = Mathf.InverseLerp(.09f, 5.5f, metrosPorSegundo);
             if (ritmo <= 0f && !rolagemNaTerra.isPlaying) return;
             float alvo = volumeDeRolagem * Mathf.Sqrt(ritmo);
@@ -132,7 +141,7 @@ namespace FEB.Cinematics
 
         void SilenciarRolagem()
         {
-            if (!rolagemNaTerra) return;
+            if (!PrepararRolagem()) return;
             if (rolagemNaTerra.isPlaying) rolagemNaTerra.Stop();
             rolagemNaTerra.volume = 0f;
             rolagemNaTerra.pitch = pitchDeRolagem * .80f;
