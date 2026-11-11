@@ -10,7 +10,7 @@ namespace FEB.Archive
 {
     internal sealed class FieldNotebookPages
     {
-        enum Section { Index, Reading, Evidence, Notes, Activity, Subtitles }
+        enum Section { Index, Reading, Notes, Activity, Subtitles }
         readonly VisualElement root;
         readonly ScrollView left, right;
         readonly Button[] tabs;
@@ -19,11 +19,8 @@ namespace FEB.Archive
         readonly List<HistoricalEvidence> readings = new List<HistoricalEvidence>();
         readonly Texture2D photo, emblem;
         readonly ArchiveExperience archive;
-        readonly Action<HistoricalEvidence> examine;
         readonly Action pageChanged;
         readonly ResearchSave save;
-        readonly ArchiveCaseDefinition firstCase;
-        readonly NotebookChapter[] chapters;
         Section section;
         int record, reading, page;
         TextField editor;
@@ -33,21 +30,20 @@ namespace FEB.Archive
 
         public FieldNotebookPages(VisualElement root, ArchiveCaseDefinition firstCase, HistoricalEvidence[] common,
             NotebookChapter[] chapters, string scene, Texture2D photo, Texture2D emblem, ArchiveExperience archive,
-            Action close, Action<HistoricalEvidence> examine, Action pageChanged)
+            Action close, Action pageChanged)
         {
             this.root = root; this.photo = photo; this.emblem = emblem;
             this.archive = archive;
-            this.examine = examine;
-            this.firstCase = firstCase;
-            this.chapters = chapters;
             this.pageChanged = pageChanged;
             save = ResearchSaveStore.EnsureSession();
             if (save.dossiers.Count == 0 && firstCase != null) save.SelectCase(firstCase.Id);
+            var physicalIds = CollectEvidence(firstCase, chapters);
             void AddReadings(HistoricalEvidence[] items)
             {
                 if (items == null) return;
                 foreach (var item in items)
-                    if (item != null && !readings.Contains(item)) readings.Add(item);
+                    if (item != null && item.inspectionPrefab == null && !physicalIds.Contains(item.id) && !readings.Contains(item))
+                        readings.Add(item);
             }
             if (chapters != null)
                 foreach (var chapter in chapters)
@@ -58,34 +54,41 @@ namespace FEB.Archive
             AddReadings(common);
             left = root.Q<ScrollView>("leftContent"); right = root.Q<ScrollView>("rightContent");
             tabs = new[] { Bind("indexTab", () => Switch(Section.Index)), Bind("readingTab", () => Switch(Section.Reading)),
-                Bind("evidenceTab", () => Switch(Section.Evidence)), Bind("notesTab", () => Switch(Section.Notes)) };
+                Bind("notesTab", () => Switch(Section.Notes)) };
             Bind("previousPage", () => Turn(-1)); Bind("nextPage", () => Turn(1));
             Bind("closeBook", close).text = archive != null ? "Guardar · Tab" : "Guardar · Esc";
-            RefreshRecords();
             Render();
         }
 
-        void RefreshRecords()
+        HashSet<string> CollectEvidence(ArchiveCaseDefinition firstCase, NotebookChapter[] chapters)
         {
-            records.Clear();
+            var physicalIds = new HashSet<string>();
             var visited = new HashSet<ArchiveCaseDefinition>();
             for (var c = firstCase; c != null && visited.Add(c); c = c.nextCase)
             {
+                if (c.evidence == null) continue;
                 var dossier = save.dossiers.Find(d => d.caseId == c.Id);
-                if (dossier == null) continue;
-                dossier.Normalize();
+                dossier?.Normalize();
                 foreach (var doc in c.evidence)
-                    if (doc != null && dossier.evidence.Contains(doc.id)) records.Add((doc, dossier.notes));
+                {
+                    if (doc == null) continue;
+                    physicalIds.Add(doc.id);
+                    if (dossier != null && dossier.evidence.Contains(doc.id)) records.Add((doc, dossier.notes));
+                }
             }
             if (chapters != null)
                 foreach (var chapter in chapters)
                 {
                     if (chapter?.fieldEvidence == null) continue;
                     foreach (var doc in chapter.fieldEvidence)
-                        if (doc != null && save.fieldEvidence.Contains(doc.id) && !records.Any(r => r.doc.id == doc.id))
+                    {
+                        if (doc == null) continue;
+                        physicalIds.Add(doc.id);
+                        if (save.fieldEvidence.Contains(doc.id) && !records.Any(r => r.doc.id == doc.id))
                             records.Add((doc, save.fieldNotes));
+                    }
                 }
-            record = Mathf.Clamp(record, 0, Math.Max(0, records.Count - 1));
+            return physicalIds;
         }
 
         Button Bind(string name, Action action)
@@ -109,21 +112,6 @@ namespace FEB.Archive
         }
 
         public void ShowIndex() => Switch(Section.Index);
-
-        public void ShowEvidenceIndex(HistoricalEvidence selected, bool sound)
-        {
-            if (!FlushNote()) return;
-            IsPausePage = false;
-            RefreshRecords();
-            if (selected != null)
-            {
-                int index = records.FindIndex(item => item.doc.id == selected.id);
-                if (index >= 0) record = index;
-            }
-            section = Section.Evidence; page = 0;
-            Render();
-            if (sound) pageChanged();
-        }
 
         public void ShowActivity(string kicker, string title, string body, bool isPause, bool sound)
         {
@@ -222,7 +210,7 @@ namespace FEB.Archive
                 Titles("Caderneta de campo", archive != null ? archive.ActiveCase.title : "Campanha da Itália", "ÁLBUM DE CAMPO");
                 Photo(left, emblem, null, "seal");
                 ActionButton(left, $"Leituras da fase  ·  {readings.Count}", () => Switch(Section.Reading));
-                ActionButton(left, $"Evidências registradas  ·  {records.Count}", () => Switch(Section.Evidence));
+                Text(left, $"Evidências registradas  ·  {records.Count}", "fine");
                 ActionButton(left, "Minhas anotações", () => Switch(Section.Notes));
                 ActionButton(left, "Legendas", () => Switch(Section.Subtitles));
                 if (archive != null)
@@ -243,7 +231,7 @@ namespace FEB.Archive
                     Text(right, archive.EvidenceCounts, "fine");
                 }
                 Photo(right, photo, "Expedicionários brasileiros na Itália. Fotografia do acervo do projeto.");
-                if (archive == null) Text(right, "O caderno acompanha a pesquisa do arquivo ao campo. Reúna aqui as fontes consultadas e as observações que elas despertam.");
+                if (archive == null) Text(right, "Anote aqui suas observações. Para consultar uma evidência, volte ao objeto no local onde o encontrou.");
                 Footer("Índice geral"); return;
             }
             if (section == Section.Subtitles)
@@ -252,7 +240,7 @@ namespace FEB.Archive
                 return;
             }
 
-            bool library = section == Section.Reading, notes = section == Section.Notes;
+            bool library = section == Section.Reading;
             int count = library ? readings.Count : records.Count;
             for (int i = 0; i < count; i++)
             {
@@ -261,55 +249,35 @@ namespace FEB.Archive
                 var b = ActionButton(left, doc.title, () => Select(item), "entry");
                 b.EnableInClassList("chosen", i == (library ? reading : record));
             }
-            if (archive != null && section == Section.Evidence)
-            {
-                var dossier = save.ActiveDossier;
-                var pending = archive.ActiveCase.evidence.Where(e => e != null && dossier != null &&
-                    !dossier.evidence.Contains(e.id)).ToArray();
-                if (pending.Length > 0) Text(left, "Por registrar neste dossiê", "entry-date");
-                foreach (var item in pending)
-                {
-                    bool found = dossier.discoveredEvidence.Contains(item.id);
-                    ActionButton(left, item.title + (found ? " · Examinar" : " · Não encontrada"),
-                        () => examine(item)).SetEnabled(found);
-                }
-            }
-            string heading = library ? "Leituras da fase" : notes ? "Anotações" : "Evidências";
+            string heading = library ? "Leituras da fase" : "Anotações";
             if (count == 0)
             {
-                Titles(heading, library ? "Biblioteca de campo" : "Folha em branco", notes ? "NOTAS DO PESQUISADOR" : "REGISTRO DE CAMPO");
-                Text(right, library ? "Ainda não há leituras nesta fase." : "Examine uma fonte no arquivo ou no campo e registre a evidência para consultar sua ficha e escrever sobre ela aqui.");
-                if (!library) ActionButton(right, "Abrir leituras da fase", () => Switch(Section.Reading));
+                Titles(heading, library ? "Biblioteca de campo" : "Folha em branco", library ? "BIBLIOTECA DE CAMPO" : "NOTAS DO PESQUISADOR");
+                Text(right, library ? "Ainda não há leituras nesta fase." : "Examine uma fonte no arquivo ou no campo. Depois de registrá-la, você pode escrever suas observações aqui.");
                 Footer(heading); return;
             }
-            var current = library ? readings[reading] : records[record].doc;
-            var pages = current.pages ?? Array.Empty<DocumentPage>();
-            int total = Math.Max(1, pages.Length); page = Mathf.Clamp(page, 0, total - 1);
-            var sheet = pages.Length > 0 ? pages[page] : null;
-            Titles(heading, notes ? current.title : sheet?.title ?? current.title,
-                library ? "BIBLIOTECA DE CAMPO" : notes ? "NOTAS DO PESQUISADOR" : "FICHA DE EVIDÊNCIA");
-            if (notes)
+            if (!library)
             {
-                Text(right, current.keyFinding, "fine");
+                var item = records[record];
+                Titles(heading, item.doc.title, "NOTAS DO PESQUISADOR");
                 Text(right, "Minha anotação", "entry-date");
-                var note = records[record].notes.Find(n => n.evidenceId == current.id);
+                var note = item.notes.Find(n => n.evidenceId == item.doc.id);
                 editor = new TextField { name = "evidenceNote", multiline = true, maxLength = 1800 };
                 editor.AddToClassList("note"); editor.SetValueWithoutNotify(note?.text ?? "");
                 editor.RegisterValueChangedCallback(_ => { dirty = true; if (status != null) status.text = "Alterações por guardar"; });
                 right.Add(editor); ActionButton(right, "Guardar anotação", () => FlushNote()); status = Text(right, "", "status");
                 Footer("Notas por evidência"); return;
             }
+            var current = readings[reading];
+            var pages = current.pages ?? Array.Empty<DocumentPage>();
+            int total = Math.Max(1, pages.Length); page = Mathf.Clamp(page, 0, total - 1);
+            var sheet = pages.Length > 0 ? pages[page] : null;
+            Titles(heading, sheet?.title ?? current.title, "BIBLIOTECA DE CAMPO");
             Photo(left, sheet != null ? sheet.image : current.image, sheet != null ? sheet.caption : current.imageCaption, magnify: true);
             Text(right, current.dateLabel, "entry-date");
             Text(right, sheet?.text ?? current.description);
             if (page == total - 1 && !string.IsNullOrWhiteSpace(current.citation)) Text(right, current.citation, "fine");
-            if (!library)
-            {
-                ActionButton(right, "Anotar sobre esta evidência", () => Switch(Section.Notes));
-                if (archive != null && archive.CanReexamine(current))
-                    ActionButton(right, "Reexaminar no acervo", () => examine(current));
-            }
-            Footer(library ? "Biblioteca da fase" : "Arquivo de evidências", page + 1, total);
+            Footer("Biblioteca da fase", page + 1, total);
         }
 
         void ShowSubtitleOptions()

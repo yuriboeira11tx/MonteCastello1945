@@ -87,7 +87,7 @@ namespace FEB.Archive
         }
 
         public void OpenInspection(HistoricalEvidence evidence, bool registered, Func<bool> onRegister,
-            bool alreadyRead = false, Func<bool> onRead = null, Action onClosed = null)
+            bool alreadyRead = false, Func<bool> onRead = null)
         {
             if (fieldView.IsOpen) return;
             SetReading(true);
@@ -96,7 +96,6 @@ namespace FEB.Archive
                 {
                     if (!isActiveAndEnabled || !fieldView.isActiveAndEnabled) return;
                     SetReading(false);
-                    onClosed?.Invoke();
                 }, alreadyRead, onRead,
                 experience != null ? "ARQUIVO HISTÓRICO" : "EVIDÊNCIA DE CAMPO",
                 notebook != null ? notebook.PlayCloseSound : (Action)null);

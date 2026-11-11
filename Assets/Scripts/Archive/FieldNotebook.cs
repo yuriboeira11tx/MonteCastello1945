@@ -86,7 +86,7 @@ namespace FEB.Archive
             book.SetActive(true);
             panel.SetScreenToPanelSpaceFunction(PickPage);
             pages = new FieldNotebookPages(document.rootVisualElement, firstCase, commonReadings, chapters,
-                gameObject.scene.name, fieldPhoto, emblem, interaction.Experience, CloseBook, ExamineFromNotebook, PlayPageTurn);
+                gameObject.scene.name, fieldPhoto, emblem, interaction.Experience, CloseBook, PlayPageTurn);
             PositionBook();
             PlaySound(openSound);
         }
@@ -99,13 +99,6 @@ namespace FEB.Archive
             pages.ShowIndex();
         }
 
-        public void ShowEvidenceIndex(HistoricalEvidence selected = null)
-        {
-            bool wasOpen = raised;
-            RaiseBook();
-            pages.ShowEvidenceIndex(selected, wasOpen);
-        }
-
         public void ShowActivity(string kicker, string title, string body, bool isPause = false)
         {
             bool wasOpen = raised;
@@ -115,13 +108,6 @@ namespace FEB.Archive
 
         public void AddChoice(string text, Action action, bool enabled = true) =>
             pages?.AddChoice(text, action, enabled);
-
-        void ExamineFromNotebook(HistoricalEvidence evidence)
-        {
-            if (!BeginClose()) return;
-            PutAway();
-            interaction.Experience.OpenEvidence(evidence, fromNotebook: true);
-        }
 
         public void PlayPageTurn() => PlaySound(pageTurnSound);
         internal void PlayCloseSound() => PlaySound(closeSound);

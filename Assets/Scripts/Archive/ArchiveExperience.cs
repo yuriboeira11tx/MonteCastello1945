@@ -146,15 +146,14 @@ namespace FEB.Archive
             });
         }
 
-        public void OpenEvidence(HistoricalEvidence document, bool fromNotebook = false)
+        void OpenEvidence(HistoricalEvidence document)
         {
             if (document == null) return;
-            Action onClosed = fromNotebook ? () => Notebook.ShowEvidenceIndex(document) : (Action)null;
             if (!caseDefinition.evidence.Contains(document))
             {
                 if (CanReexamine(document))
                 {
-                    interaction.OpenInspection(document, true, null, true, onClosed: onClosed);
+                    interaction.OpenInspection(document, true, null, true);
                     return;
                 }
                 Notebook.ShowActivity("Documento de outro dossiê", document.title, "Esta fonte pertence a outra investigação.");
@@ -171,11 +170,10 @@ namespace FEB.Archive
                     return true;
                 },
                 dossier.readEvidence.Contains(document.id),
-                () => SaveEvidenceStep(dossier.readEvidence, document.id, "document_read"),
-                onClosed);
+                () => SaveEvidenceStep(dossier.readEvidence, document.id, "document_read"));
         }
 
-        public bool CanReexamine(HistoricalEvidence document) => cases.Any(item =>
+        bool CanReexamine(HistoricalEvidence document) => cases.Any(item =>
             item.evidence.Contains(document) && progress.dossiers.Exists(d => d.caseId == item.Id && d.evidence.Contains(document.id)));
 
         bool SaveEvidenceStep(List<string> ids, string id, string action, bool showError = false)
@@ -247,7 +245,7 @@ namespace FEB.Archive
                 progress.events.RemoveAt(progress.events.Count - 1);
                 return;
             }
-            Notebook.ShowActivity(correct ? "Cronologia estabelecida" : "Reveja as datas", correct ? caseDefinition.title : "Você pode consultar a caderneta", correct ? caseDefinition.chronologyExplanation : "Compare as datas e diferencie os acontecimentos apresentados nas fontes. Consulte os documentos e tente novamente.");
+            Notebook.ShowActivity(correct ? "Cronologia estabelecida" : "Reveja as datas", correct ? caseDefinition.title : "Consulte os documentos no acervo", correct ? caseDefinition.chronologyExplanation : "Volte aos documentos, compare as datas e tente ordenar os acontecimentos novamente.");
             if (dossier.chronologySolved) Notebook.AddChoice("Examinar a reconstrução", OpenReconstruction);
             else Notebook.AddChoice(correct ? "Responder sobre as fontes" : "Tentar novamente", OpenChronology);
             Notebook.AddChoice("Voltar ao arquivo", Notebook.CloseBook);
@@ -291,7 +289,7 @@ namespace FEB.Archive
             {
                 Debug.LogError($"Confira os identificadores, enunciados, alternativas, gabaritos e explicações em {caseDefinition.name}.", caseDefinition);
                 Notebook.ShowActivity("Caderneta de campo", "Perguntas indisponíveis", "O questionário deste dossiê está incompleto.");
-                Notebook.AddChoice("Consultar a caderneta", OpenNotebook);
+                Notebook.AddChoice("Voltar ao acervo", Notebook.CloseBook);
                 return;
             }
             var questions = round == QuestionRound.Report ? caseDefinition.reportQuestions : caseDefinition.chronologyQuestions;
@@ -346,7 +344,7 @@ namespace FEB.Archive
             if (finished && report) Notebook.AddChoice("Concluir dossiê", CompleteReport);
             else if (finished) Notebook.AddChoice("Examinar a reconstrução", OpenReconstruction);
             else Notebook.AddChoice(correct ? "Próxima pergunta" : "Tentar novamente", () => ShowQuestions(round));
-            Notebook.AddChoice("Consultar a caderneta", OpenNotebook);
+            Notebook.AddChoice("Voltar aos documentos no acervo", Notebook.CloseBook);
         }
 
         void CompleteReport()
