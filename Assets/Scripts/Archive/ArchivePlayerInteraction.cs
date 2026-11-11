@@ -15,7 +15,7 @@ namespace FEB.Archive
         [Tooltip("Vincule nas cenas que possuem a investigação do arquivo histórico.")]
         [SerializeField] ArchiveExperience experience;
         [SerializeField] float reach = 2.8f;
-        [SerializeField] LayerMask interactionMask = ~0;
+        [SerializeField] LayerMask interactionMask = Physics.DefaultRaycastLayers;
         FieldEvidenceView fieldView;
         ArchiveInteractable focusedArchive;
         HistoricalEvidence focusedEvidence;

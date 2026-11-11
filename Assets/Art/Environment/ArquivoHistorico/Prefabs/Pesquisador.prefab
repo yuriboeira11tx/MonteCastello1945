@@ -244,7 +244,7 @@ MonoBehaviour:
   reach: 2.8
   interactionMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294967291
 --- !u!1 &7587622088006265524
 GameObject:
   m_ObjectHideFlags: 0
