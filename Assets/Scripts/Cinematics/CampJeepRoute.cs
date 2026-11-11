@@ -102,6 +102,7 @@ namespace FEB.Cinematics
             int segmentIndex = 0;
             Pose pose = GroundPose(road[0], road[1] - road[0], terrains);
             jeep.SetPositionAndRotation(pose.position, pose.rotation);
+            if (jeep.TryGetComponent<WillysWheelAnimation>(out var rodas)) rodas.SincronizarPose();
             onEnter?.Invoke();
             while (distances[^1] - distance > .003f)
             {

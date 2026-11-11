@@ -1,0 +1,10 @@
+Monte Castello: 1945 — áudio do P-47D em voo
+
+“P-47 Flyby”, gravação de Fight2FlyPhoto, publicada no Freesound em 23 de janeiro de 2012.
+Fonte: https://freesound.org/people/Fight2FlyPhoto/sounds/143560/
+Licença: Creative Commons Atribuição 3.0 Não Adaptada (CC BY 3.0).
+https://creativecommons.org/licenses/by/3.0/
+
+O áudio P47D_Motor_Em_Voo.wav adapta um trecho da gravação de passagem do P-47D.
+O trecho foi convertido para mono, filtrado e ajustado em altura e volume para
+reprodução contínua com a espacialização do jogo.

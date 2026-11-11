@@ -32,6 +32,7 @@ namespace FEB.Cinematics
         Pose parking, originalPlayer, originalCamera;
         CharacterController capsule;
         bool active, seated, parked, capsuleEnabled;
+        public bool EmAndamento => active;
         float blackout, engineVolume, enginePitch, originalFov;
         Vector3 enginePosition;
         int speaking = -1;
@@ -111,6 +112,7 @@ namespace FEB.Cinematics
             Vector3 c = d - parking.rotation * Vector3.forward * 5;
             var engineMount = new Vector3(0, .78f, .85f);
             jipe.SetPositionAndRotation(a, inicioDoTrajeto.rotation);
+            if (jipe.TryGetComponent<WillysWheelAnimation>(out var rodas)) rodas.SincronizarPose();
             motor.transform.position = jipe.TransformPoint(engineMount);
             motor.volume = engineVolume * .65f;
             motor.pitch = enginePitch;
@@ -150,11 +152,13 @@ namespace FEB.Cinematics
 
         IEnumerator WalkUp()
         {
+            const float blendDuration = .12f;
             var end = jipe.TransformPoint(CaptainMark);
             var start = end - jipe.right * 1.35f;
             var forward = Quaternion.LookRotation(end - start);
             var rest = Quaternion.LookRotation(jipe.TransformDirection(new Vector3(.85f, 0, -.7f)));
             captain.Animator.SetBool("isWalking", true);
+            captain.Animator.CrossFadeInFixedTime("Base Layer.WALK", blendDuration, 0, 0f);
             bool secondStep = false;
             efeitos.transform.position = start;
             if (passos) passos.Play(efeitos, true, ref stepHistory, .75f);
@@ -172,6 +176,7 @@ namespace FEB.Cinematics
             }
             captain.Place(end, rest);
             captain.Animator.SetBool("isWalking", false);
+            captain.Animator.CrossFadeInFixedTime("Base Layer.IDLE", blendDuration, 0, 0f);
         }
 
         IEnumerator Say(int index, Actor speaker)
@@ -258,6 +263,7 @@ namespace FEB.Cinematics
             credencial.gameObject.SetActive(false);
             credencial.SetParent(transform, true);
             jipe.SetPositionAndRotation(parking.position, parking.rotation);
+            if (jipe.TryGetComponent<WillysWheelAnimation>(out var rodas)) rodas.SincronizarPose();
             driver?.Restore(finished ? jipe.TransformPoint(new Vector3(-1.34f, 0, -.65f)) : (Vector3?)null);
             captain?.Restore(finished ? jipe.TransformPoint(CaptainMark) : (Vector3?)null);
             driver = captain = null;
