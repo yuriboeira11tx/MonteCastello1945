@@ -48,6 +48,8 @@ namespace FEB.Audio
         float nextCheck, silentEnd;
         bool timedReading;
 
+        public AudioSource VoiceSource => voz;
+
         void Awake() => subtitles = GetComponent<SubtitleView>();
 
         void OnEnable()

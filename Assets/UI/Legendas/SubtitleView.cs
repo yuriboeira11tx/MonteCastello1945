@@ -8,9 +8,11 @@ namespace FEB.UI
     public sealed class SubtitleView : MonoBehaviour
     {
         PanelRenderer subtitlePanel;
+        VisualElement screen;
         Label lineLabel;
         string currentText;
         float scale = 1f;
+        float blackout;
 
         void OnEnable()
         {
@@ -22,13 +24,19 @@ namespace FEB.UI
         {
             subtitlePanel.UnregisterUIReloadCallback(Bind);
             Hide();
+            SetBlackout(0);
+            screen = null;
             lineLabel = null;
         }
 
         void Bind(PanelRenderer panel, VisualElement root, int version)
         {
+            root.style.position = Position.Absolute;
+            root.StretchToParentSize();
             root.pickingMode = PickingMode.Ignore;
             root.focusable = false;
+            screen = root.Q("subtitleScreen");
+            SetBlackout(blackout);
             lineLabel = root.Q<Label>("subtitleLine");
             if (lineLabel == null)
             {
@@ -47,6 +55,12 @@ namespace FEB.UI
         }
 
         public void Hide() => Show(null, scale);
+
+        public void SetBlackout(float opacity)
+        {
+            blackout = Mathf.Clamp01(opacity);
+            if (screen != null) screen.style.backgroundColor = new Color(0, 0, 0, blackout);
+        }
 
         void ApplyLine()
         {

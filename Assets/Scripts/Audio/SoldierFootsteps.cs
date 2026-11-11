@@ -13,6 +13,12 @@ public sealed class SoldierFootsteps : MonoBehaviour
     private float nextLeftContactTime;
     private float nextRightContactTime;
 
+    public void SetSounds(FootstepSounds surface)
+    {
+        sounds = surface;
+        agent = GetComponentInParent<NavMeshAgent>();
+    }
+
     private void Awake()
     {
         footsteps = GetComponent<AudioSource>();

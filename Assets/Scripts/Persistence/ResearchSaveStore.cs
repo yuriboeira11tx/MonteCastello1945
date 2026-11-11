@@ -78,6 +78,18 @@ namespace FEB.Persistence
         // Opening the scene directly in the Editor never overwrites a player's save.
         public static ResearchSave EnsureSession() => Current ??= new ResearchSave();
 
+        public static bool CompleteCampArrival()
+        {
+            var save = EnsureSession();
+            if (save.campArrivalCompleted) return true;
+            save.campArrivalCompleted = true;
+            save.Record("camp_arrival_completed");
+            if (Save(out _)) return true;
+            save.campArrivalCompleted = false;
+            save.events.RemoveAt(save.events.Count - 1);
+            return false;
+        }
+
         public static bool RegisterFieldEvidence(string id)
         {
             if (string.IsNullOrWhiteSpace(id)) return false;
