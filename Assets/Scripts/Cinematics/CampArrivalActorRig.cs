@@ -83,7 +83,20 @@ public sealed class CampArrivalActorRig : MonoBehaviour
 
     public void SetLookTarget(Transform target) => lookTarget = target;
     public void ClearLookTarget() => lookTarget = null;
-    public void SetHandTarget(bool left, Transform target) => (left ? leftHand : rightHand).target = target;
+    public void SetPaperEdge(bool left, Transform edge)
+    {
+        var hand = left ? leftHand : rightHand;
+        if (edge && hand.paperPose == null) hand.paperPose = new CredentialHandPose(actor, left);
+        hand.target = edge;
+    }
+
+    public Vector3 PaperContact(bool left) => (left ? leftHand : rightHand).paperPose.Contact;
+
+    void LateUpdate()
+    {
+        leftHand?.PinchPaper();
+        rightHand?.PinchPaper();
+    }
 
     public void SetCrateGrips(Transform left, Transform right, float weight)
     {
@@ -323,6 +336,7 @@ public sealed class CampArrivalActorRig : MonoBehaviour
     private sealed class HandReach
     {
         public Transform target;
+        public CredentialHandPose paperPose;
         private readonly TwoBoneIKConstraint arm;
         private bool seatedRest;
         private readonly Vector3 restPosition;
@@ -330,6 +344,7 @@ public sealed class CampArrivalActorRig : MonoBehaviour
         private readonly Vector3 restHint;
         private readonly float restRotationWeight;
         private Vector3 reachPosition;
+        private Quaternion reachRotation;
         private float blend;
         private Transform crateGrip;
         private float gripWeight;
@@ -381,12 +396,22 @@ public sealed class CampArrivalActorRig : MonoBehaviour
                 return;
             Transform marker = arm.data.target;
             if (target != null)
-                reachPosition = marker.parent.InverseTransformPoint(target.position);
+            {
+                var pose = paperPose.Reach(target, arm.data.hint);
+                reachPosition = marker.parent.InverseTransformPoint(pose.position);
+                reachRotation = Quaternion.Inverse(marker.parent.rotation) * pose.rotation;
+            }
             blend = Mathf.MoveTowards(blend, target != null ? 1f : 0f, deltaTime * 2.2f);
             float eased = Mathf.SmoothStep(0f, 1f, blend);
             marker.localPosition = seatedRest ? Vector3.Lerp(restPosition, reachPosition, eased) : reachPosition;
-            arm.data.targetRotationWeight = seatedRest ? restRotationWeight * (1f - eased) : 0f;
+            marker.localRotation = seatedRest ? Quaternion.Slerp(restRotation, reachRotation, eased) : reachRotation;
+            arm.data.targetRotationWeight = seatedRest ? Mathf.Lerp(restRotationWeight, 1f, eased) : 1f;
             arm.weight = seatedRest ? 1f : eased;
+        }
+
+        public void PinchPaper()
+        {
+            if (paperPose != null && blend > 0f) paperPose.Pinch(Mathf.SmoothStep(0f, 1f, blend));
         }
     }
 

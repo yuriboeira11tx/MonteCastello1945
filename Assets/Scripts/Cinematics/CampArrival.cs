@@ -36,9 +36,13 @@ namespace FEB.Cinematics
         float blackout, engineVolume, enginePitch, originalFov;
         Vector3 enginePosition;
         int speaking = -1;
+        Transform driverEdge, captainEdge;
+        bool captainHasPaper;
+        Vector3 paperTransferOffset;
+        float paperTransferTime;
         FootstepSounds.PlaybackHistory stepHistory;
         static readonly Vector3 PassengerEye = new(.365f, 1.48f, -.36f);
-        static readonly Vector3 CaptainMark = new(-1.43f, 0, .42f);
+        static readonly Vector3 CaptainMark = new(-1.39f, 0, .23f);
 
         IEnumerator Start()
         {
@@ -191,35 +195,65 @@ namespace FEB.Cinematics
         {
             Transform left = driver.Animator.GetBoneTransform(HumanBodyBones.LeftHand);
             Transform right = captain.Animator.GetBoneTransform(HumanBodyBones.RightHand);
-            AttachPaper(left, -jipe.right);
+            Vector3 fromShoulder = driver.Animator.GetBoneTransform(HumanBodyBones.LeftUpperArm).position;
+            Vector3 toShoulder = captain.Animator.GetBoneTransform(HumanBodyBones.RightUpperArm).position;
+            Vector3 across = (toShoulder - fromShoulder).normalized;
+            Vector3 mid = (toShoulder + fromShoulder) * .5f;
+            Vector3 offset = Vector3.ProjectOnPlane(pontoDeEntrega.position - mid, across);
+            Vector3 offer = mid + Vector3.ClampMagnitude(offset, .12f);
+            Quaternion offerRotation = PaperRotation(across, jipe.up);
+            pontoDeEntrega.SetPositionAndRotation(offer, offerRotation);
+            float half = credencial.lossyScale.x * .5f - .008f;
+            driverEdge = PaperEdge("Borda do motorista", -half);
+            captainEdge = PaperEdge("Borda do capitão", half);
+            driver.Rig.SetPaperEdge(true, driverEdge);
+            captain.Rig.SetPaperEdge(false, captainEdge);
+            credencial.SetParent(left, true);
             credencial.gameObject.SetActive(true);
-            driver.Rig.SetHandTarget(true, pontoDeEntrega);
-            captain.Rig.SetHandTarget(false, pontoDeEntrega);
-            yield return new WaitForSeconds(.75f);
+            yield return new WaitForSeconds(.8f);
             if (papel) efeitos.PlayOneShot(papel, .32f);
-            AttachPaper(right, jipe.right);
-            driver.Rig.SetHandTarget(true, null);
-            // Trazer a credencial até o peito para conferir nome e assinatura.
-            Vector3 from = pontoDeEntrega.position;
-            Vector3 to = capitao.transform.TransformPoint(new Vector3(.15f, 1.18f, .28f));
-            for (float elapsed = 0; elapsed < .6f; elapsed += Time.deltaTime)
+            captainHasPaper = true;
+            paperTransferTime = Time.time;
+            paperTransferOffset = credencial.position - PaperCenter(captain.Rig, false, captainEdge);
+            credencial.SetParent(right, true);
+            driver.Rig.SetPaperEdge(true, null);
+            Vector3 read = capitao.transform.TransformPoint(new Vector3(.10f, 1.31f, .33f));
+            Quaternion readRotation = PaperRotation(capitao.transform.right, captain.Rig.Eyes.position - read);
+            const float duration = .70f;
+            for (float elapsed = 0; elapsed < duration; elapsed += Time.deltaTime)
             {
-                pontoDeEntrega.position = Vector3.Lerp(from, to, Mathf.SmoothStep(0, 1, elapsed / .6f));
+                float t = Mathf.SmoothStep(0, 1, elapsed / duration);
+                pontoDeEntrega.SetPositionAndRotation(Vector3.Lerp(offer, read, t), Quaternion.Slerp(offerRotation, readRotation, t));
                 yield return null;
             }
-            pontoDeEntrega.position = to;
+            pontoDeEntrega.SetPositionAndRotation(read, readRotation);
         }
 
-        void AttachPaper(Transform hand, Vector3 direction)
+        Transform PaperEdge(string nome, float x)
         {
-            credencial.SetParent(hand, true);
-            credencial.SetPositionAndRotation(hand.position + direction * .055f,
-                jipe.rotation * Quaternion.Euler(11, 15, 0));
+            var edge = new GameObject(nome).transform;
+            edge.SetParent(pontoDeEntrega, false);
+            edge.localPosition = new Vector3(x, 0f, 0f);
+            return edge;
         }
+
+        static Quaternion PaperRotation(Vector3 right, Vector3 normal) =>
+            Quaternion.LookRotation(Vector3.Cross(right, normal), normal);
+
+        Vector3 PaperCenter(CampArrivalActorRig rig, bool left, Transform edge) =>
+            rig.PaperContact(left) - pontoDeEntrega.TransformVector(edge.localPosition);
 
         void LateUpdate()
         {
             if (!parked || driver?.Rig == null || captain?.Rig == null) return;
+            if (driverEdge && credencial.gameObject.activeSelf)
+            {
+                Vector3 center = captainHasPaper ? PaperCenter(captain.Rig, false, captainEdge) :
+                    PaperCenter(driver.Rig, true, driverEdge);
+                if (captainHasPaper)
+                    center += paperTransferOffset * (1f - Mathf.SmoothStep(0f, 1f, (Time.time - paperTransferTime) / .12f));
+                credencial.SetPositionAndRotation(center, pontoDeEntrega.rotation);
+            }
             var eye = cameraDoPassageiro.transform;
             // O motorista indica o passageiro ao mencioná-lo e volta a falar com o capitão.
             bool presentingPassenger = (speaking == 0 || speaking == 2) && dialogo.CaptionIndex == 1;
@@ -261,10 +295,13 @@ namespace FEB.Cinematics
             if (motor) motor.Stop();
             if (efeitos) efeitos.Stop();
             credencial.gameObject.SetActive(false);
+            if (driverEdge) Destroy(driverEdge.gameObject);
+            if (captainEdge) Destroy(captainEdge.gameObject);
             credencial.SetParent(transform, true);
             jipe.SetPositionAndRotation(parking.position, parking.rotation);
             if (jipe.TryGetComponent<WillysWheelAnimation>(out var rodas)) rodas.SincronizarPose();
-            driver?.Restore(finished ? jipe.TransformPoint(new Vector3(-1.34f, 0, -.65f)) : (Vector3?)null);
+            driver?.Restore(finished ? jipe.TransformPoint(new Vector3(-1.34f, 0, -.65f)) : (Vector3?)null,
+                resumeRifle: finished);
             captain?.Restore(finished ? jipe.TransformPoint(CaptainMark) : (Vector3?)null);
             driver = captain = null;
             var player = pesquisador.transform;
@@ -330,7 +367,7 @@ namespace FEB.Cinematics
             public void Place(Vector3 position, Quaternion rotation) =>
                 ai.transform.SetPositionAndRotation(position, rotation);
 
-            public void Restore(Vector3? leaveAt)
+            public void Restore(Vector3? leaveAt, bool resumeRifle = false)
             {
                 if (!ai) return;
                 Rig?.Dispose();
@@ -341,6 +378,16 @@ namespace FEB.Cinematics
                 Place(at, home.rotation);
                 Animator.SetBool("isWalking", false);
                 Animator.SetBool("isStandingRifle", ai.isStandingRifle);
+                if (resumeRifle && ai.isStandingRifle)
+                {
+                    // O corte já mostra o fuzil nas mãos. Amostre a pose e seus encaixes antes de clarear.
+                    var culling = Animator.cullingMode;
+                    Animator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
+                    Animator.Play("Base Layer.idle-rifle", 0, 0f);
+                    Animator.Update(0f);
+                    Animator.GetComponent<UnityEngine.Animations.Rigging.RigBuilder>()?.Evaluate(0f);
+                    Animator.cullingMode = culling;
+                }
                 agent.enabled = resumeAgent;
                 if (resumeAgent && agent.isOnNavMesh && leaveAt.HasValue) agent.SetDestination(home.position);
                 ai.enabled = resumeAI;
