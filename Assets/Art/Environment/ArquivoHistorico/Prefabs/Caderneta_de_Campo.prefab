@@ -190,6 +190,15 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ec316b4ea98c69f4db1a990282834d82, type: 2}
     fieldEvidence:
     - {fileID: 11400000, guid: 7009238f0c10205489a7fc1dfcbdee3c, type: 2}
+    - {fileID: 11400000, guid: 946602f46a125fd8bec2ae253c3c11ae, type: 2}
+    - {fileID: 11400000, guid: 03c745e6b0bd1a9478b66e0428912406, type: 2}
+    - {fileID: 11400000, guid: b2d552dbbfc84ea1b5ca41f6188d5abe, type: 2}
+    - {fileID: 11400000, guid: 7514196dca4f59d4bad7ab7863352c39, type: 2}
+    - {fileID: 11400000, guid: 3f52f32fefae443290d507342eed913e, type: 2}
+    - {fileID: 11400000, guid: fda6299858745e8ab6809163b9c1647d, type: 2}
+    - {fileID: 11400000, guid: b4d50f02fa374656a65b86480723ce49, type: 2}
+    - {fileID: 11400000, guid: 73ed536b11ef5f8eae525c80335f60bb, type: 2}
+    - {fileID: 11400000, guid: 5a918d38150456af90797b180c1c5cc1, type: 2}
   fieldPhoto: {fileID: 2800000, guid: 1d34afacc9c4d3d4cb77644c357a744c, type: 3}
   emblem: {fileID: 2800000, guid: ba4d8420072cbc745872079b6687304b, type: 3}
   openSound: {fileID: 8300000, guid: 2e762039e615ca848b59b52987977531, type: 3}
