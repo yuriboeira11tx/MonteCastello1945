@@ -1,1 +1,10 @@
-.world-text { flex-grow: 1; margin: 0; padding: 0; white-space: normal; -unity-text-align: middle-center; -unity-font-definition: url("project://database/Assets/UI/Fonts/SpecialElite.asset"); font-size: 12px; color: #E0D6B8FF; }
+.wall-display { flex-grow: 1; align-items: center; justify-content: center; -unity-font-definition: url("../Fonts/SpecialElite.asset"); }
+.wall-photos { flex-grow: 1; flex-direction: row; align-items: center; justify-content: center; }
+.wall-card { width: 216px; height: 160px; background-color: #e9dfc9; margin: 0 12px; padding: 10px 8px 5px; }
+.wall-card Image { flex-grow: 1; min-height: 0; }
+.wall-card Label { height: 34px; color: #352f23; font-size: 14px; white-space: normal; -unity-text-align: middle-center; }
+.wall-pin { position: absolute; top: 2px; left: 48%; width: 9px; height: 9px; border-radius: 5px; background-color: #893f31; }
+.wall-note, .wall-hint { padding: 4px 15px; white-space: normal; -unity-text-align: middle-center; }
+.wall-note { background-color: #e4d7b8; color: #433924; font-size: 16px; }
+.wall-hint { margin-top: 8px; background-color: #384439; color: #f5ebcf; font-size: 17px; }
+.wall-threads { position: absolute; left: 0; top: 0; right: 0; bottom: 0; }

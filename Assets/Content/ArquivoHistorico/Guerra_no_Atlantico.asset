@@ -18,14 +18,19 @@ MonoBehaviour:
     trajet\xF3ria brasileira at\xE9 Monte Castello. Sua primeira tarefa \xE9 investigar
     como a guerra atingiu o litoral do Brasil.\n\nExamine o jornal, o decreto e o
     dossi\xEA do Itapag\xE9. Registre as evid\xEAncias, compare as datas e organize
-    os acontecimentos e responda às perguntas sobre as fontes. Depois, acompanhe
-    a reconstrução e use o que observou para concluir o relatório.\n\nWASD:
+    os acontecimentos no quadro da exposição. Responda às perguntas sobre as fontes.
+    Depois da reconstrução, volte ao quadro, ligue as fontes à legenda e conclua
+    o relatório na caderneta.\n\nWASD:
     caminhar \u2022 Mouse: olhar \u2022 E: examinar \u2022 Tab: caderno"
   evidence:
   - {fileID: 11400000, guid: 696af3eac5d96954caa8b486898f654b, type: 2}
   - {fileID: 11400000, guid: 01a4a62c70493184788c59b4c8791aae, type: 2}
   - {fileID: 11400000, guid: fd591885d83c7644e8a6d99c9e84723f, type: 2}
-  chronologyIntroduction: "Selecione os três acontecimentos, do mais antigo ao mais recente. Se precisar conferir uma data, guarde a caderneta e volte ao documento no acervo."
+  boardConclusion: "A navegação brasileira continuou sob ataque depois da entrada do país na guerra."
+  boardSources:
+  - {fileID: 11400000, guid: 01a4a62c70493184788c59b4c8791aae, type: 2}
+  - {fileID: 11400000, guid: fd591885d83c7644e8a6d99c9e84723f, type: 2}
+  chronologyIntroduction: "Fixe os três acontecimentos do mais antigo ao mais recente. Para conferir uma data, volte à fonte na sala."
   chronologyExplanation: "Abril de 1942: o jornal noticia o desaparecimento do Cabedelo.\nAgosto
     de 1942: \xE9 declarado o estado de guerra.\nSetembro de 1943: ocorre o torpedeamento
     do Itapag\xE9.\n\nOs ataques e a decis\xE3o pol\xEDtica s\xE3o acontecimentos

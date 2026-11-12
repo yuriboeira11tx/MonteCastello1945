@@ -216,10 +216,11 @@ namespace FEB.Archive
                 if (archive != null)
                 {
                     ActionButton(left, "Pasta de pesquisa", archive.OpenBriefing);
+                    if (save.ActiveDossier.chronologyOrdered && !save.ActiveDossier.chronologySolved)
+                        ActionButton(left, "Perguntas sobre as fontes", archive.OpenSourceQuestions);
                     if (archive.ActiveCase.fieldStudy) ActionButton(left, "Visita de campo", archive.OpenReconstruction);
                     else
                     {
-                        ActionButton(left, "Organizar a linha do tempo", archive.OpenChronology);
                         if (save.ActiveDossier?.reconstructionViewed != true)
                             ActionButton(left, "Examinar a reconstrução", archive.OpenReconstruction);
                         ActionButton(left, "Relatório da investigação", archive.OpenReport);

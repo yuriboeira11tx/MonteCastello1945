@@ -76,6 +76,7 @@ namespace FEB.Persistence
         public string caseId;
         public string fieldStudyTitle;
         public bool briefingRead, chronologyOrdered, chronologySolved, reconstructionViewed, reportCompleted, followUpCompleted;
+        public bool boardSourcesLinked;
         public List<string> answeredQuestions = new List<string>();
         public double archiveSeconds;
         public int chronologyAttempts, reportAttempts;

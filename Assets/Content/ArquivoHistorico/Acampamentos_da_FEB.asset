@@ -15,14 +15,50 @@ MonoBehaviour:
   caseId: acampamentos_da_feb
   title: Acampamento
   fieldStudy: 1
-  mission: "Na mesa de documentos, junto ao decreto, procure três fotografias da FEB na Itália. Examine as barracas de San Rossore, o preparo do rancho e a carta de um pracinha. Registre cada fonte na caderneta.\n\nDepois, volte à mesa com a tenda em miniatura e o fuzil M1 Garand para visitar o acampamento."
+  mission: "Na mesa junto ao decreto, examine as fotografias das barracas de San Rossore, do preparo do rancho e de um pracinha escrevendo à família. Registre as três fontes.\n\nNo quadro da exposição, associe cada foto a um aspecto da vida em campanha. Responda às perguntas na caderneta e procure a mesa com a tenda e o fuzil M1 Garand para visitar o acampamento."
   evidence:
   - {fileID: 11400000, guid: 912ee55057af4c92ab50933de6307101, type: 2}
   - {fileID: 11400000, guid: 912ee55057af4c92ab50933de6307102, type: 2}
   - {fileID: 11400000, guid: 912ee55057af4c92ab50933de6307103, type: 2}
-  chronologyIntroduction: ""
-  chronologyExplanation: ""
-  chronologyQuestions: []
+  boardThemes:
+  - Abrigo
+  - Alimentação
+  - Correspondência
+  chronologyIntroduction: "Associe cada fotografia ao tema que ela documenta."
+  chronologyExplanation: "As três fotografias mostram como os expedicionários se abrigavam, preparavam as refeições e mantinham contato com suas famílias."
+  chronologyQuestions:
+  - id: campo_san_rossore
+    prompt: "Na fotografia de San Rossore, que detalhe permite perceber a organização do acampamento?"
+    answers:
+    - "As placas com os nomes de todos os soldados."
+    - "As fileiras de barracas e os corredores entre elas."
+    - "A data escrita na entrada do quartel-general."
+    correctAnswer: 1
+    explanation: "A vista do alto mostra fileiras, áreas de circulação e a borda do bosque. A identificação do quartel-general vem do texto que acompanha a fotografia."
+  - id: campo_rancho_civis
+    prompt: "Ao expor a foto de Antônio Martins em Ponte San Pietro, o que a legenda acrescenta sobre as galinhas que ele preparava?"
+    answers:
+    - "Foram preparadas para uma cerimônia de formatura."
+    - "Eram o conteúdo das latas distribuídas à tropa."
+    - "Ajudariam a alimentar moradores italianos."
+    correctAnswer: 2
+    explanation: "A ficha identifica o cozinheiro e informa a quem se destinava a comida. Esse episódio mostra um contato entre os expedicionários e os civis locais."
+  - id: campo_carta_familia
+    prompt: "O que é possível afirmar sobre a carta que o pracinha escreve à porta da barraca?"
+    answers:
+    - "O catálogo identifica a família como destinatária."
+    - "A fotografia permite transcrever as palavras da carta."
+    - "A carta contém ordens sobre a distribuição de rações."
+    correctAnswer: 0
+    explanation: "A fotografia mostra o gesto de escrever. A identificação da família como destinatária vem do catálogo do Arquivo Nacional. O conteúdo da carta permanece desconhecido."
+  - id: campo_legendas_lugares
+    prompt: "Como apresentar os locais das três fotografias na exposição?"
+    answers:
+    - "Identificar as três como vistas de San Rossore."
+    - "Manter a identificação de cada fonte: San Rossore, Ponte San Pietro e Itália."
+    - "Identificar as três como vistas de Ponte San Pietro."
+    correctAnswer: 1
+    explanation: "A vista das barracas é de San Rossore. A foto de Antônio Martins identifica Ponte San Pietro. A ficha do pracinha que escreve só permite situá-lo na Itália."
   reconstructionIntroduction: "Você registrou três aspectos da vida dos expedicionários. Percorra o acampamento e procure no terreno o que reconhece nas fotografias. A caderneta acompanha a visita."
   reportQuestions: []
   reportExplanation: ""

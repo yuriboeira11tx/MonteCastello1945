@@ -22,10 +22,16 @@ namespace FEB.Archive
         public string caseId;
         public string Id => string.IsNullOrWhiteSpace(caseId) ? name : caseId;
         public string title;
-        [Tooltip("As evidências registradas liberam diretamente a visita de campo.")]
+        [Tooltip("A mesa abre uma visita de campo depois das atividades de preparação deste dossiê.")]
         public bool fieldStudy;
         [TextArea(5, 12)] public string mission;
         public HistoricalEvidence[] evidence;
+        [Header("Quadro de evidências")]
+        [TextArea(2, 5)] public string boardConclusion;
+        [Tooltip("Fontes que sustentam a legenda após a reconstrução.")]
+        public HistoricalEvidence[] boardSources = Array.Empty<HistoricalEvidence>();
+        [Tooltip("Nas visitas de campo, informe o tema de cada fotografia na mesma ordem da lista Evidence.")]
+        public string[] boardThemes = Array.Empty<string>();
         [TextArea(3, 8)] public string chronologyIntroduction;
         [TextArea(3, 8)] public string chronologyExplanation;
         [Tooltip("Perguntas sobre as fontes já registradas, depois da ordenação.")]
@@ -48,7 +54,7 @@ namespace FEB.Archive
                 && q.answers != null && q.answers.Length >= 2 && !Array.Exists(q.answers, string.IsNullOrWhiteSpace)
                 && q.correctAnswer >= 0 && q.correctAnswer < q.answers.Length;
             return chronologyQuestions != null && Array.TrueForAll(chronologyQuestions, Valid)
-                && reportQuestions != null && reportQuestions.Length > 0 && Array.TrueForAll(reportQuestions, Valid);
+                && reportQuestions != null && (fieldStudy || reportQuestions.Length > 0) && Array.TrueForAll(reportQuestions, Valid);
         }
     }
 }

@@ -4,7 +4,6 @@ using System.Linq;
 using FEB.Persistence;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 namespace FEB.Archive
 {
@@ -20,14 +19,18 @@ namespace FEB.Archive
         [SerializeField] GameObject campExhibit;
         [SerializeField] GameObject campEvidenceGroup;
         [SerializeField] ArchiveChapterTransition chapterTransition;
-        [SerializeField] UIDocument boardTitle, boardInstructions;
-        readonly List<HistoricalEvidence> orderedEvidence = new List<HistoricalEvidence>();
+        [Header("Quadro da exposição")]
+        [SerializeField] ArchiveEvidenceBoard board;
         ResearchSave progress;
         DossierProgress dossier;
         readonly List<ArchiveCaseDefinition> cases = new List<ArchiveCaseDefinition>();
         float nextAutosave;
         bool leaving;
         bool HasReconstruction => dossier.reconstructionViewed;
+        bool NeedsSourceLink => caseDefinition.boardSources.Length > 0 && !dossier.boardSourcesLinked && !dossier.reportCompleted;
+        bool FieldVisitReady => dossier.chronologySolved || caseDefinition.boardThemes.Length == 0 ||
+            progress.events.Exists(e => e.action == "scene_requested" && e.subject == caseDefinition.reconstructionScene) ||
+            (caseDefinition.reconstructionScene == "Acampamento" && progress.campArrivalCompleted);
         bool AllRegistered => caseDefinition.evidence.Length > 0 &&
             caseDefinition.evidence.All(item => dossier.evidence.Contains(item.id));
         FieldNotebook Notebook => interaction.Notebook;
@@ -37,15 +40,20 @@ namespace FEB.Archive
             get
             {
                 if (dossier == null) return string.Empty;
-                if (caseDefinition.fieldStudy) return AllRegistered
-                    ? "Vá à mesa da maquete com a tenda e a M1 Garand para entrar no acampamento."
-                    : $"Examine os {caseDefinition.evidence.Length} documentos na mesa junto ao decreto. Leia cada ficha e registre a evidência na caderneta.";
-                if (!dossier.briefingRead) return "Examine a pasta de pesquisa sobre a mesa.";
-                if (!caseDefinition.evidence.All(item => dossier.evidence.Contains(item.id))) return "Leia e registre os documentos deste dossiê.";
+                if (caseDefinition.fieldStudy)
+                {
+                    if (!AllRegistered) return $"Examine e registre os {caseDefinition.evidence.Length} documentos na mesa junto ao decreto.";
+                    if (FieldVisitReady) return "Vá à mesa da tenda e da M1 Garand para visitar o acampamento.";
+                    return dossier.chronologyOrdered ? "Responda às perguntas sobre as fotografias na caderneta."
+                        : "No quadro da exposição, associe cada fotografia ao seu tema.";
+                }
+                if (!dossier.briefingRead && dossier.evidence.Count == 0) return "Examine a pasta de pesquisa sobre a mesa.";
+                if (!AllRegistered) return "Leia e registre os documentos deste dossiê.";
                 if (!dossier.chronologySolved) return dossier.chronologyOrdered
-                    ? "Responda às perguntas sobre as fontes na atividade da linha do tempo."
-                    : "Organize os acontecimentos na linha do tempo.";
+                    ? "Responda às perguntas sobre as fontes na caderneta."
+                    : "Fixe os acontecimentos em ordem no quadro da exposição.";
                 if (!HasReconstruction) return "Conclua a atividade na mesa de reconstrução.";
+                if (NeedsSourceLink) return "Volte ao quadro da exposição e ligue as fontes que sustentam a legenda.";
                 if (!dossier.reportCompleted) return "Conclua o relatório na caderneta.";
                 return "Dossiê concluído. Consulte as experiências e dossiês na caderneta.";
             }
@@ -83,7 +91,7 @@ namespace FEB.Archive
             interaction.SetBlocked(false);
             nextAutosave = Time.unscaledTime + 30;
             if (caseDefinition != cases[0] && savedCaseId != caseDefinition.Id) SaveProgress();
-            if (!caseDefinition.fieldStudy && HasReconstruction && !dossier.reportCompleted) OpenReport();
+            if (!caseDefinition.fieldStudy && HasReconstruction && !NeedsSourceLink && !dossier.reportCompleted) OpenReport();
         }
 
         void SelectChapter(ArchiveCaseDefinition chapter)
@@ -92,7 +100,6 @@ namespace FEB.Archive
             dossier = progress.SelectCase(chapter.Id);
             dossier.fieldStudyTitle = chapter.fieldStudy ? chapter.title : null;
             progress.archiveScene = progress.scene = chapter.archiveScene;
-            orderedEvidence.Clear();
         }
 
         void RefreshExhibits()
@@ -101,19 +108,11 @@ namespace FEB.Archive
             if (shipExhibit != null) shipExhibit.SetActive(!showCamp);
             if (campExhibit != null) campExhibit.SetActive(showCamp);
             if (campEvidenceGroup != null) campEvidenceGroup.SetActive(caseDefinition.fieldStudy);
-            RefreshFieldBoard();
+            RefreshBoard();
         }
 
-        void RefreshFieldBoard()
-        {
-            if (!caseDefinition.fieldStudy) return;
-            var title = boardTitle != null ? boardTitle.rootVisualElement?.Q<Label>("text") : null;
-            var instructions = boardInstructions != null ? boardInstructions.rootVisualElement?.Q<Label>("text") : null;
-            if (title != null) title.text = "ACAMPAMENTO DA FEB";
-            if (instructions != null) instructions.text = AllRegistered
-                ? "Fontes registradas.\nExamine a mesa da tenda e da M1 Garand.\nTAB — Abrir caderneta"
-                : "Leia as três fontes na mesa do decreto.\nAbrigo · Rancho · Cotidiano\nTAB — Abrir caderneta";
-        }
+        void RefreshBoard() => board?.SetExhibit(caseDefinition, dossier.evidence,
+            dossier.chronologyOrdered, dossier.boardSourcesLinked);
 
         void Update()
         {
@@ -129,7 +128,7 @@ namespace FEB.Archive
             {
                 case ArchiveAction.Briefing: OpenBriefing(); break;
                 case ArchiveAction.Evidence: OpenEvidence(target.Evidence); break;
-                case ArchiveAction.Chronology: OpenChronology(); break;
+                case ArchiveAction.Chronology: ExamineBoard(); break;
                 case ArchiveAction.Reconstruction: OpenReconstruction(atTable: true); break;
                 case ArchiveAction.Report: OpenReport(); break;
             }
@@ -166,7 +165,7 @@ namespace FEB.Archive
                 () =>
                 {
                     if (!SaveEvidenceStep(dossier.evidence, document.id, "evidence_recorded")) return false;
-                    RefreshFieldBoard();
+                    RefreshBoard();
                     return true;
                 },
                 dossier.readEvidence.Contains(document.id),
@@ -190,65 +189,77 @@ namespace FEB.Archive
         public ArchiveCaseDefinition ActiveCase => caseDefinition;
         public void OpenNotebook() => Notebook.ShowIndex();
 
-        public void OpenChronology()
+        void ExamineBoard()
         {
-            if (caseDefinition.fieldStudy) { OpenReconstruction(); return; }
-            if (!caseDefinition.evidence.All(d => dossier.evidence.Contains(d.id)))
+            if (!AllRegistered)
             {
-                Notebook.ShowActivity("Linha do tempo", "Evidências pendentes", "Consulte e registre todos os documentos deste dossiê. Procure as datas e o que cada fonte permite concluir.");
+                Notebook.ShowActivity("Quadro da exposição", "Fontes por registrar", CurrentObjective + "\n\n" + EvidenceCounts);
                 Notebook.AddChoice("Continuar a pesquisa", Notebook.CloseBook);
                 return;
             }
-            if (dossier.chronologySolved)
+            if (!dossier.chronologyOrdered)
             {
-                Notebook.ShowActivity("Cronologia estabelecida", caseDefinition.title, caseDefinition.chronologyExplanation);
-                Notebook.AddChoice(HasReconstruction ? "Abrir relatório" : "Examinar a reconstrução", OpenReconstruction);
+                BeginBoardTask(caseDefinition.fieldStudy ? ArchiveBoardMode.Camp : ArchiveBoardMode.Chronology);
                 return;
             }
-            if (dossier.chronologyOrdered)
+            if (!dossier.chronologySolved)
             {
-                ShowQuestions(QuestionRound.Sources);
+                OpenSourceQuestions();
                 return;
             }
-            orderedEvidence.Clear();
-            ShowChronologyChoices();
+            if (!caseDefinition.fieldStudy && HasReconstruction && NeedsSourceLink)
+                BeginBoardTask(ArchiveBoardMode.Sources);
+            else if (!caseDefinition.fieldStudy && HasReconstruction)
+                OpenReport();
+            else
+                OpenReconstruction();
         }
 
-        void ShowChronologyChoices()
+        void BeginBoardTask(ArchiveBoardMode mode)
         {
-            var selected = string.Join("\n", orderedEvidence.Select((d, i) => $"{i + 1}. {d.chronologyLabel}"));
-            Notebook.ShowActivity("Organize os acontecimentos", "Do mais antigo ao mais recente", caseDefinition.chronologyIntroduction + "\n\n" + selected);
-            foreach (var document in caseDefinition.evidence.OrderByDescending(d => d.chronologyOrder))
+            if (board == null)
             {
-                var item = document;
-                Notebook.AddChoice(item.chronologyLabel, () =>
-                {
-                    orderedEvidence.Add(item);
-                    if (orderedEvidence.Count == caseDefinition.evidence.Length) CheckChronology();
-                    else ShowChronologyChoices();
-                }, !orderedEvidence.Contains(item));
-            }
-            Notebook.AddChoice("Recomeçar a ordenação", OpenChronology);
-        }
-
-        void CheckChronology()
-        {
-            bool correct = orderedEvidence.SequenceEqual(orderedEvidence.OrderBy(d => d.chronologyOrder));
-            dossier.chronologyAttempts++;
-            progress.Record("chronology_answer", caseDefinition.Id, string.Join(",", orderedEvidence.Select(d => d.id)) + ";correct=" + correct);
-            dossier.chronologyOrdered = correct;
-            dossier.chronologySolved = correct && caseDefinition.chronologyQuestions.Length == 0;
-            if (!SaveProgress())
-            {
-                dossier.chronologyOrdered = dossier.chronologySolved = false;
-                dossier.chronologyAttempts--;
-                progress.events.RemoveAt(progress.events.Count - 1);
+                Debug.LogError("Associe o quadro da exposição ao ArchiveExperience na cena.", this);
                 return;
             }
-            Notebook.ShowActivity(correct ? "Cronologia estabelecida" : "Reveja as datas", correct ? caseDefinition.title : "Consulte os documentos no acervo", correct ? caseDefinition.chronologyExplanation : "Volte aos documentos, compare as datas e tente ordenar os acontecimentos novamente.");
-            if (dossier.chronologySolved) Notebook.AddChoice("Examinar a reconstrução", OpenReconstruction);
-            else Notebook.AddChoice(correct ? "Responder sobre as fontes" : "Tentar novamente", OpenChronology);
-            Notebook.AddChoice("Voltar ao arquivo", Notebook.CloseBook);
+            interaction.SetBlocked(true);
+            board.Show(mode, caseDefinition, () => FinishBoardTask(mode),
+                () => interaction.SetBlocked(false), () => SaveBoardAttempt(mode, false));
+        }
+
+        bool SaveBoardAttempt(ArchiveBoardMode mode, bool correct)
+        {
+            bool chronology = mode == ArchiveBoardMode.Chronology;
+            string action = chronology ? "chronology_answer" : mode == ArchiveBoardMode.Camp ? "board_themes" : "board_sources";
+            if (chronology) dossier.chronologyAttempts++;
+            progress.Record(action, caseDefinition.Id, "correct=" + correct);
+            if (SaveProgress(showError: correct)) return true;
+            if (chronology) dossier.chronologyAttempts--;
+            progress.events.RemoveAt(progress.events.Count - 1);
+            return false;
+        }
+
+        void FinishBoardTask(ArchiveBoardMode mode)
+        {
+            if (mode == ArchiveBoardMode.Sources)
+            {
+                dossier.boardSourcesLinked = true;
+                if (!SaveBoardAttempt(mode, true)) { dossier.boardSourcesLinked = false; return; }
+                RefreshBoard();
+                OpenReport();
+                return;
+            }
+            dossier.chronologyOrdered = true;
+            dossier.chronologySolved = caseDefinition.chronologyQuestions.Length == 0;
+            if (!SaveBoardAttempt(mode, true)) { dossier.chronologyOrdered = dossier.chronologySolved = false; return; }
+            RefreshBoard();
+            if (dossier.chronologySolved) OpenReconstruction();
+            else OpenSourceQuestions();
+        }
+
+        public void OpenSourceQuestions()
+        {
+            if (dossier.chronologyOrdered && !dossier.chronologySolved) ShowQuestions(QuestionRound.Sources);
         }
 
         public void OpenReconstruction() => OpenReconstruction(atTable: false);
@@ -257,25 +268,26 @@ namespace FEB.Archive
         {
             if (caseDefinition.fieldStudy)
             {
+                bool canEnter = atTable && AllRegistered && FieldVisitReady;
                 Notebook.ShowActivity("Visita de campo", caseDefinition.title,
-                    atTable && AllRegistered ? caseDefinition.reconstructionIntroduction : CurrentObjective + "\n\n" + EvidenceCounts);
-                if (atTable && AllRegistered)
+                    canEnter ? caseDefinition.reconstructionIntroduction : CurrentObjective + "\n\n" + EvidenceCounts);
+                if (canEnter)
                     Notebook.AddChoice("Entrar no acampamento", () => LeaveFor(caseDefinition.reconstructionScene));
                 else Notebook.AddChoice("Voltar ao arquivo", Notebook.CloseBook);
                 return;
             }
             if (HasReconstruction) { OpenReport(); return; }
-            Notebook.ShowActivity("Reconstrução interativa", caseDefinition.title, dossier.chronologySolved ? caseDefinition.reconstructionIntroduction + "\n\nSegure Esc por 2 segundos para voltar ao arquivo. Sair antes de concluir mantém a atividade pendente." : "Registre as fontes, organize a linha do tempo e responda às perguntas sobre os documentos para liberar a reconstrução.");
+            Notebook.ShowActivity("Reconstrução interativa", caseDefinition.title, dossier.chronologySolved ? caseDefinition.reconstructionIntroduction + "\n\nSegure Esc por 2 segundos para voltar ao arquivo. Sair antes de concluir mantém a atividade pendente." : CurrentObjective);
             Notebook.AddChoice("Examinar reconstrução", () => LeaveFor(caseDefinition.reconstructionScene), dossier.chronologySolved);
-            if (!dossier.chronologySolved && AllRegistered) Notebook.AddChoice("Abrir linha do tempo", OpenChronology);
+            if (dossier.chronologyOrdered && !dossier.chronologySolved) Notebook.AddChoice("Perguntas sobre as fontes", OpenSourceQuestions);
         }
 
         public void OpenReport()
         {
             if (caseDefinition.fieldStudy) { OpenReconstruction(); return; }
-            if (!HasReconstruction)
+            if (!HasReconstruction || NeedsSourceLink)
             {
-                Notebook.ShowActivity("Relatório de pesquisa", "Investigação em andamento", "Registre as evidências, organize a cronologia e examine a reconstrução para concluir o dossiê.");
+                Notebook.ShowActivity("Relatório de pesquisa", "Investigação em andamento", CurrentObjective);
                 Notebook.AddChoice("Voltar ao arquivo", Notebook.CloseBook);
                 return;
             }
@@ -294,7 +306,7 @@ namespace FEB.Archive
             }
             var questions = round == QuestionRound.Report ? caseDefinition.reportQuestions : caseDefinition.chronologyQuestions;
             int answered = questions.Count(q => dossier.answeredQuestions.Contains(q.id));
-            string title = round == QuestionRound.Report ? "Relatório da reconstrução" : "Linha do tempo e fontes";
+            string title = round == QuestionRound.Report ? "Relatório da reconstrução" : "Perguntas sobre as fontes";
             if (answered == questions.Length)
             {
                 if (round == QuestionRound.Report)
@@ -305,7 +317,7 @@ namespace FEB.Archive
                 else
                 {
                     dossier.chronologySolved = true;
-                    if (SaveProgress()) OpenChronology();
+                    if (SaveProgress()) OpenReconstruction();
                     else dossier.chronologySolved = false;
                 }
                 return;
@@ -322,8 +334,8 @@ namespace FEB.Archive
         void SubmitAnswer(QuestionRound round, ArchiveQuestion question, int answer)
         {
             bool report = round == QuestionRound.Report;
-            if (leaving || dossier.reportCompleted || caseDefinition.fieldStudy || dossier.answeredQuestions.Contains(question.id)) return;
-            if (report ? !HasReconstruction : !dossier.chronologyOrdered || dossier.chronologySolved) return;
+            if (leaving || dossier.reportCompleted || dossier.answeredQuestions.Contains(question.id)) return;
+            if (report ? caseDefinition.fieldStudy || !HasReconstruction || NeedsSourceLink : !dossier.chronologyOrdered || dossier.chronologySolved) return;
             bool correct = answer == question.correctAnswer;
             if (report) dossier.reportAttempts++;
             progress.Record(report ? "report_answer" : "source_answer", caseDefinition.Id, $"{question.id};answer={answer};correct={correct}");
@@ -339,17 +351,17 @@ namespace FEB.Archive
                 progress.events.RemoveAt(progress.events.Count - 1);
                 return;
             }
-            Notebook.ShowActivity(report ? "Relatório da reconstrução" : "Linha do tempo e fontes",
+            Notebook.ShowActivity(report ? "Relatório da reconstrução" : "Perguntas sobre as fontes",
                 correct ? "Resposta correta" : "Reveja as evidências", question.explanation);
             if (finished && report) Notebook.AddChoice("Concluir dossiê", CompleteReport);
-            else if (finished) Notebook.AddChoice("Examinar a reconstrução", OpenReconstruction);
+            else if (finished) Notebook.AddChoice(caseDefinition.fieldStudy ? "Preparar visita de campo" : "Examinar a reconstrução", OpenReconstruction);
             else Notebook.AddChoice(correct ? "Próxima pergunta" : "Tentar novamente", () => ShowQuestions(round));
             Notebook.AddChoice("Voltar aos documentos no acervo", Notebook.CloseBook);
         }
 
         void CompleteReport()
         {
-            if (leaving || !HasReconstruction || dossier.reportCompleted || caseDefinition.fieldStudy ||
+            if (leaving || !HasReconstruction || NeedsSourceLink || dossier.reportCompleted || caseDefinition.fieldStudy ||
                 !caseDefinition.QuestionsAreValid() || !caseDefinition.reportQuestions.All(q => dossier.answeredQuestions.Contains(q.id))) return;
             if (caseDefinition.nextCase != null) { AdvanceChapter(); return; }
             dossier.reportCompleted = true;

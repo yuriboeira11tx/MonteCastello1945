@@ -1,4 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements">
     <ui:Style src="Cronologia_Conteudo.uss" />
-    <ui:Label name="text" text="1. IMPRENSA&#10;2. ESTADO DE GUERRA&#10;3. ITAPAGÉ&#10;TAB — Abrir caderneta" class="world-text" picking-mode="Ignore" />
+    <ui:VisualElement class="wall-display" picking-mode="Ignore">
+        <ui:VisualElement name="photos" class="wall-photos" picking-mode="Ignore" />
+        <ui:Label name="wallNote" class="wall-note" text="As reproduções são afixadas ao registrar cada fonte." picking-mode="Ignore" />
+        <ui:Label class="wall-hint" text="E — Trabalhar no quadro     ·     TAB — Abrir caderneta" picking-mode="Ignore" />
+    </ui:VisualElement>
 </ui:UXML>
