@@ -1,0 +1,383 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!29 &1
+OcclusionCullingSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_OcclusionBakeSettings:
+    smallestOccluder: 5
+    smallestHole: 0.25
+    backfaceThreshold: 100
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
+--- !u!104 &2
+RenderSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 10
+  m_Fog: 0
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogMode: 3
+  m_FogDensity: 0.01
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 300
+  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 0
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_HaloStrength: 0.5
+  m_FlareStrength: 1
+  m_FlareFadeSpeed: 3
+  m_HaloTexture: {fileID: 0}
+  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
+  m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
+  m_ReflectionIntensity: 1
+  m_CustomReflection: {fileID: 0}
+  m_Sun: {fileID: 0}
+  m_UseRadianceAmbientProbe: 0
+--- !u!157 &3
+LightmapSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
+  m_GISettings:
+    serializedVersion: 2
+    m_BounceScale: 1
+    m_IndirectOutputScale: 1
+    m_AlbedoBoost: 1
+    m_EnvironmentLightingMode: 0
+    m_EnableBakedLightmaps: 1
+    m_EnableRealtimeLightmaps: 0
+  m_LightmapEditorSettings:
+    serializedVersion: 12
+    m_Resolution: 2
+    m_BakeResolution: 40
+    m_AtlasSize: 1024
+    m_AO: 0
+    m_AOMaxDistance: 1
+    m_CompAOExponent: 1
+    m_CompAOExponentDirect: 0
+    m_ExtractAmbientOcclusion: 0
+    m_Padding: 2
+    m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
+    m_TextureCompression: 1
+    m_ReflectionCompression: 2
+    m_MixedBakeMode: 2
+    m_BakeBackend: 2
+    m_PVRSampling: 1
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 512
+    m_PVRBounces: 2
+    m_PVREnvironmentSampleCount: 256
+    m_PVREnvironmentReferencePointCount: 2048
+    m_PVRFilteringMode: 1
+    m_PVRDenoiserTypeDirect: 2
+    m_PVRDenoiserTypeIndirect: 2
+    m_PVRDenoiserTypeAO: 2
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
+    m_PVREnvironmentMIS: 1
+    m_PVRCulling: 1
+    m_PVRFilteringGaussRadiusDirect: 1
+    m_PVRFilteringGaussRadiusIndirect: 1
+    m_PVRFilteringGaussRadiusAO: 1
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
+  m_LightingDataAsset: {fileID: 20201, guid: 0000000000000000f000000000000000, type: 0}
+  m_LightingSettings: {fileID: 0}
+--- !u!196 &4
+NavMeshSettings:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_BuildSettings:
+    serializedVersion: 3
+    agentTypeID: 0
+    agentRadius: 0.5
+    agentHeight: 2
+    agentSlope: 45
+    agentClimb: 0.4
+    ledgeDropHeight: 0
+    maxJumpAcrossDistance: 0
+    minRegionArea: 2
+    manualCellSize: 0
+    cellSize: 0.16666667
+    manualTileSize: 0
+    tileSize: 256
+    buildHeightMesh: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
+    debug:
+      m_Flags: 0
+  m_NavMeshData: {fileID: 0}
+--- !u!1 &1071240838
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1071240841}
+  - component: {fileID: 1071240840}
+  - component: {fileID: 1071240839}
+  m_Layer: 0
+  m_Name: Tela de carregamento
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1071240839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071240838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d70bfad648b92144bea85e5c4d9b995, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::FEB.UI.SceneLoadingScreen
+  startupDestination: Menu
+  minimumSeconds: 4
+  cards:
+  - title: As barracas de San Rossore
+    portrait: {fileID: 2800000, guid: f3f313ba432ba704193b6107c48c4d45, type: 3}
+    fact: "Antes de subir os Apeninos, brasileiros do segundo e do terceiro escal\xF5es acamparam em San Rossore, perto de Pisa."
+    source: "Ana Am\xE9lia Gimenez Dias, UFJF (2024), p. 103. https://repositorio.ufjf.br/jspui/bitstream/ufjf/16689/1/anaameliagimenezdias.pdf#page=104"
+  - title: "Vozes da It\xE1lia"
+    portrait: {fileID: 2800000, guid: d05add158a82c3849bddbb4519944697, type: 3}
+    fact: "Chico da BBC gravava entrevistas com os pracinhas na It\xE1lia. De Londres, suas vozes chegavam ao Brasil pelas ondas curtas."
+    source: "R\xE1dio MEC, O r\xE1dio faz hist\xF3ria. https://radiomec.ebc.com.br/programas/todas-as-vozes/bbc-entrevistou-brasileiros-sobre-comida-na-segunda-guerra-mundial"
+  - title: "O cozinheiro no r\xE1dio"
+    portrait: {fileID: 2800000, guid: 95f757d7cd9a19646aae23f9190eaff0, type: 3}
+    fact: "Arlindo Form\xE9, cozinheiro da FEB, contou ao microfone de Chico da BBC como eram as refei\xE7\xF5es servidas na It\xE1lia."
+    source: "R\xE1dio MEC, grava\xE7\xE3o da entrevista com Arlindo Form\xE9. https://radiomec.ebc.com.br/programas/todas-as-vozes/bbc-entrevistou-brasileiros-sobre-comida-na-segunda-guerra-mundial"
+  - title: Uma segunda vida para a lata
+    portrait: {fileID: 2800000, guid: e4047ee26be8c7f4e9d12124a64eb9b4, type: 3}
+    fact: "Depois de comer a ra\xE7\xE3o, alguns pracinhas guardavam dinheiro nas latas vazias. O metal protegia o conte\xFAdo da umidade."
+    source: Frederico de Oliveira Toscano, A guerra das scatolettas, Anais do Museu Paulista (2020). https://doi.org/10.1590/1982-02672020v28e47
+  - title: "A ra\xE7\xE3o de combate"
+    portrait: {fileID: 2800000, guid: 5aa3cd68751f2e64aaf7be99fbe16bf4, type: 3}
+    fact: "Uma foto da campanha mostra fuzileiros da FEB comendo direto das latas. Ao lado deles est\xE1 o caixote de madeira da ra\xE7\xE3o tipo C."
+    source: Frederico de Oliveira Toscano, A guerra das scatolettas, figura 5. https://www.scielo.br/j/anaismp/a/wZypyMvkk7C8btPRRB69n4x/?lang=pt
+  - title: As enfermeiras de Pistoia
+    portrait: {fileID: 2800000, guid: 2480d2326d55c1041a3a115af160ace0, type: 3}
+    fact: "Em mar\xE7o de 1945, enfermeiras brasileiras cuidavam de doentes e feridos em um hospital de evacua\xE7\xE3o norte-americano na regi\xE3o de Pistoia."
+    source: "Casa de Oswaldo Cruz, Fundo Virg\xEDnia Portocarrero, item 083, 10/03/1945. https://basearch.coc.fiocruz.br/corpo-de-enfermeiras-da-feb-designadas-ao-16th-evacuation-hospital-em-pistoia"
+  - title: Cartas de casa
+    portrait: {fileID: 2800000, guid: 0d204a9f44fe3ea4ca836f07a9624ffe, type: 3}
+    fact: "O Servi\xE7o Postal da FEB transportava as cartas entre o Brasil e a frente italiana. At\xE9 as mensagens enviadas pelas fam\xEDlias passavam pela censura."
+    source: "Moreira e colaboradores, O p\xE3o espiritual dos soldados e os relat\xF3rios confidenciais do Servi\xE7o Postal da FEB. https://doi.org/10.12957/revmar.2022.64416"
+  - title: O obuseiro de 105 mm
+    portrait: {fileID: 2800000, guid: de5f8bebaa15c7f41b83c028a0bb15ca, type: 3}
+    fact: "A FEB levou quatro grupos de artilharia \xE0 It\xE1lia. Os artilheiros brasileiros operavam obuseiros norte-americanos de dois calibres, 105 e 155 mil\xEDmetros."
+    source: "Museu Virtual da FEB, Esquadrilha de Liga\xE7\xE3o e Observa\xE7\xE3o. https://museuvirtualdafeb.eb.mil.br/a-elo/"
+  - title: O mapa do observador
+    portrait: {fileID: 2800000, guid: 89eaf14b858dc27409a87d1683c5bac0, type: 3}
+    fact: "Do avi\xE3o, o observador marcava o alvo em um mapa quadriculado. Pelo r\xE1dio, enviava as coordenadas \xE0 artilharia em terra."
+    source: "Museu Virtual da FEB, Esquadrilha de Liga\xE7\xE3o e Observa\xE7\xE3o. https://museuvirtualdafeb.eb.mil.br/a-elo/"
+  - title: O capacete virava panela
+    portrait: {fileID: 2800000, guid: 2d919548e44b7484cabaeab8606822cb, type: 3}
+    fact: "O forro do capacete M1 era remov\xEDvel. Um veterano da FEB contou que usava a parte de a\xE7o para cozinhar batatas."
+    source: "Anderson Fagundes de Moura, pesquisa sobre o Museu do Expedicion\xE1rio, p. 95. https://educapes.capes.gov.br/bitstream/capes/921259/2/R%20-%20D%20-%20ANDERSON%20FAGUNDES%20DE%20MOURA.pdf"
+  - title: "O ca\xE7a de um s\xF3 piloto"
+    portrait: {fileID: 2800000, guid: d0f18f6a285f42f4db43c7dcc1c26530, type: 3}
+    fact: "Na It\xE1lia, os pilotos brasileiros do 1\xBA Grupo de Avia\xE7\xE3o de Ca\xE7a atacavam alvos em terra com o P-47D Thunderbolt, um avi\xE3o de um s\xF3 lugar."
+    source: Museu Aeroespacial, Republic P-47D Thunderbolt. https://www2.fab.mil.br/musal/index.php/aeronaves-em-exposicao?catid=55&id=352%3Ap-47d&view=article
+  - title: "O vapor Itapag\xE9"
+    portrait: {fileID: 2800000, guid: eefba1ac84cdc1b4fb03e84d553559b5, type: 3}
+    fact: "Em 26 de setembro de 1943, o mercante brasileiro Itapag\xE9 foi torpedeado perto da costa de Alagoas."
+    source: "Diretoria do Patrim\xF4nio Hist\xF3rico e Documenta\xE7\xE3o da Marinha, Marinha do Brasil na Segunda Guerra Mundial, parte 5. https://www.marinha.mil.br/dphdm/sites/www.marinha.mil.br.dphdm/files/4-2011%20revista.pdf"
+--- !u!114 &1071240840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071240838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name:
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: 7ac3ddb3ab4186e428f4550dab5959cf, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: fbf41e6529aa1d04885ad2845624e8fc, type: 3}
+  m_SortingOrder: 0
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!4 &1071240841
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071240838}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1227102428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1227102432}
+  - component: {fileID: 1227102431}
+  - component: {fileID: 1227102430}
+  - component: {fileID: 1227102429}
+  m_Layer: 0
+  m_Name: "C\xE2mera de carregamento"
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1227102429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227102428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
+  m_RenderShadows: 0
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
+--- !u!81 &1227102430
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227102428}
+  m_Enabled: 1
+--- !u!20 &1227102431
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227102428}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 0
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_AllowMSAA: 0
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1227102432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227102428}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1660057539 &9223372036854775807
+SceneRoots:
+  m_ObjectHideFlags: 0
+  m_Roots:
+  - {fileID: 1227102432}
+  - {fileID: 1071240841}

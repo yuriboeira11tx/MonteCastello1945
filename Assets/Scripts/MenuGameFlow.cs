@@ -4,7 +4,6 @@ using FEB.Persistence;
 using FEB.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 [RequireComponent(typeof(UIDocument))]
@@ -147,14 +146,12 @@ public sealed class MenuGameFlow : MonoBehaviour
         loading = true;
         menu.NewGameButton.SetEnabled(false);
         menu.ContinueButton.SetEnabled(false);
-        panelTitle.text = "CARREGANDO";
-        panelMessage.text = "Preparando sua pesquisa…";
         foreach (var button in slotButtons) button.SetEnabled(false);
         cancelButton.SetEnabled(false);
         ScreenUI.Show(confirmOverwriteButton, false);
         ScreenUI.Show(continueSlotButton, false);
-        OpenPanel();
-        SceneManager.LoadSceneAsync(scene);
+        menu.SetMenuEnabled(false);
+        SceneLoadingScreen.Load(scene);
     }
 
     void ShowError(string message)

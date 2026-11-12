@@ -2,7 +2,7 @@ using FEB.Persistence;
 using FEB.Cinematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
+using FEB.UI;
 
 namespace FEB.Archive
 {
@@ -35,7 +35,7 @@ namespace FEB.Archive
             progress.Record(session.Completed ? "reconstruction_completed" : session.Defeated ? "naval_exercise_failed" : "reconstruction_left", progress.activeCaseId);
             if (!ResearchSaveStore.Save(out _)) { progress.scene = previousScene; return; }
             returning = true;
-            SceneManager.LoadSceneAsync(destination);
+            SceneLoadingScreen.Load(destination);
         }
 
         void OnDestroy() { if (session != null) session.ReturnRequested -= ReturnToArchive; }

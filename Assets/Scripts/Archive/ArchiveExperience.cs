@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FEB.Persistence;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using FEB.UI;
 
 namespace FEB.Archive
 {
@@ -462,7 +462,7 @@ namespace FEB.Archive
             if (!SaveProgress()) { progress.scene = previousScene; return; }
             leaving = true;
             interaction.SetBlocked(true);
-            SceneManager.LoadSceneAsync(scene);
+            SceneLoadingScreen.Load(scene);
         }
 
         void OnApplicationPause(bool paused) { if (paused && !leaving) SaveProgress(); }

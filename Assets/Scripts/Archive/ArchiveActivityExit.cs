@@ -1,6 +1,6 @@
 using FEB.Persistence;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using FEB.UI;
 
 namespace FEB.Archive
 {
@@ -36,7 +36,7 @@ namespace FEB.Archive
             progress.Record(complete ? "activity_completed" : "activity_left", progress.activeCaseId);
             if (!ResearchSaveStore.Save(out _)) { progress.scene = previousScene; return; }
             returning = true;
-            SceneManager.LoadSceneAsync(destination);
+            SceneLoadingScreen.Load(destination);
         }
     }
 }
