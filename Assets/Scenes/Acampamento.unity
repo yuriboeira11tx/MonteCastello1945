@@ -15,15 +15,15 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
   m_Fog: 1
-  m_FogColor: {r: 0.651, g: 0.661, b: 0.677, a: 1}
+  m_FogColor: {r: 0.69, g: 0.744, b: 0.79, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.0046
+  m_FogDensity: 0.00315
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1.08
+  m_AmbientIntensity: 0.9
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: ecd7959c6e582fa4fabd8025824ba879, type: 2}
@@ -35,7 +35,7 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 0.84
+  m_ReflectionIntensity: 0.88
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 466632047}
   m_UseRadianceAmbientProbe: 0
@@ -14253,8 +14253,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 13
   m_Type: 1
-  m_Color: {r: 1, g: 0.984, b: 0.954, a: 1}
-  m_Intensity: 1.48
+  m_Color: {r: 1, g: 0.965, b: 0.91, a: 1}
+  m_Intensity: 2.35
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -14263,9 +14263,9 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.68
+    m_Strength: 0.94
     m_Bias: 0.14
-    m_NormalBias: 0.3
+    m_NormalBias: 0.21
     m_NearPlane: 0.2
     m_CullingMatrixOverride:
       e00: 1
@@ -14316,13 +14316,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466632046}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20778506, y: 0.034136858, z: -0.0072560133, w: 0.97755176}
+  m_LocalRotation: {x: 0.3917504, y: -0.23505744, z: 0.104236744, w: 0.88341063}
   m_LocalPosition: {x: 568.09, y: 206.9, z: 403.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 24, y: 4, z: 0}
+  m_LocalEulerAnglesHint: {x: 47.83, y: -29.8, z: 0}
 --- !u!114 &466632049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14340,7 +14340,7 @@ MonoBehaviour:
   m_CustomShadowLayers: 0
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 3
+  m_SoftShadowQuality: 1
   m_RenderingLayersMask:
     serializedVersion: 0
     m_Bits: 1
