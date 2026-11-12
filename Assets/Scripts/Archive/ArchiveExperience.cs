@@ -10,6 +10,7 @@ namespace FEB.Archive
     public sealed class ArchiveExperience : MonoBehaviour
     {
         enum QuestionRound { Sources, Report }
+        const int RoomRevision = 1;
 
         [SerializeField] ArchiveCaseDefinition caseDefinition;
         [SerializeField] ArchivePlayerInteraction interaction;
@@ -42,7 +43,7 @@ namespace FEB.Archive
                 if (dossier == null) return string.Empty;
                 if (caseDefinition.fieldStudy)
                 {
-                    if (!AllRegistered) return $"Examine e registre os {caseDefinition.evidence.Length} documentos na mesa junto ao decreto.";
+                    if (!AllRegistered) return $"Localize e registre as {caseDefinition.evidence.Length} fotografias do acampamento no escritório.";
                     if (FieldVisitReady) return "Vá à mesa da tenda e da M1 Garand para visitar o acampamento.";
                     return dossier.chronologyOrdered ? "Responda às perguntas sobre as fotografias na caderneta."
                         : "No quadro da exposição, associe cada fotografia ao seu tema.";
@@ -81,7 +82,7 @@ namespace FEB.Archive
                 if (!dossier.reconstructionViewed || !dossier.reportCompleted) break;
             }
             RefreshExhibits();
-            if (progress.hasPlayerPosition)
+            if (progress.hasPlayerPosition && progress.archiveRoomRevision == RoomRevision)
             {
                 var controller = player.GetComponent<CharacterController>();
                 controller.enabled = false;
@@ -439,6 +440,7 @@ namespace FEB.Archive
         {
             if (progress == null) return true;
             progress.hasPlayerPosition = true;
+            progress.archiveRoomRevision = RoomRevision;
             progress.playerPosition = player.position;
             progress.playerYaw = player.eulerAngles.y;
             if (ResearchSaveStore.Save(out var error)) return true;

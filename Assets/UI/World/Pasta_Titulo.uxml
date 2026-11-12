@@ -1,1 +1,1 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements"><ui:Style src="Pasta_Titulo.uss" /><ui:Label name="text" text="PESQUISA&#10;A guerra chega ao Brasil" class="world-text" picking-mode="Ignore" /></ui:UXML>
+<ui:UXML xmlns:ui="UnityEngine.UIElements"><ui:Style src="Pasta_Titulo.uss" /><ui:Label name="text" text="ARQUIVO HISTÓRICO&#10;Pasta de pesquisa" class="world-text" picking-mode="Ignore" /></ui:UXML>

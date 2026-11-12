@@ -20,6 +20,7 @@ namespace FEB.Persistence
         public bool formationUnlocked;
         public bool campArrivalCompleted;
         public bool hasPlayerPosition;
+        public int archiveRoomRevision;
         public Vector3 playerPosition;
         public float playerYaw;
         public double archiveSeconds;

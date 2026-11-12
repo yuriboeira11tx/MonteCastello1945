@@ -15,7 +15,7 @@ MonoBehaviour:
   caseId: acampamentos_da_feb
   title: Acampamento
   fieldStudy: 1
-  mission: "Na mesa junto ao decreto, examine as fotografias das barracas de San Rossore, do preparo do rancho e de um pracinha escrevendo à família. Registre as três fontes.\n\nNo quadro da exposição, associe cada foto a um aspecto da vida em campanha. Responda às perguntas na caderneta e procure a mesa com a tenda e o fuzil M1 Garand para visitar o acampamento."
+  mission: "O arquivo recebeu três fotografias da campanha da Itália. Procure as barracas de San Rossore no armário metálico, a hora do rancho sobre as caixas de arquivo e o pracinha escrevendo à família no balcão ao lado da porta. Examine e registre cada fonte.\n\nNo quadro da exposição, associe cada foto a um aspecto da vida em campanha. Responda às perguntas na caderneta e procure a mesa com a tenda e o fuzil M1 Garand para visitar o acampamento."
   evidence:
   - {fileID: 11400000, guid: 912ee55057af4c92ab50933de6307101, type: 2}
   - {fileID: 11400000, guid: 912ee55057af4c92ab50933de6307102, type: 2}
