@@ -1,0 +1,22 @@
+.board-ink, .board-ink Label, .board-ink Button {
+    -unity-font-definition: url("project://database/Assets/UI/Fonts/Excalifont-Regular.ttf");
+    -unity-font-style: normal;
+    color: #302e26;
+}
+
+.paper-sheet, .wall-card, .board-card, .board-tag, .board-caption, .board-feedback, .board-tool {
+    background-color: #e8dcc5;
+    background-image: url("project://database/Assets/UI/Archive/Papeis/PapelDeArquivo.png");
+    background-size: 100% 100%;
+    -unity-background-image-tint-color: #f7f2e7;
+    border-radius: 0;
+}
+
+.paper-tape {
+    position: absolute;
+    background-color: rgba(213, 193, 153, 0.82);
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(108, 84, 46, 0.38);
+    border-left-width: 1px;
+    border-left-color: rgba(250, 236, 202, 0.65);
+}

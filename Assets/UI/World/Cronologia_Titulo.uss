@@ -1,1 +1,27 @@
-.world-text { flex-grow: 1; align-self: center; margin: 0; padding: 0 9px; white-space: normal; -unity-text-align: middle-center; -unity-font-definition: url("../Fonts/SpecialElite.asset"); font-size: 15px; color: #efe4cd; background-color: #394438; }
+@import url("project://database/Assets/UI/Archive/Papeis/PapeisDoQuadro.uss");
+
+.title-sheet {
+    align-self: center;
+    min-width: 66%;
+    max-width: 91%;
+    flex-grow: 1;
+    justify-content: center;
+    padding: 0 13px;
+    rotate: -1deg;
+    border-bottom-width: 0.8px;
+    border-bottom-color: #897553;
+}
+.title-sheet Label {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    -unity-text-align: middle-center;
+}
+.title-sheet .paper-tape {
+    width: 15px;
+    height: 5px;
+    border-bottom-width: 0.35px;
+    border-left-width: 0.35px;
+}
+.title-tape-left { left: -3px; top: 1px; rotate: -18deg; }
+.title-tape-right { right: -3px; bottom: 1px; rotate: -21deg; }

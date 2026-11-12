@@ -2,16 +2,20 @@
     <ui:Style src="QuadroDeEvidencias.uss" />
     <ui:VisualElement name="boardRoot" class="screen hidden" picking-mode="Ignore">
         <ui:VisualElement name="boardFrame" class="board-frame" picking-mode="Ignore">
-            <ui:VisualElement name="boardSurface" class="board-surface" picking-mode="Ignore">
+            <ui:VisualElement name="boardSurface" class="board-surface board-ink" picking-mode="Ignore">
                 <ui:VisualElement class="board-header" picking-mode="Ignore">
-                    <ui:Label name="boardTitle" class="board-heading stencil" picking-mode="Ignore" />
-                    <ui:Button name="closeBoard" text="Sair · Esc" class="board-tool typewriter" />
+                    <ui:VisualElement class="board-title-sheet paper-sheet" picking-mode="Ignore">
+                        <ui:Label name="boardTitle" class="board-heading" picking-mode="Ignore" />
+                        <ui:VisualElement class="paper-tape header-tape-left" picking-mode="Ignore" />
+                        <ui:VisualElement class="paper-tape header-tape-right" picking-mode="Ignore" />
+                    </ui:VisualElement>
+                    <ui:Button name="closeBoard" text="Sair · Esc" class="board-tool" />
                 </ui:VisualElement>
                 <ui:VisualElement name="boardCards" class="board-cards" picking-mode="Ignore" />
                 <ui:VisualElement name="boardLabels" class="board-labels" picking-mode="Ignore" />
                 <ui:VisualElement class="board-controls" picking-mode="Ignore">
                     <ui:Label name="boardFeedback" class="board-feedback" picking-mode="Ignore" />
-                    <ui:Button name="checkBoard" text="Conferir" class="board-tool typewriter" />
+                    <ui:Button name="checkBoard" text="Conferir" class="board-tool" />
                 </ui:VisualElement>
                 <ui:VisualElement name="boardThreads" class="board-thread-layer" picking-mode="Ignore" />
             </ui:VisualElement>

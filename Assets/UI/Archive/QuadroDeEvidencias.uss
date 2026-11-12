@@ -1,3 +1,5 @@
+@import url("project://database/Assets/UI/Archive/Papeis/PapeisDoQuadro.uss");
+
 .board-frame, .board-surface { position: absolute; }
 .board-surface {
     width: 1440px;
@@ -12,14 +14,20 @@
 }
 .board-header, .board-controls { justify-content: space-between; flex-shrink: 0; }
 .board-header { margin-bottom: 18px; }
-.board-heading, .board-card, .board-tag, .board-caption, .board-feedback {
-    background-color: #f2e9cc;
-    background-image: url("Papeis/PapelDeArquivo.png");
-    background-size: 100% 100%;
-    border-color: #ac9976 #a18c65 #796746 #bbab8c;
-    border-width: 1px 2px 3px 1px;
+.board-title-sheet {
+    min-width: 46%;
+    rotate: -0.9deg;
+    border-bottom-width: 2px;
+    border-bottom-color: #907957;
 }
-.board-heading { -unity-text-align: middle-left; padding: 7px 24px 9px; color: #333c2e; font-size: 38px; }
+.board-heading { -unity-text-align: middle-center; padding: 4px 33px 9px; font-size: 40px; }
+.board-header .paper-tape { width: 45px; height: 15px; }
+.header-tape-left { left: -8px; top: 1px; rotate: -18deg; }
+.header-tape-right { right: -9px; bottom: 2px; rotate: -22deg; }
+.board-card, .board-tag, .board-caption, .board-feedback {
+    border-width: 0 1px 2px 0;
+    border-color: #b6a78c #cbbb9c #998465 #cbbb9c;
+}
 .board-cards { flex-grow: 1; min-height: 0; align-items: stretch; }
 .board-column { flex-grow: 1; flex-basis: 0; min-width: 0; align-items: center; }
 .board-card {
@@ -37,7 +45,6 @@
     height: 61px;
     margin-top: 6px;
     font-size: 25px;
-    -unity-font-style: bold;
     -unity-text-align: lower-left;
 }
 .board-card-date {
@@ -77,14 +84,13 @@
     min-width: 0;
     flex-shrink: 1;
 }
-.board-feedback.board-error { color: #762c22; }
+.board-ink .board-feedback.board-error { color: #762c22; }
 .board-tool {
     flex-shrink: 0;
     align-self: center;
-    background-color: #394430;
-    color: #fff2d2;
-    border-width: 2px;
-    border-color: #7d8064;
+    -unity-background-image-tint-color: #f3dd97;
+    border-width: 0 1px 2px 0;
+    border-color: #c9b680 #ad985f #8c794e #baaa87;
     -unity-text-align: middle-center;
     padding: 9px 18px;
     font-size: 24px;
@@ -96,5 +102,5 @@
 }
 .board-card:hover, .board-card:focus, .board-tag:hover, .board-tag:focus { background-color: #faeed0; }
 .board-card.board-selected { border-color: #753a27; }
-.board-tool:focus, .board-tool:hover { background-color: #4d5940; }
+.board-tool:focus, .board-tool:hover { -unity-background-image-tint-color: #ffe9a5; }
 .board-thread-layer { position: absolute; left: 0; right: 0; top: 0; bottom: 0; }

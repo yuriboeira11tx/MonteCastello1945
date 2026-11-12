@@ -1,10 +1,68 @@
-.wall-display { flex-grow: 1; align-items: center; justify-content: center; -unity-font-definition: url("../Fonts/SpecialElite.asset"); }
-.wall-photos { flex-grow: 1; flex-direction: row; align-items: center; justify-content: center; }
-.wall-card { width: 216px; height: 160px; background-color: #e9dfc9; margin: 0 12px; padding: 10px 8px 5px; }
-.wall-card Image { flex-grow: 1; min-height: 0; }
-.wall-card Label { height: 34px; color: #352f23; font-size: 14px; white-space: normal; -unity-text-align: middle-center; }
-.wall-pin { position: absolute; top: 2px; left: 48%; width: 9px; height: 9px; border-radius: 5px; background-color: #893f31; }
-.wall-note, .wall-hint { padding: 4px 15px; white-space: normal; -unity-text-align: middle-center; }
-.wall-note { background-color: #e4d7b8; color: #433924; font-size: 16px; }
-.wall-hint { margin-top: 8px; background-color: #384439; color: #f5ebcf; font-size: 17px; }
+@import url("project://database/Assets/UI/Archive/Papeis/PapeisDoQuadro.uss");
+
+.wall-display { flex-grow: 1; }
+.wall-sources { flex-grow: 1; align-items: center; justify-content: center; }
+.wall-photos { flex-direction: row; align-items: center; justify-content: center; }
+.wall-card {
+    width: 222px;
+    height: 170px;
+    margin: 0 11px;
+    padding: 11px 10px 4px;
+    border-bottom-width: 2px;
+    border-bottom-color: #927f62;
+}
+.wall-card Image { flex-grow: 1; flex-basis: 0; min-height: 0; }
+.wall-card Label {
+    height: 39px;
+    margin-top: 2px;
+    font-size: 17px;
+    white-space: normal;
+    -unity-text-align: middle-center;
+}
+.wall-pin {
+    position: absolute;
+    top: 2px;
+    left: 48%;
+    width: 10px;
+    height: 9px;
+    border-radius: 5px;
+    background-color: #9a5140;
+    border-width: 1px 1px 2px 1px;
+    border-color: #d7ab8a #733d2d #553428 #bd8870;
+}
+.wall-note {
+    max-width: 72%;
+    padding: 5px 18px;
+    margin-top: 7px;
+    rotate: -0.6deg;
+    font-size: 17px;
+    white-space: normal;
+    -unity-text-align: middle-center;
+}
+.reminder {
+    align-self: flex-end;
+    flex-shrink: 0;
+    width: 193px;
+    height: 85px;
+    margin: 0 3px 3px 0;
+    justify-content: center;
+    padding: 8px 10px 3px;
+    -unity-background-image-tint-color: #f2db8a;
+    rotate: 3deg;
+    border-bottom-width: 2px;
+    border-bottom-color: #aa8e4f;
+}
+.reminder-glue {
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    height: 13px;
+    background-color: rgba(171, 137, 54, 0.17);
+}
+.reminder-text {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    white-space: normal;
+    -unity-text-align: middle-center;
+}
 .wall-threads { position: absolute; left: 0; top: 0; right: 0; bottom: 0; }

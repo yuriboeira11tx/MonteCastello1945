@@ -1,8 +1,13 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements">
     <ui:Style src="Cronologia_Conteudo.uss" />
-    <ui:VisualElement class="wall-display" picking-mode="Ignore">
-        <ui:VisualElement name="photos" class="wall-photos" picking-mode="Ignore" />
-        <ui:Label name="wallNote" class="wall-note" text="As reproduções são afixadas ao registrar cada fonte." picking-mode="Ignore" />
-        <ui:Label class="wall-hint" text="E — Trabalhar no quadro     ·     TAB — Abrir caderneta" picking-mode="Ignore" />
+    <ui:VisualElement class="wall-display board-ink" picking-mode="Ignore">
+        <ui:VisualElement class="wall-sources" picking-mode="Ignore">
+            <ui:VisualElement name="photos" class="wall-photos" picking-mode="Ignore" />
+            <ui:Label name="wallNote" class="wall-note paper-sheet" text="As reproduções são afixadas ao registrar cada fonte." picking-mode="Ignore" />
+        </ui:VisualElement>
+        <ui:VisualElement class="reminder paper-sheet" picking-mode="Ignore">
+            <ui:VisualElement class="reminder-glue" picking-mode="Ignore" />
+            <ui:Label class="reminder-text" text="TAB - Para abrir sua caderneta" picking-mode="Ignore" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
