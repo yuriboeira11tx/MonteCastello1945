@@ -1,8 +1,6 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements">
-    <ui:Style src="Cronologia_Titulo.uss" />
-    <ui:VisualElement class="title-sheet paper-sheet board-ink" picking-mode="Ignore">
-        <ui:Label name="text" text="DA COSTA BRASILEIRA À ITÁLIA" picking-mode="Ignore" />
-        <ui:VisualElement class="paper-tape title-tape-left" picking-mode="Ignore" />
-        <ui:VisualElement class="paper-tape title-tape-right" picking-mode="Ignore" />
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/World/Cronologia_Titulo.uss?fileID=7433441132597879392&amp;guid=653f235d0b6ffde4a82a91dc8ac88421&amp;type=3#Cronologia_Titulo"/>
+    <ui:VisualElement picking-mode="Ignore" class="title-sheet paper-sheet board-ink">
+        <ui:Label name="text" text="DA COSTA BRASILEIRA À ITÁLIA" picking-mode="Ignore"/>
     </ui:VisualElement>
 </ui:UXML>
