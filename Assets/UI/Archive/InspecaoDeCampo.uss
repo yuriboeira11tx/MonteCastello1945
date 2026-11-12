@@ -11,7 +11,7 @@
 }
 .inspection-split {
     flex-direction: row;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.22);
 }
 .inspection-half {
     flex-shrink: 0;

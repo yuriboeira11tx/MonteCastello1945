@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using FEB.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
 namespace FEB.Archive
@@ -12,6 +13,7 @@ namespace FEB.Archive
         [SerializeField] float rotationSensitivity = .25f;
         [SerializeField] float defaultDistance = 3f;
         const int PreviewLayer = 31;
+        const uint StudioLightMask = 1u << 7;
         Image viewport;
         InspectionManipulator manipulator;
         GameObject studio;
@@ -49,9 +51,9 @@ namespace FEB.Archive
             cameraData.renderShadows = false;
             cameraData.volumeLayerMask = 0;
             ResizePreview(viewport.contentRect.size);
-            AddLight("Luz_Principal", new Vector3(-1.5f, 1.5f, -2), new Color(1, .91f, .77f), 8f);
-            AddLight("Preenchimento", new Vector3(1.4f, .3f, -1.5f), new Color(.8f, .9f, 1), 4f);
-            AddLight("Luz_Verso", new Vector3(0, 1.5f, 1.8f), new Color(1, .94f, .8f), 3f);
+            AddLight("Luz_Principal", new Vector3(-1.5f, 1.5f, -2), new Color(1, .91f, .77f), 2.6f);
+            AddLight("Preenchimento", new Vector3(1.4f, .3f, -1.5f), new Color(.8f, .9f, 1), 1.15f);
+            AddLight("Luz_Verso", new Vector3(0, 1.5f, 1.8f), new Color(1, .94f, .8f), 2f);
         }
 
         void ResizePreview(Vector2 size)
@@ -88,7 +90,30 @@ namespace FEB.Archive
             light.intensity = intensity;
             light.range = 8;
             light.shadows = LightShadows.None;
+            SetStudioLightMask(light);
+        }
+
+        static void SetStudioLightMask(Light light)
+        {
             light.cullingMask = 1 << PreviewLayer;
+            light.GetUniversalAdditionalLightData().renderingLayers = StudioLightMask;
+        }
+
+        static void LightPreviewRenderers(Renderer[] renderers)
+        {
+            // A camada separa as luzes diretas. A sonda neutra substitui a luz difusa do céu.
+            var ambient = new SphericalHarmonicsL2();
+            ambient.AddAmbientLight(new Color(.45f, .45f, .45f));
+            var probe = new[] { ambient };
+            var properties = new MaterialPropertyBlock();
+            foreach (var renderer in renderers)
+            {
+                renderer.renderingLayerMask = StudioLightMask;
+                renderer.lightProbeUsage = LightProbeUsage.CustomProvided;
+                renderer.GetPropertyBlock(properties);
+                properties.CopySHCoefficientArraysFrom(probe);
+                renderer.SetPropertyBlock(properties);
+            }
         }
 
         public bool Show(HistoricalEvidence evidence)
@@ -104,6 +129,8 @@ namespace FEB.Archive
             foreach (var child in instance.GetComponentsInChildren<Transform>(true)) child.gameObject.layer = PreviewLayer;
             var renderers = instance.GetComponentsInChildren<Renderer>();
             if (renderers.Length == 0) { Hide(); return false; }
+            LightPreviewRenderers(renderers);
+            foreach (var light in instance.GetComponentsInChildren<Light>(true)) SetStudioLightMask(light);
             var bounds = renderers[0].bounds;
             foreach (var renderer in renderers) bounds.Encapsulate(renderer.bounds);
             float scale = 1.35f / Mathf.Max(.001f, Mathf.Max(bounds.size.x, Mathf.Max(bounds.size.y, bounds.size.z)));
