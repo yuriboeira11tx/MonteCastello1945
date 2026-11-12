@@ -8,7 +8,7 @@ namespace FEB.UI
     {
         readonly VisualElement screen, smoke;
         readonly Image portrait;
-        readonly Label heading, copy;
+        readonly Label copy;
         readonly IVisualElementScheduledItem smokeAnimation;
         double openedAt;
 
@@ -17,7 +17,6 @@ namespace FEB.UI
             screen = root.Q("loadingRoot");
             portrait = screen.Q<Image>("loadingObject");
             portrait.scaleMode = ScaleMode.ScaleToFit;
-            heading = screen.Q<Label>("objectTitle");
             copy = screen.Q<Label>("historicalFact");
             smoke = screen.Q("snakeSmoke");
             screen.RegisterCallback<GeometryChangedEvent>(OnResize);
@@ -26,10 +25,9 @@ namespace FEB.UI
             smokeAnimation.Pause();
         }
 
-        public void Show(Texture preview, string title, string fact)
+        public void Show(Texture preview, string fact)
         {
             portrait.image = preview;
-            heading.text = title;
             copy.text = fact;
             SetLayout(screen.contentRect);
             openedAt = Time.realtimeSinceStartupAsDouble;

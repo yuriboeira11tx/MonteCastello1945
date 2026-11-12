@@ -4,8 +4,6 @@
         <ui:VisualElement class="loading-exhibit" picking-mode="Ignore">
             <ui:Image name="loadingObject" class="loading-object" picking-mode="Ignore" />
             <ui:VisualElement class="loading-caption" picking-mode="Ignore">
-                <ui:Label name="objectTitle" class="loading-title" picking-mode="Ignore" />
-                <ui:VisualElement class="loading-rule" picking-mode="Ignore" />
                 <ui:Label name="historicalFact" class="loading-fact" picking-mode="Ignore" />
             </ui:VisualElement>
         </ui:VisualElement>

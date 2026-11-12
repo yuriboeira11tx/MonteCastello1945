@@ -30,21 +30,6 @@
     padding-right: 3%;
 }
 
-.loading-title {
-    color: #ede7d6;
-    -unity-font-definition: url("project://database/Assets/UI/Fonts/AllertaStencil.asset");
-    font-size: 39px;
-    white-space: normal;
-}
-
-.loading-rule {
-    height: 2px;
-    width: 51px;
-    margin-top: 15px;
-    margin-bottom: 19px;
-    background-color: #a99158;
-}
-
 .loading-fact {
     color: #c7c3b6;
     -unity-font-definition: url("project://database/Assets/UI/Fonts/LiberationSans.asset");
@@ -97,8 +82,6 @@
     flex-basis: auto;
     padding: 10px 0 0;
 }
-.loading-narrow .loading-title, .loading-short .loading-title { font-size: 28px; }
 .loading-narrow .loading-fact, .loading-short .loading-fact { font-size: 18px; }
-.loading-narrow .loading-rule, .loading-short .loading-rule { margin-top: 8px; margin-bottom: 10px; }
 .loading-narrow .loading-insignia, .loading-short .loading-insignia { width: 42px; height: 50.57px; }
 .loading-short .loading-status { font-size: 14px; }

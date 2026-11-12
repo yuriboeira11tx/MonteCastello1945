@@ -56,7 +56,7 @@ namespace FEB.UI
             {
                 var card = cards[DrawCard(cards.Length)];
                 view = new LoadingScreenView(GetComponent<UIDocument>().rootVisualElement);
-                view.Show(card.portrait, card.title, card.fact);
+                view.Show(card.portrait, card.fact);
             }
 
             // Give the panel its first frame before the engine starts integrating scene assets.
