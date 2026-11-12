@@ -202,8 +202,11 @@ MonoBehaviour:
   fieldPhoto: {fileID: 2800000, guid: 1d34afacc9c4d3d4cb77644c357a744c, type: 3}
   emblem: {fileID: 2800000, guid: ba4d8420072cbc745872079b6687304b, type: 3}
   openSound: {fileID: 8300000, guid: 2e762039e615ca848b59b52987977531, type: 3}
-  pageTurnSound: {fileID: 8300000, guid: 626d2f69c79df124d883804fef0afe5f, type: 3}
   closeSound: {fileID: 8300000, guid: 212eeed18a03c844aae530d41ef1a4dd, type: 3}
+  pageTurnSounds:
+  - {fileID: 8300000, guid: 626d2f69c79df124d883804fef0afe5f, type: 3}
+  - {fileID: 8300000, guid: 7e25c516eb99cc541809b92a5c24e670, type: 3}
+  - {fileID: 8300000, guid: cd7d16a3710a30448bfbe338cea46b65, type: 3}
 --- !u!82 &2386004996520101420
 AudioSource:
   m_ObjectHideFlags: 0

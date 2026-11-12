@@ -96,7 +96,7 @@ namespace FEB.Cinematics
             var exchange = StartCoroutine(PresentPapers());
             yield return Say(2, driver);
             yield return exchange;
-            if (papel) efeitos.PlayOneShot(papel, .46f);
+            PlayPaper(.46f);
             captain.Rig.SetLookTarget(credencial);
             yield return new WaitForSeconds(1.65f);
             captain.Rig.SetLookTarget(driver.Rig.Eyes);
@@ -191,6 +191,12 @@ namespace FEB.Cinematics
             yield return new WaitForSeconds(.26f);
         }
 
+        void PlayPaper(float volume)
+        {
+            var clip = pesquisador.Notebook != null ? pesquisador.Notebook.NextPageTurnSound() : papel;
+            if (clip != null) efeitos.PlayOneShot(clip, volume);
+        }
+
         IEnumerator PresentPapers()
         {
             Transform left = driver.Animator.GetBoneTransform(HumanBodyBones.LeftHand);
@@ -211,7 +217,7 @@ namespace FEB.Cinematics
             credencial.SetParent(left, true);
             credencial.gameObject.SetActive(true);
             yield return new WaitForSeconds(.8f);
-            if (papel) efeitos.PlayOneShot(papel, .32f);
+            PlayPaper(.32f);
             captainHasPaper = true;
             paperTransferTime = Time.time;
             paperTransferOffset = credencial.position - PaperCenter(captain.Rig, false, captainEdge);

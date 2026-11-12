@@ -26,10 +26,12 @@ namespace FEB.Archive
         [SerializeField] HistoricalEvidence[] commonReadings;
         [SerializeField] NotebookChapter[] chapters;
         [SerializeField] Texture2D fieldPhoto, emblem;
-        [SerializeField] AudioClip openSound, pageTurnSound, closeSound;
+        [SerializeField] AudioClip openSound, closeSound;
+        [SerializeField] AudioClip[] pageTurnSounds = Array.Empty<AudioClip>();
 
         Camera view;
         AudioSource paperAudio;
+        AudioClip lastPageTurn;
         ArchivePlayerInteraction interaction;
         RenderTexture texture;
         PanelSettings panel;
@@ -109,7 +111,26 @@ namespace FEB.Archive
         public void AddChoice(string text, Action action, bool enabled = true) =>
             pages?.AddChoice(text, action, enabled);
 
-        public void PlayPageTurn() => PlaySound(pageTurnSound);
+        internal AudioClip NextPageTurnSound()
+        {
+            AudioClip selected = null;
+            int alternatives = 0;
+            foreach (var clip in pageTurnSounds)
+            {
+                if (clip == null) continue;
+                if (clip == lastPageTurn)
+                {
+                    if (selected == null) selected = clip;
+                    continue;
+                }
+                alternatives++;
+                if (UnityEngine.Random.Range(0, alternatives) == 0) selected = clip;
+            }
+            lastPageTurn = selected;
+            return selected;
+        }
+
+        public void PlayPageTurn() => PlaySound(NextPageTurnSound());
         internal void PlayCloseSound() => PlaySound(closeSound);
 
         void PlaySound(AudioClip clip)
