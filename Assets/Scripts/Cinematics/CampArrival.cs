@@ -38,6 +38,9 @@ namespace FEB.Cinematics
         public bool EmAndamento => active;
         float blackout, engineVolume, enginePitch, originalFov;
         float volumeOriginalCapitao, volumeOriginalMotorista;
+        int camadaDosGestos;
+        static readonly int GestoDeConversa = Animator.StringToHash("Gestos da chegada.Talking");
+        static readonly int GestoDeReuniao = Animator.StringToHash("Gestos da chegada.Meeting");
         Vector3 enginePosition;
         Cue? speaking;
         Transform driverEdge, captainEdge;
@@ -83,6 +86,7 @@ namespace FEB.Cinematics
 
             driver = new Actor(motorista);
             captain = new Actor(capitao);
+            camadaDosGestos = captain.Animator.GetLayerIndex("Gestos da chegada");
             var captainPosition = jipe.TransformPoint(CaptainMark);
             captain.Place(captainPosition - jipe.right * 1.35f, Quaternion.LookRotation(jipe.right));
             captain.Rig = CampArrivalActorRig.Begin(captain.Animator);
@@ -196,14 +200,12 @@ namespace FEB.Cinematics
         {
             speaking = cue;
             bool falaDoCapitao = voice == vozDoCapitao;
-            if (falaDoCapitao)
+            if (falaDoCapitao && camadaDosGestos >= 0)
             {
-                var gesto = cue == Cue.CredentialsRequest ? SoldierAI.CampActivity.Meeting : SoldierAI.CampActivity.Talking;
-                captain.Animator.SetInteger(SoldierAI.CampActivityHash, (int)gesto);
+                int gesto = cue == Cue.CredentialsRequest ? GestoDeReuniao : GestoDeConversa;
+                captain.Animator.Play(gesto, camadaDosGestos, 0f);
             }
             yield return dialogo.Play(cue, voice);
-            if (falaDoCapitao)
-                captain.Animator.SetInteger(SoldierAI.CampActivityHash, (int)SoldierAI.CampActivity.Standard);
             speaking = null;
             yield return new WaitForSeconds(.26f);
         }
@@ -289,6 +291,12 @@ namespace FEB.Cinematics
                     _ => driver.Rig.Eyes
                 });
             bool captainSpeaking = speaking is Cue.Greeting or Cue.CredentialsRequest or Cue.Orders;
+            if (camadaDosGestos >= 0)
+            {
+                float peso = captain.Animator.GetLayerWeight(camadaDosGestos);
+                captain.Animator.SetLayerWeight(camadaDosGestos, Mathf.MoveTowards(peso,
+                    captainSpeaking ? 1f : 0f, Time.deltaTime * 4f));
+            }
             float bias = captainSpeaking ? .82f : .22f;
             Vector3 mark = Vector3.Lerp(driver.Rig.Eyes.position, captain.Rig.Eyes.position, bias);
             mark.y -= .095f;
@@ -326,6 +334,8 @@ namespace FEB.Cinematics
             if (driverEdge) Destroy(driverEdge.gameObject);
             if (captainEdge) Destroy(captainEdge.gameObject);
             credencial.SetParent(transform, true);
+            if (captain != null && camadaDosGestos >= 0)
+                captain.Animator.SetLayerWeight(camadaDosGestos, 0f);
             jipe.SetPositionAndRotation(parking.position, parking.rotation);
             if (jipe.TryGetComponent<WillysWheelAnimation>(out var rodas)) rodas.SincronizarPose();
             driver?.Restore(finished ? jipe.TransformPoint(new Vector3(-1.34f, 0, -.65f)) : (Vector3?)null,
@@ -375,7 +385,6 @@ namespace FEB.Cinematics
             readonly Transform parent;
             readonly Pose home;
             readonly bool resumeAI, resumeAgent;
-            readonly int originalActivity;
             public readonly Animator Animator;
             public CampArrivalActorRig Rig;
 
@@ -384,8 +393,6 @@ namespace FEB.Cinematics
                 ai = soldier;
                 agent = ai.GetComponent<NavMeshAgent>();
                 Animator = ai.GetComponentInChildren<Animator>();
-                originalActivity = Animator.GetInteger(SoldierAI.CampActivityHash);
-                Animator.SetInteger(SoldierAI.CampActivityHash, (int)SoldierAI.CampActivity.Standard);
                 parent = ai.transform.parent;
                 home = new Pose(ai.transform.position, ai.transform.rotation);
                 resumeAI = ai.enabled;
@@ -409,7 +416,6 @@ namespace FEB.Cinematics
                 if (leaveAt.HasValue && NavMesh.SamplePosition(leaveAt.Value, out var hit, 1.25f, NavMesh.AllAreas))
                     at = hit.position;
                 Place(at, home.rotation);
-                Animator.SetInteger(SoldierAI.CampActivityHash, originalActivity);
                 Animator.SetBool("isWalking", false);
                 Animator.SetBool("isStandingRifle", ai.isStandingRifle);
                 if (resumeRifle && ai.isStandingRifle)

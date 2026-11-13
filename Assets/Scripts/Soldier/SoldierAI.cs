@@ -4,7 +4,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class SoldierAI : MonoBehaviour
 {
-    public enum CampActivity
+    private enum CampActivity
     {
         Standard, SittingIdle, SittingRelaxed, Meeting, Talking, Looking, Drinking, LiftingObject, Saluting, Sleeping
     }
@@ -28,7 +28,7 @@ public class SoldierAI : MonoBehaviour
     private static readonly int IsJackHash = Animator.StringToHash("isJack");
     private static readonly int IsBurpeeHash = Animator.StringToHash("isBurpee");
     private static readonly int IsPushupHash = Animator.StringToHash("isPushup");
-    public static readonly int CampActivityHash = Animator.StringToHash("campActivity");
+    private static readonly int CampActivityHash = Animator.StringToHash("campActivity");
 
     void Awake()
     {
