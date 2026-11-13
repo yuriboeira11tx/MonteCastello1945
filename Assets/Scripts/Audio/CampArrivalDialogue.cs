@@ -8,6 +8,8 @@ namespace FEB.Audio
     [Serializable]
     public sealed class CampArrivalDialogue
     {
+        public enum Cue { Greeting, Introduction, CredentialsRequest, CredentialsHandover, Orders }
+
         [Serializable]
         sealed class Caption
         {
@@ -37,21 +39,23 @@ namespace FEB.Audio
             }
         }
 
-        [SerializeField, InspectorName("1 · Motorista — Apresentação")] Turn apresentacao = new(
+        [SerializeField, InspectorName("Capitão — Chegada do jipe")] Turn chegada = new(
+            "Ô, Costa! Peraí!", "Quem é esse aí?");
+        [SerializeField, InspectorName("Motorista — Apresentação")] Turn apresentacao = new(
             "Meu capitão! Trouxe o pesquisador que o comando anunciou.",
             "Veio ouvir o pessoal e escrever sobre a vida aqui no acampamento.",
             "É pra publicar lá no Brasil.");
-        [SerializeField, InspectorName("2 · Capitão — Credenciais")] Turn suspeita = new(
+        [SerializeField, InspectorName("Capitão — Credenciais")] Turn suspeita = new(
             "Publicar, é? E como é que eu sei que o senhor não é espião da Rádio Auriverde?",
             "Aquela conversa dos alemães, em português, com uma voz de compadre…",
             "“Ô, pracinha… que saudade de casa, hein?”",
             "Em duas frases o sujeito já quer que eu largue o fuzil.",
             "E ainda me chama de amigo! Soldado, a credencial dele.",
             "Deixe eu conferir com a ordem que recebi.");
-        [SerializeField, InspectorName("3 · Motorista — Entrega da credencial")] Turn credencial = new(
+        [SerializeField, InspectorName("Motorista — Entrega da credencial")] Turn credencial = new(
             "Aqui, meu capitão.",
             "E se ele escrever tudo que ouviu no jipe, peço licença pra riscar umas duas palavras.");
-        [SerializeField, InspectorName("4 · Capitão — Missão na enfermaria")] Turn missao = new(
+        [SerializeField, InspectorName("Capitão — Missão na enfermaria")] Turn missao = new(
             "Nome certo… assinatura certa. Muito bem. Seja bem-vindo.",
             "Tem uma caderneta aí? Então comece pela enfermaria.",
             "Pergunte às enfermeiras como foi a noite.",
@@ -60,11 +64,7 @@ namespace FEB.Audio
         SceneDialogue ambient;
         SubtitleView subtitles;
         bool resumeAmbient;
-        AudioClip previousClip;
-        Vector3 previousSourcePosition;
-        float previousSpatialBlend;
-
-        public AudioSource Voice { get; private set; }
+        AudioSource currentVoice;
         public int CaptionIndex { get; private set; } = -1;
 
         public void SetBlackout(float opacity)
@@ -78,22 +78,18 @@ namespace FEB.Audio
             resumeAmbient = ambient.enabled;
             ambient.enabled = false;
             subtitles = ambient.GetComponent<SubtitleView>();
-            Voice = ambient.VoiceSource;
-            previousClip = Voice.clip;
-            previousSourcePosition = Voice.transform.position;
-            previousSpatialBlend = Voice.spatialBlend;
-            Voice.spatialBlend = 1f;
         }
 
-        public IEnumerator Play(int index, Transform speaker)
+        public IEnumerator Play(Cue cue, AudioSource voice)
         {
-            var turn = index switch
+            var turn = cue switch
             {
-                0 => apresentacao,
-                1 => suspeita,
-                2 => credencial,
-                3 => missao,
-                _ => throw new ArgumentOutOfRangeException(nameof(index))
+                Cue.Greeting => chegada,
+                Cue.Introduction => apresentacao,
+                Cue.CredentialsRequest => suspeita,
+                Cue.CredentialsHandover => credencial,
+                Cue.Orders => missao,
+                _ => throw new ArgumentOutOfRangeException(nameof(cue))
             };
             var clip = turn.gravacao;
             if (clip != null)
@@ -105,12 +101,12 @@ namespace FEB.Audio
             }
 
             bool hasVoice = clip != null && clip.loadState == AudioDataLoadState.Loaded && clip.samples > 0;
-            if (speaker != null) Voice.transform.position = speaker.position;
             if (hasVoice)
             {
-                Voice.clip = clip;
-                Voice.Play();
-                hasVoice = Voice.isPlaying;
+                currentVoice = voice;
+                voice.clip = clip;
+                voice.Play();
+                hasVoice = voice.isPlaying;
             }
             if (!hasVoice && clip != null)
                 Debug.LogWarning($"A gravação '{clip.name}' não iniciou. A chegada usará as legendas deste trecho.", ambient);
@@ -122,11 +118,10 @@ namespace FEB.Audio
             {
                 if (!AudioListener.pause)
                 {
-                    if (hasVoice ? !Voice.isPlaying : elapsed >= duration) break;
-                    if (speaker != null) Voice.transform.position = speaker.position;
-                    float progress = hasVoice ? (float)Voice.timeSamples / clip.samples : elapsed / duration;
+                    if (hasVoice ? !voice.isPlaying : elapsed >= duration) break;
+                    float progress = hasVoice ? (float)voice.timeSamples / clip.samples : elapsed / duration;
                     int last = (turn.legendas?.Length ?? 0) - 1;
-                    int current = last < 0 ? -1 : Mathf.Max(0, displayed);
+                    int current = displayed;
                     while (current < last && progress >= turn.legendas[current + 1].inicio) current++;
                     if (current != displayed)
                     {
@@ -138,7 +133,8 @@ namespace FEB.Audio
                 }
                 yield return null;
             }
-            if (Voice != null) Voice.Stop();
+            if (currentVoice) currentVoice.Stop();
+            currentVoice = null;
             if (subtitles != null) subtitles.Hide();
             CaptionIndex = -1;
         }
@@ -147,14 +143,8 @@ namespace FEB.Audio
         {
             SetBlackout(0);
             if (subtitles != null) subtitles.Hide();
-            if (Voice != null)
-            {
-                Voice.Stop();
-                Voice.clip = previousClip;
-                Voice.spatialBlend = previousSpatialBlend;
-                Voice.transform.position = previousSourcePosition;
-                Voice = null;
-            }
+            if (currentVoice) currentVoice.Stop();
+            currentVoice = null;
             if (ambient != null) ambient.enabled = resumeAmbient;
             ambient = null;
             subtitles = null;

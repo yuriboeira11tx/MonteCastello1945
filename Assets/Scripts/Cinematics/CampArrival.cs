@@ -4,6 +4,7 @@ using FEB.Audio;
 using FEB.Persistence;
 using UnityEngine;
 using UnityEngine.AI;
+using Cue = FEB.Audio.CampArrivalDialogue.Cue;
 
 namespace FEB.Cinematics
 {
@@ -18,6 +19,7 @@ namespace FEB.Cinematics
         [SerializeField] SceneDialogue vozes;
         [Header("Som e diálogo")]
         [SerializeField] AudioSource motor, efeitos;
+        [SerializeField] AudioSource vozDoCapitao, vozDoMotorista;
         [SerializeField] AudioClip papel;
         [SerializeField] FootstepSounds passos;
         [SerializeField] CampArrivalDialogue dialogo = new();
@@ -35,7 +37,7 @@ namespace FEB.Cinematics
         public bool EmAndamento => active;
         float blackout, engineVolume, enginePitch, originalFov;
         Vector3 enginePosition;
-        int speaking = -1;
+        Cue? speaking;
         Transform driverEdge, captainEdge;
         bool captainHasPaper;
         Vector3 paperTransferOffset;
@@ -48,7 +50,7 @@ namespace FEB.Cinematics
         {
             if (ResearchSaveStore.EnsureSession().campArrivalCompleted) yield break;
             if (!pesquisador || !motorista || !capitao || !jipe || !inicioDoTrajeto || !cameraDoPassageiro ||
-                !vozes || !vozes.VoiceSource || !motor || !motor.clip || !efeitos || !credencial || !pontoDeEntrega)
+                !vozes || !vozDoCapitao || !vozDoMotorista || !motor || !motor.clip || !efeitos || !credencial || !pontoDeEntrega)
             {
                 Debug.LogError("Confira as referências da chegada ao acampamento.", this);
                 yield break;
@@ -91,16 +93,17 @@ namespace FEB.Cinematics
             driver.Rig.SetLookTarget(captain.Rig.Eyes);
             captain.Rig.SetLookTarget(driver.Rig.Eyes);
             yield return WalkUp();
-            yield return Say(0, driver);
-            yield return Say(1, captain);
+            yield return Say(Cue.Greeting, vozDoCapitao);
+            yield return Say(Cue.Introduction, vozDoMotorista);
+            yield return Say(Cue.CredentialsRequest, vozDoCapitao);
             var exchange = StartCoroutine(PresentPapers());
-            yield return Say(2, driver);
+            yield return Say(Cue.CredentialsHandover, vozDoMotorista);
             yield return exchange;
             PlayPaper(.46f);
             captain.Rig.SetLookTarget(credencial);
             yield return new WaitForSeconds(1.65f);
             captain.Rig.SetLookTarget(driver.Rig.Eyes);
-            yield return Say(3, captain);
+            yield return Say(Cue.Orders, vozDoCapitao);
             yield return Fade(1, .5f, fadeEngine: true);
             Disembark(true);
             yield return Fade(0, .95f);
@@ -183,11 +186,11 @@ namespace FEB.Cinematics
             captain.Animator.CrossFadeInFixedTime("Base Layer.IDLE", blendDuration, 0, 0f);
         }
 
-        IEnumerator Say(int index, Actor speaker)
+        IEnumerator Say(Cue cue, AudioSource voice)
         {
-            speaking = index;
-            yield return dialogo.Play(index, speaker.Rig.Eyes);
-            speaking = -1;
+            speaking = cue;
+            yield return dialogo.Play(cue, voice);
+            speaking = null;
             yield return new WaitForSeconds(.26f);
         }
 
@@ -262,11 +265,11 @@ namespace FEB.Cinematics
             }
             var eye = cameraDoPassageiro.transform;
             // O motorista indica o passageiro ao mencioná-lo e volta a falar com o capitão.
-            bool presentingPassenger = (speaking == 0 || speaking == 2) && dialogo.CaptionIndex == 1;
+            bool presentingPassenger = (speaking is Cue.Introduction or Cue.CredentialsHandover) && dialogo.CaptionIndex == 1;
             driver.Rig.SetLookTarget(presentingPassenger ? eye : captain.Rig.Eyes);
-            if (speaking == 3)
+            if (speaking == Cue.Orders)
                 captain.Rig.SetLookTarget(dialogo.CaptionIndex >= 1 ? eye : driver.Rig.Eyes);
-            bool captainSpeaking = speaking == 1 || speaking == 3;
+            bool captainSpeaking = speaking is Cue.Greeting or Cue.CredentialsRequest or Cue.Orders;
             float bias = captainSpeaking ? .82f : .22f;
             Vector3 mark = Vector3.Lerp(driver.Rig.Eyes.position, captain.Rig.Eyes.position, bias);
             mark.y -= .095f;

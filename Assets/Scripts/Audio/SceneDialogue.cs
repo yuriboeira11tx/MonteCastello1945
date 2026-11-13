@@ -27,6 +27,8 @@ namespace FEB.Audio
             public Trigger quando;
             [Tooltip("Soldado ou ponto de interesse que o pesquisador deve alcançar.")]
             public GameObject origem;
+            [Tooltip("Para falas de soldado, use a fonte de voz 3D da cabeça do personagem.")]
+            public AudioSource vozDoSoldado;
             public HistoricalEvidence evidencia;
             [TextArea(2, 6)] public string texto;
             public AudioClip audio;
@@ -45,10 +47,9 @@ namespace FEB.Audio
         readonly HashSet<HistoricalEvidence> registrations = new HashSet<HistoricalEvidence>();
         SubtitleView subtitles;
         Line current;
+        AudioSource currentSource;
         float nextCheck, silentEnd;
         bool timedReading;
-
-        public AudioSource VoiceSource => voz;
 
         void Awake() => subtitles = GetComponent<SubtitleView>();
 
@@ -83,8 +84,9 @@ namespace FEB.Audio
                         Finish(false);
                         return;
                     }
-                    voz.transform.position = current.origem.transform.position + Vector3.up * 1.5f;
-                    if ((pesquisador.transform.position - voz.transform.position).sqrMagnitude > voz.maxDistance * voz.maxDistance)
+                    Vector3 position = currentSource ? currentSource.transform.position : current.origem.transform.position;
+                    float distance = currentSource ? currentSource.maxDistance : voz.maxDistance;
+                    if ((pesquisador.transform.position - position).sqrMagnitude > distance * distance)
                     {
                         Finish(false);
                         return;
@@ -92,7 +94,7 @@ namespace FEB.Audio
                 }
                 if (!timedReading && current.audio.loadState == AudioDataLoadState.Failed) timedReading = true;
                 if (timedReading ? Time.time >= silentEnd :
-                    current.audio.loadState == AudioDataLoadState.Loaded && !voz.isPlaying) Finish(true);
+                    current.audio.loadState == AudioDataLoadState.Loaded && !currentSource.isPlaying) Finish(true);
                 return;
             }
             if (Time.time < nextCheck) return;
@@ -131,14 +133,14 @@ namespace FEB.Audio
             current = line;
             silentEnd = Time.time + (line.duracaoSemAudio > 0 ? line.duracaoSemAudio :
                 Mathf.Clamp(1f + line.texto.Length / 15f, 3f, 18f));
-            timedReading = line.audio == null;
+            currentSource = line.quando == Trigger.Soldier ? line.vozDoSoldado : voz;
+            timedReading = line.audio == null || !currentSource;
+            if (line.audio && !currentSource)
+                Debug.LogWarning($"Atribua a fonte de voz do soldado em '{line.identificador}'.", this);
             if (!timedReading)
             {
-                bool spatial = line.quando == Trigger.Soldier;
-                voz.spatialBlend = spatial ? 1f : 0f;
-                if (spatial) voz.transform.position = line.origem.transform.position + Vector3.up * 1.5f;
-                voz.clip = line.audio;
-                voz.Play();
+                currentSource.clip = line.audio;
+                currentSource.Play();
             }
             if (SubtitlePreferences.Enabled)
                 subtitles.Show(line.texto, SubtitlePreferences.Scale);
@@ -148,7 +150,8 @@ namespace FEB.Audio
         {
             if (completed) delivered.Add(current);
             current = null;
-            voz.Stop();
+            if (currentSource) currentSource.Stop();
+            currentSource = null;
             subtitles.Hide();
             nextCheck = Time.time + intervalo;
         }
