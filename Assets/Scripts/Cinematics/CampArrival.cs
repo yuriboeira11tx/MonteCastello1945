@@ -36,6 +36,8 @@ namespace FEB.Cinematics
         CharacterController capsule;
         bool active, seated, parked, capsuleEnabled;
         public bool EmAndamento => active;
+        public float VolumeDaVoz => speaking is Cue.Introduction or Cue.CredentialsHandover
+            ? vozDoMotorista.volume : vozDoCapitao.volume;
         float blackout, engineVolume, enginePitch, originalFov;
         float volumeOriginalCapitao, volumeOriginalMotorista;
         int camadaDosGestos;

@@ -42337,11 +42337,10 @@ MonoBehaviour:
   radio: {fileID: 753434268}
   ouvinte: {fileID: 1843427121}
   chegada: {fileID: 1332469427}
+  musicaDaChegada: {fileID: 8300000, guid: 3694aa4e7c6c7a344ad39fbd1f5e4887, type: 3}
+  ajusteDaFaixaDb: -3
   distanciaSoRadio: 6
   distanciaTrilhaPlena: 24
-  volumeNaChegada: 0.25
-  alcanceDoRadioNaChegada: 400
-  volumeDoRadioNaChegada: 0.55
 --- !u!82 &1053834092
 AudioSource:
   m_ObjectHideFlags: 0
@@ -42354,7 +42353,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 6418180475301049370, guid: 1cf27fcc6ed315f4eb1ee9ddcb572e70, type: 2}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.14
   m_Pitch: 1
   Loop: 0
