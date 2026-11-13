@@ -33292,7 +33292,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.86
+  m_Volume: 0.72
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -42340,6 +42340,8 @@ MonoBehaviour:
   distanciaSoRadio: 6
   distanciaTrilhaPlena: 24
   volumeNaChegada: 0.25
+  alcanceDoRadioNaChegada: 400
+  volumeDoRadioNaChegada: 0.55
 --- !u!82 &1053834092
 AudioSource:
   m_ObjectHideFlags: 0
@@ -55192,6 +55194,7 @@ MonoBehaviour:
   efeitos: {fileID: 1973953807}
   vozDoCapitao: {fileID: 1510682835}
   vozDoMotorista: {fileID: 839529481}
+  ganhoDasVozesNaChegada: 1.35
   papel: {fileID: 8300000, guid: 626d2f69c79df124d883804fef0afe5f, type: 3}
   passos: {fileID: 11400000, guid: 23cb1e997331e2542845ab6b9e957076, type: 2}
   dialogo:
@@ -62401,7 +62404,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.86
+  m_Volume: 0.72
   m_Pitch: 1
   Loop: 0
   Mute: 0

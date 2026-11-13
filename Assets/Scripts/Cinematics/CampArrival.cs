@@ -20,6 +20,7 @@ namespace FEB.Cinematics
         [Header("Som e diálogo")]
         [SerializeField] AudioSource motor, efeitos;
         [SerializeField] AudioSource vozDoCapitao, vozDoMotorista;
+        [SerializeField, Range(1f, 2f)] float ganhoDasVozesNaChegada = 1.35f;
         [SerializeField] AudioClip papel;
         [SerializeField] FootstepSounds passos;
         [SerializeField] CampArrivalDialogue dialogo = new();
@@ -36,6 +37,7 @@ namespace FEB.Cinematics
         bool active, seated, parked, capsuleEnabled;
         public bool EmAndamento => active;
         float blackout, engineVolume, enginePitch, originalFov;
+        float volumeOriginalCapitao, volumeOriginalMotorista;
         Vector3 enginePosition;
         Cue? speaking;
         Transform driverEdge, captainEdge;
@@ -56,6 +58,10 @@ namespace FEB.Cinematics
                 yield break;
             }
             active = true;
+            volumeOriginalCapitao = vozDoCapitao.volume;
+            volumeOriginalMotorista = vozDoMotorista.volume;
+            vozDoCapitao.volume = Mathf.Clamp01(volumeOriginalCapitao * ganhoDasVozesNaChegada);
+            vozDoMotorista.volume = Mathf.Clamp01(volumeOriginalMotorista * ganhoDasVozesNaChegada);
             parking = new Pose(jipe.position, jipe.rotation);
             engineVolume = motor.volume;
             enginePitch = motor.pitch;
@@ -339,6 +345,8 @@ namespace FEB.Cinematics
 
         void Release()
         {
+            if (vozDoCapitao) vozDoCapitao.volume = volumeOriginalCapitao;
+            if (vozDoMotorista) vozDoMotorista.volume = volumeOriginalMotorista;
             active = false;
             if (motor)
             {
