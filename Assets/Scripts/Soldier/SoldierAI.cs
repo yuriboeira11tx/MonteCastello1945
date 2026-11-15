@@ -21,6 +21,8 @@ public class SoldierAI : MonoBehaviour
 
     [Header("Disparo do fuzil")]
     [SerializeField] private Transform muzzle;
+    [SerializeField, Min(0f), Tooltip("Espera inicial, em segundos, antes de iniciar o primeiro disparo.")]
+    private float initialShotDelay;
     [SerializeField, Min(0.15f)] private float shotCooldown = 2f;
     [SerializeField, Min(1)] private int shotsPerClip = 8;
     [SerializeField, Min(0.15f)] private float reloadCooldown = 10f;
@@ -44,6 +46,7 @@ public class SoldierAI : MonoBehaviour
     private float nextShotTime;
     private int shotsInClip;
     private bool firing, shotDelivered;
+    private bool isReloading;
     private Coroutine tracerRoutine;
     private Vector3 impactAudioPosition;
 
@@ -76,6 +79,8 @@ public class SoldierAI : MonoBehaviour
 
     private void Start()
     {
+        nextShotTime = Time.time + Mathf.Max(0f, initialShotDelay);
+
         if (campActivity != CampActivity.Standard)
         {
             animator.SetInteger(CampActivityHash, (int)campActivity);
@@ -94,9 +99,10 @@ public class SoldierAI : MonoBehaviour
     {
         if (campActivity != CampActivity.Standard) return;
 
+        if (isReloading && Time.time >= nextShotTime) isReloading = false;
         bool onNavMesh = agent.isActiveAndEnabled && agent.isOnNavMesh;
         animator.SetBool(IsWalkingHash, onNavMesh && agent.velocity.sqrMagnitude > 0.01f);
-        animator.SetBool(IsAimRifle, isAimRifle);
+        animator.SetBool(IsAimRifle, isAimRifle && !isReloading);
         animator.SetBool(IsStandingRifleHash, isStandingRifle || isAimRifle);
         UpdateShooting();
         if (onNavMesh && patrolPoints != null && patrolPoints.Length > 1)
@@ -173,6 +179,8 @@ public class SoldierAI : MonoBehaviour
         {
             if (shotAudio && clipEjectionAudio) shotAudio.PlayOneShot(clipEjectionAudio);
             shotsInClip = 0;
+            isReloading = true;
+            animator.SetBool(IsAimRifle, false);
         }
 
         Vector3 origin = muzzle.position;

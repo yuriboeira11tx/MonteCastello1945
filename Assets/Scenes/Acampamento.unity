@@ -92124,6 +92124,7 @@ MonoBehaviour:
   isAimRifle: 1
   isFire: 1
   muzzle: {fileID: 1465231487}
+  initialShotDelay: 4
   shotCooldown: 8
   shotsPerClip: 8
   reloadCooldown: 10
@@ -93341,6 +93342,7 @@ MonoBehaviour:
   isAimRifle: 1
   isFire: 1
   muzzle: {fileID: 197638810}
+  initialShotDelay: 1
   shotCooldown: 8
   shotsPerClip: 8
   reloadCooldown: 10
