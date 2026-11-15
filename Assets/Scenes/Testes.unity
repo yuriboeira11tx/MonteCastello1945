@@ -335,6 +335,11 @@ MonoBehaviour:
   shotAudio: {fileID: 3516460682965070505}
   clipEjectionAudio: {fileID: 8300000, guid: c0107faf35cc03e479baa30e53c29b31, type: 3}
   tracerSpeed: 800
+  impactAudio: {fileID: 384970558}
+  impactClips:
+  - {fileID: 8300000, guid: a45e4010e8d3e03458edb236f09386a0, type: 3}
+  - {fileID: 8300000, guid: 512941c8b55b1a44f8576d4a08199c7a, type: 3}
+  - {fileID: 8300000, guid: d900ed55cbb85ba4f9242cb67237f36d, type: 3}
   animator: {fileID: 2039401516}
   campActivity: 0
   patrolPoints:
@@ -592,6 +597,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4459694245947657447, guid: b864ca580d3044f4bb5400f6336f63e0, type: 3}
   m_PrefabInstance: {fileID: 853920309}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &384970558 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 753704608695894040, guid: 495e7c63cdd262541a5b31973499bee4, type: 3}
+  m_PrefabInstance: {fileID: 3516460682965070504}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &428567084 stripped
 Transform:

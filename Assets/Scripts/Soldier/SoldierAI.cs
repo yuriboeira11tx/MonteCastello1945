@@ -36,11 +36,16 @@ public class SoldierAI : MonoBehaviour
     [SerializeField] private AudioClip clipEjectionAudio;
     [SerializeField, Min(1f)] private float tracerSpeed = 800f;
 
+    [Header("Som do impacto")]
+    [SerializeField] private AudioSource impactAudio;
+    [SerializeField] private AudioClip[] impactClips;
+
     private readonly RaycastHit[] shotHits = new RaycastHit[32];
     private float nextShotTime;
     private int shotsInClip;
     private bool firing, shotDelivered;
     private Coroutine tracerRoutine;
+    private Vector3 impactAudioPosition;
 
     [SerializeField] private Animator animator;
     [SerializeField, Tooltip("Atividade fixa no acampamento. Standard mantém patrulhas e exercícios.")]
@@ -107,6 +112,13 @@ public class SoldierAI : MonoBehaviour
         Transform point = patrolPoints[nextPatrolPoint];
         nextPatrolPoint = (nextPatrolPoint + 1) % patrolPoints.Length;
         if (point != null) agent.SetDestination(point.position);
+    }
+
+    private void LateUpdate()
+    {
+        // A arma se move com o rig, mas o som permanece no ponto atingido.
+        if (impactAudio && impactAudio.isPlaying)
+            impactAudio.transform.position = impactAudioPosition;
     }
 
     private void UpdateShooting()
@@ -203,10 +215,24 @@ public class SoldierAI : MonoBehaviour
             }
             tracer.enabled = false;
         }
-        if (hasHit && impactEffect)
+        if (hasHit)
         {
-            impactEffect.transform.SetPositionAndRotation(end + normal * 0.015f, Quaternion.LookRotation(normal));
-            impactEffect.Emit(18);
+            if (impactEffect)
+            {
+                impactEffect.transform.SetPositionAndRotation(end + normal * 0.015f, Quaternion.LookRotation(normal));
+                impactEffect.Emit(18);
+            }
+            if (impactAudio && impactClips != null && impactClips.Length > 0)
+            {
+                var clip = impactClips[Random.Range(0, impactClips.Length)];
+                if (clip)
+                {
+                    impactAudioPosition = end;
+                    impactAudio.transform.position = impactAudioPosition;
+                    impactAudio.clip = clip;
+                    impactAudio.Play();
+                }
+            }
         }
         tracerRoutine = null;
     }
@@ -221,5 +247,6 @@ public class SoldierAI : MonoBehaviour
         if (muzzleSmoke) muzzleSmoke.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         if (impactEffect) impactEffect.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         if (shotAudio) shotAudio.Stop();
+        if (impactAudio) impactAudio.Stop();
     }
 }
