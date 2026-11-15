@@ -3,10 +3,8 @@
     align-self: center;
     bottom: 15%;
     padding: 10px 24px;
-    background-color: rgba(25, 29, 22, 0.91);
-    border-bottom-width: 2px;
-    border-bottom-color: #a8ad86;
-    color: #f2ead2;
+    background-color: rgba(0, 0, 0, 0.91);
+    color: #ffffff;
     font-size: 26px;
 }
 .inspection-split {

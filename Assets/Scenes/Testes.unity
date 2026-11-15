@@ -327,7 +327,7 @@ MonoBehaviour:
   shotNormalizedTime: 0.08571428
   shotMask:
     serializedVersion: 2
-    m_Bits: 4294967291
+    m_Bits: 307
   muzzleFlash: {fileID: 3516460682965070509}
   muzzleSmoke: {fileID: 3516460682965070508}
   impactEffect: {fileID: 3516460682965070507}
@@ -437,7 +437,7 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325781658}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 13
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1.5
@@ -489,7 +489,7 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
-  m_ShadowRadius: 0
+  m_ShapeRadius: 0
   m_ShadowAngle: 0
   m_LightUnit: 1
   m_LuxAtDistance: 1
@@ -951,12 +951,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: f46093518642f5f46a1a708a49a491f1, type: 2}
     - target: {fileID: 62851166757802034, guid: b864ca580d3044f4bb5400f6336f63e0, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'hand.L'\n\tTransform 'upper_arm.L'\n\tTransform
-        'forearm.L'\n\tTransform 'hand.L'\n\tTransform 'upper_arm.L'\n\tTransform
-        'forearm.L'\n\tTransform 'hand.L'\n\tTransform 'upper_arm.L'\n\tTransform
-        'forearm.L'"
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are already bound by a Humanoid avatar. These transforms can only be changed by Humanoid clips.\n\tTransform 'hand.L'\n\tTransform 'upper_arm.L'\n\tTransform 'forearm.L'\n\tTransform 'hand.L'\n\tTransform 'upper_arm.L'\n\tTransform 'forearm.L'\n\tTransform 'hand.L'\n\tTransform 'upper_arm.L'\n\tTransform 'forearm.L'"
       objectReference: {fileID: 0}
     - target: {fileID: 62851166757802034, guid: b864ca580d3044f4bb5400f6336f63e0, type: 3}
       propertyPath: m_ApplyRootMotion
@@ -2797,13 +2792,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066004190}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16754688, y: -0.0047330623, z: -0.0008043981, w: 0.9858525}
-  m_LocalPosition: {x: 0.321, y: 1.497, z: -9.01}
+  m_LocalRotation: {x: 0.091035254, y: -0.0046569495, z: -0.0011669402, w: 0.9958361}
+  m_LocalPosition: {x: 2.086, y: 1.197, z: -9.749}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 19.29, y: -0.583, z: -0.193}
+  m_LocalEulerAnglesHint: {x: 10.446, y: -0.553, z: -0.185}
 --- !u!114 &2066004194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2828,7 +2823,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 2
+  m_Antialiasing: 3
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 1
@@ -2846,7 +2841,7 @@ MonoBehaviour:
     m_JitterScale: 1
     m_MipBias: 0
     m_VarianceClampScale: 0.9
-    m_ContrastAdaptiveSharpening: 0
+    m_ContrastAdaptiveSharpening: 0.5
   m_Version: 2
 --- !u!4 &2068538878 stripped
 Transform:
