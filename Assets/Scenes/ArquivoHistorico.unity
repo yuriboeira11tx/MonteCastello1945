@@ -1928,12 +1928,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4547765267078306787, guid: 930ec9e5bd4e2794ebb443cff6b18f5d, type: 3}
       propertyPath: weight
-      value: 1
+      value: 0.067
       objectReference: {fileID: 0}
     - target: {fileID: 4547765267078306787, guid: 930ec9e5bd4e2794ebb443cff6b18f5d, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4547765267078306787, guid: 930ec9e5bd4e2794ebb443cff6b18f5d, type: 3}
+      propertyPath: m_IsGlobal
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4547765267078306787, guid: 930ec9e5bd4e2794ebb443cff6b18f5d, type: 3}
+      propertyPath: sharedProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: 0dfbc7e7eaf5d094d827ffedb6937113, type: 2}
     - target: {fileID: 4547765267078306788, guid: 930ec9e5bd4e2794ebb443cff6b18f5d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 497.77
