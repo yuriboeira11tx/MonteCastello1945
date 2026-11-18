@@ -61019,14 +61019,14 @@ MonoBehaviour:
       - inicio: 0.7590635
         texto: "Quem que \xE9 esse a\xED?"
     apresentacao:
-      gravacao: {fileID: 0}
-      segundosSemGravacao: 8.823529
+      gravacao: {fileID: 8300000, guid: 5ef1e226fc298754d96a3995d1010061, type: 3}
+      segundosSemGravacao: 8.15
       legendas:
-      - inicio: 0
-        texto: "Meu capit\xE3o! Trouxe o pesquisador que o comando anunciou."
-      - inicio: 0.38000003
+      - inicio: 0.022085892
+        texto: Meu sargento! Trouxe o pesquisador que o comando anunciou.
+      - inicio: 0.4404908
         texto: Veio ouvir o pessoal e escrever sobre a vida aqui no acampamento.
-      - inicio: 0.8133334
+      - inicio: 0.7840491
         texto: "\xC9 pra publicar l\xE1 no Brasil."
     suspeita:
       gravacao: {fileID: 8300000, guid: 56701fce336065349be1c439d5b68b92, type: 3}
@@ -61053,12 +61053,12 @@ MonoBehaviour:
       - inicio: 0.9002614
         texto: "T\xE1 um pouco esquisita essa hist\xF3ria."
     credencial:
-      gravacao: {fileID: 0}
-      segundosSemGravacao: 6.5
+      gravacao: {fileID: 8300000, guid: d1340a6a0d6e74d4c858f9b51f2d7587, type: 3}
+      segundosSemGravacao: 5.7
       legendas:
-      - inicio: 0
+      - inicio: 0.038596492
         texto: "Aqui, meu capit\xE3o."
-      - inicio: 0.23076923
+      - inicio: 0.24736843
         texto: "E se ele escrever tudo que ouviu no jipe, pe\xE7o licen\xE7a pra riscar umas duas palavras."
     missao:
       gravacao: {fileID: 8300000, guid: c5ff44a79c32a894eb65607a927ee11a, type: 3}
