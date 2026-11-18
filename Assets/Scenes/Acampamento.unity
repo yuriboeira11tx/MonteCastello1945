@@ -3597,50 +3597,14 @@ MonoBehaviour:
   intervalo: 7
   esperaInicial: 1.5
   falas:
-  - identificador: rancho
-    locutor: Pesquisador
-    quando: 2
-    origem: {fileID: 791235494}
-    vozDoSoldado: {fileID: 0}
-    evidencia: {fileID: 0}
-    texto: "Da cozinha at\xE9 a \xFAltima barraca, algu\xE9m tinha de levar cada refei\xE7\xE3o."
-    audio: {fileID: 0}
-    duracaoSemAudio: 0
-  - identificador: instrucao
-    locutor: Pesquisador
-    quando: 2
-    origem: {fileID: 206729138}
-    vozDoSoldado: {fileID: 0}
-    evidencia: {fileID: 0}
-    texto: "Daqui eu ou\xE7o a contagem. \xC0 dist\xE2ncia, na fotografia, mal se distinguia um homem do outro."
-    audio: {fileID: 0}
-    duracaoSemAudio: 0
-  - identificador: enfermagem
-    locutor: Pesquisador
-    quando: 3
-    origem: {fileID: 0}
-    vozDoSoldado: {fileID: 0}
-    evidencia: {fileID: 11400000, guid: 7009238f0c10205489a7fc1dfcbdee3c, type: 2}
-    texto: Pistoia. Marquei o nome na caderneta. Foi ali que as enfermeiras posaram para esse retrato.
-    audio: {fileID: 0}
-    duracaoSemAudio: 0
-  - identificador: feb_01
-    locutor: Guarda de fuzil
-    quando: 1
-    origem: {fileID: 624939223}
-    vozDoSoldado: {fileID: 1510682835}
-    evidencia: {fileID: 0}
-    texto: "Se o cabo perguntar por mim, estou de servi\xE7o at\xE9 o rancho."
-    audio: {fileID: 0}
-    duracaoSemAudio: 0
   - identificador: feb_02
     locutor: "Soldado em instru\xE7\xE3o"
     quando: 1
     origem: {fileID: 617227182}
     vozDoSoldado: {fileID: 834697757}
     evidencia: {fileID: 0}
-    texto: "Um, dois\u2026 Agora acertei o passo."
-    audio: {fileID: 0}
+    texto: "Seis, sete, oito\u2026 Quem foi que disse que eram s\xF3 seis?"
+    audio: {fileID: 8300000, guid: 0a4cd4569d5f62940b6d2341889d2d93, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_03
     locutor: "Soldado em instru\xE7\xE3o"
@@ -3675,8 +3639,8 @@ MonoBehaviour:
     origem: {fileID: 990617011}
     vozDoSoldado: {fileID: 611035190}
     evidencia: {fileID: 0}
-    texto: "Algu\xE9m me empresta um l\xE1pis? Deixei a carta pela metade."
-    audio: {fileID: 0}
+    texto: Ah, minha bota cheia de terra!
+    audio: {fileID: 8300000, guid: 347499c21e685c342a3a42536963a239, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_07
     locutor: Soldado do transporte
@@ -3684,8 +3648,8 @@ MonoBehaviour:
     origem: {fileID: 1955207697}
     vozDoSoldado: {fileID: 1810123309}
     evidencia: {fileID: 0}
-    texto: "Abra caminho, camarada. Com essa caixa mal vejo os meus p\xE9s."
-    audio: {fileID: 0}
+    texto: Contei essas duas vezes. Falta conferir as do fundo.
+    audio: {fileID: 8300000, guid: 8001268e17c2afb4b9f132dd4da26bcf, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_08
     locutor: Soldado do transporte
@@ -3693,8 +3657,8 @@ MonoBehaviour:
     origem: {fileID: 618659450}
     vozDoSoldado: {fileID: 697628355}
     evidencia: {fileID: 0}
-    texto: O cozinheiro pediu essa aqui. A outra volta comigo.
-    audio: {fileID: 0}
+    texto: "Guarda uma concha pro pessoal da ronda. Eles comem por \xFAltimo."
+    audio: {fileID: 8300000, guid: 7a7dd2ef008cf2943b8d0a9423bbf069, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_09
     locutor: Soldado do transporte
@@ -3702,8 +3666,8 @@ MonoBehaviour:
     origem: {fileID: 1147529890}
     vozDoSoldado: {fileID: 1786481094}
     evidencia: {fileID: 0}
-    texto: Esta vai pro posto. Deixa as ataduras por cima.
-    audio: {fileID: 0}
+    texto: "Ei, fala baixo, amigo. Tem gente tentando descansar a\xED dentro. Tenha um pouco de respeito, pelo menos, n\xE9?"
+    audio: {fileID: 8300000, guid: 7bfef28daee6ebc4aa82b89c436971fc, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_10
     locutor: Patrulheiro
@@ -3711,8 +3675,8 @@ MonoBehaviour:
     origem: {fileID: 1721478011}
     vozDoSoldado: {fileID: 508713819}
     evidencia: {fileID: 0}
-    texto: Da ponta destas barracas eu enxergo a picada.
-    audio: {fileID: 0}
+    texto: "Ouvi um estalo ali. Pera\u2026 Foi s\xF3 um galho."
+    audio: {fileID: 8300000, guid: 750d743b429a63e41a278c86bfe59007, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_11
     locutor: Patrulheiro
@@ -3722,15 +3686,6 @@ MonoBehaviour:
     evidencia: {fileID: 0}
     texto: "Ouviu? Se passar o caf\xE9 antes da rendi\xE7\xE3o, guarda um dedinho pra mim. Guarda um dedinho."
     audio: {fileID: 8300000, guid: c7488792e7fc26043b18af0961a1717c, type: 3}
-    duracaoSemAudio: 0
-  - identificador: feb_12
-    locutor: Patrulheiro
-    quando: 1
-    origem: {fileID: 1836715148}
-    vozDoSoldado: {fileID: 839529481}
-    evidencia: {fileID: 0}
-    texto: "Passo por tr\xE1s dos jipes. Pela frente a gente atrapalha o motorista."
-    audio: {fileID: 0}
     duracaoSemAudio: 0
   - identificador: feb_13
     locutor: Patrulheiro
@@ -3747,8 +3702,8 @@ MonoBehaviour:
     origem: {fileID: 998121337}
     vozDoSoldado: {fileID: 1864220770}
     evidencia: {fileID: 0}
-    texto: "Vou at\xE9 as viaturas. Quer que eu leve o recado?"
-    audio: {fileID: 0}
+    texto: Passagem livre! Deixa a passagem livre, camarada! O jipe precisa dar a volta. Libera a passagem!
+    audio: {fileID: 8300000, guid: 321dce2ac5771de4391db774b3162802, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_15
     locutor: Sentinela da entrada
@@ -3801,8 +3756,8 @@ MonoBehaviour:
     origem: {fileID: 1350287544}
     vozDoSoldado: {fileID: 1982213029}
     evidencia: {fileID: 0}
-    texto: Olha o pneu deste lado. Parece mais baixo que o outro.
-    audio: {fileID: 0}
+    texto: Passagem livre! Deixa a passagem livre, camarada! O jipe precisa dar a volta. Libera a passagem!
+    audio: {fileID: 8300000, guid: 321dce2ac5771de4391db774b3162802, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_21
     locutor: "Soldado da instru\xE7\xE3o"
@@ -3837,8 +3792,8 @@ MonoBehaviour:
     origem: {fileID: 1344915288}
     vozDoSoldado: {fileID: 769313368}
     evidencia: {fileID: 0}
-    texto: A caneca bate no cinto toda vez que eu salto.
-    audio: {fileID: 0}
+    texto: "Deixa um bra\xE7o de dist\xE2ncia do outro. Pronto, agora cabe todo mundo."
+    audio: {fileID: 8300000, guid: a2eddd7f72604084c8914e3e6954fa9c, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_25
     locutor: "Soldado em instru\xE7\xE3o"
@@ -3855,8 +3810,8 @@ MonoBehaviour:
     origem: {fileID: 335829629}
     vozDoSoldado: {fileID: 2145264490}
     evidencia: {fileID: 0}
-    texto: "Conta em voz alta, camarada. J\xE1 perdi a conta das minhas."
-    audio: {fileID: 0}
+    texto: "Seis, sete, oito\u2026 Quem foi que disse que eram s\xF3 seis?"
+    audio: {fileID: 8300000, guid: 0a4cd4569d5f62940b6d2341889d2d93, type: 3}
     duracaoSemAudio: 0
 --- !u!114 &71304151
 MonoBehaviour:
