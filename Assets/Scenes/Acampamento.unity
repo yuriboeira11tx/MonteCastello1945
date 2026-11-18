@@ -33309,9 +33309,9 @@ AudioSource:
   Priority: 110
   DopplerLevel: 2
   MinDistance: 1.4
-  MaxDistance: 45
+  MaxDistance: 85
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -47302,7 +47302,7 @@ MonoBehaviour:
   musicaDaChegada: {fileID: 8300000, guid: 3694aa4e7c6c7a344ad39fbd1f5e4887, type: 3}
   ajusteDaFaixaDb: -3
   distanciaSoRadio: 6
-  distanciaTrilhaPlena: 24
+  distanciaTrilhaPlena: 64
 --- !u!82 &1053834092
 AudioSource:
   m_ObjectHideFlags: 0
