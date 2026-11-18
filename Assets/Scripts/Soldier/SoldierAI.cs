@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Animations.Rigging;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class SoldierAI : MonoBehaviour
@@ -58,6 +59,26 @@ public class SoldierAI : MonoBehaviour
     private int nextPatrolPoint;
     private float nextRouteCheck;
 
+    [Header("Olhar para o pesquisador")]
+    [SerializeField] private MultiAimConstraint headLook;
+    [SerializeField] private Transform headLookTarget;
+    [SerializeField] private Transform researcherView;
+    [SerializeField] private bool lookAtResearcher = true;
+    [SerializeField, Min(0.5f)] private float lookDistance = 8f;
+    [SerializeField, Range(20f, 160f), Tooltip("Abertura total do campo de visão, em graus.")]
+    private float fieldOfView = 120f;
+    [SerializeField, Range(0f, 60f)] private float maxHeadYaw = 50f;
+    [SerializeField, Range(0f, 35f)] private float maxHeadPitch = 25f;
+    [SerializeField, Range(0f, 1f)] private float lookWeight = .85f;
+    [SerializeField, Min(.1f)] private float lookBlendSpeed = 2.5f;
+    [SerializeField, Min(1f)] private float lookTurnSpeed = 120f;
+    [SerializeField] private LayerMask lookVisibilityMask = Physics.DefaultRaycastLayers;
+
+    private readonly RaycastHit[] lookHits = new RaycastHit[16];
+    private bool researcherVisible;
+    private float nextLookCheck;
+    private Vector3 gazeDirection;
+
     private static readonly int IsWalkingHash = Animator.StringToHash("isWalking");
     private static readonly int IsStandingRifleHash = Animator.StringToHash("isStandingRifle");
     private static readonly int IsJackHash = Animator.StringToHash("isJack");
@@ -75,6 +96,8 @@ public class SoldierAI : MonoBehaviour
     {
         if (agent == null) agent = GetComponent<NavMeshAgent>();
         if (animator == null) animator = GetComponentInChildren<Animator>();
+        gazeDirection = transform.forward;
+        nextLookCheck = Time.time + Random.Range(0f, .15f);
     }
 
     private void Start()
@@ -97,6 +120,7 @@ public class SoldierAI : MonoBehaviour
 
     void Update()
     {
+        UpdateGaze();
         if (campActivity != CampActivity.Standard) return;
 
         if (isReloading && Time.time >= nextShotTime) isReloading = false;
@@ -107,6 +131,62 @@ public class SoldierAI : MonoBehaviour
         UpdateShooting();
         if (onNavMesh && patrolPoints != null && patrolPoints.Length > 1)
             UpdatePatrol();
+    }
+
+    private void UpdateGaze()
+    {
+        if (!headLook || !headLookTarget || !researcherView) return;
+        Transform head = headLook.data.constrainedObject;
+        if (!head) return;
+
+        bool busy = isAimRifle || isFire || campActivity == CampActivity.Sleeping ||
+            campActivity == CampActivity.Drinking || campActivity == CampActivity.Saluting ||
+            campActivity == CampActivity.LiftingObject ||
+            (campActivity == CampActivity.Standard && (isJack || isBurpee || isPushup));
+        Vector3 toPlayer = researcherView.position - head.position;
+        Vector3 local = transform.InverseTransformDirection(toPlayer);
+        float yaw = Mathf.Atan2(local.x, local.z) * Mathf.Rad2Deg;
+        float horizontal = new Vector2(local.x, local.z).magnitude;
+        float pitch = Mathf.Atan2(local.y, horizontal) * Mathf.Rad2Deg;
+        float angle = fieldOfView * .5f + (researcherVisible ? 5f : 0f);
+        bool inView = lookAtResearcher && !busy && researcherView.gameObject.activeInHierarchy &&
+            toPlayer.sqrMagnitude < lookDistance * lookDistance && toPlayer.sqrMagnitude > .04f &&
+            Mathf.Abs(yaw) <= angle && Mathf.Abs(pitch) <= 45f;
+
+        if (!inView) researcherVisible = false;
+        else if (Time.time >= nextLookCheck)
+        {
+            nextLookCheck = Time.time + .15f;
+            researcherVisible = HasClearView(head.position, toPlayer);
+        }
+
+        if (researcherVisible)
+        {
+            Quaternion limited = Quaternion.Euler(-Mathf.Clamp(pitch, -maxHeadPitch, maxHeadPitch),
+                Mathf.Clamp(yaw, -maxHeadYaw, maxHeadYaw), 0f);
+            Vector3 desired = transform.TransformDirection(limited * Vector3.forward);
+            gazeDirection = Vector3.RotateTowards(gazeDirection, desired,
+                lookTurnSpeed * Mathf.Deg2Rad * Time.deltaTime, 0f).normalized;
+        }
+        else if (headLook.weight <= .001f) gazeDirection = transform.forward;
+
+        headLookTarget.position = head.position + gazeDirection * 2f;
+        headLook.weight = Mathf.MoveTowards(headLook.weight, researcherVisible ? lookWeight : 0f,
+            lookBlendSpeed * Time.deltaTime);
+    }
+
+    private bool HasClearView(Vector3 origin, Vector3 direction)
+    {
+        int count = Physics.RaycastNonAlloc(origin, direction.normalized, lookHits, direction.magnitude,
+            lookVisibilityMask, QueryTriggerInteraction.Ignore);
+        if (count == lookHits.Length) return false;
+        for (int i = 0; i < count; i++)
+        {
+            Transform hit = lookHits[i].transform;
+            if (hit.IsChildOf(transform) || researcherView.IsChildOf(hit)) continue;
+            return false;
+        }
+        return true;
     }
 
     private void UpdatePatrol()
@@ -247,6 +327,8 @@ public class SoldierAI : MonoBehaviour
 
     private void OnDisable()
     {
+        researcherVisible = false;
+        if (headLook) headLook.weight = 0f;
         StopAllCoroutines();
         tracerRoutine = null;
         firing = shotDelivered = false;
