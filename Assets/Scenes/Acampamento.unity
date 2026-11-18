@@ -3593,7 +3593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FEB.Audio.SceneDialogue
   pesquisador: {fileID: 884951834}
   voz: {fileID: 1637811062}
-  alcance: 5
+  alcance: 12
   intervalo: 7
   esperaInicial: 1.5
   falas:
@@ -3648,8 +3648,8 @@ MonoBehaviour:
     origem: {fileID: 327333035}
     vozDoSoldado: {fileID: 1217616188}
     evidencia: {fileID: 0}
-    texto: "A terra vem junto na palma da m\xE3o."
-    audio: {fileID: 0}
+    texto: Ah, minha bota cheia de terra!
+    audio: {fileID: 8300000, guid: 347499c21e685c342a3a42536963a239, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_04
     locutor: "Soldado em instru\xE7\xE3o"
@@ -3657,8 +3657,8 @@ MonoBehaviour:
     origem: {fileID: 1968054159}
     vozDoSoldado: {fileID: 24116784}
     evidencia: {fileID: 0}
-    texto: "Sete\u2026 Oito\u2026 Quem foi que disse que eram s\xF3 seis?"
-    audio: {fileID: 0}
+    texto: "Seis, sete, oito\u2026 Quem foi que disse que eram s\xF3 seis?"
+    audio: {fileID: 8300000, guid: 0a4cd4569d5f62940b6d2341889d2d93, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_05
     locutor: Patrulheiro
@@ -3666,8 +3666,8 @@ MonoBehaviour:
     origem: {fileID: 1974870410}
     vozDoSoldado: {fileID: 929850544}
     evidencia: {fileID: 0}
-    texto: "Mais uma volta pelas barracas. Depois \xE9 a minha vez de tomar caf\xE9."
-    audio: {fileID: 0}
+    texto: "Mais uma volta pelas barracas e depois \xE9 minha vez de tomar caf\xE9, hein?"
+    audio: {fileID: 8300000, guid: f71768640c2bd3c499de11840c770166, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_06
     locutor: Soldado em descanso
@@ -3720,8 +3720,8 @@ MonoBehaviour:
     origem: {fileID: 1160380684}
     vozDoSoldado: {fileID: 120751309}
     evidencia: {fileID: 0}
-    texto: "Se passarem o caf\xE9 antes da rendi\xE7\xE3o, guardem um dedo pra mim."
-    audio: {fileID: 0}
+    texto: "Ouviu? Se passar o caf\xE9 antes da rendi\xE7\xE3o, guarda um dedinho pra mim. Guarda um dedinho."
+    audio: {fileID: 8300000, guid: c7488792e7fc26043b18af0961a1717c, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_12
     locutor: Patrulheiro
@@ -3738,8 +3738,8 @@ MonoBehaviour:
     origem: {fileID: 1624776994}
     vozDoSoldado: {fileID: 502941519}
     evidencia: {fileID: 0}
-    texto: A correia range a cada passo. Quando voltar, dou um jeito nisso.
-    audio: {fileID: 0}
+    texto: Essa correia rangendo a cada passo que eu dou. Quando eu voltar, dou um jeito nessa merda.
+    audio: {fileID: 8300000, guid: 1a00b0fe6fb97c448845816ac5ac8a2e, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_14
     locutor: Mensageiro
@@ -3756,8 +3756,8 @@ MonoBehaviour:
     origem: {fileID: 497439597}
     vozDoSoldado: {fileID: 954907090}
     evidencia: {fileID: 0}
-    texto: Por aqui, camarada. Cuidado com a corda da barraca.
-    audio: {fileID: 0}
+    texto: "Vamos! \xC9 por aqui, camarada. Cuidado com essa corda da barraca. T\xE1 solta tem um tempo."
+    audio: {fileID: 8300000, guid: 1a3feb68e118c2d4f858ad32af523273, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_16
     locutor: "Guarda do dep\xF3sito"
@@ -3765,8 +3765,8 @@ MonoBehaviour:
     origem: {fileID: 61385457}
     vozDoSoldado: {fileID: 67361341}
     evidencia: {fileID: 0}
-    texto: Quem deixou esse fuzil aqui? Ainda falta passar o pano.
-    audio: {fileID: 0}
+    texto: "Quem foi que deixou esse fuzil aqui? H\xE3? Ainda falta passar pano, viu?"
+    audio: {fileID: 8300000, guid: 4e53dc9b2fcf6ff42b759fa24a6b3391, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_17
     locutor: Guarda das viaturas
@@ -3774,8 +3774,8 @@ MonoBehaviour:
     origem: {fileID: 1708618555}
     vozDoSoldado: {fileID: 179246931}
     evidencia: {fileID: 0}
-    texto: Deixem essa passagem livre. O jipe precisa dar a volta.
-    audio: {fileID: 0}
+    texto: Passagem livre! Deixa a passagem livre, camarada! O jipe precisa dar a volta. Libera a passagem!
+    audio: {fileID: 8300000, guid: 321dce2ac5771de4391db774b3162802, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_18
     locutor: "Guarda do posto de sa\xFAde"
@@ -3783,8 +3783,8 @@ MonoBehaviour:
     origem: {fileID: 1658143250}
     vozDoSoldado: {fileID: 1301497461}
     evidencia: {fileID: 0}
-    texto: "Fale baixo, amigo. Tem gente descansando a\xED dentro."
-    audio: {fileID: 0}
+    texto: "Ei, fala baixo, amigo. Tem gente tentando descansar a\xED dentro. Tenha um pouco de respeito, pelo menos, n\xE9?"
+    audio: {fileID: 8300000, guid: 7bfef28daee6ebc4aa82b89c436971fc, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_19
     locutor: Soldado do rancho
@@ -3793,7 +3793,7 @@ MonoBehaviour:
     vozDoSoldado: {fileID: 639852255}
     evidencia: {fileID: 0}
     texto: "Guarda uma concha pro pessoal da ronda. Eles comem por \xFAltimo."
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 7a7dd2ef008cf2943b8d0a9423bbf069, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_20
     locutor: Soldado das viaturas
@@ -3810,8 +3810,8 @@ MonoBehaviour:
     origem: {fileID: 885164233}
     vozDoSoldado: {fileID: 2049060655}
     evidencia: {fileID: 0}
-    texto: "Deixa um bra\xE7o de dist\xE2ncia do outro. Agora cabe todo mundo."
-    audio: {fileID: 0}
+    texto: "Deixa um bra\xE7o de dist\xE2ncia do outro. Pronto, agora cabe todo mundo."
+    audio: {fileID: 8300000, guid: a2eddd7f72604084c8914e3e6954fa9c, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_22
     locutor: "Soldado do dep\xF3sito"
@@ -3819,8 +3819,8 @@ MonoBehaviour:
     origem: {fileID: 1197280003}
     vozDoSoldado: {fileID: 30526781}
     evidencia: {fileID: 0}
-    texto: Contei estas duas vezes. Falta conferir as do fundo.
-    audio: {fileID: 0}
+    texto: Contei essas duas vezes. Falta conferir as do fundo.
+    audio: {fileID: 8300000, guid: 8001268e17c2afb4b9f132dd4da26bcf, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_23
     locutor: Sentinela da mata
@@ -3828,8 +3828,8 @@ MonoBehaviour:
     origem: {fileID: 1477401819}
     vozDoSoldado: {fileID: 270139034}
     evidencia: {fileID: 0}
-    texto: "Ouvi um estalo ali. Espere um pouco\u2026 Foi s\xF3 um galho."
-    audio: {fileID: 0}
+    texto: "Ouvi um estalo ali. Pera\u2026 Foi s\xF3 um galho."
+    audio: {fileID: 8300000, guid: 750d743b429a63e41a278c86bfe59007, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_24
     locutor: "Soldado em instru\xE7\xE3o"
@@ -3846,8 +3846,8 @@ MonoBehaviour:
     origem: {fileID: 206729138}
     vozDoSoldado: {fileID: 1209743450}
     evidencia: {fileID: 0}
-    texto: "Em p\xE9 outra vez. Na pr\xF3xima eu alcan\xE7o voc\xEAs."
-    audio: {fileID: 0}
+    texto: "Em p\xE9 outra vez. Na pr\xF3xima eu alcan\xE7o voc\xEAs!"
+    audio: {fileID: 8300000, guid: 99d442546dd137f4286bccc54faa7554, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_26
     locutor: "Soldado em instru\xE7\xE3o"
