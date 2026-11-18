@@ -3988,15 +3988,6 @@ MonoBehaviour:
     texto: Essa correia rangendo a cada passo que eu dou. Quando eu voltar, dou um jeito nessa merda.
     audio: {fileID: 8300000, guid: 1a00b0fe6fb97c448845816ac5ac8a2e, type: 3}
     duracaoSemAudio: 0
-  - identificador: feb_14
-    locutor: Mensageiro
-    quando: 1
-    origem: {fileID: 998121337}
-    vozDoSoldado: {fileID: 1864220770}
-    evidencia: {fileID: 0}
-    texto: Passagem livre! Deixa a passagem livre, camarada! O jipe precisa dar a volta. Libera a passagem!
-    audio: {fileID: 8300000, guid: 321dce2ac5771de4391db774b3162802, type: 3}
-    duracaoSemAudio: 0
   - identificador: feb_15
     locutor: Sentinela da entrada
     quando: 1
@@ -4041,15 +4032,6 @@ MonoBehaviour:
     evidencia: {fileID: 0}
     texto: "Guarda uma concha pro pessoal da ronda. Eles comem por \xFAltimo."
     audio: {fileID: 8300000, guid: 7a7dd2ef008cf2943b8d0a9423bbf069, type: 3}
-    duracaoSemAudio: 0
-  - identificador: feb_20
-    locutor: Soldado das viaturas
-    quando: 1
-    origem: {fileID: 1350287544}
-    vozDoSoldado: {fileID: 1982213029}
-    evidencia: {fileID: 0}
-    texto: Passagem livre! Deixa a passagem livre, camarada! O jipe precisa dar a volta. Libera a passagem!
-    audio: {fileID: 8300000, guid: 321dce2ac5771de4391db774b3162802, type: 3}
     duracaoSemAudio: 0
   - identificador: feb_21
     locutor: "Soldado da instru\xE7\xE3o"
