@@ -20,6 +20,11 @@
                     <ui:VisualElement name="questionResults" />
                     <ui:Label name="exportStatus" class="report-note export-status" />
                 </ui:ScrollView>
+                <ui:VisualElement class="student-identification">
+                    <ui:TextField name="studentName" label="Nome do aluno" max-length="120" class="student-name" />
+                    <ui:Label name="studentNameHelp" class="report-note" />
+                    <ui:Button name="confirmStudentName" text="Confirmar nome e emitir relatório" class="confirm-name" />
+                </ui:VisualElement>
                 <ui:VisualElement class="report-actions"><ui:Button name="copyJwt" text="Copiar JWT" /><ui:Button name="exportReport" text="Exportar JSON" /><ui:Button name="showCredits" text="Créditos finais" class="primary" /></ui:VisualElement>
                 <ui:Button name="closeReport" text="Voltar ao acervo" class="back-to-archive" />
             </ui:VisualElement>

@@ -377,30 +377,61 @@ namespace FEB.Archive
             if (leaving || !HasReconstruction || NeedsSourceLink || dossier.reportCompleted || !HasFieldSources ||
                 !caseDefinition.QuestionsAreValid() || !caseDefinition.reportQuestions.All(q => dossier.answeredQuestions.Contains(q.id))) return;
             if (caseDefinition.nextCase != null) { AdvanceChapter(); return; }
+            if (finalReportView != null && progress.finalReport == null)
+            {
+                try
+                {
+                    var draft = ResearchReportStore.Create(progress, cases, Application.version);
+                    Notebook.StoreForTransition();
+                    interaction.SetBlocked(true);
+                    finalReportView.ShowDraft(draft, name =>
+                    {
+                        draft.studentName = ResearchReportStore.NormalizeStudentName(name);
+                        CommitFinalReport(draft);
+                    }, () => interaction.SetBlocked(false));
+                }
+                catch (Exception error)
+                {
+                    interaction.SetBlocked(false);
+                    Notebook.ShowActivity("Relatório pendente", "Não foi possível preparar a prancheta", error.Message);
+                    Notebook.AddChoice("Tentar novamente", CompleteReport);
+                }
+                return;
+            }
+            try { CommitFinalReport(progress.finalReport); }
+            catch (Exception error)
+            {
+                Notebook.ShowActivity("Relatório pendente", "Não foi possível concluir o dossiê", error.Message);
+                Notebook.AddChoice("Tentar novamente", CompleteReport);
+            }
+        }
+
+        void CommitFinalReport(ResearchFinalReport snapshot)
+        {
+            if (dossier.reportCompleted) return;
             var previousReport = progress.finalReport;
             var previousToken = progress.finalReportJwt;
             var previousEncryptedToken = progress.finalReportEncryptedJwt;
             try
             {
-                if (finalReportView != null && progress.finalReport == null)
+                if (snapshot != null && progress.finalReport == null)
                 {
-                    progress.finalReport = ResearchReportStore.Create(progress, cases, Application.version);
+                    snapshot.studentName = ResearchReportStore.NormalizeStudentName(snapshot.studentName);
+                    progress.finalReport = snapshot;
                     progress.finalReportJwt = ResearchReportJwt.Issue(progress.finalReport);
                     progress.finalReportEncryptedJwt = ResearchReportJwe.Encrypt(progress.finalReportJwt);
                 }
             }
-            catch (Exception error)
+            catch (Exception)
             {
                 progress.finalReport = previousReport;
                 progress.finalReportJwt = previousToken;
                 progress.finalReportEncryptedJwt = previousEncryptedToken;
-                Notebook.ShowActivity("Relatório pendente", "Não foi possível emitir a prancheta", error.Message);
-                Notebook.AddChoice("Tentar novamente", CompleteReport);
-                return;
+                throw;
             }
             dossier.reportCompleted = true;
             progress.Record("report_completed", caseDefinition.Id);
-            if (SaveProgress()) ShowCompletedReport();
+            if (SaveProgress(false)) ShowCompletedReport();
             else
             {
                 dossier.reportCompleted = false;
@@ -408,6 +439,7 @@ namespace FEB.Archive
                 progress.finalReportJwt = previousToken;
                 progress.finalReportEncryptedJwt = previousEncryptedToken;
                 progress.events.RemoveAt(progress.events.Count - 1);
+                throw new InvalidOperationException("Não foi possível salvar o relatório. Verifique o espaço disponível e confirme novamente.");
             }
         }
 

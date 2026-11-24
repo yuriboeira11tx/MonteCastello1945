@@ -16,6 +16,14 @@ namespace FEB.Persistence
         static readonly UTF8Encoding Utf8 = new UTF8Encoding(false);
         public static string DirectoryPath => Path.Combine(Application.persistentDataPath, "ResearchReports");
 
+        public static string NormalizeStudentName(string value)
+        {
+            string name = (value ?? string.Empty).Trim().Normalize(NormalizationForm.FormC);
+            if (name.Length == 0 || name.Length > 120 || name.Any(char.IsControl))
+                throw new ArgumentException("Preencha o nome do aluno, com até 120 caracteres e sem quebras de linha.");
+            return name;
+        }
+
         [Serializable]
         sealed class Questionnaire
         {

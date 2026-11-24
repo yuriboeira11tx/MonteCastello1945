@@ -20,6 +20,8 @@ namespace FEB.UI
         ResearchFinalReport report;
         string reportToken;
         string encryptedReportToken;
+        Action<string> confirmName;
+        bool confirmingName;
         Action closed;
 
         void OnEnable() { Bind(); if (root != null) root.style.display = DisplayStyle.None; }
@@ -41,6 +43,7 @@ namespace FEB.UI
             root.Q<Button>("exportReport").clicked += Export;
             root.Q<Button>("showCredits").clicked += ShowCredits;
             root.Q<Button>("closeReport").clicked += Close;
+            root.Q<Button>("confirmStudentName").clicked += ConfirmStudentName;
             root.RegisterCallback<GeometryChangedEvent>(evt =>
                 root.EnableInClassList("report-compact", evt.newRect.width < 1000 || evt.newRect.height < 700));
         }
@@ -55,6 +58,7 @@ namespace FEB.UI
             report = snapshot;
             reportToken = jwt;
             encryptedReportToken = string.IsNullOrEmpty(jwt) ? null : encryptedJwt;
+            confirmName = null;
             closed = onClosed;
             root.style.display = DisplayStyle.Flex;
             Text("reportCode", report.code);
@@ -101,9 +105,45 @@ namespace FEB.UI
             root.Q<Button>("showCredits").SetEnabled(credits != null && creditsView != null);
             root.Q<Button>("copyJwt").SetEnabled(!string.IsNullOrEmpty(reportToken));
             root.Q<Button>("exportReport").SetEnabled(!string.IsNullOrEmpty(reportToken));
+            var name = root.Q<TextField>("studentName");
+            name.SetValueWithoutNotify(report.studentName ?? string.Empty);
+            name.isReadOnly = true;
+            root.Q<Button>("confirmStudentName").style.display = DisplayStyle.None;
+            Text("studentNameHelp", string.IsNullOrEmpty(report.studentName)
+                ? "Este relatório antigo não contém o nome do aluno."
+                : "Nome registrado no relatório enviado ao professor.");
             root.Q<ScrollView>("reportScroll").scrollOffset = Vector2.zero;
             if (!string.IsNullOrEmpty(reportToken)) Export();
             else Status("Este relatório antigo não possui JWT. Seus dados foram preservados sem emitir uma assinatura retroativa.");
+        }
+
+        public void ShowDraft(ResearchFinalReport snapshot, Action<string> onConfirm, Action onClosed)
+        {
+            Show(snapshot, null, null, onClosed);
+            confirmName = onConfirm ?? throw new ArgumentNullException(nameof(onConfirm));
+            var name = root.Q<TextField>("studentName");
+            name.isReadOnly = false;
+            root.Q<Button>("confirmStudentName").style.display = DisplayStyle.Flex;
+            root.Q<Button>("showCredits").SetEnabled(false);
+            Text("testNotice", snapshot.testSession ? "PRÉVIA · SESSÃO DE TESTE DO EDITOR" : "PRÉVIA · PREENCHA SEU NOME PARA CONCLUIR");
+            Text("reportCode", "Aguardando confirmação");
+            Text("integrity", "Confira as estatísticas e preencha seu nome abaixo. Após confirmar, o relatório será assinado e cifrado para envio ao professor.");
+            Text("studentNameHelp", "Confira seu nome antes de emitir: ele ficará registrado junto das estatísticas.");
+            Status("Preencha o nome do aluno para concluir o dossiê e liberar a cópia do JWT.");
+            name.Focus();
+        }
+
+        void ConfirmStudentName()
+        {
+            if (confirmName == null || confirmingName) return;
+            confirmingName = true;
+            try
+            {
+                string name = ResearchReportStore.NormalizeStudentName(root.Q<TextField>("studentName").value);
+                confirmName(name);
+            }
+            catch (Exception error) { Status(error.Message); }
+            finally { confirmingName = false; }
         }
 
         static string Duration(double seconds)
@@ -151,6 +191,7 @@ namespace FEB.UI
 
         void Close()
         {
+            confirmName = null;
             root.style.display = DisplayStyle.None;
             var notify = closed; closed = null;
             notify?.Invoke();
@@ -163,6 +204,7 @@ namespace FEB.UI
             if (root != null) root.style.display = DisplayStyle.None;
             root = null;
             closed = null;
+            confirmName = null;
         }
     }
 }

@@ -47,6 +47,13 @@
 .result-prompt { white-space: normal; font-size: 18px; }
 .result-detail { white-space: normal; font-size: 15px; color: #67634f; margin-top: 4px; }
 .export-status { margin-bottom: 15px; }
+.student-identification { flex-shrink: 0; border-top-width: 1px; border-top-color: #aea286; margin-top: 10px; padding-top: 8px; }
+.student-name { flex-direction: column; margin: 0; font-size: 18px; }
+.student-name > Label { min-width: 0; margin-bottom: 4px; color: #424b35; -unity-font-definition: url("../Fonts/SpecialElite.asset"); }
+.student-name .unity-text-field__input { background-color: #f3ebd7; color: #263428; border-width: 1px; border-color: #9d9c7d; padding: 7px 9px; min-height: 35px; }
+.student-identification .report-note { margin-top: 5px; font-size: 13px; }
+.confirm-name { background-color: #49523c; color: #f2e7ce; border-width: 1px; border-color: #49523c; min-height: 34px; margin-top: 8px; }
+.confirm-name:hover { background-color: #626c51; }
 .report-actions { flex-direction: row; flex-shrink: 0; justify-content: space-between; margin-top: 16px; border-top-width: 1px; border-top-color: #aea286; padding-top: 10px; }
 .report-actions > Button { width: 32%; min-height: 40px; background-color: rgba(83, 89, 58, 0.10); border-width: 1px; border-color: #9d9c7d; border-radius: 1px; color: #3f4835; font-size: 17px; }
 .report-actions > Button:hover { background-color: rgba(83, 89, 58, 0.22); }

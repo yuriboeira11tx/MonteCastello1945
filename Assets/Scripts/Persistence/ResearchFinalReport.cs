@@ -9,6 +9,7 @@ namespace FEB.Persistence
         public string reportId;
         public string code;
         public string sessionId;
+        public string studentName;
         public string completedUtc;
         public string buildVersion;
         public string questionnaireDigest;
