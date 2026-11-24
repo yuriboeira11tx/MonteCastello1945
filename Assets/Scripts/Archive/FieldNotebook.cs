@@ -39,6 +39,7 @@ namespace FEB.Archive
         bool raised, holding;
         float opening;
         int openedFrame;
+        public bool IsPauseMenu => raised && pages != null && pages.IsPausePage;
 
         void Awake()
         {
@@ -88,7 +89,8 @@ namespace FEB.Archive
             book.SetActive(true);
             panel.SetScreenToPanelSpaceFunction(PickPage);
             pages = new FieldNotebookPages(document.rootVisualElement, firstCase, commonReadings, chapters,
-                gameObject.scene.name, fieldPhoto, emblem, interaction.Experience, CloseBook, PlayPageTurn);
+                gameObject.scene.name, fieldPhoto, emblem, interaction.Experience, CloseBook, PlayPageTurn,
+                interaction.GetComponent<ArchiveActivityExit>());
             PositionBook();
             PlaySound(openSound);
         }

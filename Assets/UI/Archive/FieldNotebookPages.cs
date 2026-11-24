@@ -19,6 +19,7 @@ namespace FEB.Archive
         readonly List<HistoricalEvidence> readings = new List<HistoricalEvidence>();
         readonly Texture2D photo, emblem;
         readonly ArchiveExperience archive;
+        readonly ArchiveActivityExit fieldVisit;
         readonly Action pageChanged;
         readonly ResearchSave save;
         Section section;
@@ -30,10 +31,11 @@ namespace FEB.Archive
 
         public FieldNotebookPages(VisualElement root, ArchiveCaseDefinition firstCase, HistoricalEvidence[] common,
             NotebookChapter[] chapters, string scene, Texture2D photo, Texture2D emblem, ArchiveExperience archive,
-            Action close, Action pageChanged)
+            Action close, Action pageChanged, ArchiveActivityExit fieldVisit = null)
         {
             this.root = root; this.photo = photo; this.emblem = emblem;
             this.archive = archive;
+            this.fieldVisit = fieldVisit;
             this.pageChanged = pageChanged;
             save = ResearchSaveStore.EnsureSession();
             if (save.dossiers.Count == 0 && firstCase != null) save.SelectCase(firstCase.Id);
@@ -107,7 +109,7 @@ namespace FEB.Archive
         void Switch(Section next)
         {
             if (!FlushNote() || (section == next && page == 0)) return;
-            IsPausePage = false;
+            IsPausePage = next == Section.Subtitles;
             section = next; page = 0; ShowChangedPage();
         }
 
@@ -218,7 +220,12 @@ namespace FEB.Archive
                     ActionButton(left, "Pasta de pesquisa", archive.OpenBriefing);
                     if (save.ActiveDossier.chronologyOrdered && !save.ActiveDossier.chronologySolved)
                         ActionButton(left, "Perguntas sobre as fontes", archive.OpenSourceQuestions);
-                    if (archive.ActiveCase.fieldStudy) ActionButton(left, "Visita de campo", archive.OpenReconstruction);
+                    if (archive.ActiveCase.fieldStudy)
+                    {
+                        ActionButton(left, "Visita de campo", archive.OpenReconstruction);
+                        if (archive.ActiveCase.HasFieldReport)
+                            ActionButton(left, save.ActiveDossier.reportCompleted ? "Prancheta de resultados" : "Relatório do acampamento", archive.OpenReport);
+                    }
                     else
                     {
                         if (save.ActiveDossier?.reconstructionViewed != true)
@@ -232,7 +239,16 @@ namespace FEB.Archive
                     Text(right, archive.EvidenceCounts, "fine");
                 }
                 Photo(right, photo, "Expedicionários brasileiros na Itália. Fotografia do acervo do projeto.");
-                if (archive == null) Text(right, "Anote aqui suas observações. Para consultar uma evidência, volte ao objeto no local onde o encontrou.");
+                if (archive == null)
+                {
+                    if (fieldVisit != null && fieldVisit.IsFieldVisit)
+                    {
+                        Text(right, "Objetivo atual", "entry-date");
+                        Text(right, fieldVisit.FieldObjective);
+                        ActionButton(left, fieldVisit.CanComplete ? "Concluir visita e voltar" : "Voltar ao acervo", fieldVisit.ShowReturnOptions);
+                    }
+                    Text(right, "Anote aqui suas observações. Para consultar uma evidência, volte ao objeto no local onde o encontrou.");
+                }
                 Footer("Índice geral"); return;
             }
             if (section == Section.Subtitles)

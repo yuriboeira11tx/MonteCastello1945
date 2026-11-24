@@ -41237,6 +41237,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4074005449312690990, guid: 6b51228ef812478418161e6eb59d3368, type: 3}
       insertIndex: -1
       addedObject: {fileID: 884951832}
+    - targetCorrespondingSourceObject: {fileID: 4074005449312690990, guid: 6b51228ef812478418161e6eb59d3368, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 884951836}
   m_SourcePrefab: {fileID: 100100000, guid: 6b51228ef812478418161e6eb59d3368, type: 3}
 --- !u!1 &884951831 stripped
 GameObject:
@@ -41370,6 +41373,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4054099852956549813, guid: 6b51228ef812478418161e6eb59d3368, type: 3}
   m_PrefabInstance: {fileID: 884951830}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &884951836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884951831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f884cce7eb592854ab3ae62d3e1b9f41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FEB.Archive.ArchiveActivityExit
+  stage: 1
+  completeOnPlayerTrigger: 0
+  fieldCase: {fileID: 11400000, guid: 912ee55057af4c92ab50933de6307110, type: 2}
+  interaction: {fileID: 884951834}
 --- !u!1001 &885164175
 PrefabInstance:
   m_ObjectHideFlags: 0

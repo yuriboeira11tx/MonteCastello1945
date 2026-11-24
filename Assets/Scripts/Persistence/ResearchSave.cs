@@ -34,6 +34,7 @@ namespace FEB.Persistence
         public string activeCaseId;
         public string archiveScene = "ArquivoHistorico";
         public List<DossierProgress> dossiers = new List<DossierProgress>();
+        public ResearchFinalReport finalReport;
 
         public DossierProgress ActiveDossier => dossiers?.Find(d => d.caseId == activeCaseId);
         public string StageLabel => ActiveDossier?.StageLabel ?? (reportCompleted ? "Dossiê concluído" : reconstructionViewed ? "Relatório pendente" : chronologySolved ? "Reconstrução disponível" : "Investigação no arquivo");
@@ -80,13 +81,16 @@ namespace FEB.Persistence
         public bool boardSourcesLinked;
         public List<string> answeredQuestions = new List<string>();
         public double archiveSeconds;
+        public double fieldSeconds, reconstructionSeconds;
+        public bool fieldTimingStarted, fieldTimeIncomplete;
         public int chronologyAttempts, reportAttempts;
         public List<string> evidence = new List<string>();
         public List<string> discoveredEvidence = new List<string>();
         public List<string> readEvidence = new List<string>();
         public List<EvidenceNote> notes = new List<EvidenceNote>();
-        public string StageLabel => !string.IsNullOrWhiteSpace(fieldStudyTitle) ? fieldStudyTitle :
-            reportCompleted ? "Dossiê concluído" : reconstructionViewed ? "Relatório pendente" : chronologySolved ? "Reconstrução disponível" :
+        public string StageLabel => reportCompleted ? "Dossiê concluído" :
+            !string.IsNullOrWhiteSpace(fieldStudyTitle) ? (reconstructionViewed ? "Relatório do acampamento pendente" : fieldStudyTitle) :
+            reconstructionViewed ? "Relatório pendente" : chronologySolved ? "Reconstrução disponível" :
             chronologyOrdered ? "Perguntas sobre as fontes" : "Investigação no arquivo";
 
         public void Normalize()

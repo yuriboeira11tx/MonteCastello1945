@@ -1,0 +1,30 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="../Archive/InspecaoDeCampo.uss" />
+    <ui:Style src="PranchetaFinal.uss" />
+    <ui:VisualElement name="reportRoot" class="report-root">
+        <ui:VisualElement class="clipboard">
+            <ui:VisualElement class="metal-clip" picking-mode="Ignore"><ui:VisualElement class="clip-hole" /></ui:VisualElement>
+            <ui:VisualElement class="report-paper">
+                <ui:ScrollView name="reportScroll" class="file-scroll report-scroll" horizontal-scroller-visibility="Hidden">
+                    <ui:VisualElement class="report-topline"><ui:Label text="MONTE CASTELLO · 1945" /><ui:Label name="reportDate" /></ui:VisualElement>
+                    <ui:Label text="Relatório final de pesquisa" class="report-title" />
+                    <ui:Label name="testNotice" class="report-kicker" />
+                    <ui:VisualElement class="report-rule" />
+                    <ui:VisualElement class="report-metrics">
+                        <ui:VisualElement class="report-metric"><ui:Label text="ACERTOS INICIAIS" class="metric-heading" /><ui:Label name="firstScore" class="metric-value" /><ui:Label name="firstPercent" class="metric-detail" /><ui:Label name="attempts" class="metric-detail" /></ui:VisualElement>
+                        <ui:VisualElement class="report-metric"><ui:Label text="TEMPO REGISTRADO" class="metric-heading" /><ui:Label name="totalTime" class="metric-value" /><ui:Label name="timeDetail" class="metric-detail" /></ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="report-summary"><ui:Label name="completion" /><ui:Label name="evidenceCount" /></ui:VisualElement>
+                    <ui:Label name="historyNotice" class="report-note" />
+                    <ui:VisualElement class="code-card"><ui:Label text="IDENTIFICAÇÃO DO RELATÓRIO" class="metric-heading" /><ui:Label name="reportCode" class="report-code" /><ui:Label name="integrity" class="report-note" /></ui:VisualElement>
+                    <ui:VisualElement name="questionResults" />
+                    <ui:Label text="HASH SHA-256 DO ARQUIVO" class="metric-heading hash-heading" />
+                    <ui:TextField name="reportHash" is-read-only="true" class="report-hash" />
+                    <ui:Label name="exportStatus" class="report-note export-status" />
+                </ui:ScrollView>
+                <ui:VisualElement class="report-actions"><ui:Button name="copyCode" text="Copiar código" /><ui:Button name="exportReport" text="Exportar arquivo" /><ui:Button name="showCredits" text="Créditos finais" class="primary" /></ui:VisualElement>
+                <ui:Button name="closeReport" text="Voltar ao acervo" class="back-to-archive" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

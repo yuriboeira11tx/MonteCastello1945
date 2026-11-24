@@ -30,7 +30,8 @@ namespace FEB.Persistence
             if (!File.Exists(path)) return null;
             try
             {
-                var data = JsonUtility.FromJson<ResearchSave>(File.ReadAllText(path));
+                string json = File.ReadAllText(path);
+                var data = JsonUtility.FromJson<ResearchSave>(json);
                 if (data == null || data.version != 1 || data.slot != slot || string.IsNullOrEmpty(data.id)) return null;
                 data.evidence ??= new System.Collections.Generic.List<string>();
                 data.discoveredEvidence ??= new System.Collections.Generic.List<string>();
@@ -41,6 +42,12 @@ namespace FEB.Persistence
                 data.events ??= new System.Collections.Generic.List<ResearchEvent>();
                 data.dossiers ??= new System.Collections.Generic.List<DossierProgress>();
                 foreach (var dossier in data.dossiers) dossier.Normalize();
+                if (!json.Contains("\"fieldTimingStarted\"") && (data.campArrivalCompleted || data.fieldEvidence.Count > 0 ||
+                    data.events.Exists(e => e.action == "scene_requested" && e.subject == "Acampamento")))
+                {
+                    var camp = data.dossiers.Find(d => d.caseId == "acampamentos_da_feb");
+                    if (camp != null) camp.fieldTimeIncomplete = true;
+                }
                 return data;
             }
             catch (Exception e) when (e is IOException || e is ArgumentException || e is UnauthorizedAccessException)

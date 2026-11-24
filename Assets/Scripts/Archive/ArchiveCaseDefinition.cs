@@ -26,6 +26,14 @@ namespace FEB.Archive
         public bool fieldStudy;
         [TextArea(5, 12)] public string mission;
         public HistoricalEvidence[] evidence;
+        [Header("Conclusão da visita de campo")]
+        [Tooltip("Evidências encontradas na reconstrução que devem ser registradas antes do relatório final.")]
+        public HistoricalEvidence[] requiredFieldEvidence = Array.Empty<HistoricalEvidence>();
+        public bool HasFieldReport => fieldStudy && reportQuestions != null && reportQuestions.Length > 0;
+
+        public bool FieldEvidenceComplete(FEB.Persistence.ResearchSave save) => requiredFieldEvidence != null &&
+            requiredFieldEvidence.Length > 0 && Array.TrueForAll(requiredFieldEvidence,
+                item => item != null && save.fieldEvidence.Contains(item.id));
         [Header("Quadro de evidências")]
         [TextArea(2, 5)] public string boardConclusion;
         [Tooltip("Fontes que sustentam a legenda após a reconstrução.")]

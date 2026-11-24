@@ -15,55 +15,158 @@ MonoBehaviour:
   caseId: acampamentos_da_feb
   title: Acampamento
   fieldStudy: 1
-  mission: "O arquivo recebeu três fotografias da campanha da Itália. Procure as barracas de San Rossore no armário metálico, a hora do rancho sobre as caixas de arquivo e o pracinha escrevendo à família no balcão ao lado da porta. Examine e registre cada fonte.\n\nNo quadro da exposição, associe cada foto a um aspecto da vida em campanha. Responda às perguntas na caderneta e procure a mesa com a tenda e o fuzil M1 Garand para visitar o acampamento."
+  mission: "O arquivo recebeu tr\xEAs fotografias da campanha da It\xE1lia. Procure as barracas de San Rossore no arm\xE1rio met\xE1lico, a hora do rancho sobre as caixas de arquivo e o pracinha escrevendo \xE0 fam\xEDlia no balc\xE3o ao lado da porta. Examine e registre cada fonte.\n\nNo quadro da exposi\xE7\xE3o, associe cada foto a um aspecto da vida em campanha. Responda \xE0s perguntas na caderneta e procure a mesa com a tenda e o fuzil M1 Garand para visitar o acampamento."
   evidence:
   - {fileID: 11400000, guid: 912ee55057af4c92ab50933de6307101, type: 2}
   - {fileID: 11400000, guid: 912ee55057af4c92ab50933de6307102, type: 2}
   - {fileID: 11400000, guid: 912ee55057af4c92ab50933de6307103, type: 2}
+  requiredFieldEvidence:
+  - {fileID: 11400000, guid: 7009238f0c10205489a7fc1dfcbdee3c, type: 2}
+  - {fileID: 11400000, guid: b2d552dbbfc84ea1b5ca41f6188d5abe, type: 2}
+  - {fileID: 11400000, guid: b4d50f02fa374656a65b86480723ce49, type: 2}
+  - {fileID: 11400000, guid: 03c745e6b0bd1a9478b66e0428912406, type: 2}
+  - {fileID: 11400000, guid: 73ed536b11ef5f8eae525c80335f60bb, type: 2}
+  - {fileID: 11400000, guid: 5a918d38150456af90797b180c1c5cc1, type: 2}
+  - {fileID: 11400000, guid: 946602f46a125fd8bec2ae253c3c11ae, type: 2}
+  - {fileID: 11400000, guid: fda6299858745e8ab6809163b9c1647d, type: 2}
+  - {fileID: 11400000, guid: 7514196dca4f59d4bad7ab7863352c39, type: 2}
+  - {fileID: 11400000, guid: 3f52f32fefae443290d507342eed913e, type: 2}
+  boardConclusion: 
+  boardSources: []
   boardThemes:
   - Abrigo
-  - Alimentação
-  - Correspondência
-  chronologyIntroduction: "Associe cada fotografia ao tema que ela documenta."
-  chronologyExplanation: "As três fotografias mostram como os expedicionários se abrigavam, preparavam as refeições e mantinham contato com suas famílias."
+  - "Alimenta\xE7\xE3o"
+  - "Correspond\xEAncia"
+  chronologyIntroduction: Associe cada fotografia ao tema que ela documenta.
+  chronologyExplanation: "As tr\xEAs fotografias mostram como os expedicion\xE1rios se abrigavam, preparavam as refei\xE7\xF5es e mantinham contato com suas fam\xEDlias."
   chronologyQuestions:
   - id: campo_san_rossore
-    prompt: "Na fotografia de San Rossore, que detalhe permite perceber a organização do acampamento?"
+    prompt: "Na fotografia de San Rossore, que detalhe permite perceber a organiza\xE7\xE3o do acampamento?"
     answers:
-    - "As placas com os nomes de todos os soldados."
-    - "As fileiras de barracas e os corredores entre elas."
-    - "A data escrita na entrada do quartel-general."
+    - As placas com os nomes de todos os soldados.
+    - As fileiras de barracas e os corredores entre elas.
+    - A data escrita na entrada do quartel-general.
     correctAnswer: 1
-    explanation: "A vista do alto mostra fileiras, áreas de circulação e a borda do bosque. A identificação do quartel-general vem do texto que acompanha a fotografia."
+    explanation: "A vista do alto mostra fileiras, \xE1reas de circula\xE7\xE3o e a borda do bosque. A identifica\xE7\xE3o do quartel-general vem do texto que acompanha a fotografia."
   - id: campo_rancho_civis
-    prompt: "Ao expor a foto de Antônio Martins em Ponte San Pietro, o que a legenda acrescenta sobre as galinhas que ele preparava?"
+    prompt: "Ao expor a foto de Ant\xF4nio Martins em Ponte San Pietro, o que a legenda acrescenta sobre as galinhas que ele preparava?"
     answers:
-    - "Foram preparadas para uma cerimônia de formatura."
-    - "Eram o conteúdo das latas distribuídas à tropa."
-    - "Ajudariam a alimentar moradores italianos."
+    - "Foram preparadas para uma cerim\xF4nia de formatura."
+    - "Eram o conte\xFAdo das latas distribu\xEDdas \xE0 tropa."
+    - Ajudariam a alimentar moradores italianos.
     correctAnswer: 2
-    explanation: "A ficha identifica o cozinheiro e informa a quem se destinava a comida. Esse episódio mostra um contato entre os expedicionários e os civis locais."
+    explanation: "A ficha identifica o cozinheiro e informa a quem se destinava a comida. Esse epis\xF3dio mostra um contato entre os expedicion\xE1rios e os civis locais."
   - id: campo_carta_familia
-    prompt: "O que é possível afirmar sobre a carta que o pracinha escreve à porta da barraca?"
+    prompt: "O que \xE9 poss\xEDvel afirmar sobre a carta que o pracinha escreve \xE0 porta da barraca?"
     answers:
-    - "O catálogo identifica a família como destinatária."
-    - "A fotografia permite transcrever as palavras da carta."
-    - "A carta contém ordens sobre a distribuição de rações."
+    - "O cat\xE1logo identifica a fam\xEDlia como destinat\xE1ria."
+    - A fotografia permite transcrever as palavras da carta.
+    - "A carta cont\xE9m ordens sobre a distribui\xE7\xE3o de ra\xE7\xF5es."
     correctAnswer: 0
-    explanation: "A fotografia mostra o gesto de escrever. A identificação da família como destinatária vem do catálogo do Arquivo Nacional. O conteúdo da carta permanece desconhecido."
+    explanation: "A fotografia mostra o gesto de escrever. A identifica\xE7\xE3o da fam\xEDlia como destinat\xE1ria vem do cat\xE1logo do Arquivo Nacional. O conte\xFAdo da carta permanece desconhecido."
   - id: campo_legendas_lugares
-    prompt: "Como apresentar os locais das três fotografias na exposição?"
+    prompt: "Como apresentar os locais das tr\xEAs fotografias na exposi\xE7\xE3o?"
     answers:
-    - "Identificar as três como vistas de San Rossore."
-    - "Manter a identificação de cada fonte: San Rossore, Ponte San Pietro e Itália."
-    - "Identificar as três como vistas de Ponte San Pietro."
+    - "Identificar as tr\xEAs como vistas de San Rossore."
+    - "Manter a identifica\xE7\xE3o de cada fonte: San Rossore, Ponte San Pietro e It\xE1lia."
+    - "Identificar as tr\xEAs como vistas de Ponte San Pietro."
     correctAnswer: 1
-    explanation: "A vista das barracas é de San Rossore. A foto de Antônio Martins identifica Ponte San Pietro. A ficha do pracinha que escreve só permite situá-lo na Itália."
-  reconstructionIntroduction: "Você registrou três aspectos da vida dos expedicionários. Percorra o acampamento e procure no terreno o que reconhece nas fotografias. A caderneta acompanha a visita."
-  reportQuestions: []
-  reportExplanation: ""
+    explanation: "A vista das barracas \xE9 de San Rossore. A foto de Ant\xF4nio Martins identifica Ponte San Pietro. A ficha do pracinha que escreve s\xF3 permite situ\xE1-lo na It\xE1lia."
+  reconstructionIntroduction: "Voc\xEA registrou tr\xEAs aspectos da vida dos expedicion\xE1rios. Percorra o acampamento e procure no terreno o que reconhece nas fotografias. A caderneta acompanha a visita."
+  reportQuestions:
+  - id: campo_relatorio_enfermagem_idioma
+    prompt: "Nos hospitais aliados que recebiam brasileiros, que dificuldade a presen\xE7a das enfermeiras da FEB ajudava a diminuir?"
+    answers:
+    - "A dist\xE2ncia entre os dep\xF3sitos de alimentos e as unidades em marcha."
+    - "A dificuldade de o paciente explicar seus sintomas em outra l\xEDngua."
+    - O peso da neve acumulada sobre as coberturas dos alojamentos.
+    - "A falta de identifica\xE7\xE3o dos avi\xF5es que chegavam do Brasil."
+    correctAnswer: 1
+    explanation: "Na folha \xABAs volunt\xE1rias\xBB, a evid\xEAncia das enfermeiras explica que a l\xEDngua dificultava o atendimento nos hospitais norte-americanos. Uma enfermeira que compreendesse o portugu\xEAs podia entender onde do\xEDa e o que o paciente precisava. A carta a Virg\xEDnia Portocarrero e os relatos de plant\xE3o acrescentam experi\xEAncias que o retrato do grupo n\xE3o mostra."
+  - id: campo_relatorio_abastecimento
+    prompt: "O pedido de reservas de caf\xE9, feij\xE3o, arroz e farinha de mandioca em Livorno ajuda a compreender como o rancho chegava \xE0 FEB. Qual explica\xE7\xE3o corresponde \xE0s fontes?"
+    answers:
+    - "As cozinhas obtinham os g\xEAneros brasileiros nas cidades italianas, sem transporte mar\xEDtimo."
+    - "As refei\xE7\xF5es eram compostas de v\xEDveres norte-americanos, sem complemento brasileiro."
+    - "Os navios entregavam as refei\xE7\xF5es prontas \xE0s patrulhas, dispensando os dep\xF3sitos."
+    - "Navios, dep\xF3sitos e transporte por terra levavam g\xEAneros brasileiros que complementavam os v\xEDveres norte-americanos."
+    correctAnswer: 3
+    explanation: "A folha \xABO que guardar no dep\xF3sito\xBB descreve o pedido de reservas em Livorno e o percurso por navios, armazenamento e distribui\xE7\xE3o terrestre. A FEB combinava g\xEAneros brasileiros com o fornecimento norte-americano. A dist\xE2ncia da cozinha e a tarefa da unidade tamb\xE9m influenciavam o uso de refei\xE7\xF5es quentes ou ra\xE7\xF5es."
+  - id: campo_relatorio_correspondencia
+    prompt: "Ao comparar a fotografia do pracinha escrevendo com os relat\xF3rios do servi\xE7o postal, que cuidado o pesquisador deve ter?"
+    answers:
+    - "A foto mostra uma carta escrita na It\xE1lia; os relat\xF3rios estudados tratam de cartas enviadas do Brasil \xE0 tropa."
+    - "A foto permite ler a carta inteira; os relat\xF3rios identificam seu autor e a decis\xE3o do censor."
+    - "A foto e os relat\xF3rios mostram a mesma carta; juntos revelam as palavras que foram retiradas."
+    - "A foto comprova que a carta foi escrita em San Rossore; os relat\xF3rios registram sua entrega \xE0 fam\xEDlia."
+    correctAnswer: 0
+    explanation: "A evid\xEAncia \xABO caminho de uma carta\xBB distingue os sentidos da correspond\xEAncia. A fotografia mostra um homem escrevendo da It\xE1lia; os tr\xEAs relat\xF3rios analisados tratam de cartas enviadas no sentido inverso. O nome do homem, as palavras dessa carta e sua passagem pela censura continuam desconhecidos."
+  - id: campo_relatorio_radio_reconstituicao
+    prompt: "Como descrever no dossi\xEA as m\xFAsicas que tocam no receptor desta reconstru\xE7\xE3o do acampamento?"
+    answers:
+    - "Como a sequ\xEAncia de m\xFAsicas comprovadamente transmitida em San Rossore durante aquele dia."
+    - "Como grava\xE7\xF5es feitas por Francis Hallawell enquanto entrevistava o cozinheiro da unidade."
+    - "Como uma sele\xE7\xE3o de grava\xE7\xF5es da \xE9poca para a ambienta\xE7\xE3o, sem afirmar a programa\xE7\xE3o exata de San Rossore."
+    - "Como uma lista retirada dos relat\xF3rios de censura das cartas enviadas \xE0s fam\xEDlias dos soldados."
+    correctAnswer: 2
+    explanation: "Na folha \xABOuvir o Brasil\xBB, a evid\xEAncia do r\xE1dio informa que a sele\xE7\xE3o foi organizada para ambientar o jogo com grava\xE7\xF5es da \xE9poca. A programa\xE7\xE3o exata ouvida em San Rossore permanece em aberto. J\xE1 as entrevistas de Chico da BBC s\xE3o outra fonte, que permite conhecer vozes e aspectos do cotidiano dos expedicion\xE1rios."
+  - id: campo_relatorio_massarosa_avanco
+    prompt: "O relato do avan\xE7o brasileiro registra Massarosa em 16 de setembro de 1944 e Camaiore dois dias depois. O que a fotografia de Massarosa acrescenta a essa sequ\xEAncia?"
+    answers:
+    - "A identifica\xE7\xE3o dos pilotos respons\xE1veis pelas miss\xF5es a\xE9reas sobre as duas cidades."
+    - Uma cena do encontro entre os soldados brasileiros e os moradores quando a tropa chegou.
+    - "A transcri\xE7\xE3o das ordens que determinaram a partida de San Rossore para Camaiore."
+    - "A localiza\xE7\xE3o de todas as unidades brasileiras que participaram do avan\xE7o pela Toscana."
+    correctAnswer: 1
+    explanation: "A folha \xABO caminho pelo vale\xBB apresenta a sequ\xEAncia do avan\xE7o comandado por Zen\xF3bio da Costa. A fotografia mostra soldados e civis dividindo a rua junto \xE0 viatura, acrescentando uma experi\xEAncia do encontro que a lista de localidades n\xE3o descreve. Ela n\xE3o identifica toda a distribui\xE7\xE3o das unidades nem transcreve ordens."
+  - id: campo_relatorio_armamento_estoques
+    prompt: "O mostru\xE1rio apresenta um M1 Garand. Segundo a evid\xEAncia, por que sua presen\xE7a no jogo n\xE3o significa que esse foi o fuzil predominante recebido pela FEB?"
+    answers:
+    - "Os lotes dispon\xEDveis aos brasileiros continham sobretudo o Springfield M1903, de ferrolho."
+    - "O M1 representava um modelo semiautom\xE1tico que ainda n\xE3o havia sido adotado pelos Estados Unidos."
+    - "Os lotes enviados aos brasileiros continham principalmente o M1, conforme a prefer\xEAncia do comando."
+    - O M1903 aproveitava os gases do disparo, enquanto o M1 exigia o manejo manual do ferrolho.
+    correctAnswer: 0
+    explanation: "A folha \xABO que havia nos dep\xF3sitos?\xBB explica que o comando brasileiro esperava o M1, mas recebeu lotes compostos sobretudo pelo Springfield M1903. O fornecimento dependia dos estoques aliados. O M1 \xE9 semiautom\xE1tico; o M1903 exige o manejo do ferrolho entre os disparos. O mostru\xE1rio permite comparar as armas, sem transformar a reconstru\xE7\xE3o em prova do equipamento predominante."
+  - id: campo_relatorio_artilharia_fotografia
+    prompt: "A artilharia brasileira entrou em combate em 16 de setembro de 1944, mas a fotografia de Francisco de Paula \xE9 de 29 de setembro. Como essa imagem deve ser apresentada?"
+    answers:
+    - Como o registro do primeiro disparo, pois uma fotografia de carregamento comprova a estreia da unidade.
+    - "Como a prova de que a artilharia brasileira s\xF3 come\xE7ou a atuar depois da chegada do fot\xF3grafo."
+    - "Como uma imagem sem rela\xE7\xE3o com a atua\xE7\xE3o em combate, por ter sido produzida depois de 16 de setembro."
+    - "Como um retrato posado depois da estreia em combate, mostrando o carregador de uma pe\xE7a de 105 mm."
+    correctAnswer: 3
+    explanation: "A evid\xEAncia distingue a estreia da artilharia da data do retrato. A diferen\xE7a entre 16 e 29 de setembro impede trat\xE1-lo como flagrante do primeiro tiro. A cena mostra Francisco de Paula, respons\xE1vel pelo carregamento, e a inscri\xE7\xE3o \xABA cobra est\xE1 fumando\xBB na muni\xE7\xE3o."
+  - id: campo_relatorio_aviacao_identidade
+    prompt: "O que o avestruz e o lema \xABSenta a P\xFAa!\xBB permitem reconhecer no P-47 mostrado pela evid\xEAncia dos pilotos?"
+    answers:
+    - "O pa\xEDs de fabrica\xE7\xE3o do avi\xE3o, sem rela\xE7\xE3o com a unidade respons\xE1vel por oper\xE1-lo."
+    - "O emblema do servi\xE7o postal respons\xE1vel pelo transporte das cartas dos expedicion\xE1rios."
+    - "A unidade brasileira de avia\xE7\xE3o de ca\xE7a, mesmo em um avi\xE3o fabricado nos Estados Unidos."
+    - "A identifica\xE7\xE3o nominal de todos os aviadores presentes na fotografia sob a asa."
+    correctAnswer: 2
+    explanation: "A folha \xABUm desenho na fuselagem\xBB mostra que o emblema distinguia a unidade brasileira. O 1\xBA Grupo de Avia\xE7\xE3o de Ca\xE7a da FAB operou o P-47 na It\xE1lia, integrado ao 350\xBA Grupo de Ca\xE7a dos Estados Unidos. A foto coletiva, sem legenda nominal, n\xE3o permite identificar individualmente todos os pilotos."
+  - id: campo_relatorio_aviacao_saidas
+    prompt: "A evid\xEAncia registra 22 pilotos e 44 sa\xEDdas em 22 de abril de 1945. O que essa informa\xE7\xE3o ajuda a compreender?"
+    answers:
+    - "Cada sa\xEDda exigia um piloto diferente, portanto o relat\xF3rio registra 44 pilotos."
+    - "Um piloto podia voltar a voar no mesmo dia, com trabalho em terra entre uma miss\xE3o e outra."
+    - "As 44 sa\xEDdas s\xE3o a contagem das miss\xF5es feitas em Fenili no ataque fotografado de 9 de mar\xE7o."
+    - "A foto do ataque a Fenili comprova, sozinha, todas as sa\xEDdas realizadas em 22 de abril."
+    correctAnswer: 1
+    explanation: "A folha \xABQuantos voos cabem em um dia?\xBB explica que um piloto podia pousar e retornar ao combate. A repeti\xE7\xE3o dependia de tornar o avi\xE3o novamente dispon\xEDvel em terra. A fotografia de Fenili registra outro ataque, de 9 de mar\xE7o de 1945; n\xE3o \xE9 a documenta\xE7\xE3o de todas as sa\xEDdas de 22 de abril."
+  - id: campo_relatorio_mapa_san_rossore
+    prompt: "O mapa \xABBattleground in Italy\xBB \xE9 de setembro de 1943, e a FEB chegou \xE0 It\xE1lia em 1944. Como us\xE1-lo junto \xE0 fotografia de San Rossore?"
+    answers:
+    - Usar o mapa para compreender o terreno e a legenda da fotografia para identificar o acampamento, respeitando as datas distintas.
+    - "Tomar as setas do mapa de 1943 como o trajeto j\xE1 percorrido pelos brasileiros at\xE9 San Rossore."
+    - "Concluir que a fotografia mostra o acampamento brasileiro em 1943, porque est\xE1 exposta ao lado do mapa."
+    - "Usar a proximidade visual das duas pe\xE7as como prova de que foram produzidas no mesmo dia e lugar."
+    correctAnswer: 0
+    explanation: "A ficha \xABLer o mapa da It\xE1lia\xBB situa estradas, ferrovias, rios e campos de avia\xE7\xE3o em um documento de 1943. A chegada da FEB e a ocupa\xE7\xE3o de San Rossore s\xE3o posteriores. A identifica\xE7\xE3o de San Rossore, perto de Pisa, vem da legenda da fotografia reproduzida pela Biblioteca do Ex\xE9rcito; a data exata da tomada permanece desconhecida."
+  reportExplanation: "As fontes do acervo e do campo foram relacionadas no dossi\xEA. Fotografias, mapas e relatos revelam aspectos diferentes da experi\xEAncia brasileira na It\xE1lia; suas datas, autoria e limites precisam acompanhar a interpreta\xE7\xE3o. A prancheta final re\xFAne os registros desta pesquisa."
   archiveScene: ArquivoHistorico
   reconstructionScene: Acampamento
   menuScene: Menu
-  followUpScene: ""
+  followUpScene: 
   nextCase: {fileID: 0}
