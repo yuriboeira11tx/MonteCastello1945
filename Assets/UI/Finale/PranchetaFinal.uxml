@@ -18,11 +18,9 @@
                     <ui:Label name="historyNotice" class="report-note" />
                     <ui:VisualElement class="code-card"><ui:Label text="IDENTIFICAÇÃO DO RELATÓRIO" class="metric-heading" /><ui:Label name="reportCode" class="report-code" /><ui:Label name="integrity" class="report-note" /></ui:VisualElement>
                     <ui:VisualElement name="questionResults" />
-                    <ui:Label text="HASH SHA-256 DO ARQUIVO" class="metric-heading hash-heading" />
-                    <ui:TextField name="reportHash" is-read-only="true" class="report-hash" />
                     <ui:Label name="exportStatus" class="report-note export-status" />
                 </ui:ScrollView>
-                <ui:VisualElement class="report-actions"><ui:Button name="copyCode" text="Copiar código" /><ui:Button name="exportReport" text="Exportar arquivo" /><ui:Button name="showCredits" text="Créditos finais" class="primary" /></ui:VisualElement>
+                <ui:VisualElement class="report-actions"><ui:Button name="copyJwt" text="Copiar JWT" /><ui:Button name="exportReport" text="Exportar JSON" /><ui:Button name="showCredits" text="Créditos finais" class="primary" /></ui:VisualElement>
                 <ui:Button name="closeReport" text="Voltar ao acervo" class="back-to-archive" />
             </ui:VisualElement>
         </ui:VisualElement>

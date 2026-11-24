@@ -378,13 +378,19 @@ namespace FEB.Archive
                 !caseDefinition.QuestionsAreValid() || !caseDefinition.reportQuestions.All(q => dossier.answeredQuestions.Contains(q.id))) return;
             if (caseDefinition.nextCase != null) { AdvanceChapter(); return; }
             var previousReport = progress.finalReport;
+            var previousToken = progress.finalReportJwt;
             try
             {
                 if (finalReportView != null && progress.finalReport == null)
+                {
                     progress.finalReport = ResearchReportStore.Create(progress, cases, Application.version);
+                    progress.finalReportJwt = ResearchReportJwt.Issue(progress.finalReport);
+                }
             }
             catch (Exception error)
             {
+                progress.finalReport = previousReport;
+                progress.finalReportJwt = previousToken;
                 Notebook.ShowActivity("Relatório pendente", "Não foi possível emitir a prancheta", error.Message);
                 Notebook.AddChoice("Tentar novamente", CompleteReport);
                 return;
@@ -396,6 +402,7 @@ namespace FEB.Archive
             {
                 dossier.reportCompleted = false;
                 progress.finalReport = previousReport;
+                progress.finalReportJwt = previousToken;
                 progress.events.RemoveAt(progress.events.Count - 1);
             }
         }
@@ -448,9 +455,21 @@ namespace FEB.Archive
         {
             if (progress.finalReport != null && finalReportView != null)
             {
+                try
+                {
+                    if (!string.IsNullOrEmpty(progress.finalReportJwt))
+                        ResearchReportJwt.VerifyMatches(progress.finalReportJwt, progress.finalReport);
+                }
+                catch (Exception)
+                {
+                    Notebook.ShowActivity("Relatório não verificado", "A assinatura não corresponde ao resultado",
+                        "O relatório está alterado ou incompleto. Use uma cópia íntegra deste save. Nenhuma nova assinatura será emitida para este resultado.");
+                    Notebook.AddChoice("Voltar ao acervo", Notebook.CloseBook);
+                    return;
+                }
                 Notebook.StoreForTransition();
                 interaction.SetBlocked(true);
-                finalReportView.Show(progress.finalReport, () => interaction.SetBlocked(false));
+                finalReportView.Show(progress.finalReport, progress.finalReportJwt, () => interaction.SetBlocked(false));
                 return;
             }
             Notebook.ShowActivity("Dossiê concluído", caseDefinition.title, caseDefinition.reportExplanation + $"\n\n{EvidenceCounts}\nCronologia e interpretação concluídas.\nTempo no arquivo {TimeSpan.FromSeconds(dossier.archiveSeconds):mm\\:ss}\nTentativas de cronologia {dossier.chronologyAttempts}   ·   Tentativas de interpretação {dossier.reportAttempts}");

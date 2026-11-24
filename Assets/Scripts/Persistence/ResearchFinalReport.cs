@@ -51,7 +51,6 @@ namespace FEB.Persistence
     [Serializable]
     public sealed class ResearchReportEnvelope
     {
-        public string payloadJson;
-        public string sha256;
+        public string jwt;
     }
 }

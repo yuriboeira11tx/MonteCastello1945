@@ -233,21 +233,21 @@ namespace FEB.Persistence
             return checksum == Alphabet.IndexOf(body[12]) * 32 + Alphabet.IndexOf(body[13]);
         }
 
-        public static string Export(ResearchFinalReport report)
+        public static string Export(ResearchFinalReport report, string jwt)
         {
             if (report == null) throw new ArgumentNullException(nameof(report));
             if (string.IsNullOrWhiteSpace(report.reportId) || !ValidateCode(report.code) ||
                 !string.Equals(report.code, CreateCode(report.reportId), StringComparison.Ordinal))
                 throw new InvalidDataException("Identificação do relatório inválida.");
-            string payload = JsonUtility.ToJson(report, false);
-            var envelope = new ResearchReportEnvelope { payloadJson = payload, sha256 = Hash(payload) };
+            ResearchReportJwt.VerifyMatches(jwt, report);
+            var envelope = new ResearchReportEnvelope { jwt = jwt };
             string json = JsonUtility.ToJson(envelope, true);
             Directory.CreateDirectory(DirectoryPath);
             string path = Path.Combine(DirectoryPath, report.code + ".json");
             if (File.Exists(path))
             {
                 var previous = JsonUtility.FromJson<ResearchReportEnvelope>(File.ReadAllText(path, Utf8));
-                if (previous != null && previous.payloadJson == payload && previous.sha256 == envelope.sha256)
+                if (previous != null && previous.jwt == jwt)
                     return path;
                 throw new InvalidDataException("Já existe outro conteúdo com esta identificação. Preserve o original para conferência.");
             }

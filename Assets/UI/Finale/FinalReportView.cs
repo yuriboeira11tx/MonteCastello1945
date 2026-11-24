@@ -18,6 +18,7 @@ namespace FEB.UI
         readonly List<AudioSource> pausedMusic = new List<AudioSource>();
         VisualElement root;
         ResearchFinalReport report;
+        string reportToken;
         Action closed;
 
         void OnEnable() { Bind(); if (root != null) root.style.display = DisplayStyle.None; }
@@ -30,10 +31,11 @@ namespace FEB.UI
             documentRoot.StretchToParentSize();
             documentRoot.pickingMode = PickingMode.Ignore;
             root = screen;
-            root.Q<Button>("copyCode").clicked += () =>
+            root.Q<Button>("copyJwt").clicked += () =>
             {
-                GUIUtility.systemCopyBuffer = report.code;
-                Status("Identificação copiada.");
+                if (string.IsNullOrEmpty(reportToken)) return;
+                GUIUtility.systemCopyBuffer = reportToken;
+                Status("JWT copiado. Envie o texto inteiro ao professor para ele colar no verificador.");
             };
             root.Q<Button>("exportReport").clicked += Export;
             root.Q<Button>("showCredits").clicked += ShowCredits;
@@ -42,12 +44,14 @@ namespace FEB.UI
                 root.EnableInClassList("report-compact", evt.newRect.width < 1000 || evt.newRect.height < 700));
         }
 
-        public void Show(ResearchFinalReport snapshot, Action onClosed)
+        public void Show(ResearchFinalReport snapshot, string jwt, Action onClosed)
         {
             if (snapshot == null) throw new ArgumentNullException(nameof(snapshot));
+            if (!string.IsNullOrEmpty(jwt)) ResearchReportJwt.VerifyMatches(jwt, snapshot);
             Bind();
             if (root == null) throw new InvalidOperationException("Associe PranchetaFinal.uxml ao UIDocument do relatório.");
             report = snapshot;
+            reportToken = jwt;
             closed = onClosed;
             root.style.display = DisplayStyle.Flex;
             Text("reportCode", report.code);
@@ -67,8 +71,9 @@ namespace FEB.UI
             Text("historyNotice", (report.fieldTimeIncomplete ? "O tempo anterior à atualização deste save não está disponível. " : "") +
                 (report.answerHistoryIncomplete ? "Há respostas antigas sem histórico completo ou com gabarito alterado. " : "") +
                 "Tempo registrado durante a pesquisa, sem os menus de pausa e sem os créditos.");
-            Text("integrity", "Identificação para conferência com o arquivo original. A hash verifica o conteúdo; não comprova, sozinha, a origem dos resultados.");
-            root.Q<TextField>("reportHash").value = ResearchReportStore.Hash(JsonUtility.ToJson(report, false));
+            Text("integrity", string.IsNullOrEmpty(reportToken)
+                ? "Relatório antigo, anterior à assinatura JWT. Continua disponível para leitura; uma nova partida emite o relatório assinado."
+                : "Use Copiar JWT e envie o texto inteiro ao professor. A assinatura permite verificar se o relatório foi alterado.");
             var list = root.Q<VisualElement>("questionResults");
             list.Clear();
             foreach (var group in report.questions.GroupBy(q => q.caseId))
@@ -91,8 +96,11 @@ namespace FEB.UI
                 }
             }
             root.Q<Button>("showCredits").SetEnabled(credits != null && creditsView != null);
+            root.Q<Button>("copyJwt").SetEnabled(!string.IsNullOrEmpty(reportToken));
+            root.Q<Button>("exportReport").SetEnabled(!string.IsNullOrEmpty(reportToken));
             root.Q<ScrollView>("reportScroll").scrollOffset = Vector2.zero;
-            Export();
+            if (!string.IsNullOrEmpty(reportToken)) Export();
+            else Status("Este relatório antigo não possui JWT. Seus dados foram preservados sem emitir uma assinatura retroativa.");
         }
 
         static string Duration(double seconds)
@@ -106,7 +114,7 @@ namespace FEB.UI
 
         void Export()
         {
-            try { Status("Arquivo exportado: " + ResearchReportStore.Export(report)); }
+            try { Status("JSON com JWT exportado: " + ResearchReportStore.Export(report, reportToken)); }
             catch (Exception error) { Status("Não foi possível exportar. O resultado permanece no save. " + error.Message); }
         }
 
