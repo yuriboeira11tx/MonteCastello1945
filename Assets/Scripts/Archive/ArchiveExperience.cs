@@ -379,18 +379,21 @@ namespace FEB.Archive
             if (caseDefinition.nextCase != null) { AdvanceChapter(); return; }
             var previousReport = progress.finalReport;
             var previousToken = progress.finalReportJwt;
+            var previousEncryptedToken = progress.finalReportEncryptedJwt;
             try
             {
                 if (finalReportView != null && progress.finalReport == null)
                 {
                     progress.finalReport = ResearchReportStore.Create(progress, cases, Application.version);
                     progress.finalReportJwt = ResearchReportJwt.Issue(progress.finalReport);
+                    progress.finalReportEncryptedJwt = ResearchReportJwe.Encrypt(progress.finalReportJwt);
                 }
             }
             catch (Exception error)
             {
                 progress.finalReport = previousReport;
                 progress.finalReportJwt = previousToken;
+                progress.finalReportEncryptedJwt = previousEncryptedToken;
                 Notebook.ShowActivity("Relatório pendente", "Não foi possível emitir a prancheta", error.Message);
                 Notebook.AddChoice("Tentar novamente", CompleteReport);
                 return;
@@ -403,6 +406,7 @@ namespace FEB.Archive
                 dossier.reportCompleted = false;
                 progress.finalReport = previousReport;
                 progress.finalReportJwt = previousToken;
+                progress.finalReportEncryptedJwt = previousEncryptedToken;
                 progress.events.RemoveAt(progress.events.Count - 1);
             }
         }
@@ -458,7 +462,16 @@ namespace FEB.Archive
                 try
                 {
                     if (!string.IsNullOrEmpty(progress.finalReportJwt))
+                    {
                         ResearchReportJwt.VerifyMatches(progress.finalReportJwt, progress.finalReport);
+                        if (string.IsNullOrEmpty(progress.finalReportEncryptedJwt))
+                        {
+                            // Migra o JWT já assinado sem modificar ou assinar novamente as estatísticas.
+                            progress.finalReportEncryptedJwt = ResearchReportJwe.Encrypt(progress.finalReportJwt);
+                            if (!SaveProgress()) { progress.finalReportEncryptedJwt = null; return; }
+                        }
+                        ResearchReportJwe.ValidateEnvelope(progress.finalReportEncryptedJwt);
+                    }
                 }
                 catch (Exception)
                 {
@@ -469,7 +482,7 @@ namespace FEB.Archive
                 }
                 Notebook.StoreForTransition();
                 interaction.SetBlocked(true);
-                finalReportView.Show(progress.finalReport, progress.finalReportJwt, () => interaction.SetBlocked(false));
+                finalReportView.Show(progress.finalReport, progress.finalReportJwt, progress.finalReportEncryptedJwt, () => interaction.SetBlocked(false));
                 return;
             }
             Notebook.ShowActivity("Dossiê concluído", caseDefinition.title, caseDefinition.reportExplanation + $"\n\n{EvidenceCounts}\nCronologia e interpretação concluídas.\nTempo no arquivo {TimeSpan.FromSeconds(dossier.archiveSeconds):mm\\:ss}\nTentativas de cronologia {dossier.chronologyAttempts}   ·   Tentativas de interpretação {dossier.reportAttempts}");

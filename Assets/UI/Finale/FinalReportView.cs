@@ -19,6 +19,7 @@ namespace FEB.UI
         VisualElement root;
         ResearchFinalReport report;
         string reportToken;
+        string encryptedReportToken;
         Action closed;
 
         void OnEnable() { Bind(); if (root != null) root.style.display = DisplayStyle.None; }
@@ -33,9 +34,9 @@ namespace FEB.UI
             root = screen;
             root.Q<Button>("copyJwt").clicked += () =>
             {
-                if (string.IsNullOrEmpty(reportToken)) return;
-                GUIUtility.systemCopyBuffer = reportToken;
-                Status("JWT copiado. Envie o texto inteiro ao professor para ele colar no verificador.");
+                if (string.IsNullOrEmpty(encryptedReportToken)) return;
+                GUIUtility.systemCopyBuffer = encryptedReportToken;
+                Status("JWT cifrado copiado. Envie o texto inteiro ao professor para ele abrir no verificador.");
             };
             root.Q<Button>("exportReport").clicked += Export;
             root.Q<Button>("showCredits").clicked += ShowCredits;
@@ -44,14 +45,16 @@ namespace FEB.UI
                 root.EnableInClassList("report-compact", evt.newRect.width < 1000 || evt.newRect.height < 700));
         }
 
-        public void Show(ResearchFinalReport snapshot, string jwt, Action onClosed)
+        public void Show(ResearchFinalReport snapshot, string jwt, string encryptedJwt, Action onClosed)
         {
             if (snapshot == null) throw new ArgumentNullException(nameof(snapshot));
             if (!string.IsNullOrEmpty(jwt)) ResearchReportJwt.VerifyMatches(jwt, snapshot);
+            if (!string.IsNullOrEmpty(jwt)) ResearchReportJwe.ValidateEnvelope(encryptedJwt);
             Bind();
             if (root == null) throw new InvalidOperationException("Associe PranchetaFinal.uxml ao UIDocument do relatório.");
             report = snapshot;
             reportToken = jwt;
+            encryptedReportToken = string.IsNullOrEmpty(jwt) ? null : encryptedJwt;
             closed = onClosed;
             root.style.display = DisplayStyle.Flex;
             Text("reportCode", report.code);
@@ -73,7 +76,7 @@ namespace FEB.UI
                 "Tempo registrado durante a pesquisa, sem os menus de pausa e sem os créditos.");
             Text("integrity", string.IsNullOrEmpty(reportToken)
                 ? "Relatório antigo, anterior à assinatura JWT. Continua disponível para leitura; uma nova partida emite o relatório assinado."
-                : "Use Copiar JWT e envie o texto inteiro ao professor. A assinatura permite verificar se o relatório foi alterado.");
+                : "Use Copiar JWT e envie o texto inteiro ao professor. O relatório vai cifrado e assinado para leitura no verificador dos professores.");
             var list = root.Q<VisualElement>("questionResults");
             list.Clear();
             foreach (var group in report.questions.GroupBy(q => q.caseId))
@@ -114,7 +117,7 @@ namespace FEB.UI
 
         void Export()
         {
-            try { Status("JSON com JWT exportado: " + ResearchReportStore.Export(report, reportToken)); }
+            try { Status("JSON com JWT cifrado exportado: " + ResearchReportStore.Export(report, reportToken, encryptedReportToken)); }
             catch (Exception error) { Status("Não foi possível exportar. O resultado permanece no save. " + error.Message); }
         }
 
