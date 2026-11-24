@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="CreditosFinais.uss" />
+    <ui:VisualElement name="creditsRoot" class="credits-root">
+        <ui:VisualElement name="creditsViewport" class="credits-viewport" picking-mode="Ignore">
+            <ui:VisualElement name="creditsRoll" class="credits-roll" picking-mode="Ignore" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,67 @@
+.credits-root {
+    --credits-background: #070a08;
+    --credits-ink: #eee6d3;
+    --credits-secondary: #bac2ab;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: none;
+    background-color: var(--credits-background);
+    color: var(--credits-ink);
+    -unity-font-definition: url("../Fonts/LiberationSans.asset");
+}
+.credits-viewport {
+    flex-grow: 1;
+    overflow: hidden;
+}
+.credits-roll {
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    align-items: center;
+    padding-bottom: 75px;
+}
+.credits-title {
+    width: 100%;
+    max-width: 1120px;
+    flex-shrink: 0;
+    margin-bottom: 110px;
+    font-size: 46px;
+    white-space: normal;
+    -unity-text-align: middle-center;
+    -unity-font-definition: url("../Fonts/AllertaStencil.asset");
+    color: var(--credits-ink);
+}
+.credits-section {
+    width: 100%;
+    max-width: 1120px;
+    flex-shrink: 0;
+    align-items: center;
+    margin-bottom: 90px;
+}
+.credits-heading {
+    width: 100%;
+    flex-shrink: 0;
+    margin-bottom: 22px;
+    white-space: normal;
+    -unity-text-align: middle-center;
+    -unity-font-definition: url("../Fonts/SpecialElite.asset");
+    font-size: 27px;
+    color: var(--credits-secondary);
+}
+.credits-names {
+    width: 100%;
+    flex-shrink: 0;
+    white-space: normal;
+    -unity-text-align: middle-center;
+    font-size: 33px;
+    margin-bottom: 20px;
+    color: var(--credits-ink);
+}
+.credits-compact .credits-roll { left: 7%; right: 7%; }
+.credits-compact .credits-title { font-size: 32px; margin-bottom: 76px; }
+.credits-compact .credits-heading { font-size: 22px; }
+.credits-compact .credits-names { font-size: 25px; }
+.credits-compact .credits-section { margin-bottom: 68px; }

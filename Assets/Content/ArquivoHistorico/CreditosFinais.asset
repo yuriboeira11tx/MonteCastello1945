@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbf42774c39ff504283a553639436f7e, type: 3}
+  m_Name: CreditosFinais
+  m_EditorClassIdentifier: Assembly-CSharp::FEB.Archive.GameCreditsDefinition
+  academicTitle: "Monte Castello 1945: Desenvolvimento de um Jogo S\xE9rio 3D sobre a Trajet\xF3ria da For\xE7a Expedicion\xE1ria Brasileira"
+  sections:
+  - heading: "Dire\xE7\xE3o, desenvolvimento e realiza\xE7\xE3o"
+    text: Yuri Juliano do Nascimento Boeira
+  - heading: Professor Orientador
+    text: Sidnei Renato Silveira
+  - heading: Dublagem
+    text: "Brandon Lima \u2014 Motorista do acampamento\nF\xE1bio Mamede \u2014 Sargento do acampamento\nFernando Oliveira \u2014 Soldado do acampamento\nLeonardo Vidal \u2014 Soldado do acampamento"
+  music: {fileID: 8300000, guid: 6cf58c2e436160f47a11affe154da06e, type: 3}
+  volume: 0.28
+  scrollSpeed: 38
+  musicFadeSeconds: 2.5
