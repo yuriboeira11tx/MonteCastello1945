@@ -4,7 +4,7 @@
 
 # Monte Castello: 1945
 
-**Protótipo de jogo sério 3D desenvolvido como Trabalho de Conclusão de Curso em Sistemas de Informação na Universidade Federal de Santa Maria (UFSM), campus Frederico Westphalen.**
+**Protótipo de jogo sério 3D desenvolvido como Trabalho de Conclusão de Curso em Sistemas de Informação na Universidade Federal de Santa Maria (UFSM).**
 
 Em *Monte Castello: 1945*, o jogador assume o papel de um pesquisador histórico. Sua missão é consultar documentos, examinar objetos, reunir evidências e relacionar acontecimentos para compreender a participação brasileira na Segunda Guerra Mundial e a trajetória da Força Expedicionária Brasileira (FEB).
 
