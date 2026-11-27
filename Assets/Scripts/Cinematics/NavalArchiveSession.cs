@@ -124,6 +124,9 @@ namespace FEB.Cinematics
                 yield return null;
             }
             view.SetFinalFade(1);
+            if (oceanAudio != null) oceanAudio.Stop();
+            if (archiveAudio != null) archiveAudio.Stop();
+            yield return view.PlayTribute();
             Completed = true;
             ReturnRequested?.Invoke();
         }

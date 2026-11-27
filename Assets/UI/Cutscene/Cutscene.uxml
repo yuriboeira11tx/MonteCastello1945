@@ -29,5 +29,14 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
+        <ui:VisualElement name="tribute" class="tribute hidden" picking-mode="Ignore">
+            <ui:VisualElement name="tributeContent" class="tribute-content" picking-mode="Ignore">
+                <ui:Label name="tributeHeading" class="tribute-heading" picking-mode="Ignore" />
+                <ui:Label name="tributeMessage" class="tribute-message" picking-mode="Ignore" />
+                <ui:Image name="tributePhoto" class="tribute-photo hidden" picking-mode="Ignore" />
+                <ui:Label name="tributeCaption" class="tribute-caption hidden" picking-mode="Ignore" />
+                <ui:Label name="tributeCount" class="tribute-count" picking-mode="Ignore" />
+            </ui:VisualElement>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

@@ -18,3 +18,10 @@
 .archive-stamp { width: 75%; height: 38%; background-image: url("project://database/Assets/UI/Cutscene/Arquivado.png"); -unity-background-scale-mode: scale-to-fit; }
 .outcome-message { color: rgb(53, 46, 37); font-size: 32px; -unity-text-align: middle-center; white-space: normal; width: 92%; margin-top: 12px; }
 .document-footer { position: absolute; left: 65px; right: 65px; bottom: 36px; flex-direction: row; justify-content: space-between; border-top-width: 1px; border-top-color: rgb(133, 116, 79); padding-top: 18px; color: rgb(91, 78, 52); font-size: 18px; }
+.tribute { position: absolute; left: 0; right: 0; top: 0; bottom: 0; background-color: #080a09; align-items: center; justify-content: center; color: #eee6d3; -unity-font-definition: url("../Fonts/LiberationSans.asset"); }
+.tribute-content { width: 84%; max-width: 1400px; height: 88%; align-items: center; justify-content: center; }
+.tribute-heading { font-size: 45px; -unity-font-definition: url("../Fonts/AllertaStencil.asset"); -unity-text-align: middle-center; white-space: normal; width: 100%; margin-bottom: 34px; flex-shrink: 0; }
+.tribute-message { width: 90%; font-size: 32px; -unity-text-align: middle-center; white-space: normal; margin-bottom: 32px; flex-shrink: 0; }
+.tribute-count { width: 100%; font-size: 34px; -unity-text-align: middle-center; white-space: normal; color: #d4d0c0; margin-top: 12px; flex-shrink: 0; }
+.tribute-photo { width: 78%; height: 60%; max-height: 600px; flex-shrink: 1; }
+.tribute-caption { width: 100%; font-size: 25px; -unity-text-align: middle-center; white-space: normal; color: #c8c8b4; margin-top: 26px; flex-shrink: 0; -unity-font-definition: url("../Fonts/SpecialElite.asset"); }

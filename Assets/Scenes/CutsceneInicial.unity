@@ -31573,6 +31573,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FEB.UI.CutsceneView
   videoTexture: {fileID: 8400000, guid: 9d578ef713acc1c4b8af4c37e4ca1200, type: 2}
+  tributePhotographs:
+  - image: {fileID: 2800000, guid: ccd79c8428b4c594bb0f5078ea4a1158, type: 3}
+    caption: "Uma fam\xEDlia reunida ap\xF3s o naufr\xE1gio"
+  - image: {fileID: 2800000, guid: 7f96668cb25e479439b802d19f86146e, type: 3}
+    caption: Fernando, um dos pequenos sobreviventes
+  - image: {fileID: 2800000, guid: 6cda970c25600ec46a915cd3d036e242, type: 3}
+    caption: "Passageiros e crian\xE7as que sobreviveram"
+  fatalities: 22
+  historicalMessage: "Voc\xEA conseguiu evitar os torpedos durante o filme.\nNa realidade, o Itapag\xE9 foi torpedeado e afundou.\nLitoral de Alagoas, 26 de setembro de 1943."
+  tributeTextSeconds: 10
+  tributePhotoSeconds: 2.5
+  tributeClosingSeconds: 5
+  tributeFadeSeconds: 0.65
 --- !u!114 &1764861585
 MonoBehaviour:
   m_ObjectHideFlags: 0
