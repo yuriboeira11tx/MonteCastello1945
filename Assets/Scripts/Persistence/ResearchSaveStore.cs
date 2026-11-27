@@ -33,6 +33,12 @@ namespace FEB.Persistence
                 string json = File.ReadAllText(path);
                 var data = JsonUtility.FromJson<ResearchSave>(json);
                 if (data == null || data.version != 1 || data.slot != slot || string.IsNullOrEmpty(data.id)) return null;
+                // JsonUtility recria referências serializadas inline como objetos vazios, mesmo quando eram null.
+                // Só normaliza o relatório padrão sem assinatura; preserva relatórios preenchidos ou assinados.
+                if (data.finalReport != null && string.IsNullOrEmpty(data.finalReportJwt) &&
+                    string.IsNullOrEmpty(data.finalReportEncryptedJwt) &&
+                    JsonUtility.ToJson(data.finalReport) == JsonUtility.ToJson(new ResearchFinalReport()))
+                    data.finalReport = null;
                 data.evidence ??= new System.Collections.Generic.List<string>();
                 data.discoveredEvidence ??= new System.Collections.Generic.List<string>();
                 data.fieldEvidence ??= new System.Collections.Generic.List<string>();
