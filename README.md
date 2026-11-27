@@ -12,7 +12,7 @@ Em *Monte Castello: 1945*, o jogador assume o papel de um pesquisador histórico
 
 O projeto combina exploração em primeira pessoa, investigação e atividades contextualizadas. A leitura das fontes faz parte da progressão: aquilo que o jogador observa e registra ajuda a responder às perguntas e a concluir os dossiês de cada etapa.
 
-![Acampamento da FEB no protótipo](docs/screenshots/acampamento.png)
+![Menu principal de Monte Castello: 1945](docs/screenshots/menu.png)
 
 ## Um protótipo de TCC
 
