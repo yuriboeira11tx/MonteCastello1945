@@ -13,23 +13,23 @@ MonoBehaviour:
   m_Name: Aviacao_Missoes
   m_EditorClassIdentifier: Assembly-CSharp::FEB.Archive.HistoricalEvidence
   id: acampamento_aviacao_missoes
-  title: "Da pista de Pisa ao alvo"
-  dateLabel: "Itália · março e abril de 1945"
-  description: "Uma coluna de fumaça sobe sobre campos cultivados. O que permite associar essa imagem a uma missão brasileira?"
-  keyFinding: "Uma fotografia aérea registra o ataque a um depósito perto de Fenili. O relatório histórico da FAB sobre 22 de abril descreve outra jornada, em que 22 pilotos realizaram 44 saídas."
+  title: Da pista de Pisa ao alvo
+  dateLabel: "It\xE1lia \xB7 mar\xE7o e abril de 1945"
+  description: "Os P-47 brasileiros atacavam alvos que sustentavam as for\xE7as alem\xE3s. Cada miss\xE3o dependia dos pilotos e das equipes que preparavam os avi\xF5es em terra."
+  keyFinding: "Em 22 de abril de 1945, 22 pilotos brasileiros realizaram 44 sa\xEDdas. Um piloto podia voar mais de uma vez no mesmo dia."
   image: {fileID: 2800000, guid: 37a623b14121564fa4fe9a6c5c98518f, type: 3}
-  imageCaption: "Depósito alemão de munição junto a Fenili, Itália, atingido por P-47 brasileiros em 9 de março de 1945. NARA, EUA, 342-FH-3A24616."
-  citation: "National Air and Space Museum, Latin America in the Air War, NARA 342-FH-3A24616. Centro de Documentação da Aeronáutica, Ordem do Dia de 22 de abril de 2018. Museu Virtual da FEB, Força Aérea Brasileira."
-  sourceUrl: "https://airandspace.si.edu/stories/editorial/latin-america-air-war"
+  imageCaption: "Ataque a\xE9reo perto de Fenili"
+  citation: "National Air and Space Museum, Latin America in the Air War, NARA 342-FH-3A24616. Centro de Documenta\xE7\xE3o da Aeron\xE1utica, Ordem do Dia de 22 de abril de 2018. Museu Virtual da FEB, For\xE7a A\xE9rea Brasileira."
+  sourceUrl: https://airandspace.si.edu/stories/editorial/latin-america-air-war
   pages:
-  - title: "O alvo visto do alto"
-    text: "A fumaça encobre parte do terreno. Para saber o que explodiu, precisamos da legenda preservada no acervo. Ela identifica um depósito de munições alemão perto de Fenili, atingido por P-47 brasileiros em 9 de março de 1945.\n\nDestruir estoques, veículos e ligações de transporte dificultava a chegada de material às tropas alemãs. Essa era uma das formas pelas quais a aviação apoiava a campanha em terra."
+  - title: O alvo visto do alto
+    text: "A fuma\xE7a marca um dep\xF3sito de muni\xE7\xF5es alem\xE3o perto de Fenili, na It\xE1lia. P-47 brasileiros atingiram o local em 9 de mar\xE7o de 1945.\n\nAtaques a dep\xF3sitos, ve\xEDculos e transportes dificultavam o abastecimento alem\xE3o. Assim, a avia\xE7\xE3o ajudava as tropas aliadas que avan\xE7avam por terra."
     image: {fileID: 2800000, guid: 37a623b14121564fa4fe9a6c5c98518f, type: 3}
-    caption: "Depósito alemão de munição junto a Fenili, Itália, atingido por P-47 brasileiros em 9 de março de 1945. NARA, EUA, 342-FH-3A24616."
-  - title: "Quantos voos cabem em um dia?"
-    text: "Em 22 de abril de 1945, a primeira esquadrilha brasileira levantou voo de Pisa às 8h30. Segundo o Centro de Documentação da Aeronáutica, 22 pilotos realizaram 44 saídas naquele dia. Um piloto podia pousar e voltar ao combate depois.\n\nEssa repetição dependia do trabalho em terra. Entre uma partida e outra, era preciso tornar o avião novamente disponível para o próximo voo. A data passou a marcar o Dia da Aviação de Caça no Brasil."
+    caption: "Ataque a\xE9reo perto de Fenili"
+  - title: Quantos voos cabem em um dia?
+    text: "Em 22 de abril de 1945, 22 pilotos brasileiros realizaram 44 sa\xEDdas a partir de Pisa. Um mesmo piloto podia pousar e partir novamente para outra miss\xE3o.\n\nEntre os voos, as equipes em terra preparavam o avi\xE3o para voltar ao combate. A data passou a marcar o Dia da Avia\xE7\xE3o de Ca\xE7a no Brasil. A fotografia de Fenili \xE9 de outro ataque, ocorrido em mar\xE7o."
     image: {fileID: 0}
-    caption: ""
+    caption: 
   chronologyLabel: 
   chronologyOrder: 0
   inspectionPrefab: {fileID: 1344062721961564308, guid: 4e1716261a8658eeb5c28ff253f1489a, type: 3}

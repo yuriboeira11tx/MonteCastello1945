@@ -14,22 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FEB.Archive.HistoricalEvidence
   id: Ler_a_imprensa
   title: Como ler um jornal de guerra
-  dateLabel: "Arquivo Hist\xF3rico \xB7 Oficina de fontes"
-  description: "Comece pelo nome do jornal e pela data da edi\xE7\xE3o. Na primeira p\xE1gina do Di\xE1rio Carioca, observe o tamanho das letras sobre o desaparecimento do Cabedelo. Depois, compare as palavras da manchete com as do subt\xEDtulo. Qual delas expressa d\xFAvida?\n\nAo examinar o exemplar na sala, procure a frase que sustenta sua leitura."
-  keyFinding: 
+  dateLabel: "Arquivo Hist\xF3rico"
+  description: "Um jornal re\xFAne not\xEDcias, opini\xF5es e informa\xE7\xF5es ainda incertas. Ler com aten\xE7\xE3o ajuda a separar o que se sabia do que era apenas uma hip\xF3tese."
+  keyFinding: "Confira o nome do jornal, a data e as palavras usadas. Uma not\xEDcia pode mostrar o que as pessoas acreditavam sem comprovar todos os fatos."
   image: {fileID: 2800000, guid: a8fdf06f56456534a82deba40c81ec15, type: 3}
-  imageCaption: "Di\xE1rio Carioca, primeira p\xE1gina de 8 de abril de 1942."
+  imageCaption: "Jornal Di\xE1rio Carioca"
   citation: "Di\xE1rio Carioca, 8 abr. 1942, primeira p\xE1gina. Imagens do acervo do projeto. Roteiro de leitura do jogo."
   sourceUrl: https://bndigital.bn.gov.br/hemeroteca-digital/
   pages:
   - title: Leia a manchete em camadas
-    text: "Comece pelo nome do jornal e pela data da edi\xE7\xE3o. Na primeira p\xE1gina do Di\xE1rio Carioca, observe o tamanho das letras sobre o desaparecimento do Cabedelo. Depois, compare as palavras da manchete com as do subt\xEDtulo. Qual delas expressa d\xFAvida?\n\nAo examinar o exemplar na sala, procure a frase que sustenta sua leitura."
+    text: "Comece pelo nome do jornal e pela data. Depois, compare a manchete com o texto menor.\n\nNa not\xEDcia sobre o Cabedelo, o t\xEDtulo trata o torpedeamento como certo, mas a express\xE3o \u201Cteria afundado\u201D indica d\xFAvida. Observe tamb\xE9m quem est\xE1 falando: uma opini\xE3o de um entrevistado n\xE3o \xE9 uma confirma\xE7\xE3o do acontecimento."
     image: {fileID: 2800000, guid: a8fdf06f56456534a82deba40c81ec15, type: 3}
-    caption: "Di\xE1rio Carioca, primeira p\xE1gina de 8 de abril de 1942."
+    caption: "Jornal Di\xE1rio Carioca"
   - title: Uma ficha para duas fontes
-    text: "Numa folha de trabalho, descreva o navio tal como aparece na fotografia. Em outra linha, registre o que o jornal publicou a seu respeito. Que pergunta sobre o desaparecimento ainda exigiria outra fonte?\n\nDepois de registrar a evid\xEAncia no acervo, use a aba Anota\xE7\xF5es para guardar a sua pergunta."
+    text: "Uma fotografia pode mostrar o aspecto de um navio. Um jornal pode contar o que se dizia sobre ele. Os dois registros se complementam, mas nem sempre respondem \xE0s mesmas perguntas.\n\nAo registrar uma evid\xEAncia, anote o que ela permite saber e o que continua incerto. Use a aba Anota\xE7\xF5es da caderneta para guardar suas observa\xE7\xF5es."
     image: {fileID: 2800000, guid: b421b9378f8c0cc4cafa71a715b77ed3, type: 3}
-    caption: "Fotografia do Cabedelo usada no dossi\xEA do Arquivo Hist\xF3rico."
+    caption: Navio Cabedelo
   chronologyLabel: 
   chronologyOrder: 0
   inspectionPrefab: {fileID: 0}

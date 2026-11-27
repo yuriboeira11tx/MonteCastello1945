@@ -15,23 +15,23 @@ MonoBehaviour:
   id: acampamento_fotografia_enfermeiras
   title: Fotografia das enfermeiras da FEB
   dateLabel: "\xC1rea de Pistoia, It\xE1lia \xB7 10 de mar\xE7o de 1945"
-  description: "Um grupo de mulheres uniformizadas posa diante de barracas. O retrato abre uma investiga\xE7\xE3o sobre o trabalho de enfermagem nos hospitais que atenderam os expedicion\xE1rios brasileiros na It\xE1lia."
-  keyFinding: "A presen\xE7a das enfermeiras brasileiras permitiu que feridos descrevessem sintomas em portugu\xEAs nos hospitais aliados. As cartas de pacientes e os relatos de plant\xE3o revelam parte do trabalho que o retrato de grupo n\xE3o mostra."
+  description: "As enfermeiras da FEB cuidaram de brasileiros nos hospitais aliados da It\xE1lia. Al\xE9m dos ferimentos, enfrentaram o frio, a rotina de plant\xF5es e as dificuldades de comunica\xE7\xE3o."
+  keyFinding: "As enfermeiras brasileiras ajudavam os pacientes a explicar seus sintomas em portugu\xEAs. Seu trabalho unia cuidados de sa\xFAde, acolhimento e longos plant\xF5es."
   image: {fileID: 2800000, guid: 3f64ff5080562264198d633eae9c6f1c, type: 3}
-  imageCaption: "Enfermeiras da FEB na \xE1rea de Pistoia, 10 de mar\xE7o de 1945. Recorte do Fundo Virg\xEDnia Portocarrero, Casa de Oswaldo Cruz/Fiocruz, item 083."
+  imageCaption: Enfermeiras da FEB
   citation: "Fotografia \xB7 Casa de Oswaldo Cruz/Fiocruz. Fundo Virg\xEDnia Portocarrero, BR RJCOC VP-03-06.v.02-083.\n\nM. M. R. Bernardes, G. T. Lopes e T. C. F. Santos. \u201CO cotidiano das enfermeiras do Ex\xE9rcito na For\xE7a Expedicion\xE1ria Brasileira (FEB) no teatro de opera\xE7\xF5es da 2\xAA Guerra Mundial, na It\xE1lia (1942\u20131945)\u201D. Revista Latino-Americana de Enfermagem, 13(3), 2005, pp. 314\u2013321.\n\nM. M. R. Bernardes et al. \u201CUma enfermeira da For\xE7a Expedicion\xE1ria Brasileira na Segunda Guerra Mundial\u201D. Hist\xF3ria, Ci\xEAncias, Sa\xFAde \u2013 Manguinhos, 29(2), 2022, pp. 531\u2013550, fig. 5. Fundo Virg\xEDnia Portocarrero, Casa de Oswaldo Cruz/Fiocruz."
   sourceUrl: https://basearch.coc.fiocruz.br/corpo-de-enfermeiras-da-feb-designadas-ao-16th-evacuation-hospital-em-pistoia
   pages:
   - title: "As volunt\xE1rias"
-    text: "Na \xE1rea de Pistoia, enfermeiras brasileiras posam diante das barracas de um hospital de evacua\xE7\xE3o. A fotografia foi feita em 10 de mar\xE7o de 1945. Em 1944, 67 enfermeiras do Ex\xE9rcito brasileiro seguiram para a It\xE1lia com a FEB. Entre as volunt\xE1rias havia mulheres com diferentes forma\xE7\xF5es em enfermagem. Antes do embarque, elas passaram por um curso de emerg\xEAncia que reunia aulas te\xF3ricas, prepara\xE7\xE3o f\xEDsica e instru\xE7\xE3o militar.\n\nNos hospitais norte-americanos que recebiam brasileiros, a l\xEDngua criava uma dificuldade imediata. Como explicar onde do\xEDa ou pedir ajuda durante a madrugada? Ter uma enfermeira que entendesse a resposta fazia diferen\xE7a j\xE1 no primeiro atendimento."
+    text: "Em 1944, 67 enfermeiras do Ex\xE9rcito brasileiro seguiram para a It\xE1lia com a FEB. Eram volunt\xE1rias com diferentes forma\xE7\xF5es em enfermagem. Antes da viagem, fizeram um curso com prepara\xE7\xE3o profissional, f\xEDsica e militar.\n\nNos hospitais norte-americanos, muitos feridos tinham dificuldade para falar outra l\xEDngua. As enfermeiras brasileiras entendiam seus relatos em portugu\xEAs e ajudavam no atendimento. A foto mostra parte da equipe em Pistoia, em 10 de mar\xE7o de 1945."
     image: {fileID: 2800000, guid: 3f64ff5080562264198d633eae9c6f1c, type: 3}
-    caption: "Enfermeiras da FEB na \xE1rea de Pistoia, 10 de mar\xE7o de 1945. Recorte do Fundo Virg\xEDnia Portocarrero, Casa de Oswaldo Cruz/Fiocruz, item 083."
+    caption: Enfermeiras da FEB
   - title: "Uma carta para Virg\xEDnia"
-    text: "Durante os plant\xF5es, as enfermeiras acompanhavam os doentes graves, recebiam feridos e faziam rondas pelas enfermarias. Um documento do arquivo pessoal de Virg\xEDnia Portocarrero registra o atendimento pela perspectiva de quem estava no leito.\n\nEm carta de 26 de fevereiro de 1945, o sargento Virgolino agradeceu a Virg\xEDnia pelos cuidados recebidos. A carta foi guardada e hoje integra o acervo da Casa de Oswaldo Cruz. Lidos juntos, o retrato e a carta permitem ver a equipe reunida e acompanhar um encontro entre uma enfermeira e um paciente."
+    text: "As enfermeiras recebiam feridos, acompanhavam pacientes graves e faziam rondas pelas enfermarias. O cuidado tamb\xE9m ajudava homens que estavam longe da fam\xEDlia.\n\nEm uma carta de 26 de fevereiro de 1945, o sargento Virgolino agradeceu \xE0 enfermeira Virg\xEDnia Portocarrero pelo atendimento. O agradecimento mostra o valor desse trabalho para quem estava no leito."
     image: {fileID: 0}
     caption: 
   - title: O inverno sob a lona
-    text: "Bertha Moraes contou que deixava um cabo de vassoura ao lado da cama. Quando a neve pesava sobre a barraca e fazia o teto descer at\xE9 o seu rosto, ela empurrava a lona por dentro. A neve escorregava pelos lados, e Bertha podia voltar a dormir.\n\nEm outro depoimento, Elza Cansan\xE7\xE3o lembrou das noites frias em Livorno, onde vestia a capa sobre o pijama para percorrer o hospital. Olhe novamente as barracas no retrato. Que parte de um plant\xE3o de inverno seria imposs\xEDvel conhecer apenas olhando esta fotografia?"
+    text: "O inverno tamb\xE9m dificultava a vida das enfermeiras. Bertha Moraes contou que usava um cabo de vassoura para empurrar a lona da barraca quando o peso da neve abaixava o teto.\n\nElza Cansan\xE7\xE3o lembrou das noites frias em Livorno, quando vestia uma capa sobre o pijama para percorrer o hospital. Cuidar dos pacientes exigia enfrentar essas condi\xE7\xF5es durante os plant\xF5es."
     image: {fileID: 0}
     caption: 
   chronologyLabel: 

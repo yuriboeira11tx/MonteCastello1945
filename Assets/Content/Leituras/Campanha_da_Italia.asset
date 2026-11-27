@@ -15,21 +15,21 @@ MonoBehaviour:
   id: Campanha_da_Italia
   title: Da Toscana a Monte Castelo
   dateLabel: "It\xE1lia, 1944\u20131945"
-  description: "Em setembro de 1944, tropas brasileiras entraram em combate na It\xE1lia. Massarosa, na Toscana, foi uma das primeiras localidades alcan\xE7adas pelos expedicion\xE1rios.\n\nProcure na fotografia um detalhe que ajude a entender a escala do lugar. Que parte da campanha essa imagem permite ver?"
-  keyFinding: 
+  description: "A FEB combateu na It\xE1lia entre 1944 e 1945. Da chegada \xE0 Toscana \xE0 conquista de Monte Castello, o terreno e o apoio entre as tropas marcaram a campanha."
+  keyFinding: "A FEB entrou em combate na It\xE1lia em setembro de 1944 e conquistou Monte Castello em 21 de fevereiro de 1945."
   image: {fileID: 2800000, guid: 0611362f7ec5ffc45888b48c0461066f, type: 3}
-  imageCaption: "Massarosa, It\xE1lia. Fotografia da cole\xE7\xE3o visual do projeto."
+  imageCaption: Brasileiros em Massarosa
   citation: "Museu Virtual da FEB, \u201CA FEB em combate\u201D e \u201CLinha do tempo 1945\u201D. Texto de apoio do jogo."
   sourceUrl: https://museuvirtualdafeb.eb.mil.br/a-feb-em-combate/
   pages:
   - title: A entrada na campanha
-    text: "Em setembro de 1944, tropas brasileiras entraram em combate na It\xE1lia. Massarosa, na Toscana, foi uma das primeiras localidades alcan\xE7adas pelos expedicion\xE1rios.\n\nProcure na fotografia um detalhe que ajude a entender a escala do lugar. Que parte da campanha essa imagem permite ver?"
+    text: "Em setembro de 1944, tropas brasileiras entraram em combate na It\xE1lia, ao lado dos Aliados. Massarosa, na Toscana, foi uma das primeiras localidades alcan\xE7adas.\n\nA fotografia mostra o contato com os moradores. A campanha tamb\xE9m envolvia atravessar cidades, transportar materiais e conviver com uma popula\xE7\xE3o atingida pela guerra."
     image: {fileID: 2800000, guid: 0611362f7ec5ffc45888b48c0461066f, type: 3}
-    caption: "Massarosa, It\xE1lia. Fotografia da cole\xE7\xE3o visual do projeto."
+    caption: Brasileiros em Massarosa
   - title: Um objetivo nos Apeninos
-    text: "Em 21 de fevereiro de 1945, tropas brasileiras conquistaram Monte Castelo. O terreno montanhoso que aparece nas fotografias ajuda a entender a import\xE2ncia de observar as encostas antes de avan\xE7ar.\n\nSiga a dire\xE7\xE3o dos bin\xF3culos e localize a indica\xE7\xE3o escrita sobre a imagem."
+    text: "Em 21 de fevereiro de 1945, a FEB conquistou Monte Castello, nos Apeninos. A posi\xE7\xE3o era defendida pelos alem\xE3es e fazia parte dos obst\xE1culos ao avan\xE7o aliado.\n\nOs brasileiros enfrentaram montanhas, frio, lama e resist\xEAncia inimiga. A vit\xF3ria se tornou um dos marcos da participa\xE7\xE3o do Brasil na Segunda Guerra Mundial."
     image: {fileID: 2800000, guid: 46a7fe00e2c5b3e4d88c72ed77528c5b, type: 3}
-    caption: "Um soldado observa a eleva\xE7\xE3o identificada na pr\xF3pria fotografia."
+    caption: "Observa\xE7\xE3o de Monte Castello"
   chronologyLabel: 
   chronologyOrder: 0
   inspectionPrefab: {fileID: 0}

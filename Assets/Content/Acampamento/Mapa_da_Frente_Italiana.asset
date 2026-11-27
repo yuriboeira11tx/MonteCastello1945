@@ -14,34 +14,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FEB.Archive.HistoricalEvidence
   id: acampamento_mapa_frente_1943
   title: "Ler o mapa da It\xE1lia"
-  dateLabel: "War Department, Estados Unidos \xB7 20 de setembro de 1943"
-  description: "A carta Battleground in Italy apresenta a pen\xEDnsula, suas estradas, ferrovias e rios. Sobre a mesa, ela ajuda a situar o pesquisador no terreno da campanha."
-  keyFinding: "O mapa orientava o leitor sobre a It\xE1lia em setembro de 1943. A chegada dos brasileiros e o acampamento de San Rossore pertencem a uma etapa posterior da campanha."
+  dateLabel: "It\xE1lia \xB7 Mapa de 20 de setembro de 1943"
+  description: "O mapa ajuda a localizar cidades, estradas, ferrovias e rios da It\xE1lia. Compare o terreno com os lugares da campanha brasileira."
+  keyFinding: "O mapa \xE9 de 1943, antes da chegada da FEB em 1944. Ele ajuda a entender o terreno; a fotografia identifica o acampamento de San Rossore, perto de Pisa."
   image: {fileID: 2800000, guid: ed5b686ef45146c2a007a7db2543067e, type: 3}
-  imageCaption: "Battleground in Italy, 20 de setembro de 1943. Harry S. Truman Library & Museum, M1733-01. Dom\xEDnio p\xFAblico."
+  imageCaption: "Mapa da It\xE1lia"
   citation: "Army Orientation Course, Special Service Division, Army Service Forces, War Department (EUA). Battleground in Italy, 20 de setembro de 1943. Acervo Harry S. Truman Library & Museum, Independence, Missouri, M1733-01. Dom\xEDnio p\xFAblico.\nhttps://www.trumanlibrary.gov/maps/m1733-01-map-italian-front\n\nCl\xE1udio Skora Rosty e \xC9dson Skora Rosty. As vit\xF3rias da FEB: do vale do rio Serchio ao vale do rio Po. Biblioteca do Ex\xE9rcito, 2022, p. 47 (acampamento de San Rossore).\nhttps://museuvirtualdafeb.eb.mil.br/literatura-e-publicacoes/as-vitorias-da-feb/\n\nBRASIL. Minist\xE9rio da Defesa. Vit\xF3ria da FEB, com a tomada de Monte Castello, completa 76 anos. 21 fev. 2021. Consulta em 26 nov. 2026.\nhttps://www.gov.br/defesa/pt-br/centrais-de-conteudo/noticias/vitoria-da-feb-com-a-tomada-de-monte-castello-completa-76-anos\n\nABREU, Alzira Alves de. Verbete sobre a For\xE7a Expedicion\xE1ria Brasileira. Atlas Hist\xF3rico do Brasil, Funda\xE7\xE3o Getulio Vargas. Se\xE7\xF5es A FEB na It\xE1lia e A Opera\xE7\xE3o Encore e a vit\xF3ria de Monte Castelo. Consulta em 26 nov. 2026.\nhttps://atlas.fgv.br/verbete/7792"
   sourceUrl: https://www.trumanlibrary.gov/maps/m1733-01-map-italian-front
   pages:
   - title: Por onde passaria uma coluna?
-    text: "A chave no canto inferior direito distingue estradas principais, estradas secund\xE1rias, ferrovias, rios e campos de avia\xE7\xE3o. Encontre uma cidade atravessada por uma estrada e por um rio. Imagine o que aconteceria ao transporte de mantimentos se a travessia fosse interrompida."
+    text: "Este mapa, chamado Battleground in Italy, foi produzido em setembro de 1943. Sua legenda distingue estradas, ferrovias, rios e campos de avia\xE7\xE3o.\n\nEsses caminhos eram importantes para transportar soldados, comida e muni\xE7\xE3o. Uma ponte destru\xEDda ou uma estrada bloqueada podia atrasar o abastecimento de uma unidade."
     image: {fileID: 2800000, guid: ed5b686ef45146c2a007a7db2543067e, type: 3}
-    caption: "Battleground in Italy, 20 de setembro de 1943. Harry S. Truman Library & Museum, M1733-01. Dom\xEDnio p\xFAblico."
+    caption: "Mapa da It\xE1lia"
   - title: Duas escalas na mesma folha
-    text: "O mapa menor, \xE0 esquerda, inclui os pa\xEDses vizinhos e setas de ataque aliado. Ele situa a pen\xEDnsula no Mediterr\xE2neo. A carta maior permite voltar a uma estrada ou ferrovia espec\xEDfica. Observe como muda o detalhe entre as duas escalas."
+    text: "O mapa menor mostra a It\xE1lia e os pa\xEDses ao redor. Ele ajuda a localizar a pen\xEDnsula no Mediterr\xE2neo e apresenta movimentos dos Aliados naquele per\xEDodo.\n\nO mapa maior traz mais detalhes do territ\xF3rio italiano. Use a legenda para reconhecer cidades e caminhos. As setas representam a situa\xE7\xE3o de 1943, n\xE3o o percurso posterior da FEB."
     image: {fileID: 0}
     caption: 
   - title: Uma vista de San Rossore
-    text: "Na fotografia, siga a longa fileira de barracas junto ao bosque de San Rossore, nos arredores de Pisa. Procure reconhecer no acampamento o caminho aberto entre as fileiras.\n\nA FEB chegou \xE0 It\xE1lia em 1944. As setas do mapa que voc\xEA acaba de ler pertencem a 1943, antes do desembarque brasileiro. \xC9 a legenda da fotografia publicada pela Biblioteca do Ex\xE9rcito que identifica o local do acampamento."
+    text: "A fotografia mostra o acampamento de San Rossore, perto de Pisa. As fileiras de barracas e os corredores largos ajudam a perceber sua organiza\xE7\xE3o.\n\nA FEB chegou \xE0 It\xE1lia em 1944, depois da produ\xE7\xE3o do mapa. Podemos usar as duas imagens para conhecer o terreno e o acampamento, respeitando essa diferen\xE7a de datas. A data exata da fotografia n\xE3o \xE9 conhecida."
     image: {fileID: 2800000, guid: 912ee55057af4c92ab50933de6307104, type: 3}
-    caption: "Acampamento da FEB em San Rossore, perto de Pisa. Data da tomada desconhecida. Fotografia reproduzida por Cl\xE1udio e \xC9dson Rosty, As vit\xF3rias da FEB, Biblioteca do Ex\xE9rcito, 2022, p. 47."
+    caption: Acampamento de San Rossore
   - title: Monte Castello, 21 de fevereiro de 1945
-    text: "A campanha prosseguiu depois do per\xEDodo de prepara\xE7\xE3o da tropa. Em 21 de fevereiro de 1945, a FEB conquistou Monte Castello, uma posi\xE7\xE3o defendida pelos alem\xE3es na regi\xE3o dos Apeninos, no norte da It\xE1lia. A tomada integrou a ofensiva aliada e se tornou um marco da participa\xE7\xE3o militar brasileira no teatro europeu da Segunda Guerra Mundial.\n\nA conquista deve ser situada em uma campanha maior, com apoio e coordena\xE7\xE3o entre for\xE7as aliadas. Esta p\xE1gina comenta acontecimentos posteriores: o mapa de 1943 exposto na mesa n\xE3o registra a vit\xF3ria de 1945."
+    text: "Em 21 de fevereiro de 1945, a FEB conquistou Monte Castello, uma posi\xE7\xE3o defendida pelos alem\xE3es nos Apeninos, no norte da It\xE1lia.\n\nA vit\xF3ria fez parte da campanha dos Aliados e se tornou um marco da participa\xE7\xE3o brasileira na Segunda Guerra Mundial. O mapa desta mesa \xE9 anterior: ele n\xE3o registra a conquista de 1945."
     image: {fileID: 0}
-    caption: "Nota de contexto posterior ao mapa. Fontes: Minist\xE9rio da Defesa (2021) e Atlas Hist\xF3rico do Brasil, FGV."
+    caption: 
   - title: "O terreno tamb\xE9m impunha dificuldades"
-    text: "Na regi\xE3o de Monte Castello, os combatentes enfrentaram frio, relevo montanhoso, lama, minas terrestres e resist\xEAncia inimiga. As eleva\xE7\xF5es favoreciam a observa\xE7\xE3o e a defesa alem\xE3s. Nas tentativas anteriores \xE0 conquista, as chuvas e o frio dificultaram o apoio \xE0s tropas.\n\nAo comparar o mapa com os objetos de acampamento, pense no trabalho de levar alimento, muni\xE7\xE3o e atendimento a quem estava na frente. A mem\xF3ria de Monte Castello tamb\xE9m envolve essas condi\xE7\xF5es de combate e a experi\xEAncia dos expedicion\xE1rios."
+    text: "Os combatentes enfrentaram frio, montanhas, lama, minas terrestres e resist\xEAncia alem\xE3. As posi\xE7\xF5es elevadas facilitavam a observa\xE7\xE3o e a defesa do inimigo.\n\nLevar comida, muni\xE7\xE3o e atendimento at\xE9 a frente era dif\xEDcil. Por isso, o trabalho das cozinhas, dos dep\xF3sitos, dos transportes e das equipes de sa\xFAde tamb\xE9m era essencial para as opera\xE7\xF5es."
     image: {fileID: 0}
-    caption: "Contexto da campanha, n\xE3o uma descri\xE7\xE3o exclusiva de San Rossore. Fontes: Minist\xE9rio da Defesa (2021) e Atlas Hist\xF3rico do Brasil, FGV."
+    caption: 
   chronologyLabel: 
   chronologyOrder: 0
   inspectionPrefab: {fileID: 351976121487807613, guid: 669c36c8f5b06884984703c99ca27da9, type: 3}

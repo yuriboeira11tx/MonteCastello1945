@@ -15,19 +15,19 @@ MonoBehaviour:
   id: campo_escuta_do_radio
   title: "As vozes que atravessavam o Atl\xE2ntico"
   dateLabel: "It\xE1lia e Brasil \u2022 Segunda Guerra Mundial"
-  description: "Um receptor de mesa e duas hist\xF3rias de escuta: a m\xFAsica brasileira gravada em disco e os boletins de quem acompanhou os expedicion\xE1rios na It\xE1lia."
-  keyFinding: "O correspondente Francis Hallawell gravou entrevistas com expedicion\xE1rios. Gra\xE7as ao r\xE1dio, ouvintes no Brasil puderam conhecer at\xE9 o cotidiano das refei\xE7\xF5es na frente italiana."
+  description: "O r\xE1dio levava not\xEDcias, entrevistas e m\xFAsica a quem estava longe de casa. As reportagens tamb\xE9m permitiam aos brasileiros ouvir as vozes dos expedicion\xE1rios."
+  keyFinding: "Chico da BBC entrevistou soldados na It\xE1lia. As m\xFAsicas deste r\xE1dio s\xE3o uma sele\xE7\xE3o de \xE9poca para o jogo, e n\xE3o a programa\xE7\xE3o comprovada de San Rossore."
   image: {fileID: 0}
-  imageCaption: 
+  imageCaption: "R\xE1dio de campanha"
   citation: "R\xE1dio MEC/EBC. BBC entrevistou brasileiros sobre comida na Segunda Guerra Mundial. Todas as Vozes, 20 jul. 2015.\nhttps://radiomec.ebc.com.br/programas/todas-as-vozes/bbc-entrevistou-brasileiros-sobre-comida-na-segunda-guerra-mundial\n\nInstituto Moreira Salles. Discografia Brasileira em 78 rpm. Cat\xE1logo de fonogramas e digitaliza\xE7\xF5es.\nhttps://discografiabrasileira.com.br/"
   sourceUrl: https://radiomec.ebc.com.br/programas/todas-as-vozes/bbc-entrevistou-brasileiros-sobre-comida-na-segunda-guerra-mundial
   pages:
   - title: Uma entrevista na cozinha
-    text: "Entre os correspondentes que acompanharam a FEB, Francis Charlton Hallawell ficou conhecido como Chico da BBC. Levava ao microfone as vozes dos homens que serviam na It\xE1lia. Uma das entrevistas preservadas trata de uma pergunta simples: o que se comia na frente?\n\nO cozinheiro podia ocupar o primeiro plano de uma reportagem. Sua fala ajudava o ouvinte a imaginar a guerra pelo trabalho de quem preparava o rancho."
+    text: "O correspondente Francis Charlton Hallawell, conhecido como Chico da BBC, acompanhou a FEB na It\xE1lia. Suas reportagens levavam ao Brasil as vozes dos expedicion\xE1rios.\n\nEm uma entrevista, ele conversou sobre a alimenta\xE7\xE3o da tropa. Ouvir um cozinheiro falar do rancho ajudava o p\xFAblico a conhecer a rotina da guerra, al\xE9m das not\xEDcias de combate."
     image: {fileID: 0}
     caption: 
   - title: Ouvir o Brasil
-    text: "Os discos de 78 rota\xE7\xF5es guardaram a interpreta\xE7\xE3o, o acompanhamento e o timbre dos m\xFAsicos. Nas fichas da Discografia Brasileira, do Instituto Moreira Salles, \xE9 poss\xEDvel reconhecer uma grava\xE7\xE3o pelo int\xE9rprete, pela gravadora e pelo n\xFAmero do disco.\n\nA sele\xE7\xE3o que toca neste receptor foi organizada para a ambienta\xE7\xE3o do jogo. Ela re\xFAne grava\xE7\xF5es da \xE9poca. A programa\xE7\xE3o exata ouvida em San Rossore permanece em aberto."
+    text: "M\xFAsicas brasileiras aproximavam o ouvinte de sua cultura e das lembran\xE7as de casa. Muitas grava\xE7\xF5es da \xE9poca foram preservadas em discos de 78 rota\xE7\xF5es.\n\nO r\xE1dio do jogo toca uma sele\xE7\xE3o dessas grava\xE7\xF5es para criar a ambienta\xE7\xE3o. N\xE3o sabemos a programa\xE7\xE3o exata ouvida pelos soldados em San Rossore."
     image: {fileID: 0}
     caption: 
   chronologyLabel: "Boletins da It\xE1lia"

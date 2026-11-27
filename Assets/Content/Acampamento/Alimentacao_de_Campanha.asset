@@ -15,25 +15,25 @@ MonoBehaviour:
   id: acampamento_alimentacao_campanha
   title: "Como o rancho chegava à tropa"
   dateLabel: "Ponte San Pietro, setembro de 1944 · Abastecimento da FEB na Itália"
-  description: "Na fotografia, Antônio Martins prepara galinhas para moradores de Ponte San Pietro. Ao examinar a cozinha, acompanhe também o caminho do alimento até a marmita de um expedicionário."
-  keyFinding: "Manter o rancho dependia de navios, depósitos, cozinhas e distribuição. Na Itália, a FEB combinou suprimentos dos Estados Unidos com gêneros brasileiros."
+  description: "A alimenta\xE7\xE3o da tropa dependia de uma longa viagem: dos navios aos dep\xF3sitos, das cozinhas \xE0s marmitas. Esta fotografia tamb\xE9m mostra a ajuda de um brasileiro aos moradores de Ponte San Pietro."
+  keyFinding: "O rancho combinava alimentos brasileiros e suprimentos norte-americanos. Navios, dep\xF3sitos e transporte por terra faziam a comida chegar aos soldados."
   image: {fileID: 2800000, guid: 912ee55057af4c92ab50933de6307105, type: 3}
-  imageCaption: "Antônio Martins, de Itatiba (SP), em Ponte San Pietro, setembro de 1944. National Archives at College Park, Photographs and Graphic Works. Reprodução em Toscano, fig. 4."
+  imageCaption: Cozinha de campanha em Ponte San Pietro
   citation: "Frederico de Oliveira Toscano. A guerra das scatolettas: cultura material e comidas enlatadas entre os soldados da Força Expedicionária Brasileira na Itália. Anais do Museu Paulista, v. 28, e47, 2020, fig. 4. Fotografia do National Archives at College Park (EUA).\nhttps://doi.org/10.1590/1982-02672020v28e47\n\nDennison de Oliveira. “O combatente melhor alimentado da Europa”: a alimentação da Força Expedicionária Brasileira e a aliança Brasil-EUA durante a Segunda Guerra Mundial (1943-1945). Esboços, v. 22, n. 34, pp. 116–141, especialmente pp. 137–138.\nhttps://doi.org/10.5007/2175-7976.2015v22n34p116"
   sourceUrl: "https://doi.org/10.1590/1982-02672020v28e47"
   pages:
   - title: "Uma cozinha fora do quartel"
-    text: "Repare no caixote que Antônio Martins usa como assento. O lugar da fotografia é Ponte San Pietro. Ela foi colocada na cozinha desta reconstrução de San Rossore para mostrar como um pracinha improvisou seu posto de trabalho em outro ponto da campanha. Naquela ocasião, as aves que preparava ajudaram a alimentar civis italianos."
+    text: "Em setembro de 1944, Ant\xF4nio Martins preparava galinhas para moradores de Ponte San Pietro, na It\xE1lia. Sentado num caixote, ele trabalhava em uma cozinha improvisada.\n\nA fotografia mostra um exemplo de ajuda aos civis durante a campanha. Ela foi feita em Ponte San Pietro, e n\xE3o no acampamento de San Rossore."
     image: {fileID: 2800000, guid: 912ee55057af4c92ab50933de6307105, type: 3}
-    caption: "Antônio Martins, de Itatiba (SP), em Ponte San Pietro, setembro de 1944. National Archives at College Park, Photographs and Graphic Works. Reprodução em Toscano, fig. 4."
+    caption: Cozinha de campanha em Ponte San Pietro
   - title: "O que guardar no depósito"
-    text: "Em dezembro de 1944, o comando brasileiro pediu que o depósito da Intendência no porto de Livorno mantivesse reservas de café, feijão, arroz e farinha de mandioca, entre outros produtos. Fazer chegar esses gêneros à frente exigia espaço nos navios, armazenamento e distribuição por terra. A cozinha brasileira complementava com eles os víveres fornecidos pelos norte-americanos."
+    text: "Em dezembro de 1944, o comando brasileiro pediu reservas de caf\xE9, feij\xE3o, arroz e farinha de mandioca no dep\xF3sito de Livorno. Esses alimentos complementavam os suprimentos fornecidos pelos norte-americanos.\n\nA comida precisava chegar de navio, ser guardada e seguir por terra at\xE9 as unidades. Cozinheiros e equipes de transporte eram essenciais para manter o rancho, como os soldados chamavam suas refei\xE7\xF5es."
     image: {fileID: 0}
-    caption: ""
+    caption: 
   - title: "Uma panela para muitos"
-    text: "As unidades procuravam servir ao menos uma refeição quente por dia. Na fila, cada homem trazia sua marmita. Uma patrulha em marcha, porém, nem sempre podia contar com o caldeirão. A ração de combate C continha alimentos enlatados. A chamada “10 por 1” reunia dez refeições para consumo coletivo. A distância da cozinha e a tarefa do dia mudavam o que se comia."
+    text: "As unidades procuravam servir ao menos uma refei\xE7\xE3o quente por dia. Cada soldado levava sua marmita para receber a comida.\n\nQuando a cozinha ficava distante, a tropa recorria \xE0s ra\xE7\xF5es. A ra\xE7\xE3o C trazia alimentos enlatados. A chamada \u201C10 por 1\u201D reunia dez refei\xE7\xF5es para consumo coletivo. O que se comia dependia do abastecimento e da tarefa do dia."
     image: {fileID: 0}
-    caption: ""
+    caption: 
   chronologyLabel: ""
   chronologyOrder: 0
   inspectionPrefab: {fileID: 4497887934772962994, guid: c2298de7746c4356a50682734ab04bf2, type: 3}

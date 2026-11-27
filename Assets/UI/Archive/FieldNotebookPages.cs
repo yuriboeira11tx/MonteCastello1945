@@ -238,7 +238,7 @@ namespace FEB.Archive
                     Text(right, archive.CurrentObjective);
                     Text(right, archive.EvidenceCounts, "fine");
                 }
-                Photo(right, photo, "Expedicionários brasileiros na Itália. Fotografia do acervo do projeto.");
+                Photo(right, photo, "Expedicionários brasileiros na Itália");
                 if (archive == null)
                 {
                     if (fieldVisit != null && fieldVisit.IsFieldVisit)
@@ -293,7 +293,6 @@ namespace FEB.Archive
             Photo(left, sheet != null ? sheet.image : current.image, sheet != null ? sheet.caption : current.imageCaption, magnify: true);
             Text(right, current.dateLabel, "entry-date");
             Text(right, sheet?.text ?? current.description);
-            if (page == total - 1 && !string.IsNullOrWhiteSpace(current.citation)) Text(right, current.citation, "fine");
             Footer("Biblioteca da fase", page + 1, total);
         }
 

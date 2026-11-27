@@ -15,19 +15,19 @@ MonoBehaviour:
   id: acampamento_armamento_garand
   title: "O Garand e o fuzil que chegou \xE0 FEB"
   dateLabel: "Estados Unidos e It\xE1lia \xB7 1936\u20131944"
-  description: "O fuzil americano nesta mesa permite comparar o material que o comando brasileiro esperava receber com o que os dep\xF3sitos aliados de fato entregaram."
-  keyFinding: "O M1 era semiautom\xE1tico. No reequipamento da FEB na It\xE1lia predominou o Springfield M1903, de ferrolho. O mostru\xE1rio do jogo apresenta o Garand para comparar as duas armas."
+  description: "Examine o M1 Garand e conhe\xE7a a diferen\xE7a entre ele e o Springfield M1903, o fuzil que predominou no equipamento recebido pela FEB."
+  keyFinding: "O Garand \xE9 semiautom\xE1tico. O Springfield M1903 exige o movimento manual do ferrolho entre os disparos e predominou entre os fuzis recebidos pela FEB."
   image: {fileID: 0}
-  imageCaption: "Modelo tridimensional do M1 Garand usado na reconstru\xE7\xE3o. O exemplar permite comparar seu funcionamento com o Springfield M1903 recebido pela FEB."
+  imageCaption: Fuzil M1 Garand
   citation: "National Park Service, Springfield Armory National Historic Site, John Garand. C. C. Maximiano, Adapta\xE7\xE3o sob fogo: o aprendizado da 1\xAA Divis\xE3o de Infantaria Expedicion\xE1ria em combate, 1944\u201345. Cole\xE7\xE3o Meira Mattos, v. 8, n. 31 (2014), p. 59\u201373, especialmente p. 65."
   sourceUrl: https://ebrevistas.eb.mil.br/RMM/article/download/383/458/
   pages:
   - title: Examine o fuzil
-    text: "Gire o modelo para observar a coronha, o mecanismo e o cano. O Ex\xE9rcito dos Estados Unidos adotou o M1 Garand em 1936. Seu mecanismo aproveitava parte dos gases do disparo para preparar o cartucho seguinte. Um clipe reunia oito cartuchos.\n\nO exemplar virtual \xE9 um mostru\xE1rio para compara\xE7\xE3o: sua presen\xE7a nesta reconstru\xE7\xE3o n\xE3o significa que o Garand tenha sido o armamento predominante da infantaria da FEB. Na p\xE1gina seguinte, veja o que os dep\xF3sitos entregaram aos brasileiros."
+    text: "Gire o fuzil para observar a coronha, o cano e o mecanismo. Adotado pelos Estados Unidos em 1936, o M1 Garand \xE9 semiautom\xE1tico: parte dos gases do disparo prepara o cartucho seguinte. Seu clipe re\xFAne oito cartuchos.\n\nO modelo est\xE1 aqui para compara\xE7\xE3o. Sua presen\xE7a no jogo n\xE3o significa que tenha sido o fuzil mais usado pela FEB."
     image: {fileID: 0}
-    caption: "Modelo de refer\xEAncia do M1 Garand; n\xE3o \xE9 uma fotografia hist\xF3rica nem um exemplar com proced\xEAncia atribu\xEDda \xE0 FEB."
+    caption: 
   - title: "O que havia nos dep\xF3sitos?"
-    text: "Na It\xE1lia, o general Mascarenhas de Moraes requisitou armamento aos dep\xF3sitos do teatro de opera\xE7\xF5es. O comando esperava receber o M1 utilizado pela infantaria americana. Os lotes dispon\xEDveis para os brasileiros continham sobretudo o Springfield M1903. Entre os disparos, o atirador precisava manejar seu ferrolho.\n\nO fornecimento dependia dos estoques aliados, disputados tamb\xE9m por outros teatros de guerra. As unidades brasileiras receberam instru\xE7\xE3o no armamento que lhes foi entregue. Essa diferen\xE7a ajuda a ler com cuidado qualquer fotografia de um pracinha armado."
+    text: "O comando brasileiro esperava receber o M1 Garand, mas os lotes dispon\xEDveis na It\xE1lia continham sobretudo o Springfield M1903. Nesse fuzil, o soldado precisava mover o ferrolho manualmente entre os disparos.\n\nA entrega dependia dos estoques aliados. Os brasileiros tiveram de aprender a usar o armamento que receberam."
     image: {fileID: 0}
     caption: 
   chronologyLabel: 

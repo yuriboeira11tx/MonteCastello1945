@@ -9,9 +9,9 @@ namespace FEB.Archive
     [RequireComponent(typeof(UIDocument), typeof(EvidenceInspection))]
     public sealed class FieldEvidenceView : MonoBehaviour
     {
-        VisualElement panel, tools, sources, navigation;
+        VisualElement panel, tools, navigation;
         Image preview, photo, pagePhoto;
-        Label prompt, collection, caption, title, date, heading, body, bibliography, pageNumber, registrationError;
+        Label prompt, collection, caption, title, date, heading, body, pageNumber, registrationError;
         Label pagePhotoCaption;
         Button reset, close, previous, next, register;
         ScrollView reading;
@@ -45,8 +45,6 @@ namespace FEB.Archive
             body = panel.Q<Label>("pageText");
             pagePhoto = panel.Q<Image>("pagePhoto");
             pagePhotoCaption = panel.Q<Label>("pagePhotoCaption");
-            sources = panel.Q("sources");
-            bibliography = panel.Q<Label>("bibliography");
             reading = panel.Q<ScrollView>("readingScroll");
             navigation = panel.Q("pageNavigation");
             pageNumber = panel.Q<Label>("pageNumber");
@@ -97,7 +95,6 @@ namespace FEB.Archive
             title.text = evidence.title;
             date.text = evidence.dateLabel;
             ScreenUI.Show(date, !string.IsNullOrWhiteSpace(evidence.dateLabel));
-            bibliography.text = evidence.citation;
             bool hasModel = inspection.Show(evidence);
             photo.image = hasModel ? null : evidence.image;
             ScreenUI.Show(photo, photo.image != null);
@@ -146,10 +143,9 @@ namespace FEB.Archive
             ScreenUI.Show(heading, !string.IsNullOrWhiteSpace(heading.text) && heading.text != title.text);
             body.text = sheet?.text ?? document.description;
             bool describesObject = sheet?.image != null && sheet.image == document.image;
-            caption.text = describesObject && !string.IsNullOrWhiteSpace(sheet.caption) ? sheet.caption : document.imageCaption;
+            caption.text = string.IsNullOrWhiteSpace(document.imageCaption) ? document.title : document.imageCaption;
             ScreenUI.Show(caption, !string.IsNullOrWhiteSpace(caption.text));
             SetPagePhoto(describesObject ? null : sheet?.image, sheet?.caption);
-            ScreenUI.Show(sources, last && !string.IsNullOrWhiteSpace(document.citation));
             pageNumber.text = $"Folha {page + 1} de {total}";
             ScreenUI.Show(navigation, total > 1);
             previous.SetEnabled(page > 0);

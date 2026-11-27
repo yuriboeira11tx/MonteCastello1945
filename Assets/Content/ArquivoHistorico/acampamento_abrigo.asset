@@ -15,25 +15,25 @@ MonoBehaviour:
   id: acampamento_abrigo
   title: O acampamento de San Rossore
   dateLabel: "Campanha da It\xE1lia \u2022 Regi\xE3o de Pisa"
-  description: "Uma vista tomada do alto permite percorrer com os olhos o acampamento da FEB em San Rossore. Siga as fileiras de barracas at\xE9 a orla do bosque."
-  keyFinding: "San Rossore abrigou o primeiro quartel-general da tropa brasileira na regi\xE3o de Pisa. As fileiras de barracas mostram como o efetivo se distribu\xEDa no terreno."
+  description: "San Rossore, perto de Pisa, foi um dos acampamentos da FEB na It\xE1lia. A vista do alto mostra como as barracas e os caminhos ocupavam o terreno."
+  keyFinding: "As fileiras de barracas e os corredores mostram a organiza\xE7\xE3o de San Rossore. O acampamento abrigou o primeiro quartel-general brasileiro na regi\xE3o de Pisa."
   image: {fileID: 2800000, guid: 912ee55057af4c92ab50933de6307104, type: 3}
-  imageCaption: "Acampamento da FEB em San Rossore. Fotografia reproduzida por Cl\xE1udio e \xC9dson Rosty, Biblioteca do Ex\xE9rcito, p. 47. A legenda identifica o lugar e deixa a data da tomada em aberto."
+  imageCaption: Acampamento de San Rossore
   citation: "ROSTY, Cl\xE1udio Skora e ROSTY, \xC9dson Skora. As vit\xF3rias da FEB: do vale do rio Serchio ao vale do rio Po. Rio de Janeiro, Biblioteca do Ex\xE9rcito, 2022, p. 47. Fotografia e texto de contexto. ISBN 978-65-5757-025-8.\nhttps://lojavirtual.bibliex.eb.mil.br/wp-content/uploads/2021/ebooks/Vitorias_FEB.pdf\n\nMuseu Virtual da FEB, cat\xE1logo bibliogr\xE1fico, item CB.0016.\nhttps://museuvirtualdafeb.eb.mil.br/literatura-e-publicacoes/as-vitorias-da-feb/\n\nABREU, Alzira Alves de. Verbete sobre a For\xE7a Expedicion\xE1ria Brasileira. Atlas Hist\xF3rico do Brasil, Funda\xE7\xE3o Getulio Vargas. Se\xE7\xF5es A organiza\xE7\xE3o da FEB e A FEB na It\xE1lia. Consulta em 26 nov. 2026.\nhttps://atlas.fgv.br/verbete/7792"
   sourceUrl: https://museuvirtualdafeb.eb.mil.br/literatura-e-publicacoes/as-vitorias-da-feb/
   pages:
   - title: As ruas entre as barracas
-    text: "Comece pelo canto inferior direito. Ali, uma sequ\xEAncia de barracas pequenas acompanha a margem da \xE1rea aberta. Mais ao centro aparecem outras fileiras, com corredores largos entre elas. Ao longe, a sucess\xE3o de abrigos se perde perto das \xE1rvores.\n\nEscolha uma barraca e tente encontrar um caminho entre ela e a borda do bosque. \xC9 mais f\xE1cil perceber a organiza\xE7\xE3o do lugar quando se imagina o trajeto de algu\xE9m que precisava atravess\xE1-lo a p\xE9."
+    text: "A fotografia mostra o acampamento de San Rossore, perto de Pisa. As barracas est\xE3o distribu\xEDdas em fileiras, separadas por corredores. Ao lado da \xE1rea aberta, aparece um bosque.\n\nEsses espa\xE7os permitiam a circula\xE7\xE3o entre os abrigos. Observe como a organiza\xE7\xE3o das barracas ajudava uma grande quantidade de pessoas a dividir o mesmo lugar."
     image: {fileID: 2800000, guid: 912ee55057af4c92ab50933de6307104, type: 3}
-    caption: "Acampamento da FEB em San Rossore. Fotografia reproduzida por Cl\xE1udio e \xC9dson Rosty, Biblioteca do Ex\xE9rcito, p. 47. A legenda identifica o lugar e deixa a data da tomada em aberto."
+    caption: Acampamento de San Rossore
   - title: "Da chegada \xE0 instru\xE7\xE3o"
-    text: "Ao descrever a prepara\xE7\xE3o da tropa, Cl\xE1udio e \xC9dson Rosty distinguem tr\xEAs locais. Em Tarqu\xEDnia os expedicion\xE1rios receberam equipamento dos norte-americanos. Em Vada, prosseguiram com a instru\xE7\xE3o. Em San Rossore, onde grande parte da tropa acampou, instalou-se o seu primeiro quartel-general.\n\nUm acampamento desse tamanho tamb\xE9m precisava de espa\xE7o para que as ordens e os suprimentos chegassem a quem ocupava as barracas. A fotografia permite perceber a escala desse trabalho. A identifica\xE7\xE3o do quartel-general vem do texto que acompanha a imagem."
+    text: "Na It\xE1lia, os brasileiros passaram por diferentes locais de prepara\xE7\xE3o. Em Tarqu\xEDnia, receberam equipamento norte-americano. Em Vada, continuaram o treinamento. Em San Rossore, grande parte da tropa acampou e foi instalado seu primeiro quartel-general na regi\xE3o de Pisa.\n\nAl\xE9m dos abrigos, era necess\xE1rio organizar comida, materiais e comunica\xE7\xE3o. A vida no acampamento sustentava o trabalho de quem seguiria para a frente."
     image: {fileID: 0}
     caption: 
   - title: "Quem eram os expedicion\xE1rios?"
-    text: "A For\xE7a Expedicion\xE1ria Brasileira (FEB) foi a for\xE7a militar enviada pelo Brasil para combater na Segunda Guerra Mundial. Organizada em 1943, atuou na It\xE1lia a partir de 1944, ao lado dos Aliados, contra as for\xE7as do Eixo. A tropa brasileira integrou o V Ex\xE9rcito norte-americano.\n\nSeu comandante foi o general Jo\xE3o Batista Mascarenhas de Morais, nome tamb\xE9m grafado Mascarenhas de Moraes. O acampamento fazia parte da prepara\xE7\xE3o e do apoio \xE0 campanha: dali, o olhar do pesquisador pode seguir dos abrigos para as opera\xE7\xF5es na frente italiana."
+    text: "A For\xE7a Expedicion\xE1ria Brasileira, ou FEB, foi a for\xE7a militar enviada pelo Brasil para combater na Segunda Guerra Mundial. Organizada em 1943, atuou na It\xE1lia a partir de 1944, ao lado dos Aliados e contra as for\xE7as do Eixo.\n\nSeu comandante foi o general Jo\xE3o Batista Mascarenhas de Morais, tamb\xE9m conhecido pela grafia Moraes. A tropa integrou o V Ex\xE9rcito norte-americano. Nos acampamentos, os expedicion\xE1rios se preparavam e recebiam apoio para a campanha."
     image: {fileID: 0}
-    caption: "Contextualiza\xE7\xE3o hist\xF3rica da fotografia. Fonte: Alzira Alves de Abreu, Funda\xE7\xE3o Getulio Vargas, Atlas Hist\xF3rico do Brasil, verbete sobre a FEB."
+    caption: 
   chronologyLabel: 
   chronologyOrder: 0
   inspectionPrefab: {fileID: 4497887934772962994, guid: c2298de7746c4356a50682734ab04bf1, type: 3}

@@ -13,24 +13,24 @@ MonoBehaviour:
   m_Name: acampamento_cotidiano
   m_EditorClassIdentifier: Assembly-CSharp::FEB.Archive.HistoricalEvidence
   id: acampamento_cotidiano
-  title: "Uma carta na porta da barraca"
-  dateLabel: "1944 • Itália"
-  description: "Um pracinha acomoda o papel sobre os joelhos e escreve diante de sua barraca. O Arquivo Nacional identifica a correspondência como uma carta para a família."
-  keyFinding: "A correspondência aproximava os expedicionários e suas famílias. As cartas que saíam do Brasil para a tropa também passaram pela censura do Serviço Postal da FEB."
+  title: Uma carta na porta da barraca
+  dateLabel: "1944 \u2022 It\xE1lia"
+  description: "Um expedicion\xE1rio escreve \xE0 fam\xEDlia diante da barraca. As cartas ajudavam a manter o contato entre os soldados na It\xE1lia e as pessoas que ficaram no Brasil."
+  keyFinding: "A identifica\xE7\xE3o da fotografia informa que a carta era para a fam\xEDlia. Seu conte\xFAdo n\xE3o \xE9 leg\xEDvel. As cartas enviadas do Brasil \xE0 tropa tamb\xE9m passavam por censura."
   image: {fileID: 2800000, guid: 912ee55057af4c92ab50933de6307106, type: 3}
-  imageCaption: "Expedicionário escreve carta aos seus familiares, Itália, 1944. Fotógrafo desconhecido. Fundo Agência Nacional. Domínio público / Acervo Arquivo Nacional."
-  citation: "ARQUIVO NACIONAL (Brasil). Força Expedicionária Brasileira — Expedicionário escreve carta aos seus familiares, Itália. 1944. Fundo Agência Nacional, BR_RJANRIO_EH_0_FOT_FEB_00044_0015. Domínio público / Acervo Arquivo Nacional.\nhttps://commons.wikimedia.org/?curid=84422774\n\nMOREIRA, Florence Alencar, PEREIRA, Fabio da Silva e DIAS, Claudia Cristina de Mesquita Garcia. O “Pão Espiritual dos Soldados” e os Relatórios Confidenciais do Serviço Postal da Força Expedicionária Brasileira (1944-1945). Revista Maracanan, n. 30, p. 223–247, 2022.\nhttps://doi.org/10.12957/revmar.2022.64416"
-  sourceUrl: "https://doi.org/10.12957/revmar.2022.64416"
+  imageCaption: "Carta \xE0 fam\xEDlia"
+  citation: "ARQUIVO NACIONAL (Brasil). For\xE7a Expedicion\xE1ria Brasileira \u2014 Expedicion\xE1rio escreve carta aos seus familiares, It\xE1lia. 1944. Fundo Ag\xEAncia Nacional, BR_RJANRIO_EH_0_FOT_FEB_00044_0015. Dom\xEDnio p\xFAblico / Acervo Arquivo Nacional.\nhttps://commons.wikimedia.org/?curid=84422774\n\nMOREIRA, Florence Alencar, PEREIRA, Fabio da Silva e DIAS, Claudia Cristina de Mesquita Garcia. O \u201CP\xE3o Espiritual dos Soldados\u201D e os Relat\xF3rios Confidenciais do Servi\xE7o Postal da For\xE7a Expedicion\xE1ria Brasileira (1944-1945). Revista Maracanan, n. 30, p. 223\u2013247, 2022.\nhttps://doi.org/10.12957/revmar.2022.64416"
+  sourceUrl: https://doi.org/10.12957/revmar.2022.64416
   pages:
-  - title: "Uma mesa sobre os joelhos"
-    text: "Observe onde o soldado encontrou lugar para escrever. Ele se sentou junto à abertura da barraca e apoiou o papel sobre os joelhos. As outras barracas ao fundo situam esse gesto particular no espaço coletivo do acampamento.\n\nO catálogo do Arquivo Nacional identifica o destinatário como a família. A imagem permite descrever a postura do soldado e os objetos ao seu redor. As palavras que escolheu continuam desconhecidas."
+  - title: Uma mesa sobre os joelhos
+    text: "O soldado est\xE1 sentado junto \xE0 barraca, com o papel apoiado nos joelhos. A fotografia foi feita na It\xE1lia, em 1944. A identifica\xE7\xE3o do registro informa que ele escrevia para a fam\xEDlia.\n\nN\xE3o \xE9 poss\xEDvel ler as palavras da carta nem saber o nome do homem. Tamb\xE9m n\xE3o h\xE1 confirma\xE7\xE3o de que a foto tenha sido feita em San Rossore."
     image: {fileID: 2800000, guid: 912ee55057af4c92ab50933de6307106, type: 3}
-    caption: "Expedicionário escreve carta aos seus familiares, Itália, 1944. Fotógrafo desconhecido. Fundo Agência Nacional. Domínio público / Acervo Arquivo Nacional."
-  - title: "O caminho das notícias"
-    text: "Quem ficava no Brasil também escrevia para a Itália. O Serviço Postal da FEB organizava o trânsito dessa correspondência. No Rio de Janeiro, censores examinavam cartas dirigidas aos combatentes e produziam relatórios confidenciais.\n\nAo estudar esses relatórios, os historiadores Florence Moreira, Fabio Pereira e Claudia Dias encontraram registros da preocupação com o efeito das notícias de casa sobre o ânimo da tropa. Pense nas duas pontas dessa troca quando encontrar, no acampamento, um lugar onde poderia sentar para escrever."
+    caption: "Carta \xE0 fam\xEDlia"
+  - title: "O caminho das not\xEDcias"
+    text: "O Servi\xE7o Postal da FEB organizava a troca de cartas com o Brasil. Receber not\xEDcias ajudava a diminuir a dist\xE2ncia de casa.\n\nNo Rio de Janeiro, censores examinavam a correspond\xEAncia destinada aos combatentes. Seus relat\xF3rios mostram preocupa\xE7\xE3o com as informa\xE7\xF5es enviadas e com o efeito das not\xEDcias sobre o \xE2nimo da tropa. A troca de cartas era pessoal, mas tamb\xE9m passava pelo controle do Estado."
     image: {fileID: 0}
-    caption: ""
-  chronologyLabel: ""
+    caption: 
+  chronologyLabel: 
   chronologyOrder: 2
   inspectionPrefab: {fileID: 4497887934772962994, guid: c2298de7746c4356a50682734ab04bf3, type: 3}
   inspectionRotation: {x: 2, y: -5, z: -1}

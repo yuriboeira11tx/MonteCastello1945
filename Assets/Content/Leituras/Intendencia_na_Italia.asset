@@ -15,19 +15,19 @@ MonoBehaviour:
   id: Intendencia_na_Italia
   title: O abastecimento da FEB
   dateLabel: "Campanha da It\xE1lia, 1944"
-  description: "\u201CDep\xF3sito Geral: LIVORNO, e Dep\xF3sito avan\xE7ado: MASSAROSA.\u201D\n\nO relato da Intend\xEAncia registra essa disposi\xE7\xE3o em setembro de 1944. Um dep\xF3sito avan\xE7ado aproximava o material de quem precisava receb\xEA-lo. Entre o porto e o soldado havia trabalho de transporte, separa\xE7\xE3o e distribui\xE7\xE3o."
-  keyFinding: 
+  description: "Comida, abrigo e equipamento precisavam chegar at\xE9 a tropa. Esse trabalho de abastecimento era organizado pela Intend\xEAncia."
+  keyFinding: "A Intend\xEAncia organizava o recebimento, o armazenamento e a distribui\xE7\xE3o dos materiais necess\xE1rios \xE0 tropa."
   image: {fileID: 2800000, guid: 0611362f7ec5ffc45888b48c0461066f, type: 3}
-  imageCaption: Massarosa aparece no relato do abastecimento. A fotografia situa a localidade.
+  imageCaption: Massarosa
   citation: "A Intend\xEAncia no T.O. da It\xE1lia, pp. 37\u201338. Biblioteca da ECEME. Trecho e coment\xE1rio."
   sourceUrl: https://www.eceme.eb.mil.br/images/biblioteca/a_intendencia_to_italia.pdf
   pages:
   - title: Entre o porto e a tropa
-    text: "\u201CDep\xF3sito Geral: LIVORNO, e Dep\xF3sito avan\xE7ado: MASSAROSA.\u201D\n\nO relato da Intend\xEAncia registra essa disposi\xE7\xE3o em setembro de 1944. Um dep\xF3sito avan\xE7ado aproximava o material de quem precisava receb\xEA-lo. Entre o porto e o soldado havia trabalho de transporte, separa\xE7\xE3o e distribui\xE7\xE3o."
+    text: "Em setembro de 1944, a FEB utilizava um dep\xF3sito geral em Livorno e um dep\xF3sito avan\xE7ado em Massarosa. O dep\xF3sito avan\xE7ado deixava os materiais mais pr\xF3ximos das unidades que precisavam receb\xEA-los.\n\nEntre o porto e o soldado havia v\xE1rias tarefas: descarregar, separar, armazenar e transportar os suprimentos."
     image: {fileID: 2800000, guid: 0611362f7ec5ffc45888b48c0461066f, type: 3}
-    caption: Massarosa aparece no relato do abastecimento. A fotografia situa a localidade.
+    caption: Massarosa
   - title: "Abrigo tamb\xE9m era suprimento"
-    text: "\u201CA tropa partiu do Rio sem barracas\u201D.\n\nO relato reserva espa\xE7o para o problema dos abrigos. Ao percorrer as fileiras de barracas no jogo, imagine o trabalho anterior \xE0 montagem. Quem recebeu o material? Como ele chegou ao acampamento? Anote quais pistas voc\xEA precisaria encontrar para responder."
+    text: "As barracas tamb\xE9m faziam parte do abastecimento. Os primeiros expedicion\xE1rios partiram do Rio sem esse material e dependeram do fornecimento na It\xE1lia.\n\nAntes de montar um acampamento, era preciso receber os abrigos e lev\xE1-los at\xE9 o lugar escolhido. Alimenta\xE7\xE3o, roupas, armas e barracas faziam parte do mesmo esfor\xE7o para manter a tropa em condi\xE7\xF5es de atuar."
     image: {fileID: 0}
     caption: 
   chronologyLabel: 

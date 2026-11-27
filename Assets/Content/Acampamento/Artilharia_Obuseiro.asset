@@ -13,23 +13,23 @@ MonoBehaviour:
   m_Name: Artilharia_Obuseiro
   m_EditorClassIdentifier: Assembly-CSharp::FEB.Archive.HistoricalEvidence
   id: acampamento_artilharia_obuseiro
-  title: "A granada de Francisco de Paula"
-  dateLabel: "Toscana, Itália · 29 de setembro de 1944"
-  description: "O soldado sorri para a câmera com uma granada junto à culatra. A inscrição no projétil ajuda a explicar por que esse retrato circulou tanto."
-  keyFinding: "Francisco de Paula era o carregador de uma peça de 105 mm. A fotografia de 29 de setembro foi posada depois da estreia da artilharia brasileira em combate, em 16 de setembro."
+  title: A granada de Francisco de Paula
+  dateLabel: "Toscana, It\xE1lia \xB7 29 de setembro de 1944"
+  description: "Francisco de Paula posa com a muni\xE7\xE3o de um obuseiro de 105 mm. A imagem ajuda a conhecer o trabalho da artilharia brasileira na It\xE1lia."
+  keyFinding: A artilharia brasileira entrou em combate em 16 de setembro de 1944. O retrato de Francisco de Paula foi feito no dia 29, depois dessa estreia.
   image: {fileID: 2800000, guid: 55891ac946555190b2723cb1a1086261, type: 3}
-  imageCaption: "Francisco de Paula municia um obuseiro de 105 mm. Toscana, Itália, 29 de setembro de 1944. Fotografia do U.S. Army Signal Corps."
-  citation: "U.S. Army Signal Corps. Reprodução identificada pelo Memorial da FEB, Artilharia Expedicionária (2024) e O primeiro tiro de Artilharia da FEB (2011). Federação das Academias de História Militar Terrestre do Brasil, História do 21º GAC e seu antecessor na FEB."
-  sourceUrl: "https://memorialdafeb.com/2024/07/12/artilharia-expedicionaria/"
+  imageCaption: Francisco de Paula e o obuseiro
+  citation: "U.S. Army Signal Corps. Reprodu\xE7\xE3o identificada pelo Memorial da FEB, Artilharia Expedicion\xE1ria (2024) e O primeiro tiro de Artilharia da FEB (2011). Federa\xE7\xE3o das Academias de Hist\xF3ria Militar Terrestre do Brasil, Hist\xF3ria do 21\xBA GAC e seu antecessor na FEB."
+  sourceUrl: https://memorialdafeb.com/2024/07/12/artilharia-expedicionaria/
   pages:
-  - title: "Leia o que está no projétil"
-    text: "Francisco de Paula segura a munição de um obuseiro de 105 mm. Observe a inscrição “A cobra está fumando” no projétil e no estojo. O apelido dos expedicionários foi incorporado à própria cena fotografada. A imagem chegou à capa do jornal O Cruzeiro do Sul."
+  - title: "Leia o que est\xE1 no proj\xE9til"
+    text: "Francisco de Paula era respons\xE1vel por carregar uma pe\xE7a de artilharia de 105 mm. Na fotografia, ele segura a muni\xE7\xE3o com a inscri\xE7\xE3o \u201CA cobra est\xE1 fumando\u201D.\n\nA express\xE3o se tornou um s\xEDmbolo dos expedicion\xE1rios. Este retrato foi posado em 29 de setembro de 1944 e apareceu na capa do jornal O Cruzeiro do Sul."
     image: {fileID: 2800000, guid: 55891ac946555190b2723cb1a1086261, type: 3}
-    caption: "Francisco de Paula municia um obuseiro de 105 mm. Toscana, Itália, 29 de setembro de 1944. Fotografia do U.S. Army Signal Corps."
-  - title: "O que veio antes da fotografia?"
-    text: "A artilharia brasileira já havia entrado em combate em 16 de setembro de 1944. O registro de Francisco de Paula é de 29 de setembro. A data impede tomar esta fotografia como um flagrante do primeiro disparo.\n\nPara que uma granada alcançasse um alvo, observadores transmitiam informações à central de tiro. A central calculava os elementos de pontaria, e cada integrante da guarnição tinha uma função na peça. O retrato mostra o homem encarregado do carregamento."
+    caption: Francisco de Paula e o obuseiro
+  - title: O que veio antes da fotografia?
+    text: "A artilharia brasileira come\xE7ou a combater em 16 de setembro de 1944. Como a fotografia foi feita no dia 29, ela n\xE3o mostra o primeiro disparo.\n\nO tiro de artilharia exigia trabalho em equipe. Observadores indicavam os alvos, a central calculava a pontaria e a guarni\xE7\xE3o preparava a pe\xE7a. Francisco de Paula cuidava do carregamento."
     image: {fileID: 0}
-    caption: ""
+    caption: 
   chronologyLabel: 
   chronologyOrder: 0
   inspectionPrefab: {fileID: 1344062721961564308, guid: 64bfc8a32b695da082cf0e26da702e55, type: 3}

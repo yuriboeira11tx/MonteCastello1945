@@ -15,25 +15,25 @@ MonoBehaviour:
   id: estado_de_guerra
   title: O estado de guerra
   dateLabel: "31 de agosto de 1942 \u2022 Decreto n\xBA 10.358"
-  description: "O Decreto nº 10.358 ocupa a coluna superior esquerda do Diário Oficial de 1º de setembro de 1942. Suas três disposições mostram como o estado de guerra atingia também a vida de quem permanecia no Brasil."
-  keyFinding: "O governo reconheceu a beligerância com Alemanha e Itália em 22 de agosto de 1942. Em 31 de agosto, Vargas assinou o decreto que declarou o estado de guerra em todo o território nacional."
+  description: "O Decreto n\xBA 10.358 declarou o estado de guerra em todo o territ\xF3rio brasileiro. Suas medidas tamb\xE9m afetaram a vida de quem permaneceu no pa\xEDs."
+  keyFinding: "O governo reconheceu a guerra com Alemanha e It\xE1lia em 22 de agosto de 1942. Vargas assinou o decreto de estado de guerra em 31 de agosto."
   image: {fileID: 2800000, guid: 1e27d8c632b241a19d413899d54e315c, type: 3}
-  imageCaption: "Decreto nº 10.358, coluna superior esquerda. Diário Oficial dos Estados Unidos do Brasil, Seção 1, 1º de setembro de 1942, p. 13.413. Acervo digital da Imprensa Nacional."
-  citation: "Brasil. Decreto nº 10.358, de 31 de agosto de 1942. Diário Oficial dos Estados Unidos do Brasil, Seção 1, 1º set. 1942, p. 13.413. Acervo digital da Imprensa Nacional. Registro bibliográfico do Superior Tribunal Militar.\nhttps://dspace.stm.jus.br/handle/123456789/90690\n\nFundação Getulio Vargas. «Getúlio Vargas». Atlas Histórico do Brasil, seção sobre a entrada na guerra.\nhttps://atlas.fgv.br/verbete/5458"
+  imageCaption: "Decreto n\xBA 10.358"
+  citation: "Brasil. Decreto n\xBA 10.358, de 31 de agosto de 1942. Di\xE1rio Oficial dos Estados Unidos do Brasil, Se\xE7\xE3o 1, 1\xBA set. 1942, p. 13.413. Acervo digital da Imprensa Nacional. Registro bibliogr\xE1fico do Superior Tribunal Militar.\nhttps://dspace.stm.jus.br/handle/123456789/90690\n\nFunda\xE7\xE3o Getulio Vargas. \xABGet\xFAlio Vargas\xBB. Atlas Hist\xF3rico do Brasil, se\xE7\xE3o sobre a entrada na guerra.\nhttps://atlas.fgv.br/verbete/5458"
   sourceUrl: https://legis.senado.gov.br/norma/419110/publicacao/15768380
   pages:
-  - title: "Duas datas na mesma folha"
-    text: "Na linha que atravessa o alto da página, lê-se 1º de setembro de 1942. Logo abaixo, à esquerda, o título do decreto traz 31 de agosto. A primeira data pertence à edição do Diário Oficial. A segunda corresponde ao dia em que Getúlio Vargas assinou o ato no Rio de Janeiro.\n\nO artigo 3º liga as duas datas ao estabelecer que o decreto entraria em vigor com sua publicação."
+  - title: Duas datas na mesma folha
+    text: "O decreto foi assinado por Get\xFAlio Vargas em 31 de agosto de 1942. O Di\xE1rio Oficial o publicou no dia seguinte, 1\xBA de setembro.\n\nPor isso, aparecem duas datas no documento: uma \xE9 a assinatura; a outra \xE9 a publica\xE7\xE3o. O pr\xF3prio decreto determinava que passaria a valer quando fosse publicado."
     image: {fileID: 2800000, guid: 1e27d8c632b241a19d413899d54e315c, type: 3}
-    caption: "Decreto nº 10.358, coluna superior esquerda. Diário Oficial dos Estados Unidos do Brasil, Seção 1, 1º de setembro de 1942, p. 13.413. Acervo digital da Imprensa Nacional."
-  - title: "A guerra dentro do país"
-    text: "No artigo 1º, o presidente declarou o estado de guerra em todo o território nacional. No artigo 2º aparecem os efeitos sobre a Constituição então vigente. Entre as garantias que perderam vigência estava o direito de manifestação do pensamento previsto no artigo 122, nº 15.\n\nNa folha, procure a expressão “manifestação de pensamento”. Ela ajuda a perceber o alcance de um decreto de guerra para quem escrevia, lia jornais ou discutia política em terra."
+    caption: "Decreto n\xBA 10.358"
+  - title: "A guerra dentro do pa\xEDs"
+    text: "O decreto declarou o estado de guerra em todo o Brasil e suspendeu garantias da Constitui\xE7\xE3o em vigor. Entre elas estava a liberdade de manifesta\xE7\xE3o do pensamento.\n\nIsso afetava tamb\xE9m a popula\xE7\xE3o civil. Pessoas que escreviam em jornais ou discutiam pol\xEDtica estavam sujeitas \xE0s restri\xE7\xF5es do per\xEDodo, mesmo longe das \xE1reas de combate."
     image: {fileID: 0}
-    caption: ""
-  - title: "O lugar do decreto na cronologia"
-    text: "Em agosto de 1942, novos ataques a navios brasileiros provocaram protestos. No dia 22, o governo reconheceu publicamente o estado de beligerância com a Alemanha e a Itália. Nove dias depois, Vargas assinou o decreto que você tem diante de si.\n\nCompare com a capa do Diário Carioca. Em abril, um jornal recolhia pedidos de represália. Em agosto, o governo estabelecia medidas que teriam efeitos jurídicos em todo o Brasil."
+    caption: 
+  - title: O lugar do decreto na cronologia
+    text: "Os ataques a navios mercantes brasileiros provocaram indigna\xE7\xE3o e protestos. Em 22 de agosto de 1942, o governo reconheceu o estado de guerra com Alemanha e It\xE1lia. No dia 31, Vargas assinou este decreto.\n\nCompare a sequ\xEAncia: a not\xEDcia sobre o Cabedelo \xE9 de abril de 1942; o decreto, de agosto de 1942; o torpedeamento do Itapag\xE9, de setembro de 1943."
     image: {fileID: 0}
-    caption: ""
+    caption: 
   chronologyLabel: "Declara\xE7\xE3o do estado de guerra"
   chronologyOrder: 1
   inspectionPrefab: {fileID: 1751116703574677043, guid: d57e5283f32cd204fb394227a23a9f45, type: 3}

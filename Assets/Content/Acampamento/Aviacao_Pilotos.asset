@@ -13,27 +13,27 @@ MonoBehaviour:
   m_Name: Aviacao_Pilotos
   m_EditorClassIdentifier: Assembly-CSharp::FEB.Archive.HistoricalEvidence
   id: acampamento_aviacao_pilotos
-  title: "O avestruz dos pilotos brasileiros"
-  dateLabel: "Itália e Brasil · 1944–1945"
-  description: "Um grupo de aviadores espera à sombra de uma asa. Em outro retrato, o desenho de um avestruz identifica quem opera o avião."
-  keyFinding: "O 1º Grupo de Aviação de Caça da FAB operou os P-47 na Itália junto ao 350º Grupo de Caça norte-americano. O avestruz e o lema Senta a Púa distinguiam a unidade brasileira."
+  title: O avestruz dos pilotos brasileiros
+  dateLabel: "It\xE1lia e Brasil \xB7 1944\u20131945"
+  description: "Conhe\xE7a os aviadores brasileiros que voaram na It\xE1lia e o emblema do avestruz pintado em seus P-47."
+  keyFinding: "O 1\xBA Grupo de Avia\xE7\xE3o de Ca\xE7a da FAB voou com o P-47 na It\xE1lia. O avestruz e o lema \u201CSenta a P\xFAa!\u201D identificavam a unidade brasileira."
   image: {fileID: 2800000, guid: ad21f4a0efc656ec8a25fc89679e7bdd, type: 3}
-  imageCaption: "Pilotos brasileiros junto ao avião antes de uma missão na Itália. A data exata e o autor da tomada são desconhecidos. Galeria Sentando a Pua, reprodução via Wikimedia Commons."
-  citation: "Museu Virtual da FEB, Força Aérea Brasileira. National Air and Space Museum, Latin America in the Air War. Arquivo Nacional, Fundo Agência Nacional. Fotografias e identificadores nas legendas."
-  sourceUrl: "https://commons.wikimedia.org/wiki/File:Brazilian_fighter_pilots_before_taking_off_for_combat_Italy_WWII.jpg"
+  imageCaption: "Pilotos brasileiros antes da miss\xE3o"
+  citation: "Museu Virtual da FEB, For\xE7a A\xE9rea Brasileira. National Air and Space Museum, Latin America in the Air War. Arquivo Nacional, Fundo Ag\xEAncia Nacional. Fotografias e identificadores nas legendas."
+  sourceUrl: https://commons.wikimedia.org/wiki/File:Brazilian_fighter_pilots_before_taking_off_for_combat_Italy_WWII.jpg
   pages:
-  - title: "Antes de decolar"
-    text: "Repare nos coletes, nos óculos levantados e na asa que faz sombra sobre o grupo. A fotografia permite ver os pilotos antes de uma missão. Sem uma legenda nominal, as identidades individuais seguem em aberto.\n\nSob o comando de Nero Moura, o 1º Grupo de Aviação de Caça da FAB foi integrado ao 350º Grupo de Caça dos Estados Unidos na Itália. Seus pilotos voavam o Republic P-47 Thunderbolt."
+  - title: Antes de decolar
+    text: "A fotografia mostra pilotos brasileiros reunidos junto a um avi\xE3o antes de uma miss\xE3o. Observe os coletes, os \xF3culos e o equipamento de voo. N\xE3o h\xE1 identifica\xE7\xE3o de cada homem na imagem.\n\nComandado por Nero Moura, o 1\xBA Grupo de Avia\xE7\xE3o de Ca\xE7a da FAB operou o Republic P-47 Thunderbolt na It\xE1lia, integrado ao 350\xBA Grupo de Ca\xE7a norte-americano."
     image: {fileID: 2800000, guid: ad21f4a0efc656ec8a25fc89679e7bdd, type: 3}
-    caption: "Pilotos brasileiros junto ao avião antes de uma missão na Itália. A data exata e o autor da tomada são desconhecidos. Galeria Sentando a Pua, reprodução via Wikimedia Commons."
-  - title: "Um desenho na fuselagem"
-    text: "Ao lado do sargento Robson Saldanha aparece o emblema do grupo. Veja como a pintura acompanha a curvatura da chapa do motor. O avestruz e o lema “Senta a Púa!” permitiam reconhecer a unidade brasileira mesmo em um avião fabricado nos Estados Unidos."
+    caption: "Pilotos brasileiros antes da miss\xE3o"
+  - title: Um desenho na fuselagem
+    text: "O sargento Robson Saldanha aparece junto ao emblema pintado no P-47. O avestruz e o lema \u201CSenta a P\xFAa!\u201D identificavam o grupo brasileiro.\n\nEmbora o avi\xE3o fosse fabricado nos Estados Unidos, essa pintura mostrava a unidade que o utilizava. Observe o desenho na lateral do motor."
     image: {fileID: 2800000, guid: f4932646db2f577992a8327e3be1a22b, type: 3}
-    caption: "Sargento Robson Saldanha junto a um P-47D do 1º Grupo de Caça, Itália, 1945. National Archives and Records Administration, EUA, 342-C-K-4388."
-  - title: "A marca voltou com eles"
-    text: "O Fundo Agência Nacional preserva esta imagem da chegada de aviadores vindos da Itália ao Rio de Janeiro, em 1945. Procure o emblema no nariz do avião e compare-o com a imagem da página anterior. Aqui ele aparece num registro produzido no Brasil."
+    caption: Robson Saldanha junto ao P-47
+  - title: A marca voltou com eles
+    text: "Esta fotografia mostra a chegada de aviadores ao Rio de Janeiro, em 1945, depois da campanha na It\xE1lia.\n\nO emblema continuava no avi\xE3o. A marca usada nas miss\xF5es acompanhou os brasileiros no retorno para casa e se tornou parte da mem\xF3ria da avia\xE7\xE3o de ca\xE7a."
     image: {fileID: 2800000, guid: 7c5db02f3bc65a8ba18ad12f863da190, type: 3}
-    caption: "Chegada ao Rio de Janeiro dos aviadores vindos da Itália, 1945. Arquivo Nacional, Fundo Agência Nacional, BR RJANRIO EH 0 FOT AEO 00139 0016."
+    caption: Retorno dos aviadores ao Brasil
   chronologyLabel: 
   chronologyOrder: 0
   inspectionPrefab: {fileID: 1344062721961564308, guid: 5de92a260a125c4394da900eda5edc4e, type: 3}
