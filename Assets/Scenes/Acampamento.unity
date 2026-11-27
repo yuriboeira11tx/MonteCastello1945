@@ -39211,18 +39211,18 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.72
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 32
-  DopplerLevel: 0
+  DopplerLevel: 2
   MinDistance: 1.8
   MaxDistance: 20
   Pan2D: 0
-  rolloffMode: 1
+  rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -39270,7 +39270,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.08611111
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -46784,7 +46784,7 @@ MonoBehaviour:
   shotNormalizedTime: 0.085714
   shotMask:
     serializedVersion: 2
-    m_Bits: 4294967291
+    m_Bits: 307
   muzzleFlash: {fileID: 0}
   muzzleSmoke: {fileID: 0}
   impactEffect: {fileID: 0}
@@ -50141,7 +50141,7 @@ MonoBehaviour:
   ouvinte: {fileID: 1843427121}
   chegada: {fileID: 1332469427}
   musicaDaChegada: {fileID: 8300000, guid: 3694aa4e7c6c7a344ad39fbd1f5e4887, type: 3}
-  ajusteDaFaixaDb: -3
+  ajusteDaFaixaDb: -9
   distanciaSoRadio: 6
   distanciaTrilhaPlena: 64
 --- !u!82 &1053834092
@@ -73907,18 +73907,18 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.72
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 32
-  DopplerLevel: 0
+  DopplerLevel: 2
   MinDistance: 1.8
   MaxDistance: 20
   Pan2D: 0
-  rolloffMode: 1
+  rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -87722,7 +87722,7 @@ MonoBehaviour:
   shotNormalizedTime: 0.085714
   shotMask:
     serializedVersion: 2
-    m_Bits: 4294967291
+    m_Bits: 307
   muzzleFlash: {fileID: 0}
   muzzleSmoke: {fileID: 0}
   impactEffect: {fileID: 0}
@@ -98168,7 +98168,7 @@ MonoBehaviour:
   shotNormalizedTime: 0.085714
   shotMask:
     serializedVersion: 2
-    m_Bits: 4294967291
+    m_Bits: 307
   muzzleFlash: {fileID: 0}
   muzzleSmoke: {fileID: 0}
   impactEffect: {fileID: 0}
