@@ -100,6 +100,20 @@ namespace FEB.Archive
             if (HasReconstruction && !NeedsSourceLink && !dossier.reportCompleted &&
                 (!caseDefinition.fieldStudy || caseDefinition.HasFieldReport && HasFieldSources)) OpenReport();
             else if (dossier.reportCompleted && progress.finalReport != null) ShowCompletedReport();
+            else PresentFirstBriefing();
+        }
+
+        void PresentFirstBriefing()
+        {
+            if (caseDefinition != cases[0] || progress.hasPlayerPosition || dossier.briefingRead ||
+                HasReconstruction || dossier.evidence.Count > 0 || dossier.discoveredEvidence.Count > 0 ||
+                progress.events.Exists(item => item.action == "briefing_presented")) return;
+
+            OpenBriefing();
+            // Apresentar a missão não equivale a confirmar sua leitura.
+            int eventIndex = progress.events.Count;
+            progress.Record("briefing_presented", caseDefinition.Id);
+            if (!SaveProgress(false)) progress.events.RemoveAt(eventIndex);
         }
 
         void SelectChapter(ArchiveCaseDefinition chapter)
