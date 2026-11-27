@@ -2,7 +2,6 @@
 .save-content { width: 1200px; height: 810px; }
 .save-title { height: 80px; font-size: 60px; }
 .save-message { margin-top: 20px; height: 90px; font-size: 28px; }
-.credits-open .save-message { height: 350px; }
 .slots { margin-top: 35px; }
 .slot { height: 100px; margin-bottom: 20px; padding: 8px 24px; font-size: 30px; }
 .save-actions { position: absolute; bottom: 0; left: 0; right: 0; flex-direction: row; justify-content: space-between; }

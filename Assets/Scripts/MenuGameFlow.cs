@@ -12,6 +12,11 @@ public sealed class MenuGameFlow : MonoBehaviour
     [SerializeField] MenuController menu;
     [SerializeField] string firstScene = "ArquivoHistorico";
     [SerializeField] ArchiveCaseDefinition firstCase;
+    [Header("Créditos finais")]
+    [SerializeField] GameCreditsDefinition credits;
+    [SerializeField] GameCreditsView creditsView;
+    [SerializeField] AudioSource menuMusic;
+    bool resumeMenuMusic;
     VisualElement panel;
     VisualElement slots;
     Label panelTitle;
@@ -53,6 +58,11 @@ public sealed class MenuGameFlow : MonoBehaviour
 
     void Update()
     {
+        if (creditsView != null && creditsView.IsShowing)
+        {
+            if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame) CloseCredits();
+            return;
+        }
         if (panelOpen && !loading && Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame) Close();
     }
 
@@ -61,7 +71,6 @@ public sealed class MenuGameFlow : MonoBehaviour
         if (loading) return;
         pendingSlot = -1;
         panelTitle.text = "NOVA PESQUISA";
-        panel.RemoveFromClassList("credits-open");
         panelMessage.text = "Escolha um dos quatro espaços para salvar sua investigação.";
         ScreenUI.Show(confirmOverwriteButton, false);
         ScreenUI.Show(continueSlotButton, false);
@@ -78,14 +87,31 @@ public sealed class MenuGameFlow : MonoBehaviour
 
     public void OpenCredits()
     {
-        if (loading) return;
-        panelTitle.text = "CRÉDITOS";
-        panel.AddToClassList("credits-open");
-        panelMessage.text = "Monte Castello: 1945\n\nYuri Boeira\n\nv1.0";
-        ScreenUI.Show(slots, false);
-        ScreenUI.Show(confirmOverwriteButton, false);
-        ScreenUI.Show(continueSlotButton, false);
-        OpenPanel();
+        if (loading || creditsView == null || credits == null || creditsView.IsShowing) return;
+        panelOpen = false;
+        ScreenUI.Show(panel, false);
+        menu.SetMenuEnabled(false);
+        resumeMenuMusic = menuMusic != null && menuMusic.isPlaying;
+        if (resumeMenuMusic) menuMusic.Pause();
+        try { creditsView.Show(credits, CloseCredits); }
+        catch (Exception exception)
+        {
+            CloseCredits();
+            Debug.LogException(exception, this);
+        }
+    }
+
+    void CloseCredits()
+    {
+        if (creditsView != null) creditsView.Hide();
+        RestoreMenuMusic();
+        menu.SetMenuEnabled(true);
+    }
+
+    void RestoreMenuMusic()
+    {
+        if (resumeMenuMusic && menuMusic != null) menuMusic.UnPause();
+        resumeMenuMusic = false;
     }
 
     void OpenPanel()
@@ -164,6 +190,8 @@ public sealed class MenuGameFlow : MonoBehaviour
 
     void OnDisable()
     {
+        if (creditsView != null) creditsView.Hide();
+        RestoreMenuMusic();
         if (cancelButton == null) return;
         cancelButton.clicked -= Close;
         confirmOverwriteButton.clicked -= ConfirmOverwrite;
