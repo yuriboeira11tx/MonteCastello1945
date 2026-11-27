@@ -4,7 +4,7 @@
 
 # Monte Castello: 1945
 
-**Protótipo de jogo sério 3D desenvolvido como Trabalho de Conclusão de Curso em Sistemas de Informação na Universidade Federal de Santa Maria (UFSM), campus Frederico Westphalen.**
+**Protótipo de jogo sério 3D desenvolvido como Trabalho de Conclusão de Curso em Sistemas de Informação na Universidade Federal de Santa Maria (UFSM).**
 
 [Acesse a página do projeto e o guia de participação](https://yuriboeira11tx.github.io/MonteCastello1945/) para responder ao pré-teste, baixar o jogo nos Releases e enviar a avaliação da experiência com o relatório final.
 
