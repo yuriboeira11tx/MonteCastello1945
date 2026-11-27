@@ -30,6 +30,14 @@ public sealed class MenuGameFlow : MonoBehaviour
     bool loading;
     bool panelOpen;
 
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    static void ConfigureFrameRate()
+    {
+        // VSync would override targetFrameRate on desktop monitors.
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
+    }
+
     void OnEnable()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
