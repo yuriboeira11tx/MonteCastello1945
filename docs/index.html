@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#26382d">
+  <meta name="description" content="Conheça Monte Castello: 1945, um protótipo de jogo sério sobre a FEB desenvolvido como TCC na UFSM. Acesse o pré-teste, baixe o jogo e envie sua avaliação.">
+  <meta property="og:title" content="Monte Castello: 1945 — um jogo, uma pesquisa, muitas histórias">
+  <meta property="og:description" content="Explore o arquivo histórico, reúna evidências e participe da avaliação deste protótipo acadêmico sobre a FEB.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://media.githubusercontent.com/media/yuriboeira11tx/MonteCastello1945/main/docs/screenshots/acampamento.png">
+  <title>Monte Castello: 1945 | Projeto e participação</title>
+  <link rel="icon" href="https://media.githubusercontent.com/media/yuriboeira11tx/MonteCastello1945/main/Assets/UI/Menu/Icone_MC1945.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="Monte Castello: 1945, início">
+      <img src="https://media.githubusercontent.com/media/yuriboeira11tx/MonteCastello1945/main/Assets/UI/Menu/Icone_MC1945.png" alt="" width="54" height="54">
+      <span>MONTE CASTELLO <b>1945</b></span>
+    </a>
+    <nav aria-label="Navegação principal">
+      <a href="#projeto">O projeto</a>
+      <a href="#participar">Como participar</a>
+      <a href="#download">Baixar o jogo</a>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero section-wrap" id="inicio" aria-labelledby="titulo">
+      <div class="hero-copy">
+        <p class="eyebrow">Jogo sério · Pesquisa acadêmica · UFSM</p>
+        <h1 id="titulo" aria-label="Monte Castello: 1945">Monte Castello<span>1945</span></h1>
+        <p class="hero-lead">A história também se descobre<br>com um olhar de pesquisador.</p>
+        <p>Entre documentos, objetos e memórias, investigue a participação brasileira na Segunda Guerra Mundial em um protótipo sobre a Força Expedicionária Brasileira.</p>
+        <a class="button primary" href="#participar">Quero participar da pesquisa</a>
+        <p class="hero-meta">Protótipo de TCC <span aria-hidden="true">·</span> Windows 64 bits</p>
+      </div>
+      <figure class="hero-photo">
+        <img src="https://media.githubusercontent.com/media/yuriboeira11tx/MonteCastello1945/main/docs/screenshots/acampamento.png" alt="Barracas individuais, soldados e vegetação no acampamento do jogo." width="1280" height="720" fetchpriority="high">
+        <figcaption><span>Acampamento da FEB</span> Captura real do protótipo</figcaption>
+      </figure>
+    </section>
+
+    <section class="participation" id="participar" aria-labelledby="participation-title">
+      <div class="section-wrap">
+        <div class="section-heading light">
+          <div><p class="eyebrow">Guia do participante</p><h2 id="participation-title">Antes de dar o primeiro passo.</h2></div>
+          <p>Siga esta ordem para participar da avaliação. São apenas dois formulários: um antes de jogar e outro depois da experiência.</p>
+        </div>
+        <ol class="steps">
+          <li class="step" data-step="pre">
+            <span class="step-number" aria-hidden="true">01</span>
+            <p class="step-when">Antes de jogar</p>
+            <h3>Responda ao pré-teste</h3>
+            <p>Responda com o que você já sabe, sem pesquisar as respostas ou consultar o jogo. Não é preciso conhecer previamente a história da FEB.</p>
+            <a class="button paper" href="https://forms.gle/w3FUBr7Sk4s1tbGe6" target="_blank" rel="noopener noreferrer">Abrir pré-teste<span class="sr-only"> (abre em nova aba)</span></a>
+            <label class="step-check"><input type="checkbox" data-completion="pre"> <span>Já enviei o pré-teste</span></label>
+          </li>
+          <li class="step" data-step="game">
+            <span class="step-number" aria-hidden="true">02</span>
+            <p class="step-when">Durante a experiência</p>
+            <h3>Baixe e explore o jogo</h3>
+            <p>Comece um novo jogo. Leia os documentos, examine as evidências e acompanhe as atividades até o relatório final. Jogue no seu ritmo.</p>
+            <a class="button paper" href="#download">Ver como baixar e iniciar</a>
+            <label class="step-check"><input type="checkbox" data-completion="game"> <span>Concluí o protótipo</span></label>
+          </li>
+          <li class="step" data-step="report">
+            <span class="step-number" aria-hidden="true">03</span>
+            <p class="step-when">Depois de jogar</p>
+            <h3>Conte como foi</h3>
+            <p>Copie o código do relatório final e cole no formulário de experiência. Nele, registre também suas impressões e as dificuldades que encontrou.</p>
+            <a class="button paper" href="https://forms.gle/6wbBNw2DdrDu3xp57" target="_blank" rel="noopener noreferrer">Enviar experiência e relatório<span class="sr-only"> (abre em nova aba)</span></a>
+            <label class="step-check"><input type="checkbox" data-completion="report"> <span>Já enviei minha avaliação</span></label>
+          </li>
+        </ol>
+        <div class="progress-note">
+          <p id="participation-status" role="status">Marque as etapas conforme concluir.</p>
+          <button class="text-button" type="button" id="reset-progress" hidden>Limpar marcações</button>
+        </div>
+        <p class="privacy-note" id="storage-note">As marcações ficam apenas neste navegador. Elas não enviam respostas: é preciso clicar em Enviar dentro de cada Google Formulário.</p>
+      </div>
+    </section>
+
+    <section class="section-wrap download-section" id="download" aria-labelledby="download-title">
+      <div class="download-intro">
+        <p class="eyebrow">Uma cópia para jogar</p>
+        <h2 id="download-title">Do download <br>ao arquivo histórico.</h2>
+        <p>O jogo pronto fica na área de <strong>Releases</strong> do repositório. Você não precisa instalar o Unity nem baixar o projeto de desenvolvimento.</p>
+        <a class="button primary" id="release-link" href="https://github.com/yuriboeira11tx/MonteCastello1945/releases" target="_blank" rel="noopener noreferrer">Abrir downloads no GitHub<span class="sr-only"> (abre em nova aba)</span></a>
+        <p class="release-status" id="release-status" role="status">Consulte os arquivos e as instruções da versão na página de Releases.</p>
+        <p class="platform-note">Windows de 64 bits · Teclado e mouse<br>Fones de ouvido recomendados para a ambientação.</p>
+      </div>
+      <div class="download-instructions">
+        <ol class="instruction-list">
+          <li><h3>Escolha o pacote do jogo</h3><p>No Release, procure a seção <strong>Assets</strong> e baixe o arquivo da versão para Windows. <strong>Source code (zip)</strong> e <strong>Source code (tar.gz)</strong> são o código-fonte, não o jogo pronto.</p></li>
+          <li><h3>Extraia a pasta completa</h3><p>Descompacte o pacote com um extrator compatível com seu formato. Mantenha o executável, a pasta <code>MonteCastello1945_Data</code> e os demais arquivos juntos.</p></li>
+          <li><h3>Abra o executável e inicie</h3><p>Dentro da pasta extraída, execute <code>MonteCastello1945.exe</code>. No menu, escolha <strong>Novo jogo</strong> e siga as orientações da caderneta.</p></li>
+        </ol>
+        <details class="help-detail"><summary>Não apareceu nenhum arquivo para baixar?</summary><p>O pacote pode ainda não ter sido publicado. Aguarde a disponibilização nos Releases. Os arquivos de código-fonte não substituem o executável.</p></details>
+      </div>
+    </section>
+
+    <section class="report-section" id="relatorio" aria-labelledby="report-title">
+      <div class="section-wrap report-grid">
+        <div><p class="eyebrow">Ao concluir o percurso</p><h2 id="report-title">Leve seu relatório <br>para a pesquisa.</h2><p>A prancheta final reúne os resultados da sua partida. O código permite encaminhar esses dados junto da avaliação.</p></div>
+        <div class="report-paper">
+          <span class="paper-label">Relatório do participante</span>
+          <ol>
+            <li>Na prancheta final, preencha <strong>Nome do aluno</strong>.</li>
+            <li>Clique em <strong>Confirmar nome e emitir relatório</strong>.</li>
+            <li>Clique em <strong>Copiar JWT</strong>.</li>
+            <li>Abra o formulário de experiência e cole o <strong>texto completo</strong> no campo do relatório.</li>
+            <li>Responda às demais perguntas e envie o formulário.</li>
+          </ol>
+          <p>Use uma identificação consistente nos formulários e no jogo. O código curto exibido na prancheta não substitui o texto copiado pelo botão <strong>Copiar JWT</strong>.</p>
+          <a class="text-link" href="https://forms.gle/6wbBNw2DdrDu3xp57" target="_blank" rel="noopener noreferrer">Abrir formulário de experiência e relatório<span class="sr-only"> (abre em nova aba)</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-wrap project-section" id="projeto" aria-labelledby="project-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Sobre o trabalho</p><h2 id="project-title">Investigar. Relacionar.<br>Compreender.</h2></div>
+        <div><p><strong>Monte Castello: 1945</strong> é um protótipo de jogo sério 3D desenvolvido como Trabalho de Conclusão de Curso em Sistemas de Informação na Universidade Federal de Santa Maria, campus Frederico Westphalen.</p><p>O objetivo é explorar o potencial dos jogos como apoio ao ensino e à aprendizagem de História. O jogador assume o papel de pesquisador: examina fontes, reúne evidências e organiza dossiês sobre a participação brasileira na Segunda Guerra Mundial.</p></div>
+      </div>
+      <div class="project-gallery">
+        <figure><img src="https://media.githubusercontent.com/media/yuriboeira11tx/MonteCastello1945/main/docs/screenshots/acervo.png" alt="Escritório do arquivo histórico, com documentos, quadro de investigação e miniatura de navio." width="1280" height="720" loading="lazy"><figcaption><strong>O arquivo histórico</strong><span>O ponto de partida para encontrar fontes e organizar a pesquisa.</span></figcaption></figure>
+        <figure><img src="https://media.githubusercontent.com/media/yuriboeira11tx/MonteCastello1945/main/docs/screenshots/caderneta.png" alt="Caderneta tridimensional com índice, leituras, anotações e objetivo da pesquisa." width="1280" height="720" loading="lazy"><figcaption><strong>A caderneta de campo</strong><span>Orientações, anotações e atividades acompanham o pesquisador.</span></figcaption></figure>
+      </div>
+      <div class="scope-note"><p class="eyebrow">Estado do projeto</p><h3>Um começo, com caminho para expandir.</h3><p>Esta versão apresenta o recorte que foi possível desenvolver no tempo disponível para o TCC: o acervo, a reconstrução do Itapagé e a visita ao acampamento. A intenção futura é ampliar a experiência para acompanhar toda a trajetória da FEB. O protótipo atual ainda não representa a campanha completa.</p></div>
+    </section>
+
+    <section class="section-wrap practical-section" aria-label="Controles e dúvidas">
+      <div class="controls"><p class="eyebrow">Durante a exploração</p><h2>O essencial<br>para começar.</h2><dl><div><dt><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd></dt><dd>Caminhar</dd></div><div><dt>Mouse</dt><dd>Olhar ao redor</dd></div><div><dt><kbd>E</kbd></dt><dd>Interagir com objetos</dd></div><div><dt><kbd>Tab</kbd></dt><dd>Abrir a caderneta</dd></div></dl><p>Na inspeção, arraste para girar o objeto e use a roda do mouse para aproximar. As atividades apresentam suas próprias instruções.</p></div>
+      <div class="faq"><p class="eyebrow">Dúvidas frequentes</p><h2>Antes de continuar.</h2>
+        <details><summary>Preciso saber a história da FEB para jogar?</summary><p>Não. Responda ao pré-teste com o que já sabe. Durante o jogo, leia os documentos e explore os objetos para construir sua pesquisa.</p></details>
+        <details><summary>Posso jogar no celular ou no navegador?</summary><p>Esta página funciona no celular, mas o pacote do protótipo é para Windows de 64 bits. O jogo não é executado dentro desta página.</p></details>
+        <details><summary>Marcar uma etapa envia o formulário?</summary><p>Não. As caixas servem apenas para acompanhar seu percurso neste navegador. Abra o Google Formulário, preencha e use o botão Enviar nele.</p></details>
+        <details><summary>E se eu não conseguir terminar o jogo?</summary><p>Use o formulário de experiência para descrever até onde chegou e o problema encontrado. Se não recebeu um relatório final, informe isso em vez de inventar um código.</p></details>
+        <details><summary>Onde encontro os arquivos do projeto?</summary><p>O código e a documentação estão no <a href="https://github.com/yuriboeira11tx/MonteCastello1945" target="_blank" rel="noopener noreferrer">repositório do GitHub<span class="sr-only"> (abre em nova aba)</span></a>. Para apenas jogar, utilize o pacote dos Releases.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="section-wrap footer-grid"><div><p class="footer-title">Monte Castello: 1945</p><p>Protótipo acadêmico · UFSM<br>Sistemas de Informação · Frederico Westphalen</p></div><div><p><strong>Desenvolvimento e realização</strong><br>Yuri Juliano do Nascimento Boeira</p><p><strong>Orientação</strong><br>Sidnei Renato Silveira</p></div><div><a href="https://github.com/yuriboeira11tx/MonteCastello1945" target="_blank" rel="noopener noreferrer">Projeto no GitHub<span class="sr-only"> (abre em nova aba)</span></a><a href="#participar">Voltar ao guia do participante</a><p class="footer-note">As respostas são enviadas pelos Google Formulários. Esta página não recebe o código do seu relatório.</p></div></div></footer>
+</body>
+</html>

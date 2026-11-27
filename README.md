@@ -6,6 +6,8 @@
 
 **Protótipo de jogo sério 3D desenvolvido como Trabalho de Conclusão de Curso em Sistemas de Informação na Universidade Federal de Santa Maria (UFSM), campus Frederico Westphalen.**
 
+[Acesse a página do projeto e o guia de participação](https://yuriboeira11tx.github.io/MonteCastello1945/) para responder ao pré-teste, baixar o jogo nos Releases e enviar a avaliação da experiência com o relatório final.
+
 Em *Monte Castello: 1945*, o jogador assume o papel de um pesquisador histórico. Sua missão é consultar documentos, examinar objetos, reunir evidências e relacionar acontecimentos para compreender a participação brasileira na Segunda Guerra Mundial e a trajetória da Força Expedicionária Brasileira (FEB).
 
 O projeto combina exploração em primeira pessoa, investigação e atividades contextualizadas. A leitura das fontes faz parte da progressão: aquilo que o jogador observa e registra ajuda a responder às perguntas e a concluir os dossiês de cada etapa.
