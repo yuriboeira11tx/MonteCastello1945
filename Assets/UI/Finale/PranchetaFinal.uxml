@@ -11,7 +11,6 @@
                     <ui:VisualElement class="student-identification">
                         <ui:TextField name="studentName" label="Nome do aluno" max-length="120" class="student-name" />
                         <ui:Label name="studentNameHelp" class="report-note" />
-                        <ui:Button name="confirmStudentName" text="Confirmar nome e emitir relatório" class="confirm-name" />
                     </ui:VisualElement>
                     <ui:VisualElement class="report-metric">
                         <ui:VisualElement class="metric-line"><ui:Label text="Acertos na primeira tentativa" class="metric-heading" /><ui:Label name="firstScore" class="metric-value" /></ui:VisualElement>
@@ -27,7 +26,7 @@
                     <ui:VisualElement class="report-identification"><ui:Label text="Identificação do relatório" class="metric-heading" /><ui:Label name="reportCode" class="report-code" /><ui:Label name="integrity" class="report-note" /></ui:VisualElement>
                     <ui:Foldout name="questionDetails" text="Ver respostas da pesquisa" value="false" class="question-details"><ui:VisualElement name="questionResults" /></ui:Foldout>
                 </ui:ScrollView>
-                <ui:VisualElement class="report-actions"><ui:Button name="copyJwt" text="Copiar JWT" class="primary" /><ui:Button name="exportReport" text="Exportar JSON" /><ui:Button name="showCredits" text="Créditos finais" /></ui:VisualElement>
+                <ui:VisualElement class="report-actions"><ui:Button name="sendReport" text="Enviar resultado" class="primary" /><ui:Button name="copyJwt" text="Copiar identificação" /><ui:Button name="exportReport" text="Exportar JSON" /><ui:Button name="showCredits" text="Créditos finais" /></ui:VisualElement>
                 <ui:Label name="exportStatus" class="report-note export-status" />
                 <ui:Button name="closeReport" text="Voltar ao acervo" class="back-to-archive" />
             </ui:VisualElement>

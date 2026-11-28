@@ -20,6 +20,8 @@ MonoBehaviour:
     text: Sidnei Renato Silveira
   - heading: Dublagem
     text: "Brandon Lima \u2014 Motorista do acampamento\nF\xE1bio Mamede \u2014 Sargento do acampamento\nFernando Oliveira \u2014 Soldado do acampamento\nLeonardo Vidal \u2014 Soldado do acampamento"
+  - heading: 
+    text: Obrigado por participar do teste e contribuir com esta pesquisa.
   music: {fileID: 8300000, guid: 6cf58c2e436160f47a11affe154da06e, type: 3}
   volume: 0.28
   scrollSpeed: 38

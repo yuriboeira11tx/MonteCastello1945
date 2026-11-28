@@ -453,7 +453,7 @@ namespace FEB.Archive
                 progress.finalReportJwt = previousToken;
                 progress.finalReportEncryptedJwt = previousEncryptedToken;
                 progress.events.RemoveAt(progress.events.Count - 1);
-                throw new InvalidOperationException("Não foi possível salvar o relatório. Verifique o espaço disponível e confirme novamente.");
+                throw new InvalidOperationException("Não foi possível salvar o relatório. Verifique o espaço disponível e tente novamente.");
             }
         }
 

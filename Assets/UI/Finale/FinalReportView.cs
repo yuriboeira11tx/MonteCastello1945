@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using FEB.Archive;
 using FEB.Persistence;
 using UnityEngine;
@@ -20,8 +22,11 @@ namespace FEB.UI
         ResearchFinalReport report;
         string reportToken;
         string encryptedReportToken;
-        Action<string> confirmName;
-        bool confirmingName;
+        Action<string> issueReport;
+        bool issuingReport;
+        bool sending;
+        bool received;
+        CancellationTokenSource submissionCancellation;
         Action closed;
 
         void OnEnable() { Bind(); if (root != null) root.style.display = DisplayStyle.None; }
@@ -34,16 +39,16 @@ namespace FEB.UI
             documentRoot.StretchToParentSize();
             documentRoot.pickingMode = PickingMode.Ignore;
             root = screen;
+            root.Q<Button>("sendReport").clicked += SendAndShowCredits;
             root.Q<Button>("copyJwt").clicked += () =>
             {
-                if (string.IsNullOrEmpty(encryptedReportToken)) return;
-                GUIUtility.systemCopyBuffer = encryptedReportToken;
-                Status("Código copiado. Cole o conteúdo no formulário de avaliação.");
+                if (!received) return;
+                GUIUtility.systemCopyBuffer = report.code;
+                Status("Identificação copiada. O professor já pode consultar o resultado recebido.");
             };
             root.Q<Button>("exportReport").clicked += () => Export(true);
             root.Q<Button>("showCredits").clicked += ShowCredits;
             root.Q<Button>("closeReport").clicked += Close;
-            root.Q<Button>("confirmStudentName").clicked += ConfirmStudentName;
             root.RegisterCallback<GeometryChangedEvent>(evt =>
                 root.EnableInClassList("report-compact", evt.newRect.width < 1000 || evt.newRect.height < 700));
         }
@@ -58,7 +63,8 @@ namespace FEB.UI
             report = snapshot;
             reportToken = jwt;
             encryptedReportToken = string.IsNullOrEmpty(jwt) ? null : encryptedJwt;
-            confirmName = null;
+            issueReport = null;
+            received = ResearchReportSubmission.HasReceipt(snapshot, jwt);
             closed = onClosed;
             root.style.display = DisplayStyle.Flex;
             root.AddToClassList("report-issued");
@@ -81,7 +87,7 @@ namespace FEB.UI
                 "Pausas e créditos não entram no tempo de pesquisa.");
             Text("integrity", string.IsNullOrEmpty(reportToken)
                 ? "Este relatório antigo está disponível apenas para leitura."
-                : "Use Copiar JWT para enviar seu resultado no formulário de avaliação.");
+                : "Envie seu resultado ao professor e guarde esta identificação.");
             root.Q<Foldout>("questionDetails").value = false;
             var list = root.Q<VisualElement>("questionResults");
             list.Clear();
@@ -105,48 +111,88 @@ namespace FEB.UI
                 }
             }
             root.Q<Button>("showCredits").SetEnabled(credits != null && creditsView != null);
-            root.Q<Button>("copyJwt").SetEnabled(!string.IsNullOrEmpty(reportToken));
+            root.Q<Button>("copyJwt").SetEnabled(received);
             root.Q<Button>("exportReport").SetEnabled(!string.IsNullOrEmpty(reportToken));
+            root.Q<Button>("sendReport").SetEnabled(!string.IsNullOrEmpty(reportToken) && !received);
+            root.Q<Button>("sendReport").text = received ? "Resultado enviado" : "Enviar resultado";
             var name = root.Q<TextField>("studentName");
             name.SetValueWithoutNotify(report.studentName ?? string.Empty);
             name.isReadOnly = true;
-            root.Q<Button>("confirmStudentName").style.display = DisplayStyle.None;
             Text("studentNameHelp", string.IsNullOrEmpty(report.studentName)
                 ? "Este relatório antigo não contém o nome do aluno."
                 : "Nome registrado no relatório enviado ao professor.");
             root.Q<ScrollView>("reportScroll").scrollOffset = Vector2.zero;
             if (!string.IsNullOrEmpty(reportToken)) Export(false);
             else Status("A cópia do código está disponível nos relatórios de novas partidas.");
+            if (received) Status("Resultado recebido pelo professor.");
         }
 
-        public void ShowDraft(ResearchFinalReport snapshot, Action<string> onConfirm, Action onClosed)
+        public void ShowDraft(ResearchFinalReport snapshot, Action<string> onIssue, Action onClosed)
         {
             Show(snapshot, null, null, onClosed);
             root.RemoveFromClassList("report-issued");
-            confirmName = onConfirm ?? throw new ArgumentNullException(nameof(onConfirm));
+            issueReport = onIssue ?? throw new ArgumentNullException(nameof(onIssue));
             var name = root.Q<TextField>("studentName");
             name.isReadOnly = false;
-            root.Q<Button>("confirmStudentName").style.display = DisplayStyle.Flex;
-            root.Q<Button>("showCredits").SetEnabled(false);
-            Text("testNotice", snapshot.testSession ? "Demonstração com dados de teste" : "Confira seus dados antes de concluir");
-            Text("reportCode", "Aguardando confirmação");
-            Text("integrity", "A identificação será gerada após a confirmação do nome.");
+            root.Q<Button>("showCredits").SetEnabled(credits != null && creditsView != null);
+            root.Q<Button>("sendReport").SetEnabled(true);
+            root.Q<Button>("copyJwt").SetEnabled(false);
+            root.Q<Button>("exportReport").SetEnabled(true);
+            Text("testNotice", snapshot.testSession ? "Demonstração com dados de teste" : "Pesquisa concluída");
             Text("studentNameHelp", "Use o mesmo nome informado nos formulários.");
-            Status("Confirme seu nome para liberar a cópia do JWT.");
+            Status("Seu nome, respostas e tempos de pesquisa serão enviados ao professor.");
             name.Focus();
         }
 
-        void ConfirmStudentName()
+        bool EnsureReportIssued()
         {
-            if (confirmName == null || confirmingName) return;
-            confirmingName = true;
+            if (!string.IsNullOrEmpty(reportToken)) return true;
+            if (issueReport == null || issuingReport) return false;
+            issuingReport = true;
             try
             {
                 string name = ResearchReportStore.NormalizeStudentName(root.Q<TextField>("studentName").value);
-                confirmName(name);
+                issueReport(name);
+                return !string.IsNullOrEmpty(reportToken);
             }
-            catch (Exception error) { Status(error.Message); }
-            finally { confirmingName = false; }
+            catch (Exception error) { Status(error.Message); return false; }
+            finally { issuingReport = false; }
+        }
+
+        async Task<bool> SendReport()
+        {
+            if (sending || !EnsureReportIssued()) return false;
+            if (received) { Status("Resultado recebido pelo professor."); return true; }
+            sending = true;
+            submissionCancellation = new CancellationTokenSource();
+            SetSending(true);
+            Status("Enviando resultado...");
+            try
+            {
+                var receipt = await ResearchReportSubmission.SendAsync(report, reportToken, submissionCancellation.Token);
+                received = true;
+                Status(string.IsNullOrEmpty(receipt.message) ? "Resultado recebido pelo professor." : receipt.message);
+                return true;
+            }
+            catch (OperationCanceledException) { return false; }
+            catch (Exception error) { if (root != null) Status(error.Message); return false; }
+            finally
+            {
+                sending = false;
+                submissionCancellation?.Dispose();
+                submissionCancellation = null;
+                if (root != null) SetSending(false);
+            }
+        }
+
+        void SetSending(bool busy)
+        {
+            root.Q<Button>("sendReport").SetEnabled(!busy && !received);
+            root.Q<Button>("sendReport").text = busy ? "Enviando..." : received ? "Resultado enviado" : "Enviar resultado";
+            root.Q<Button>("copyJwt").SetEnabled(!busy && received);
+            root.Q<Button>("exportReport").SetEnabled(!busy);
+            root.Q<Button>("showCredits").SetEnabled(!busy && credits != null && creditsView != null);
+            root.Q<Button>("closeReport").SetEnabled(!busy);
         }
 
         static string Duration(double seconds)
@@ -160,6 +206,7 @@ namespace FEB.UI
 
         void Export(bool showPath)
         {
+            if (showPath && !EnsureReportIssued()) return;
             try
             {
                 string path = ResearchReportStore.Export(report, reportToken, encryptedReportToken);
@@ -168,9 +215,23 @@ namespace FEB.UI
             catch (Exception error) { Status("Não foi possível exportar. O resultado permanece no save. " + error.Message); }
         }
 
-        void ShowCredits()
+        async void SendAndShowCredits()
         {
-            if (creditsView == null || credits == null) return;
+            if (await SendReport()) OpenCredits();
+        }
+
+        async void ShowCredits()
+        {
+            if (sending || creditsView == null || credits == null) return;
+            if (issueReport != null && !EnsureReportIssued()) return;
+            if (!string.IsNullOrEmpty(reportToken) && !received) await SendReport();
+            OpenCredits();
+        }
+
+        void OpenCredits()
+        {
+            if (creditsView == null || credits == null || creditsView.IsShowing) return;
+            if (root == null || !isActiveAndEnabled) return;
             foreach (var source in backgroundMusic)
                 if (source != null && source.isPlaying) { source.Pause(); pausedMusic.Add(source); }
             root.style.display = DisplayStyle.None;
@@ -180,7 +241,8 @@ namespace FEB.UI
                 {
                     ResumeMusic();
                     root.style.display = DisplayStyle.Flex;
-                    Status("Pesquisa concluída. Seu relatório permanece disponível neste save.");
+                    Status(received ? "Resultado recebido pelo professor. Seu relatório permanece neste save."
+                        : "Seu relatório está salvo. Use Enviar resultado quando houver conexão.");
                 });
             }
             catch (Exception error)
@@ -198,7 +260,7 @@ namespace FEB.UI
 
         void Close()
         {
-            confirmName = null;
+            issueReport = null;
             root.style.display = DisplayStyle.None;
             var notify = closed; closed = null;
             notify?.Invoke();
@@ -206,12 +268,13 @@ namespace FEB.UI
 
         void OnDisable()
         {
+            submissionCancellation?.Cancel();
             creditsView?.Hide();
             ResumeMusic();
             if (root != null) root.style.display = DisplayStyle.None;
             root = null;
             closed = null;
-            confirmName = null;
+            issueReport = null;
         }
     }
 }

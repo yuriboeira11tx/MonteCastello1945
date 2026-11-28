@@ -1,0 +1,5 @@
+project_id = "MonteCastello1945"
+
+# O JWT do próprio jogo é verificado pela função com sua chave pública RS256.
+[functions.receber-relatorio]
+verify_jwt = false

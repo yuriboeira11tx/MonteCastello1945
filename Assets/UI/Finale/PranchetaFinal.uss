@@ -39,7 +39,8 @@
 .report-issued .student-name .unity-text-field__input { background-color: transparent; padding-left: 0; }
 .report-issued #studentNameHelp { display: none; }
 .report-note { white-space: normal; font-size: 16px; color: var(--report-muted); margin: 8px 0 0; }
-.confirm-name { align-self: flex-start; min-height: 36px; margin: 10px 0 0; padding: 6px 14px; }
+.report-root .report-identification { display: none; }
+.report-issued .report-identification { display: flex; }
 .report-metric { padding: 12px 0; border-bottom-width: 1px; border-bottom-color: var(--report-rule); }
 .metric-line { flex-direction: row; justify-content: space-between; align-items: center; }
 .metric-heading { font-size: 18px; white-space: normal; margin-right: 12px; }
