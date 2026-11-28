@@ -10,7 +10,7 @@ try {
   const saved = JSON.parse(localStorage.getItem(progressKey) || "{}");
   if (saved && typeof saved === "object" && !Array.isArray(saved)) stored = saved;
 } catch {
-  document.querySelector("#storage-note").textContent = "As marcações valem apenas para esta visita. Elas não enviam dados. Envie o resultado pelo jogo e as respostas pelo botão Enviar de cada formulário.";
+  document.querySelector("#storage-note").textContent = "As marcações valem apenas para esta visita. Elas não enviam dados. Para enviar suas respostas, use o botão Enviar de cada formulário.";
 }
 
 function updateProgress(save = false) {
