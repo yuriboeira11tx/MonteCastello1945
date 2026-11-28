@@ -27,9 +27,9 @@ O trabalho acadêmico que fundamenta o desenvolvimento tem o título:
 | Informação | Responsável |
 | --- | --- |
 | Autor, direção e desenvolvimento | Yuri Juliano do Nascimento Boeira |
-| Professor orientador | Sidnei Renato Silveira |
+| Professor orientador | Dr. Sidnei Renato Silveira |
 | Curso | Bacharelado em Sistemas de Informação |
-| Instituição | Universidade Federal de Santa Maria — campus Frederico Westphalen |
+| Instituição | Universidade Federal de Santa Maria |
 
 ## Objetivo educativo
 
