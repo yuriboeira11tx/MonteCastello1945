@@ -77,7 +77,7 @@ namespace FEB.Persistence
                 if (request.result != UnityWebRequest.Result.Success)
                 {
                     if (request.responseCode == 400 || request.responseCode == 401 || request.responseCode == 409 || request.responseCode == 413)
-                        throw new InvalidOperationException("O servidor não aceitou este relatório. Exporte o JSON e envie ao professor.");
+                        throw new InvalidOperationException("O servidor não aceitou este relatório. Informe ao responsável pela pesquisa a identificação exibida nesta tela.");
                     throw new InvalidOperationException("Não foi possível enviar agora. O relatório continua salvo. Tente novamente quando houver conexão.");
                 }
                 Receipt receipt;

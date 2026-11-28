@@ -26,8 +26,8 @@
                     <ui:VisualElement class="report-identification"><ui:Label text="Identificação do relatório" class="metric-heading" /><ui:Label name="reportCode" class="report-code" /><ui:Label name="integrity" class="report-note" /></ui:VisualElement>
                     <ui:Foldout name="questionDetails" text="Ver respostas da pesquisa" value="false" class="question-details"><ui:VisualElement name="questionResults" /></ui:Foldout>
                 </ui:ScrollView>
-                <ui:VisualElement class="report-actions"><ui:Button name="sendReport" text="Enviar resultado" class="primary" /><ui:Button name="copyJwt" text="Copiar identificação" /><ui:Button name="exportReport" text="Exportar JSON" /><ui:Button name="showCredits" text="Créditos finais" /></ui:VisualElement>
-                <ui:Label name="exportStatus" class="report-note export-status" />
+                <ui:VisualElement class="report-actions"><ui:Button name="sendReport" text="Enviar resultado" class="primary" /><ui:Button name="copyReportId" text="Copiar identificação" /><ui:Button name="showCredits" text="Créditos finais" /></ui:VisualElement>
+                <ui:Label name="submissionStatus" class="report-note submission-status" />
                 <ui:Button name="closeReport" text="Voltar ao acervo" class="back-to-archive" />
             </ui:VisualElement>
         </ui:VisualElement>

@@ -36,7 +36,6 @@ namespace FEB.Persistence
         public List<DossierProgress> dossiers = new List<DossierProgress>();
         public ResearchFinalReport finalReport;
         public string finalReportJwt;
-        public string finalReportEncryptedJwt;
 
         public DossierProgress ActiveDossier => dossiers?.Find(d => d.caseId == activeCaseId);
         public string StageLabel => ActiveDossier?.StageLabel ?? (reportCompleted ? "Dossiê concluído" : reconstructionViewed ? "Relatório pendente" : chronologySolved ? "Reconstrução disponível" : "Investigação no arquivo");

@@ -241,36 +241,5 @@ namespace FEB.Persistence
             return checksum == Alphabet.IndexOf(body[12]) * 32 + Alphabet.IndexOf(body[13]);
         }
 
-        public static string Export(ResearchFinalReport report, string jwt, string encryptedJwt)
-        {
-            if (report == null) throw new ArgumentNullException(nameof(report));
-            if (string.IsNullOrWhiteSpace(report.reportId) || !ValidateCode(report.code) ||
-                !string.Equals(report.code, CreateCode(report.reportId), StringComparison.Ordinal))
-                throw new InvalidDataException("Identificação do relatório inválida.");
-            ResearchReportJwt.VerifyMatches(jwt, report);
-            ResearchReportJwe.ValidateEnvelope(encryptedJwt);
-            var envelope = new ResearchReportEnvelope { jwt = encryptedJwt };
-            string json = JsonUtility.ToJson(envelope, true);
-            Directory.CreateDirectory(DirectoryPath);
-            string path = Path.Combine(DirectoryPath, report.code + "-cifrado.json");
-            if (File.Exists(path))
-            {
-                var previous = JsonUtility.FromJson<ResearchReportEnvelope>(File.ReadAllText(path, Utf8));
-                if (previous != null && previous.jwt == encryptedJwt)
-                    return path;
-                throw new InvalidDataException("Já existe outro conteúdo com esta identificação. Preserve o original para conferência.");
-            }
-            string temporary = path + ".tmp";
-            try
-            {
-                File.WriteAllText(temporary, json, Utf8);
-                File.Move(temporary, path);
-            }
-            finally
-            {
-                if (File.Exists(temporary)) File.Delete(temporary);
-            }
-            return path;
-        }
     }
 }

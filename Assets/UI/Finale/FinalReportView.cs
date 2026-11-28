@@ -21,7 +21,6 @@ namespace FEB.UI
         VisualElement root;
         ResearchFinalReport report;
         string reportToken;
-        string encryptedReportToken;
         Action<string> issueReport;
         bool issuingReport;
         bool sending;
@@ -40,31 +39,28 @@ namespace FEB.UI
             documentRoot.pickingMode = PickingMode.Ignore;
             root = screen;
             root.Q<Button>("sendReport").clicked += SendAndShowCredits;
-            root.Q<Button>("copyJwt").clicked += () =>
+            root.Q<Button>("copyReportId").clicked += () =>
             {
                 if (!received) return;
                 GUIUtility.systemCopyBuffer = report.code;
                 Status("Identificação copiada. O professor já pode consultar o resultado recebido.");
             };
-            root.Q<Button>("exportReport").clicked += () => Export(true);
             root.Q<Button>("showCredits").clicked += ShowCredits;
             root.Q<Button>("closeReport").clicked += Close;
             root.RegisterCallback<GeometryChangedEvent>(evt =>
                 root.EnableInClassList("report-compact", evt.newRect.width < 1000 || evt.newRect.height < 700));
         }
 
-        public void Show(ResearchFinalReport snapshot, string jwt, string encryptedJwt, Action onClosed)
+        public void Show(ResearchFinalReport snapshot, string signedReport, Action onClosed)
         {
             if (snapshot == null) throw new ArgumentNullException(nameof(snapshot));
-            if (!string.IsNullOrEmpty(jwt)) ResearchReportJwt.VerifyMatches(jwt, snapshot);
-            if (!string.IsNullOrEmpty(jwt)) ResearchReportJwe.ValidateEnvelope(encryptedJwt);
+            if (!string.IsNullOrEmpty(signedReport)) ResearchReportJwt.VerifyMatches(signedReport, snapshot);
             Bind();
             if (root == null) throw new InvalidOperationException("Associe PranchetaFinal.uxml ao UIDocument do relatório.");
             report = snapshot;
-            reportToken = jwt;
-            encryptedReportToken = string.IsNullOrEmpty(jwt) ? null : encryptedJwt;
+            reportToken = signedReport;
             issueReport = null;
-            received = ResearchReportSubmission.HasReceipt(snapshot, jwt);
+            received = ResearchReportSubmission.HasReceipt(snapshot, signedReport);
             closed = onClosed;
             root.style.display = DisplayStyle.Flex;
             root.AddToClassList("report-issued");
@@ -111,8 +107,7 @@ namespace FEB.UI
                 }
             }
             root.Q<Button>("showCredits").SetEnabled(credits != null && creditsView != null);
-            root.Q<Button>("copyJwt").SetEnabled(received);
-            root.Q<Button>("exportReport").SetEnabled(!string.IsNullOrEmpty(reportToken));
+            root.Q<Button>("copyReportId").SetEnabled(received);
             root.Q<Button>("sendReport").SetEnabled(!string.IsNullOrEmpty(reportToken) && !received);
             root.Q<Button>("sendReport").text = received ? "Resultado enviado" : "Enviar resultado";
             var name = root.Q<TextField>("studentName");
@@ -122,22 +117,21 @@ namespace FEB.UI
                 ? "Este relatório antigo não contém o nome do aluno."
                 : "Nome registrado no relatório enviado ao professor.");
             root.Q<ScrollView>("reportScroll").scrollOffset = Vector2.zero;
-            if (!string.IsNullOrEmpty(reportToken)) Export(false);
-            else Status("A cópia do código está disponível nos relatórios de novas partidas.");
-            if (received) Status("Resultado recebido pelo professor.");
+            Status(received ? "Resultado recebido pelo professor." : string.IsNullOrEmpty(reportToken)
+                ? "O envio está disponível nos relatórios de novas partidas."
+                : "Resultado salvo. Use Enviar resultado para concluir.");
         }
 
         public void ShowDraft(ResearchFinalReport snapshot, Action<string> onIssue, Action onClosed)
         {
-            Show(snapshot, null, null, onClosed);
+            Show(snapshot, null, onClosed);
             root.RemoveFromClassList("report-issued");
             issueReport = onIssue ?? throw new ArgumentNullException(nameof(onIssue));
             var name = root.Q<TextField>("studentName");
             name.isReadOnly = false;
             root.Q<Button>("showCredits").SetEnabled(credits != null && creditsView != null);
             root.Q<Button>("sendReport").SetEnabled(true);
-            root.Q<Button>("copyJwt").SetEnabled(false);
-            root.Q<Button>("exportReport").SetEnabled(true);
+            root.Q<Button>("copyReportId").SetEnabled(false);
             Text("testNotice", snapshot.testSession ? "Demonstração com dados de teste" : "Pesquisa concluída");
             Text("studentNameHelp", "Use o mesmo nome informado nos formulários.");
             Status("Seu nome, respostas e tempos de pesquisa serão enviados ao professor.");
@@ -189,8 +183,7 @@ namespace FEB.UI
         {
             root.Q<Button>("sendReport").SetEnabled(!busy && !received);
             root.Q<Button>("sendReport").text = busy ? "Enviando..." : received ? "Resultado enviado" : "Enviar resultado";
-            root.Q<Button>("copyJwt").SetEnabled(!busy && received);
-            root.Q<Button>("exportReport").SetEnabled(!busy);
+            root.Q<Button>("copyReportId").SetEnabled(!busy && received);
             root.Q<Button>("showCredits").SetEnabled(!busy && credits != null && creditsView != null);
             root.Q<Button>("closeReport").SetEnabled(!busy);
         }
@@ -202,18 +195,7 @@ namespace FEB.UI
         }
 
         void Text(string name, string value) => root.Q<Label>(name).text = value;
-        void Status(string value) => Text("exportStatus", value);
-
-        void Export(bool showPath)
-        {
-            if (showPath && !EnsureReportIssued()) return;
-            try
-            {
-                string path = ResearchReportStore.Export(report, reportToken, encryptedReportToken);
-                Status(showPath ? "Arquivo salvo em: " + path : "Relatório salvo.");
-            }
-            catch (Exception error) { Status("Não foi possível exportar. O resultado permanece no save. " + error.Message); }
-        }
+        void Status(string value) => Text("submissionStatus", value);
 
         async void SendAndShowCredits()
         {

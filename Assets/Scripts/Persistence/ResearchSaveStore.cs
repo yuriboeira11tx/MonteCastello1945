@@ -36,7 +36,6 @@ namespace FEB.Persistence
                 // JsonUtility recria referências serializadas inline como objetos vazios, mesmo quando eram null.
                 // Só normaliza o relatório padrão sem assinatura; preserva relatórios preenchidos ou assinados.
                 if (data.finalReport != null && string.IsNullOrEmpty(data.finalReportJwt) &&
-                    string.IsNullOrEmpty(data.finalReportEncryptedJwt) &&
                     JsonUtility.ToJson(data.finalReport) == JsonUtility.ToJson(new ResearchFinalReport()))
                     data.finalReport = null;
                 data.evidence ??= new System.Collections.Generic.List<string>();

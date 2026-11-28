@@ -65,11 +65,11 @@ namespace FEB.Persistence
         public static ResearchFinalReport Verify(string token)
         {
             if (string.IsNullOrEmpty(token) || token.Length > MaximumLength)
-                throw new InvalidDataException("JWT ausente ou maior que o limite aceito.");
+                throw new InvalidDataException("Assinatura do relatório ausente ou maior que o limite aceito.");
             var parts = token.Split('.');
             // Perfil fechado: não escolhemos algoritmo nem buscamos chaves a partir do token.
             if (parts.Length != 3 || parts[0] != Encode(Utf8.GetBytes(Header)))
-                throw new InvalidDataException("Cabeçalho JWT não reconhecido. Este jogo utiliza RS256.");
+                throw new InvalidDataException("Formato da assinatura do relatório não reconhecido.");
             using (var rsa = RSA.Create())
             {
                 rsa.ImportParameters(new RSAParameters { Modulus = Decode(Modulus), Exponent = Decode(Exponent) });
@@ -80,7 +80,7 @@ namespace FEB.Persistence
             if (claims == null || claims.v != 1 || claims.iss != Issuer || claims.aud != Audience ||
                 claims.report == null || claims.jti != claims.report.reportId || claims.iat != CompletedSeconds(claims.report) ||
                 !ResearchReportStore.ValidateCode(claims.report.code))
-                throw new InvalidDataException("O JWT não contém um relatório válido deste jogo.");
+                throw new InvalidDataException("Os dados não correspondem a um relatório válido deste jogo.");
             return claims.report;
         }
 
@@ -88,7 +88,7 @@ namespace FEB.Persistence
         {
             var signed = Verify(token);
             if (report == null || JsonUtility.ToJson(signed, false) != JsonUtility.ToJson(report, false))
-                throw new InvalidDataException("As estatísticas salvas não correspondem ao JWT emitido na conclusão.");
+                throw new InvalidDataException("As estatísticas salvas não correspondem ao relatório emitido na conclusão.");
         }
 
         static long CompletedSeconds(ResearchFinalReport report)
@@ -103,13 +103,13 @@ namespace FEB.Persistence
 
         static byte[] Decode(string value)
         {
-            if (string.IsNullOrEmpty(value)) throw new InvalidDataException("Parte do JWT ausente.");
+            if (string.IsNullOrEmpty(value)) throw new InvalidDataException("Assinatura do relatório incompleta.");
             foreach (char c in value)
                 if (!(c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z' || c >= '0' && c <= '9' || c == '-' || c == '_'))
-                    throw new InvalidDataException("Codificação JWT inválida.");
+                    throw new InvalidDataException("Codificação da assinatura inválida.");
             string base64 = value.Replace('-', '+').Replace('_', '/');
             var bytes = Convert.FromBase64String(base64.PadRight((base64.Length + 3) / 4 * 4, '='));
-            if (Encode(bytes) != value) throw new InvalidDataException("Codificação JWT não canônica.");
+            if (Encode(bytes) != value) throw new InvalidDataException("Codificação da assinatura não reconhecida.");
             return bytes;
         }
     }
